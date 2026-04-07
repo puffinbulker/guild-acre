@@ -27,11 +27,11 @@ export function Header() {
           ))}
           <a
             href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999"}`}
-            className="button button--ghost"
+            className="button button--ghost nav-cta"
             target="_blank"
             rel="noreferrer"
           >
-            WhatsApp
+            WhatsApp Advisor
           </a>
         </nav>
       </div>

@@ -3,6 +3,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
+          <span className="section-tag">Guild Acre</span>
           <h3>Guild Acre</h3>
           <p>
             Premium property listings across Golf Course Road, New Gurgaon, Dwarka Expressway,
@@ -20,6 +21,7 @@ export function Footer() {
         <div>
           <h4>Contact</h4>
           <p>Call or WhatsApp for curated site visits and tailored recommendations.</p>
+          <p className="footer-note">Built for a sharper first impression on mobile and desktop.</p>
         </div>
       </div>
     </footer>

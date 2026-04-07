@@ -31,22 +31,32 @@ export default async function ListingsPage({ searchParams }: Props) {
 
   return (
     <main className="container page-shell">
-      <div className="page-intro">
+      <div className="page-intro page-intro--listing">
         <span className="section-tag">Search & Filter</span>
         <h1>Property listings in Gurgaon</h1>
-        <p>Filter by price, location, and property type to narrow down your next visit.</p>
+        <p>
+          Explore a cleaner, more premium shortlist across Gurgaon&apos;s strongest residential and
+          investment corridors.
+        </p>
+        <div className="page-intro__metrics">
+          <span>{properties.length} active opportunities</span>
+          <span>{locations.length} tracked locations</span>
+          <span>Advisor-led shortlist support</span>
+        </div>
       </div>
 
-      <SearchFilters
-        locations={locations}
-        current={{
-          search: normalized.search,
-          location: normalized.location,
-          type: normalized.type,
-          minBudget: normalized.minBudget?.toString(),
-          maxBudget: normalized.maxBudget?.toString()
-        }}
-      />
+      <div className="listing-filter-panel">
+        <SearchFilters
+          locations={locations}
+          current={{
+            search: normalized.search,
+            location: normalized.location,
+            type: normalized.type,
+            minBudget: normalized.minBudget?.toString(),
+            maxBudget: normalized.maxBudget?.toString()
+          }}
+        />
+      </div>
 
       <div className="listing-summary">{properties.length} properties found</div>
 

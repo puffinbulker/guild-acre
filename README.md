@@ -176,6 +176,38 @@ Run those commands from your local machine with the same production `DATABASE_UR
 - Verify lead submission
 - Add real image hosting like Cloudinary or Vercel Blob before scaling
 
+## Connect a custom domain on Vercel
+
+Use this flow once you buy your domain:
+
+1. Open your Vercel project.
+2. Go to `Settings` -> `Domains`.
+3. Add your domain, for example `guildacre.com`.
+4. Also add the `www` version if you want it, for example `www.guildacre.com`.
+5. In your domain registrar account, create the DNS records Vercel shows you.
+   Usually this is either:
+   - an `A` record for the apex domain
+   - a `CNAME` record for `www`
+6. Wait for Vercel to verify the DNS.
+7. Update `NEXT_PUBLIC_SITE_URL` in Vercel to your final primary domain, for example:
+
+```env
+NEXT_PUBLIC_SITE_URL="https://guildacre.com"
+```
+
+8. Redeploy after saving the env change.
+9. Recheck these URLs:
+   - `/`
+   - `/listings`
+   - `/admin/login`
+   - `/sitemap.xml`
+   - `/robots.txt`
+
+Recommended setup:
+- make `guildacre.com` the primary domain
+- redirect `www.guildacre.com` to the primary domain
+- keep the Vercel domain only as a fallback
+
 ## Test deployment checklist
 
 Use this order for the first test launch:

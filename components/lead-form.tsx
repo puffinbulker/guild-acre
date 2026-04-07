@@ -44,12 +44,17 @@ export function LeadForm({ propertyId, compact = false }: Props) {
   return (
     <form className={compact ? "lead-form lead-form--compact" : "lead-form"} onSubmit={onSubmit}>
       <h3>{compact ? "Request a callback" : "Talk to a Gurgaon property specialist"}</h3>
+      <p className="lead-form__intro">
+        Share your budget, preferred locality, or investment goal and get a curated response from
+        the advisory desk.
+      </p>
       <input type="text" name="name" placeholder="Full name" required />
       <input type="tel" name="phone" placeholder="Phone number" required />
       <textarea name="requirement" placeholder="Budget, location, size, or investment goal" required />
       <button type="submit" className="button" disabled={loading}>
         {loading ? "Sending..." : "Submit lead"}
       </button>
+      <small className="lead-form__note">Private enquiry. No spam. Just shortlisted options.</small>
       {status ? <p className="form-status">{status}</p> : null}
     </form>
   );

@@ -2,7 +2,7 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, parseJsonArray } from "@/lib/utils";
 import {
   PROPERTY_STATUSES,
   PROPERTY_TYPES,
@@ -14,6 +14,11 @@ import type { LeadRecord, PropertyRecord } from "@/types";
 type Props = {
   properties: PropertyRecord[];
   leads: LeadRecord[];
+};
+
+type FeedbackState = {
+  kind: "success" | "error";
+  message: string;
 };
 
 type FormShape = {
@@ -53,16 +58,77 @@ const emptyForm: FormShape = {
 
 export function AdminDashboard({ properties, leads }: Props) {
   const [form, setForm] = useState<FormShape>(emptyForm);
-  const [status, setStatus] = useState("");
+  const [feedback, setFeedback] = useState<FeedbackState | null>(null);
   const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState("");
+  const [typeFilter, setTypeFilter] = useState<"ALL" | PropertyTypeValue>("ALL");
+  const [featuredFilter, setFeaturedFilter] = useState<"ALL" | "FEATURED">("ALL");
   const router = useRouter();
 
-  const leadSummary = useMemo(() => leads.slice(0, 8), [leads]);
+  const propertyMap = useMemo(
+    () => new Map(properties.map((property) => [property.id, property])),
+    [properties]
+  );
+
+  const leadSummary = useMemo(
+    () =>
+      [...leads]
+        .sort(
+          (left, right) =>
+            new Date(right.createdAt).getTime() - new Date(left.createdAt).getTime()
+        )
+        .slice(0, 6),
+    [leads]
+  );
+
+  const filteredProperties = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return properties.filter((property) => {
+      const matchesQuery =
+        !normalizedQuery ||
+        [
+          property.title,
+          property.location,
+          property.sector,
+          property.city,
+          property.status,
+          property.type
+        ]
+          .join(" ")
+          .toLowerCase()
+          .includes(normalizedQuery);
+
+      const matchesType = typeFilter === "ALL" || property.type === typeFilter;
+      const matchesFeatured = featuredFilter === "ALL" || property.featured;
+
+      return matchesQuery && matchesType && matchesFeatured;
+    });
+  }, [featuredFilter, properties, query, typeFilter]);
+
+  const stats = useMemo(() => {
+    const featured = properties.filter((property) => property.featured).length;
+    const readyToMove = properties.filter((property) => property.status === "READY_TO_MOVE").length;
+    const averageTicket = properties.length
+      ? Math.round(
+          properties.reduce((total, property) => total + property.priceInr, 0) / properties.length
+        )
+      : 0;
+
+    return {
+      totalListings: properties.length,
+      featured,
+      readyToMove,
+      totalLeads: leads.length,
+      averageTicket,
+      latestLead: leadSummary[0]
+    };
+  }, [leadSummary, leads.length, properties]);
 
   async function submitProperty(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
-    setStatus("");
+    setFeedback(null);
 
     const payload = {
       title: form.title,
@@ -89,6 +155,7 @@ export function AdminDashboard({ properties, leads }: Props) {
 
     const endpoint = form.id ? `/api/properties/${form.id}` : "/api/properties";
     const method = form.id ? "PATCH" : "POST";
+    const isEditing = Boolean(form.id);
 
     const response = await fetch(endpoint, {
       method,
@@ -100,12 +167,18 @@ export function AdminDashboard({ properties, leads }: Props) {
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({}));
-      setStatus(error.error || "Unable to save property.");
+      setFeedback({
+        kind: "error",
+        message: error.error || "Unable to save property."
+      });
       return;
     }
 
     setForm(emptyForm);
-    setStatus("Property saved successfully.");
+    setFeedback({
+      kind: "success",
+      message: isEditing ? "Property updated successfully." : "Property created successfully."
+    });
     router.refresh();
   }
 
@@ -124,8 +197,12 @@ export function AdminDashboard({ properties, leads }: Props) {
       bathrooms: property.bathrooms ? String(property.bathrooms) : "",
       areaSqft: String(property.areaSqft),
       featured: property.featured,
-      imageUrls: JSON.parse(property.imageUrls).join("\n"),
-      amenities: JSON.parse(property.amenities).join(", ")
+      imageUrls: parseJsonArray(property.imageUrls).join("\n"),
+      amenities: parseJsonArray(property.amenities).join(", ")
+    });
+    setFeedback({
+      kind: "success",
+      message: `Editing ${property.title}`
     });
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -137,11 +214,21 @@ export function AdminDashboard({ properties, leads }: Props) {
     }
 
     const response = await fetch(`/api/properties/${id}`, { method: "DELETE" });
-    if (response.ok) {
-      router.refresh();
-      if (form.id === id) {
-        setForm(emptyForm);
-      }
+    if (!response.ok) {
+      setFeedback({
+        kind: "error",
+        message: "Unable to delete this property right now."
+      });
+      return;
+    }
+
+    router.refresh();
+    setFeedback({
+      kind: "success",
+      message: "Property deleted successfully."
+    });
+    if (form.id === id) {
+      setForm(emptyForm);
     }
   }
 
@@ -163,9 +250,45 @@ export function AdminDashboard({ properties, leads }: Props) {
         </button>
       </div>
 
+      <section className="admin-stat-grid">
+        <article className="admin-stat-card">
+          <span>Live listings</span>
+          <strong>{stats.totalListings}</strong>
+          <p>{filteredProperties.length} matching your current filters</p>
+        </article>
+        <article className="admin-stat-card">
+          <span>Featured inventory</span>
+          <strong>{stats.featured}</strong>
+          <p>{stats.readyToMove} ready-to-move opportunities</p>
+        </article>
+        <article className="admin-stat-card">
+          <span>Average ticket size</span>
+          <strong>{formatPrice(stats.averageTicket)}</strong>
+          <p>Across all Gurgaon listings</p>
+        </article>
+        <article className="admin-stat-card">
+          <span>Lead inbox</span>
+          <strong>{stats.totalLeads}</strong>
+          <p>
+            {stats.latestLead
+              ? `Latest enquiry from ${stats.latestLead.name}`
+              : "No enquiries captured yet"}
+          </p>
+        </article>
+      </section>
+
       <div className="admin-grid">
         <section className="card">
-          <h2>{form.id ? "Edit property" : "Add property"}</h2>
+          <div className="admin-panel-head">
+            <div>
+              <h2>{form.id ? "Edit property" : "Add property"}</h2>
+              <p>Keep listings fresh with clear pricing, images, and location details.</p>
+            </div>
+            {form.id ? (
+              <span className="admin-badge admin-badge--featured">Editing mode</span>
+            ) : null}
+          </div>
+
           <form className="admin-form" onSubmit={submitProperty}>
             <input
               value={form.title}
@@ -225,8 +348,8 @@ export function AdminDashboard({ properties, leads }: Props) {
               <select
                 value={form.status}
                 onChange={(event) =>
-                    setForm({ ...form, status: event.target.value as PropertyStatusValue })
-                  }
+                  setForm({ ...form, status: event.target.value as PropertyStatusValue })
+                }
               >
                 {PROPERTY_STATUSES.map((statusValue) => (
                   <option key={statusValue} value={statusValue}>
@@ -260,12 +383,12 @@ export function AdminDashboard({ properties, leads }: Props) {
               onChange={(event) => setForm({ ...form, amenities: event.target.value })}
               placeholder="Amenities separated by commas"
             />
-            <label>
+            <label className="admin-checkbox">
               <input
                 type="checkbox"
                 checked={form.featured}
                 onChange={(event) => setForm({ ...form, featured: event.target.checked })}
-              />{" "}
+              />
               Mark as featured
             </label>
             <div className="admin-actions">
@@ -276,27 +399,89 @@ export function AdminDashboard({ properties, leads }: Props) {
                 <button
                   type="button"
                   className="button button--ghost"
-                  onClick={() => setForm(emptyForm)}
+                  onClick={() => {
+                    setForm(emptyForm);
+                    setFeedback(null);
+                  }}
                 >
-                  Reset
+                  Cancel edit
                 </button>
               ) : null}
             </div>
-            {status ? <p className="form-status">{status}</p> : null}
+            {feedback ? (
+              <p
+                className={
+                  feedback.kind === "error" ? "form-status form-status--error" : "form-status"
+                }
+              >
+                {feedback.message}
+              </p>
+            ) : null}
           </form>
         </section>
 
         <section className="card">
-          <h2>Current properties</h2>
+          <div className="admin-panel-head">
+            <div>
+              <h2>Listing control</h2>
+              <p>Search, audit, and jump into edits faster.</p>
+            </div>
+            <span className="admin-badge">{filteredProperties.length} visible</span>
+          </div>
+
+          <div className="admin-toolbar">
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search by title, sector, location, or status"
+            />
+            <select
+              value={typeFilter}
+              onChange={(event) =>
+                setTypeFilter(event.target.value as "ALL" | PropertyTypeValue)
+              }
+            >
+              <option value="ALL">All property types</option>
+              {PROPERTY_TYPES.map((type) => (
+                <option key={type} value={type}>
+                  {type.replaceAll("_", " ")}
+                </option>
+              ))}
+            </select>
+            <select
+              value={featuredFilter}
+              onChange={(event) =>
+                setFeaturedFilter(event.target.value as "ALL" | "FEATURED")
+              }
+            >
+              <option value="ALL">All listings</option>
+              <option value="FEATURED">Featured only</option>
+            </select>
+          </div>
+
           <div className="admin-cards">
-            {properties.map((property) => (
+            {filteredProperties.map((property) => (
               <article className="admin-card" key={property.id}>
                 <div className="admin-card__head">
-                  <div>
+                  <div className="admin-card__info">
                     <strong>{property.title}</strong>
-                    <p>{property.location}</p>
+                    <p>
+                      {property.location}, {property.sector}
+                    </p>
                   </div>
                   <strong>{formatPrice(property.priceInr)}</strong>
+                </div>
+                <div className="admin-card__meta">
+                  <span className="admin-badge">{property.type.replaceAll("_", " ")}</span>
+                  <span className="admin-badge">{property.status.replaceAll("_", " ")}</span>
+                  {property.featured ? (
+                    <span className="admin-badge admin-badge--featured">Featured</span>
+                  ) : null}
+                </div>
+                <div className="admin-card__facts">
+                  <span>{property.areaSqft.toLocaleString("en-IN")} sq.ft.</span>
+                  <span>{property.bedrooms ? `${property.bedrooms} bed` : "Custom layout"}</span>
+                  <span>{property.bathrooms ? `${property.bathrooms} bath` : "Bath on request"}</span>
                 </div>
                 <div className="admin-actions">
                   <button
@@ -316,20 +501,70 @@ export function AdminDashboard({ properties, leads }: Props) {
                 </div>
               </article>
             ))}
+            {!filteredProperties.length ? (
+              <div className="admin-empty">
+                No listings match the current filters. Try clearing the search or featured filter.
+              </div>
+            ) : null}
           </div>
 
-          <h2 style={{ marginTop: 32 }}>Recent leads</h2>
-          <div className="admin-cards">
+          <div className="admin-panel-head admin-panel-head--spaced">
+            <div>
+              <h2>Recent leads</h2>
+              <p>Stay on top of the latest buyer conversations.</p>
+            </div>
+            <span className="admin-badge">{leadSummary.length} recent</span>
+          </div>
+
+          <div className="admin-lead-grid">
             {leadSummary.map((lead) => (
-              <article className="admin-card" key={lead.id}>
-                <strong>{lead.name}</strong>
-                <p>{lead.phone}</p>
+              <article className="admin-card admin-card--lead" key={lead.id}>
+                <div className="admin-card__head">
+                  <div className="admin-card__info">
+                    <strong>{lead.name}</strong>
+                    <p>{formatLeadTime(lead.createdAt)}</p>
+                  </div>
+                  <a className="text-link-button" href={`tel:${lead.phone}`}>
+                    {lead.phone}
+                  </a>
+                </div>
                 <p>{lead.requirement}</p>
+                <div className="admin-card__meta">
+                  <span className="admin-badge">
+                    {lead.propertyId && propertyMap.has(lead.propertyId)
+                      ? propertyMap.get(lead.propertyId)?.title
+                      : "General enquiry"}
+                  </span>
+                </div>
               </article>
             ))}
+            {!leadSummary.length ? (
+              <div className="admin-empty">
+                New enquiries will appear here as soon as buyers submit the lead form.
+              </div>
+            ) : null}
+          </div>
+
+          <div className="admin-checklist">
+            <h3>Launch checklist</h3>
+            <ul>
+              <li>Connect your custom domain in Vercel and point DNS there.</li>
+              <li>Replace demo images and add your real WhatsApp number.</li>
+              <li>Switch from plain ADMIN_PASSWORD to a secure hash after launch.</li>
+            </ul>
           </div>
         </section>
       </div>
     </div>
   );
+}
+
+function formatLeadTime(value: string) {
+  return new Intl.DateTimeFormat("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit"
+  }).format(new Date(value));
 }
