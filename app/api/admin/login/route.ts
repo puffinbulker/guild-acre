@@ -13,8 +13,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const cookieStore = await cookies();
-  cookieStore.set(getAdminCookieName(), createSessionToken(email), {
+  const response = NextResponse.json({ success: true });
+  response.cookies.set(getAdminCookieName(), createSessionToken(email), {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
@@ -22,5 +22,5 @@ export async function POST(request: Request) {
     maxAge: 60 * 60 * 12
   });
 
-  return NextResponse.json({ success: true });
+  return response;
 }
