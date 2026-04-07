@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   const email = String(body.email || "");
   const password = String(body.password || "");
 
-  if (email !== (process.env.ADMIN_EMAIL || "admin@gurgaonestates.com") || !verifyAdminPassword(password)) {
+  if (email !== (process.env.ADMIN_EMAIL || "admin@guildacre.com") || !verifyAdminPassword(password)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

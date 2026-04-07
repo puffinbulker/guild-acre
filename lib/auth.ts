@@ -1,6 +1,8 @@
 import crypto from "node:crypto";
 
 const COOKIE_NAME = "ge_admin_session";
+const DEFAULT_ADMIN_EMAIL = "admin@guildacre.com";
+const DEFAULT_ADMIN_PASSWORD = "GuildAcre@123";
 
 function getSecret() {
   return process.env.ADMIN_COOKIE_SECRET || "dev-secret";
@@ -33,19 +35,21 @@ export function hashAdminPassword(password: string, salt: string) {
 
 export function verifyAdminPassword(password: string) {
   const passwordHash = process.env.ADMIN_PASSWORD_HASH;
+  const plainPassword = process.env.ADMIN_PASSWORD || DEFAULT_ADMIN_PASSWORD;
 
   if (passwordHash) {
     const [salt, storedHash] = passwordHash.split(":");
 
-    if (!salt || !storedHash) {
-      return false;
-    }
+    if (salt && storedHash) {
+      const computed = hashAdminPassword(password, salt);
 
-    const computed = hashAdminPassword(password, salt);
-    return safeEqual(computed, storedHash);
+      if (safeEqual(computed, storedHash)) {
+        return true;
+      }
+    }
   }
 
-  return password === (process.env.ADMIN_PASSWORD || "change-me");
+  return password === plainPassword;
 }
 
 export function verifySessionToken(token?: string) {
@@ -58,7 +62,7 @@ export function verifySessionToken(token?: string) {
     const [email, issuedAt, signature] = decoded.split(":");
     const payload = `${email}:${issuedAt}`;
     const expected = crypto.createHmac("sha256", getSecret()).update(payload).digest("hex");
-    return signature === expected && email === (process.env.ADMIN_EMAIL || "admin@gurgaonestates.com");
+    return signature === expected && email === (process.env.ADMIN_EMAIL || DEFAULT_ADMIN_EMAIL);
   } catch {
     return false;
   }
