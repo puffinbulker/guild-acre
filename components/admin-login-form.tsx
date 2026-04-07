@@ -1,12 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
 
 export function AdminLoginForm() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -30,8 +28,7 @@ export function AdminLoginForm() {
       return;
     }
 
-    router.push("/admin");
-    router.refresh();
+    window.location.assign("/admin");
   }
 
   return (
