@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getFeaturedProperties, getPropertyLocations } from "@/lib/queries";
 import { PropertyCard } from "@/components/property-card";
 import { SearchFilters } from "@/components/search-filters";
 import { LeadForm } from "@/components/lead-form";
+import { parseJsonArray } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -12,6 +14,8 @@ export default async function HomePage() {
     getPropertyLocations()
   ]);
   const spotlightLocations = locations.slice(0, 4);
+  const heroProperty = featuredProperties[0];
+  const heroImage = heroProperty ? parseJsonArray(heroProperty.imageUrls)[0] : null;
 
   return (
     <main>
@@ -19,7 +23,7 @@ export default async function HomePage() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <span className="section-tag">Luxury homes. Smart investments. Trusted advisors.</span>
-            <h1>Premium Gurgaon real estate platform built for serious buyers and investors.</h1>
+            <h1>Curated Gurgaon real estate for buyers who expect more than just listings.</h1>
             <p>
               Browse handpicked apartments, builder floors, plots, and commercial assets across
               Gurgaon’s most valuable micro-markets.
@@ -57,30 +61,54 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="hero-panel">
-            <div className="hero-panel__topline">
-              <span className="section-tag">Private Search Desk</span>
-              <span className="hero-panel__dot" />
-              <span>Built for premium discovery</span>
+          <div className="hero-stage">
+            <div className="hero-visual">
+              {heroImage ? (
+                <Image
+                  src={heroImage}
+                  alt={heroProperty?.title || "Premium Gurgaon residence"}
+                  fill
+                  priority
+                  sizes="(max-width: 980px) 100vw, 42vw"
+                  style={{ objectFit: "cover" }}
+                />
+              ) : null}
+              <div className="hero-visual__overlay" />
+              <div className="hero-visual__content">
+                <span className="section-tag">Editor&apos;s Pick</span>
+                <strong>{heroProperty?.title || "Premium Gurgaon Residence"}</strong>
+                <p>
+                  {heroProperty?.location || "Golf Course Road"} •{" "}
+                  {heroProperty?.sector || "Sector 54"}
+                </p>
+              </div>
             </div>
-            <h2>Find the right property faster</h2>
-            <p className="hero-panel__intro">
-              Filter by budget, location, and asset type to move from browsing to serious
-              shortlisting in minutes.
-            </p>
-            <SearchFilters locations={locations} current={{}} />
-            <div className="stats-row">
-              <div>
-                <strong>Verified</strong>
-                <span>Handpicked inventory</span>
+
+            <div className="hero-panel">
+              <div className="hero-panel__topline">
+                <span className="section-tag">Private Search Desk</span>
+                <span className="hero-panel__dot" />
+                <span>Built for premium discovery</span>
               </div>
-              <div>
-                <strong>High-trust</strong>
-                <span>Investor-grade positioning</span>
-              </div>
-              <div>
-                <strong>Lead-first</strong>
-                <span>WhatsApp and callback flow</span>
+              <h2>Find the right property faster</h2>
+              <p className="hero-panel__intro">
+                Filter by budget, location, and asset type to move from browsing to serious
+                shortlisting in minutes.
+              </p>
+              <SearchFilters locations={locations} current={{}} />
+              <div className="stats-row">
+                <div>
+                  <strong>Verified</strong>
+                  <span>Handpicked inventory</span>
+                </div>
+                <div>
+                  <strong>High-trust</strong>
+                  <span>Investor-grade positioning</span>
+                </div>
+                <div>
+                  <strong>Lead-first</strong>
+                  <span>WhatsApp and callback flow</span>
+                </div>
               </div>
             </div>
           </div>
