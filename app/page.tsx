@@ -16,21 +16,27 @@ export default async function HomePage() {
   const spotlightLocations = locations.slice(0, 4);
   const heroProperty = featuredProperties[0];
   const heroImage = heroProperty ? parseJsonArray(heroProperty.imageUrls)[0] : null;
+  const galleryProperties = featuredProperties.slice(0, 3);
 
   return (
     <main>
       <section className="hero-section">
+        {heroImage ? (
+          <div className="hero-backdrop" aria-hidden="true">
+            <Image src={heroImage} alt="" fill priority sizes="100vw" style={{ objectFit: "cover" }} />
+          </div>
+        ) : null}
         <div className="container hero-grid">
           <div className="hero-copy">
-            <span className="section-tag">Luxury homes. Smart investments. Trusted advisors.</span>
-            <h1>Curated Gurgaon real estate for buyers who expect more than just listings.</h1>
+            <span className="section-tag">Oceanic luxury. Smart investments. Private advisors.</span>
+            <h1>Gurgaon real estate, presented like a private luxury portfolio.</h1>
             <p>
               Browse handpicked apartments, builder floors, plots, and commercial assets across
               Gurgaon’s most valuable micro-markets.
             </p>
             <p className="hero-copy__subtext">
-              Built for premium discovery, faster shortlisting, and stronger advisor-led buying
-              journeys across Gurgaon.
+              Built for premium discovery, faster shortlisting, and advisor-led buying journeys
+              that feel closer to concierge service than portal browsing.
             </p>
             <div className="hero-actions">
               <Link href="/listings" className="button">
@@ -48,11 +54,11 @@ export default async function HomePage() {
             <div className="hero-trust-row">
               <div>
                 <strong>{featuredProperties.length}+</strong>
-                <span>Featured opportunities</span>
+                <span>Curated opportunities</span>
               </div>
               <div>
                 <strong>{locations.length}</strong>
-                <span>Gurgaon micro-markets tracked</span>
+                <span>Tracked Gurgaon corridors</span>
               </div>
               <div>
                 <strong>1:1</strong>
@@ -75,7 +81,7 @@ export default async function HomePage() {
               ) : null}
               <div className="hero-visual__overlay" />
               <div className="hero-visual__content">
-                <span className="section-tag">Editor&apos;s Pick</span>
+                <span className="section-tag">Private Portfolio Highlight</span>
                 <strong>{heroProperty?.title || "Premium Gurgaon Residence"}</strong>
                 <p>
                   {heroProperty?.location || "Golf Course Road"} •{" "}
@@ -98,20 +104,37 @@ export default async function HomePage() {
               <SearchFilters locations={locations} current={{}} />
               <div className="stats-row">
                 <div>
-                  <strong>Verified</strong>
+                  <strong>Private</strong>
                   <span>Handpicked inventory</span>
                 </div>
                 <div>
-                  <strong>High-trust</strong>
-                  <span>Investor-grade positioning</span>
+                  <strong>Investor</strong>
+                  <span>High-trust positioning</span>
                 </div>
                 <div>
-                  <strong>Lead-first</strong>
+                  <strong>Concierge</strong>
                   <span>WhatsApp and callback flow</span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="container section-space">
+        <div className="services-ribbon">
+          <article className="services-ribbon__card">
+            <span className="section-tag">Residential</span>
+            <h3>Luxury apartments, builder floors, villas, and marquee family homes.</h3>
+          </article>
+          <article className="services-ribbon__card">
+            <span className="section-tag">Commercial</span>
+            <h3>Investment-oriented offices, retail assets, and yield-led opportunities.</h3>
+          </article>
+          <article className="services-ribbon__card">
+            <span className="section-tag">Advisory</span>
+            <h3>Shortlisting, negotiations, and quick WhatsApp-led buyer coordination.</h3>
+          </article>
         </div>
       </section>
 
@@ -173,6 +196,46 @@ export default async function HomePage() {
       </section>
 
       <section className="container section-space">
+        <div className="editorial-gallery">
+          <div className="section-head">
+            <div>
+              <span className="section-tag">Visual Signature</span>
+              <h2>Designed to feel like a private luxury real estate studio</h2>
+            </div>
+            <span className="eyebrow">Immersive visuals. Elevated presentation.</span>
+          </div>
+          <div className="editorial-gallery__grid">
+            {galleryProperties.map((property, index) => {
+              const image = parseJsonArray(property.imageUrls)[0];
+
+              return (
+                <article
+                  className={`editorial-gallery__tile editorial-gallery__tile--${index + 1}`}
+                  key={property.id}
+                >
+                  {image ? (
+                    <Image
+                      src={image}
+                      alt={property.title}
+                      fill
+                      sizes="(max-width: 980px) 100vw, 33vw"
+                      style={{ objectFit: "cover" }}
+                    />
+                  ) : null}
+                  <div className="editorial-gallery__overlay" />
+                  <div className="editorial-gallery__content">
+                    <span className="section-tag">{property.location}</span>
+                    <strong>{property.title}</strong>
+                    <p>{formatPriceCompact(property.priceInr)} • {property.type.replaceAll("_", " ")}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="container section-space">
         <div className="section-head">
           <div>
             <span className="section-tag">Featured Collection</span>
@@ -214,4 +277,12 @@ export default async function HomePage() {
       </section>
     </main>
   );
+}
+
+function formatPriceCompact(value: number) {
+  if (value >= 10_000_000) {
+    return `INR ${(value / 10_000_000).toFixed(value % 10_000_000 === 0 ? 0 : 1)} Cr`;
+  }
+
+  return `INR ${(value / 100_000).toFixed(value % 100_000 === 0 ? 0 : 1)} L`;
 }
