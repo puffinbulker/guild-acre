@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   const email = String(body.email || "");
   const password = String(body.password || "");
 
-  const directTestLogin = email === "admin@guildacre.com" && password === "GuildAcre@123";
+  const directTestLogin = email === "admin@guildacre.com" && password === "sunny@1234";
 
   if (!directTestLogin && (email !== (process.env.ADMIN_EMAIL || "admin@guildacre.com") || !verifyAdminPassword(password))) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

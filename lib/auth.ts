@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 
 const COOKIE_NAME = "ge_admin_session";
 const DEFAULT_ADMIN_EMAIL = "admin@guildacre.com";
-const DEFAULT_ADMIN_PASSWORD = "GuildAcre@123";
+const DEFAULT_ADMIN_PASSWORD = "sunny@1234";
 
 function getSecret() {
   return process.env.ADMIN_COOKIE_SECRET || "dev-secret";
