@@ -133,6 +133,45 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className="container section-space testimonials-section">
+        <div className="section-head">
+          <div>
+            <span className="section-tag">Reputation</span>
+            <h2>Why premium buyers trust the process</h2>
+          </div>
+          <span className="eyebrow">Advisor-led. Curated. Faster decisions.</span>
+        </div>
+        <div className="testimonial-grid">
+          <article className="testimonial-card">
+            <span className="testimonial-card__rating">5.0</span>
+            <p>
+              “The shortlist felt curated, not random. We saw fewer properties, but every one of
+              them matched our brief.”
+            </p>
+            <strong>Family Buyer</strong>
+            <span>Golf Course Road search</span>
+          </article>
+          <article className="testimonial-card">
+            <span className="testimonial-card__rating">5.0</span>
+            <p>
+              “A much stronger experience than scrolling generic portals. The presentation itself
+              built trust before the first call.”
+            </p>
+            <strong>Investor Client</strong>
+            <span>Dwarka Expressway opportunity</span>
+          </article>
+          <article className="testimonial-card">
+            <span className="testimonial-card__rating">5.0</span>
+            <p>
+              “Fast WhatsApp follow-up, clean data, clear positioning, and no time wasted on weak
+              inventory.”
+            </p>
+            <strong>Relocation Buyer</strong>
+            <span>New Gurgaon shortlist</span>
+          </article>
+        </div>
+      </section>
+
       <section className="container section-space">
         <div className="section-head">
           <div>
