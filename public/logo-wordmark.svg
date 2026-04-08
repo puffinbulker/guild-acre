@@ -1,21 +1,26 @@
 <svg width="640" height="112" viewBox="0 0 640 112" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="wordmarkFrame" x1="22" y1="14" x2="108" y2="98" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#8CF4E7"/>
-      <stop offset="0.5" stop-color="#49C4D7"/>
-      <stop offset="1" stop-color="#D6BC73"/>
+    <linearGradient id="wordEdge" x1="20" y1="14" x2="106" y2="98" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8DF7EA"/>
+      <stop offset="0.52" stop-color="#49C7D9"/>
+      <stop offset="1" stop-color="#CFB46D"/>
     </linearGradient>
-    <linearGradient id="wordmarkGlow" x1="64" y1="12" x2="64" y2="100" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0D2433"/>
-      <stop offset="1" stop-color="#06131D"/>
+    <linearGradient id="wordNight" x1="64" y1="10" x2="64" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A2434"/>
+      <stop offset="1" stop-color="#05111A"/>
     </linearGradient>
   </defs>
-  <rect x="8" y="8" width="112" height="96" rx="30" fill="url(#wordmarkGlow)"/>
-  <rect x="24" y="14" width="80" height="84" rx="24" stroke="url(#wordmarkFrame)" stroke-width="3"/>
-  <path d="M64 26L69.6 37.2L82 39L73 47.8L75.2 60L64 54L52.8 60L55 47.8L46 39L58.4 37.2L64 26Z" fill="url(#wordmarkFrame)"/>
-  <path d="M48 80V54.5C48 43.7 55.4 37 64.9 37C74.4 37 80.8 42.1 80.8 50.2C80.8 58.8 74.4 64.4 65.6 64.4H57V58.4H65.3C71 58.4 74.5 55.4 74.5 50.1C74.5 45.1 70.8 42.6 65.3 42.6C59.3 42.6 54.2 46.6 54.2 55.1V80H48Z" fill="#EAFBFF"/>
-  <path d="M65.4 46.5L74.2 80H67.7L65 69.5H53.8L51.1 80H44.9L53.7 46.5H65.4ZM63.5 63.9L59.2 47.8L54.9 63.9H63.5Z" fill="url(#wordmarkFrame)"/>
+  <rect x="8" y="8" width="112" height="96" rx="30" fill="url(#wordNight)"/>
+  <rect x="24" y="14" width="80" height="84" rx="24" stroke="url(#wordEdge)" stroke-width="3"/>
+  <path d="M64 28L82 40V82C82 90.3 75.3 97 67 97H61C52.7 97 46 90.3 46 82V40L64 28Z" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M64 38L74 45V82C74 85.3 71.3 88 68 88H60C56.7 88 54 85.3 54 82V45L64 38Z" stroke="#E9FCFF" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M64 41V88" stroke="#E9FCFF" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M54 54H74" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M54 66H74" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M54 78H74" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M38 92H90" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="64" cy="22" r="5" fill="#E9FCFF"/>
   <text x="144" y="48" fill="#EFFCFF" font-family="'Cormorant Garamond', Georgia, serif" font-size="37" font-weight="700" letter-spacing="0.16em">GUILD ACRE</text>
-  <line x1="146" y1="64" x2="612" y2="64" stroke="url(#wordmarkFrame)" stroke-opacity="0.45"/>
+  <line x1="146" y1="64" x2="612" y2="64" stroke="url(#wordEdge)" stroke-opacity="0.45"/>
   <text x="146" y="88" fill="#8EB7C2" font-family="'Outfit', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="0.28em">GURGAON PRIVATE REAL ESTATE ADVISORY</text>
 </svg>
