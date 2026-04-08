@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { SearchFilters } from "@/components/search-filters";
 import { PropertyCard } from "@/components/property-card";
-import { getProperties, getPropertyLocations } from "@/lib/queries";
+import { getProperties, getPropertyLocations, getPropertyLocationStats } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +17,7 @@ type Props = {
 export default async function ListingsPage({ searchParams }: Props) {
   const params = await searchParams;
   const normalized = {
+    collection: typeof params.collection === "string" ? params.collection : undefined,
     search: typeof params.search === "string" ? params.search : undefined,
     location: typeof params.location === "string" ? params.location : undefined,
     type: typeof params.type === "string" ? params.type : undefined,
@@ -24,31 +25,61 @@ export default async function ListingsPage({ searchParams }: Props) {
     maxBudget: typeof params.maxBudget === "string" ? Number(params.maxBudget) : undefined
   };
 
-  const [properties, locations] = await Promise.all([
+  const [properties, locations, locationStats] = await Promise.all([
     getProperties(normalized),
-    getPropertyLocations()
+    getPropertyLocations(),
+    getPropertyLocationStats()
   ]);
+
+  const quickCollections = [
+    { label: "Buy Homes", value: "BUY" },
+    { label: "Luxury", value: "LUXURY" },
+    { label: "New Launches", value: "NEW_LAUNCH" },
+    { label: "Ready to Move", value: "READY" },
+    { label: "Builder Floors", value: "FLOORS" },
+    { label: "Commercial", value: "COMMERCIAL" }
+  ];
 
   return (
     <main className="container page-shell">
       <div className="page-intro page-intro--listing">
-        <span className="section-tag">Search & Filter</span>
-        <h1>Property listings in Gurgaon</h1>
+        <span className="section-tag">Gurgaon Finder</span>
+        <h1>Explore Gurgaon like a focused property portal</h1>
         <p>
-          Explore a cleaner, more premium shortlist across Gurgaon&apos;s strongest residential and
-          investment corridors.
+          Search only Gurgaon localities, sectors, and premium categories with a cleaner,
+          shortlist-first experience inspired by large portals but built for sharper decisions.
         </p>
         <div className="page-intro__metrics">
           <span>{properties.length} active opportunities</span>
           <span>{locations.length} tracked locations</span>
-          <span>Advisor-led shortlist support</span>
+          <span>Buy, luxury, new launch, floors, and commercial</span>
         </div>
+      </div>
+
+      <div className="collection-tabs">
+        {quickCollections.map((collection) => {
+          const active = normalized.collection === collection.value;
+          const query = new URLSearchParams();
+          query.set("collection", collection.value);
+          if (normalized.location) query.set("location", normalized.location);
+
+          return (
+            <a
+              key={collection.value}
+              href={`/listings?${query.toString()}`}
+              className={active ? "collection-tab collection-tab--active" : "collection-tab"}
+            >
+              {collection.label}
+            </a>
+          );
+        })}
       </div>
 
       <div className="listing-filter-panel">
         <SearchFilters
           locations={locations}
           current={{
+            collection: normalized.collection,
             search: normalized.search,
             location: normalized.location,
             type: normalized.type,
@@ -59,6 +90,27 @@ export default async function ListingsPage({ searchParams }: Props) {
       </div>
 
       <div className="listing-summary">{properties.length} properties found</div>
+
+      <section className="locality-strip">
+        <div className="section-head">
+          <div>
+            <span className="section-tag">Popular Gurgaon Localities</span>
+            <h2>Browse by corridor, not just by keyword</h2>
+          </div>
+        </div>
+        <div className="locality-strip__grid">
+          {locationStats.slice(0, 6).map((item) => (
+            <a
+              key={item.location}
+              className="locality-chip-card"
+              href={`/listings?location=${encodeURIComponent(item.location)}`}
+            >
+              <strong>{item.location}</strong>
+              <span>{item.count} listing{item.count === 1 ? "" : "s"}</span>
+            </a>
+          ))}
+        </div>
+      </section>
 
       <div className="property-grid">
         {properties.map((property) => (

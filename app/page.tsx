@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getFeaturedProperties, getPropertyLocations } from "@/lib/queries";
+import { getFeaturedProperties, getPropertyLocationStats, getPropertyLocations } from "@/lib/queries";
 import { PropertyCard } from "@/components/property-card";
 import { SearchFilters } from "@/components/search-filters";
 import { LeadForm } from "@/components/lead-form";
@@ -9,14 +9,23 @@ import { parseJsonArray } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [featuredProperties, locations] = await Promise.all([
+  const [featuredProperties, locations, locationStats] = await Promise.all([
     getFeaturedProperties(),
-    getPropertyLocations()
+    getPropertyLocations(),
+    getPropertyLocationStats()
   ]);
   const spotlightLocations = locations.slice(0, 4);
   const heroProperty = featuredProperties[0];
   const heroImage = heroProperty ? parseJsonArray(heroProperty.imageUrls)[0] : null;
   const galleryProperties = featuredProperties.slice(0, 3);
+  const portalCollections = [
+    { label: "Buy Homes", query: "collection=BUY" },
+    { label: "Luxury", query: "collection=LUXURY" },
+    { label: "New Launches", query: "collection=NEW_LAUNCH" },
+    { label: "Ready to Move", query: "collection=READY" },
+    { label: "Builder Floors", query: "collection=FLOORS" },
+    { label: "Commercial", query: "collection=COMMERCIAL" }
+  ];
 
   return (
     <main>
@@ -50,6 +59,13 @@ export default async function HomePage() {
               >
                 Instant WhatsApp connect
               </a>
+            </div>
+            <div className="portal-quick-links">
+              {portalCollections.map((item) => (
+                <Link key={item.label} href={`/listings?${item.query}`} className="portal-quick-link">
+                  {item.label}
+                </Link>
+              ))}
             </div>
             <div className="hero-trust-row">
               <div>
@@ -117,6 +133,30 @@ export default async function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container section-space">
+        <div className="locality-strip">
+          <div className="section-head">
+            <div>
+              <span className="section-tag">Gurgaon Locality Hub</span>
+              <h2>Start like a mini 99acres, but only for Gurgaon</h2>
+            </div>
+            <span className="eyebrow">Corridor-first discovery for faster shortlisting</span>
+          </div>
+          <div className="locality-strip__grid">
+            {locationStats.slice(0, 6).map((item) => (
+              <Link
+                key={item.location}
+                className="locality-chip-card"
+                href={`/listings?location=${encodeURIComponent(item.location)}`}
+              >
+                <strong>{item.location}</strong>
+                <span>{item.count} listing{item.count === 1 ? "" : "s"}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

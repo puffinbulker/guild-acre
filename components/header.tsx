@@ -14,20 +14,30 @@ type NavDropdownItem = {
 const navItems: Array<NavLinkItem | NavDropdownItem> = [
   { href: "/", label: "Home" },
   {
-    label: "Properties",
+    label: "Buy",
     items: [
-      { href: "/listings?type=APARTMENT", label: "Luxury Apartments" },
-      { href: "/listings?type=BUILDER_FLOOR", label: "Builder Floors" },
-      { href: "/listings?type=VILLA", label: "Villas & Independent Homes" },
-      { href: "/listings?type=COMMERCIAL", label: "Commercial Assets" }
+      { href: "/listings?collection=BUY", label: "All Gurgaon homes" },
+      { href: "/listings?collection=LUXURY", label: "Luxury residences" },
+      { href: "/listings?collection=NEW_LAUNCH", label: "New launches" },
+      { href: "/listings?collection=READY", label: "Ready to move" }
+    ]
+  },
+  {
+    label: "Localities",
+    items: [
+      { href: "/listings?location=Golf%20Course%20Road", label: "Golf Course Road" },
+      { href: "/listings?location=DLF%20Phase%202", label: "DLF Phase 2" },
+      { href: "/listings?location=New%20Gurgaon", label: "New Gurgaon" },
+      { href: "/listings?location=Dwarka%20Expressway", label: "Dwarka Expressway" }
     ]
   },
   {
     label: "Services",
     items: [
-      { href: "/listings", label: "Investor Shortlisting" },
-      { href: "/listings?maxBudget=50000000", label: "Budget-Led Search" },
-      { href: "/admin/login", label: "Private Admin Access" }
+      { href: "/listings?collection=COMMERCIAL", label: "Commercial assets" },
+      { href: "/listings?collection=FLOORS", label: "Builder floors" },
+      { href: "/listings?collection=PLOTS", label: "Plots and land" },
+      { href: "/admin/login", label: "Private admin access" }
     ]
   },
   { href: "/admin", label: "Admin" }

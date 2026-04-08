@@ -5,13 +5,32 @@ type Props = {
   current: Record<string, string | undefined>;
 };
 
+const collections = [
+  { value: "", label: "All Gurgaon listings" },
+  { value: "BUY", label: "Buy homes" },
+  { value: "LUXURY", label: "Luxury homes" },
+  { value: "NEW_LAUNCH", label: "New launches" },
+  { value: "READY", label: "Ready to move" },
+  { value: "FLOORS", label: "Builder floors" },
+  { value: "PLOTS", label: "Plots" },
+  { value: "COMMERCIAL", label: "Commercial" }
+];
+
 export function SearchFilters({ locations, current }: Props) {
   return (
     <form className="filter-shell" action="/listings">
+      <select name="collection" defaultValue={current.collection || ""}>
+        {collections.map((collection) => (
+          <option key={collection.value || "all"} value={collection.value}>
+            {collection.label}
+          </option>
+        ))}
+      </select>
+
       <input
         type="text"
         name="search"
-        placeholder="Search by project, sector, landmark"
+        placeholder="Search project, sector, road, landmark"
         defaultValue={current.search || ""}
       />
 

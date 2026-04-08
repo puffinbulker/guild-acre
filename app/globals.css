@@ -361,6 +361,37 @@ button {
   margin-top: 28px;
 }
 
+.portal-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.portal-quick-link,
+.collection-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(108, 228, 222, 0.14);
+  background: rgba(108, 228, 222, 0.05);
+  color: #eefdff;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.portal-quick-link:hover,
+.collection-tab:hover,
+.collection-tab--active {
+  transform: translateY(-2px);
+  background: rgba(108, 228, 222, 0.14);
+  border-color: rgba(108, 228, 222, 0.24);
+}
+
 .hero-trust-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -518,8 +549,53 @@ button {
 .page-intro__metrics span {
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(108, 228, 222, 0.08);
+  border: 1px solid rgba(108, 228, 222, 0.14);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.collection-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 22px;
+}
+
+.locality-strip {
+  display: grid;
+  gap: 18px;
+}
+
+.locality-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.locality-chip-card {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(8, 33, 46, 0.82);
+  border: 1px solid rgba(108, 228, 222, 0.12);
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.locality-chip-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(108, 228, 222, 0.22);
+}
+
+.locality-chip-card strong {
+  font-size: 1.05rem;
+}
+
+.locality-chip-card span {
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -1346,6 +1422,7 @@ button {
   .admin-stat-grid,
   .property-grid,
   .services-ribbon,
+  .locality-strip__grid,
   .editorial-gallery__grid,
   .market-strip__grid,
   .testimonial-grid,
