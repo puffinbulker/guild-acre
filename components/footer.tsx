@@ -42,6 +42,7 @@ export function Footer() {
           <h4>Reputation</h4>
           <ul>
             <li>Verified inventory</li>
+            <li>Moderated dealer marketplace</li>
             <li>Advisor-led property curation</li>
             <li>Private buyer shortlisting</li>
             <li>Fast WhatsApp assistance</li>

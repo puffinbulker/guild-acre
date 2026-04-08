@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { AdminDashboard } from "@/components/admin-dashboard";
 import { getAdminCookieName, verifySessionToken } from "@/lib/auth";
-import { getAllLeads, getAllProperties } from "@/lib/data-store";
+import { getAllDealers, getAllLeads, getAllProperties } from "@/lib/data-store";
 
 export const dynamic = "force-dynamic";
 
@@ -14,14 +14,15 @@ export default async function AdminPage() {
     redirect("/admin/login");
   }
 
-  const [properties, leads] = await Promise.all([
+  const [properties, leads, dealers] = await Promise.all([
     getAllProperties(),
-    getAllLeads()
+    getAllLeads(),
+    getAllDealers()
   ]);
 
   return (
     <main className="container page-shell">
-      <AdminDashboard properties={properties} leads={leads} />
+      <AdminDashboard properties={properties} leads={leads} dealers={dealers} />
     </main>
   );
 }

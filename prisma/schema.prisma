@@ -24,6 +24,13 @@ model Property {
   featured       Boolean        @default(false)
   imageUrls      String
   amenities      String
+  sourceType     String         @default("ADMIN")
+  approvalStatus String         @default("APPROVED")
+  listingContactName String?
+  listingContactPhone String?
+  listingContactRole String?
+  vendorId       String?
+  vendor         Dealer?        @relation(fields: [vendorId], references: [id], onDelete: SetNull)
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
   leads          Lead[]
@@ -32,6 +39,8 @@ model Property {
   @@index([type])
   @@index([priceInr])
   @@index([featured])
+  @@index([approvalStatus])
+  @@index([vendorId])
 }
 
 model Lead {
@@ -45,4 +54,22 @@ model Lead {
 
   @@index([propertyId])
   @@index([createdAt])
+}
+
+model Dealer {
+  id            String     @id @default(cuid())
+  name          String
+  companyName   String?
+  email         String     @unique
+  phone         String
+  passwordHash  String
+  role          String     @default("DEALER")
+  status        String     @default("PENDING")
+  serviceAreas  String     @default("[]")
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  properties    Property[]
+
+  @@index([status])
+  @@index([role])
 }

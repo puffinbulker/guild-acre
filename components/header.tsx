@@ -53,6 +53,14 @@ const navItems: Array<NavLinkItem | NavDropdownItem> = [
       { href: "/admin/login", label: "Private admin access" }
     ]
   },
+  {
+    label: "Platform",
+    items: [
+      { href: "/dealers/join", label: "Join as dealer / owner" },
+      { href: "/dealers/login", label: "Dealer login" },
+      { href: "/dealers/dashboard", label: "Dealer dashboard" }
+    ]
+  },
   { href: "/admin", label: "Admin" }
 ];
 

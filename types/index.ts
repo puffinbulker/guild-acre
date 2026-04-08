@@ -15,6 +15,12 @@ export type PropertyRecord = {
   featured: boolean;
   imageUrls: string;
   amenities: string;
+  sourceType: string;
+  approvalStatus: string;
+  listingContactName: string | null;
+  listingContactPhone: string | null;
+  listingContactRole: string | null;
+  vendorId: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -26,4 +32,17 @@ export type LeadRecord = {
   requirement: string;
   propertyId: string | null;
   createdAt: string;
+};
+
+export type DealerRecord = {
+  id: string;
+  name: string;
+  companyName: string | null;
+  email: string;
+  phone: string;
+  role: string;
+  status: string;
+  serviceAreas: string;
+  createdAt: string;
+  updatedAt: string;
 };

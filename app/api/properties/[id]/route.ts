@@ -47,7 +47,13 @@ export async function PATCH(request: Request, { params }: Props) {
     bedrooms: parsed.data.bedrooms ?? null,
     bathrooms: parsed.data.bathrooms ?? null,
     imageUrls: JSON.stringify(parsed.data.imageUrls),
-    amenities: JSON.stringify(parsed.data.amenities)
+    amenities: JSON.stringify(parsed.data.amenities),
+    sourceType: parsed.data.sourceType || "ADMIN",
+    approvalStatus: parsed.data.approvalStatus || "APPROVED",
+    listingContactName: parsed.data.listingContactName || null,
+    listingContactPhone: parsed.data.listingContactPhone || null,
+    listingContactRole: parsed.data.listingContactRole || null,
+    vendorId: null
   });
 
   if (!property) {

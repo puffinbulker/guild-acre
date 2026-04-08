@@ -25,6 +25,31 @@ export const PROPERTY_STATUSES = [
 export type PropertyTypeValue = (typeof PROPERTY_TYPES)[number];
 export type PropertyStatusValue = (typeof PROPERTY_STATUSES)[number];
 
+export const LISTING_APPROVAL_STATUSES = [
+  "APPROVED",
+  "PENDING",
+  "REJECTED"
+] as const;
+
+export const DEALER_ROLES = [
+  "DEALER",
+  "BUILDER",
+  "OWNER",
+  "LANDLORD",
+  "CHANNEL_PARTNER"
+] as const;
+
+export const DEALER_STATUSES = [
+  "PENDING",
+  "APPROVED",
+  "REJECTED",
+  "SUSPENDED"
+] as const;
+
+export type ListingApprovalStatus = (typeof LISTING_APPROVAL_STATUSES)[number];
+export type DealerRoleValue = (typeof DEALER_ROLES)[number];
+export type DealerStatusValue = (typeof DEALER_STATUSES)[number];
+
 export const GURGAON_AREA_CATALOG = [
   {
     slug: "golf-course-road",

@@ -169,6 +169,40 @@ export default async function HomePage() {
         <div className="owner-desk">
           <div className="section-head">
             <div>
+              <span className="section-tag">Marketplace Platform</span>
+              <h2>Turn Guild Acre into a Gurgaon-only multi-vendor marketplace</h2>
+            </div>
+            <span className="eyebrow">For dealers, builders, owners, landlords, and channel partners</span>
+          </div>
+          <div className="owner-desk__grid">
+            <article className="owner-desk__card">
+              <strong>Vendor onboarding</strong>
+              <p>Dealers create accounts, list inventory, and wait for platform moderation.</p>
+            </article>
+            <article className="owner-desk__card">
+              <strong>Curated approvals</strong>
+              <p>You control quality, visibility, and which submissions go live in Gurgaon.</p>
+            </article>
+            <article className="owner-desk__card">
+              <strong>Revenue-ready model</strong>
+              <p>Set up premium slots, paid posting, verified badges, and lead distribution later.</p>
+            </article>
+          </div>
+          <div className="hero-actions">
+            <Link href="/dealers/join" className="button">
+              Join as partner
+            </Link>
+            <Link href="/dealers/login" className="button button--ghost">
+              Dealer login
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="container section-space">
+        <div className="owner-desk">
+          <div className="section-head">
+            <div>
               <span className="section-tag">Owner / Tenant Desk</span>
               <h2>Buy, sell, rent, lease, or list any Gurgaon property type</h2>
             </div>

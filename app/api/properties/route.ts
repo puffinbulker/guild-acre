@@ -11,6 +11,10 @@ export async function GET(request: Request) {
   const type = searchParams.get("type");
 
   const properties = (await getAllProperties()).filter((property) => {
+    if (property.approvalStatus !== "APPROVED") {
+      return false;
+    }
+
     const matchesLocation = !location || property.location.toLowerCase().includes(location.toLowerCase());
     const matchesType =
       !type || (PROPERTY_TYPES.includes(type as (typeof PROPERTY_TYPES)[number]) && property.type === type);
@@ -40,7 +44,13 @@ export async function POST(request: Request) {
     bedrooms: parsed.data.bedrooms ?? null,
     bathrooms: parsed.data.bathrooms ?? null,
     imageUrls: JSON.stringify(parsed.data.imageUrls),
-    amenities: JSON.stringify(parsed.data.amenities)
+    amenities: JSON.stringify(parsed.data.amenities),
+    sourceType: parsed.data.sourceType || "ADMIN",
+    approvalStatus: parsed.data.approvalStatus || "APPROVED",
+    listingContactName: parsed.data.listingContactName || null,
+    listingContactPhone: parsed.data.listingContactPhone || null,
+    listingContactRole: parsed.data.listingContactRole || null,
+    vendorId: null
   });
 
   return NextResponse.json(property, { status: 201 });

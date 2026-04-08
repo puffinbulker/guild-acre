@@ -14,7 +14,10 @@ export type PropertyFilters = {
 
 export async function getFeaturedProperties() {
   const properties = await getAllProperties();
-  return properties.filter((property) => property.featured).sort((a, b) => b.priceInr - a.priceInr).slice(0, 3);
+  return properties
+    .filter((property) => property.featured && property.approvalStatus === "APPROVED")
+    .sort((a, b) => b.priceInr - a.priceInr)
+    .slice(0, 3);
 }
 
 export async function getProperties(filters: PropertyFilters = {}) {
@@ -22,6 +25,10 @@ export async function getProperties(filters: PropertyFilters = {}) {
   const properties = await getAllProperties();
   return properties
     .filter((property) => {
+      if (property.approvalStatus !== "APPROVED") {
+        return false;
+      }
+
       const matchesSearch =
         !search ||
         [property.title, property.location, property.sector]
@@ -77,7 +84,8 @@ export async function getProperties(filters: PropertyFilters = {}) {
 }
 
 export async function getPropertyBySlug(slug: string) {
-  return getPropertyBySlugFromStore(slug);
+  const property = await getPropertyBySlugFromStore(slug);
+  return property?.approvalStatus === "APPROVED" ? property : null;
 }
 
 export async function getPropertyById(id: string) {
@@ -86,14 +94,14 @@ export async function getPropertyById(id: string) {
 
 export async function getPropertyLocations() {
   const properties = await getAllProperties();
-  return [...new Set(properties.map((item) => item.location))].sort();
+  return [...new Set(properties.filter((item) => item.approvalStatus === "APPROVED").map((item) => item.location))].sort();
 }
 
 export async function getPropertyLocationStats() {
   const properties = await getAllProperties();
   const counts = new Map<string, number>();
 
-  for (const property of properties) {
+  for (const property of properties.filter((item) => item.approvalStatus === "APPROVED")) {
     counts.set(property.location, (counts.get(property.location) || 0) + 1);
   }
 
@@ -103,7 +111,7 @@ export async function getPropertyLocationStats() {
 }
 
 export async function getGurgaonAreaPages() {
-  const properties = await getAllProperties();
+  const properties = (await getAllProperties()).filter((property) => property.approvalStatus === "APPROVED");
   const areaMap = new Map<
     string,
     {
@@ -156,7 +164,7 @@ export async function getGurgaonAreaPages() {
 }
 
 export async function getPropertiesByAreaSlug(slug: string) {
-  const properties = await getAllProperties();
+  const properties = (await getAllProperties()).filter((property) => property.approvalStatus === "APPROVED");
   const preset = GURGAON_AREA_CATALOG.find((item) => item.slug === slug);
   const matches = properties.filter(
     (property) => slugify(property.location) === slug || slugify(property.sector) === slug

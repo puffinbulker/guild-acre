@@ -4,16 +4,18 @@ import { FormEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { formatPrice, parseJsonArray } from "@/lib/utils";
 import {
+  DEALER_STATUSES,
   PROPERTY_STATUSES,
   PROPERTY_TYPES,
   type PropertyStatusValue,
   type PropertyTypeValue
 } from "@/lib/constants";
-import type { LeadRecord, PropertyRecord } from "@/types";
+import type { DealerRecord, LeadRecord, PropertyRecord } from "@/types";
 
 type Props = {
   properties: PropertyRecord[];
   leads: LeadRecord[];
+  dealers: DealerRecord[];
 };
 
 type FeedbackState = {
@@ -56,7 +58,7 @@ const emptyForm: FormShape = {
   amenities: ""
 };
 
-export function AdminDashboard({ properties, leads }: Props) {
+export function AdminDashboard({ properties, leads, dealers }: Props) {
   const [form, setForm] = useState<FormShape>(emptyForm);
   const [feedback, setFeedback] = useState<FeedbackState | null>(null);
   const [loading, setLoading] = useState(false);
@@ -69,6 +71,8 @@ export function AdminDashboard({ properties, leads }: Props) {
     () => new Map(properties.map((property) => [property.id, property])),
     [properties]
   );
+
+  const dealerMap = useMemo(() => new Map(dealers.map((dealer) => [dealer.id, dealer])), [dealers]);
 
   const leadSummary = useMemo(
     () =>
@@ -117,13 +121,17 @@ export function AdminDashboard({ properties, leads }: Props) {
 
     return {
       totalListings: properties.length,
+      approvedListings: properties.filter((property) => property.approvalStatus === "APPROVED").length,
+      pendingListings: properties.filter((property) => property.approvalStatus === "PENDING").length,
       featured,
       readyToMove,
       totalLeads: leads.length,
+      totalDealers: dealers.length,
+      pendingDealers: dealers.filter((dealer) => dealer.status === "PENDING").length,
       averageTicket,
       latestLead: leadSummary[0]
     };
-  }, [leadSummary, leads.length, properties]);
+  }, [dealers, leadSummary, leads.length, properties]);
 
   async function submitProperty(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -238,6 +246,50 @@ export function AdminDashboard({ properties, leads }: Props) {
     router.refresh();
   }
 
+  async function updateDealerStatus(id: string, status: string) {
+    const response = await fetch(`/api/admin/dealers/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status })
+    });
+
+    if (!response.ok) {
+      setFeedback({
+        kind: "error",
+        message: "Unable to update dealer status right now."
+      });
+      return;
+    }
+
+    setFeedback({
+      kind: "success",
+      message: `Dealer status updated to ${status.toLowerCase()}.`
+    });
+    router.refresh();
+  }
+
+  async function updateListingModeration(id: string, approvalStatus: string) {
+    const response = await fetch(`/api/admin/listing-moderation/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ approvalStatus })
+    });
+
+    if (!response.ok) {
+      setFeedback({
+        kind: "error",
+        message: "Unable to update listing moderation status."
+      });
+      return;
+    }
+
+    setFeedback({
+      kind: "success",
+      message: `Listing marked ${approvalStatus.toLowerCase()}.`
+    });
+    router.refresh();
+  }
+
   return (
     <div className="admin-shell">
       <div className="section-head">
@@ -253,8 +305,8 @@ export function AdminDashboard({ properties, leads }: Props) {
       <section className="admin-stat-grid">
         <article className="admin-stat-card">
           <span>Live listings</span>
-          <strong>{stats.totalListings}</strong>
-          <p>{filteredProperties.length} matching your current filters</p>
+          <strong>{stats.approvedListings}</strong>
+          <p>{stats.pendingListings} pending moderation • {filteredProperties.length} visible in this admin view</p>
         </article>
         <article className="admin-stat-card">
           <span>Featured inventory</span>
@@ -274,6 +326,11 @@ export function AdminDashboard({ properties, leads }: Props) {
               ? `Latest enquiry from ${stats.latestLead.name}`
               : "No enquiries captured yet"}
           </p>
+        </article>
+        <article className="admin-stat-card">
+          <span>Dealer accounts</span>
+          <strong>{stats.totalDealers}</strong>
+          <p>{stats.pendingDealers} waiting for approval or review</p>
         </article>
       </section>
 
@@ -506,6 +563,108 @@ export function AdminDashboard({ properties, leads }: Props) {
                 No listings match the current filters. Try clearing the search or featured filter.
               </div>
             ) : null}
+          </div>
+
+          <div className="admin-panel-head admin-panel-head--spaced">
+            <div>
+              <h2>Dealer onboarding</h2>
+              <p>Approve brokers, owners, builders, and channel partners before scaling inventory.</p>
+            </div>
+            <span className="admin-badge">{dealers.length} accounts</span>
+          </div>
+
+          <div className="admin-lead-grid">
+            {dealers.map((dealer) => (
+              <article className="admin-card admin-card--lead" key={dealer.id}>
+                <div className="admin-card__head">
+                  <div className="admin-card__info">
+                    <strong>{dealer.companyName || dealer.name}</strong>
+                    <p>{dealer.role.replaceAll("_", " ")} • {dealer.email}</p>
+                  </div>
+                  <span className="admin-badge">{dealer.status}</span>
+                </div>
+                <p>{dealer.phone}</p>
+                <div className="admin-card__meta">
+                  <span className="admin-badge">
+                    {(() => {
+                      try {
+                        return JSON.parse(dealer.serviceAreas).slice(0, 2).join(", ") || "Gurgaon";
+                      } catch {
+                        return "Gurgaon";
+                      }
+                    })()}
+                  </span>
+                </div>
+                <div className="admin-actions">
+                  {DEALER_STATUSES.filter((status) => status !== dealer.status).map((status) => (
+                    <button
+                      key={status}
+                      type="button"
+                      className="text-link-button"
+                      onClick={() => updateDealerStatus(dealer.id, status)}
+                    >
+                      Mark {status.toLowerCase()}
+                    </button>
+                  ))}
+                </div>
+              </article>
+            ))}
+            {!dealers.length ? (
+              <div className="admin-empty">
+                Dealer registrations will appear here once marketplace partners join.
+              </div>
+            ) : null}
+          </div>
+
+          <div className="admin-panel-head admin-panel-head--spaced">
+            <div>
+              <h2>Listing moderation queue</h2>
+              <p>Approve vendor-submitted listings before they appear in the public Gurgaon marketplace.</p>
+            </div>
+            <span className="admin-badge">
+              {properties.filter((property) => property.approvalStatus === "PENDING").length} pending
+            </span>
+          </div>
+
+          <div className="admin-lead-grid">
+            {properties
+              .filter((property) => property.sourceType === "VENDOR" || property.approvalStatus !== "APPROVED")
+              .map((property) => (
+                <article className="admin-card admin-card--lead" key={property.id}>
+                  <div className="admin-card__head">
+                    <div className="admin-card__info">
+                      <strong>{property.title}</strong>
+                      <p>
+                        {(property.vendorId && dealerMap.get(property.vendorId)?.companyName) ||
+                          dealerMap.get(property.vendorId || "")?.name ||
+                          "Marketplace partner"}
+                      </p>
+                    </div>
+                    <span className="admin-badge">{property.approvalStatus}</span>
+                  </div>
+                  <p>
+                    {property.location}, {property.sector} • {property.type.replaceAll("_", " ")}
+                  </p>
+                  <div className="admin-card__meta">
+                    <span className="admin-badge">{formatPrice(property.priceInr)}</span>
+                    <span className="admin-badge">{property.status.replaceAll("_", " ")}</span>
+                  </div>
+                  <div className="admin-actions">
+                    {["APPROVED", "PENDING", "REJECTED"]
+                      .filter((status) => status !== property.approvalStatus)
+                      .map((status) => (
+                        <button
+                          key={status}
+                          type="button"
+                          className="text-link-button"
+                          onClick={() => updateListingModeration(property.id, status)}
+                        >
+                          Mark {status.toLowerCase()}
+                        </button>
+                      ))}
+                  </div>
+                </article>
+              ))}
           </div>
 
           <div className="admin-panel-head admin-panel-head--spaced">
