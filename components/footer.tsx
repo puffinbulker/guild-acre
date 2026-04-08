@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function Footer() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999";
   const contactLinks = [
@@ -10,8 +12,14 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
+          <Image
+            src="/logo-wordmark.svg"
+            alt="Guild Acre"
+            width={260}
+            height={56}
+            className="footer-brand__wordmark"
+          />
           <span className="section-tag">Guild Acre Private Advisory</span>
-          <h3>Guild Acre</h3>
           <p>
             Ocean-toned luxury presentation for premium property discovery across Golf Course Road,
             New Gurgaon, Dwarka Expressway, and marquee investment corridors.

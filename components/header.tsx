@@ -61,10 +61,15 @@ export function Header() {
     <header className="site-header">
       <div className="container nav-shell">
         <Link href="/" className="brand-mark">
-          <Image src="/logo-mark.svg" alt="Guild Acre" width={44} height={44} />
-          <span>
-            Guild Acre
-            <small>Gurgaon property advisors</small>
+          <span className="brand-mark__lockup brand-mark__lockup--desktop">
+            <Image src="/logo-wordmark.svg" alt="Guild Acre" width={280} height={60} priority />
+          </span>
+          <span className="brand-mark__lockup brand-mark__lockup--mobile">
+            <Image src="/logo-mark.svg" alt="Guild Acre" width={48} height={48} />
+            <span>
+              Guild Acre
+              <small>Private advisory</small>
+            </span>
           </span>
         </Link>
 

@@ -1,7 +1,21 @@
-<svg width="420" height="96" viewBox="0 0 420 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="18" fill="#171411"/>
-  <path d="M17 44V20H34.4545C42.4864 20 49 26.5136 49 34.5455C49 42.5773 42.4864 49.0909 34.4545 49.0909H25.7273V44H34.4545C39.4983 44 43.5909 39.9074 43.5909 34.8636C43.5909 29.8198 39.4983 25.7273 34.4545 25.7273H22.4091V44H17Z" fill="#D2A86A"/>
-  <path d="M27 39V29H34.5455C37.3078 29 39.5455 31.2377 39.5455 34C39.5455 36.7623 37.3078 39 34.5455 39H27Z" fill="#F4E5CF"/>
-  <text x="82" y="36" fill="#171411" font-family="Georgia, serif" font-size="26" font-weight="700" letter-spacing="0.08em">GUILD ACRE</text>
-  <text x="82" y="60" fill="#6B635B" font-family="Georgia, serif" font-size="12" letter-spacing="0.24em">GURGAON PROPERTY ADVISORS</text>
+<svg width="520" height="112" viewBox="0 0 520 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wordmarkFrame" x1="22" y1="14" x2="108" y2="98" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8CF4E7"/>
+      <stop offset="0.5" stop-color="#49C4D7"/>
+      <stop offset="1" stop-color="#D6BC73"/>
+    </linearGradient>
+    <linearGradient id="wordmarkGlow" x1="64" y1="12" x2="64" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D2433"/>
+      <stop offset="1" stop-color="#06131D"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="96" rx="30" fill="url(#wordmarkGlow)"/>
+  <rect x="24" y="14" width="80" height="84" rx="24" stroke="url(#wordmarkFrame)" stroke-width="3"/>
+  <path d="M64 26L69.6 37.2L82 39L73 47.8L75.2 60L64 54L52.8 60L55 47.8L46 39L58.4 37.2L64 26Z" fill="url(#wordmarkFrame)"/>
+  <path d="M48 80V54.5C48 43.7 55.4 37 64.9 37C74.4 37 80.8 42.1 80.8 50.2C80.8 58.8 74.4 64.4 65.6 64.4H57V58.4H65.3C71 58.4 74.5 55.4 74.5 50.1C74.5 45.1 70.8 42.6 65.3 42.6C59.3 42.6 54.2 46.6 54.2 55.1V80H48Z" fill="#EAFBFF"/>
+  <path d="M65.4 46.5L74.2 80H67.7L65 69.5H53.8L51.1 80H44.9L53.7 46.5H65.4ZM63.5 63.9L59.2 47.8L54.9 63.9H63.5Z" fill="url(#wordmarkFrame)"/>
+  <text x="144" y="48" fill="#EFFCFF" font-family="'Cormorant Garamond', Georgia, serif" font-size="37" font-weight="700" letter-spacing="0.16em">GUILD ACRE</text>
+  <line x1="146" y1="64" x2="492" y2="64" stroke="url(#wordmarkFrame)" stroke-opacity="0.45"/>
+  <text x="146" y="88" fill="#8EB7C2" font-family="'Outfit', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="0.34em">GURGAON PRIVATE REAL ESTATE ADVISORY</text>
 </svg>

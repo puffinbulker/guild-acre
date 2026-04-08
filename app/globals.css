@@ -90,6 +90,25 @@ button {
   font-size: 1.1rem;
 }
 
+.brand-mark__lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark__lockup--desktop {
+  display: inline-flex;
+}
+
+.brand-mark__lockup--mobile {
+  display: none;
+}
+
+.brand-mark__lockup--desktop img {
+  height: auto;
+  width: min(280px, 28vw);
+}
+
 .brand-mark small {
   display: block;
   color: rgba(202, 234, 241, 0.68);
@@ -1216,6 +1235,12 @@ button {
   max-width: 340px;
 }
 
+.footer-brand__wordmark {
+  width: min(260px, 100%);
+  height: auto;
+  margin-bottom: 12px;
+}
+
 .footer-column h4 {
   margin-top: 0;
 }
@@ -1519,6 +1544,14 @@ button {
   .nav-shell,
   .nav-links {
     flex-direction: column;
+  }
+
+  .brand-mark__lockup--desktop {
+    display: none;
+  }
+
+  .brand-mark__lockup--mobile {
+    display: inline-flex;
   }
 
   .nav-dropdown__menu {
