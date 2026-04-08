@@ -562,6 +562,87 @@ button {
   margin: 8px 0 22px;
 }
 
+.listings-layout,
+.area-page__layout,
+.hub-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.listings-layout,
+.area-page__layout {
+  grid-template-columns: minmax(280px, 0.38fr) minmax(0, 1fr);
+  align-items: flex-start;
+}
+
+.hub-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.listings-sidebar,
+.listings-results,
+.area-page__content,
+.area-page__sidebar {
+  display: grid;
+  gap: 18px;
+}
+
+.listings-sidebar {
+  position: sticky;
+  top: 104px;
+}
+
+.listings-sidebar__card h2,
+.hub-panel h2,
+.area-page__service-card h3 {
+  margin: 10px 0 14px;
+}
+
+.owner-service-list,
+.hub-panel__grid,
+.area-page__service-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.owner-service-list span {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(108, 228, 222, 0.07);
+  border: 1px solid rgba(108, 228, 222, 0.1);
+  color: var(--muted);
+}
+
+.hub-panel__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hub-panel .locality-chip-card em {
+  font-style: normal;
+  color: rgba(205, 238, 245, 0.66);
+  font-size: 0.88rem;
+}
+
+.hub-links,
+.area-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.area-page__service-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.area-page__service-card p,
+.area-page__empty p {
+  color: var(--muted);
+}
+
+.area-page__empty h2 {
+  margin: 12px 0;
+}
+
 .locality-strip {
   display: grid;
   gap: 18px;
@@ -1426,7 +1507,12 @@ button {
   .editorial-gallery__grid,
   .market-strip__grid,
   .testimonial-grid,
-  .property-detail__trust-band {
+  .property-detail__trust-band,
+  .listings-layout,
+  .area-page__layout,
+  .hub-grid,
+  .hub-panel__grid,
+  .area-page__service-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1446,6 +1532,10 @@ button {
 
   .admin-toolbar {
     grid-template-columns: 1fr;
+  }
+
+  .listings-sidebar {
+    position: static;
   }
 }
 

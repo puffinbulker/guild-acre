@@ -23,8 +23,18 @@ const navItems: Array<NavLinkItem | NavDropdownItem> = [
     ]
   },
   {
+    label: "Rent / Lease",
+    items: [
+      { href: "/listings?collection=RENT", label: "Rent in Gurgaon" },
+      { href: "/listings?collection=LEASE", label: "Lease inventory" },
+      { href: "/listings?collection=RESALE", label: "Resale opportunities" },
+      { href: "/listings?collection=FRESH", label: "Fresh booking" }
+    ]
+  },
+  {
     label: "Localities",
     items: [
+      { href: "/gurgaon", label: "Gurgaon hub" },
       { href: "/listings?location=Golf%20Course%20Road", label: "Golf Course Road" },
       { href: "/listings?location=DLF%20Phase%202", label: "DLF Phase 2" },
       { href: "/listings?location=New%20Gurgaon", label: "New Gurgaon" },
@@ -36,7 +46,10 @@ const navItems: Array<NavLinkItem | NavDropdownItem> = [
     items: [
       { href: "/listings?collection=COMMERCIAL", label: "Commercial assets" },
       { href: "/listings?collection=FLOORS", label: "Builder floors" },
+      { href: "/listings?collection=VILLAS", label: "Villa / Kothi" },
       { href: "/listings?collection=PLOTS", label: "Plots and land" },
+      { href: "/listings?collection=FARMLAND", label: "Farm / agriculture land" },
+      { href: "/listings?collection=LAND", label: "Owner land desk" },
       { href: "/admin/login", label: "Private admin access" }
     ]
   },

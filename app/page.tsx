@@ -4,7 +4,7 @@ import { getFeaturedProperties, getPropertyLocationStats, getPropertyLocations }
 import { PropertyCard } from "@/components/property-card";
 import { SearchFilters } from "@/components/search-filters";
 import { LeadForm } from "@/components/lead-form";
-import { parseJsonArray } from "@/lib/utils";
+import { parseJsonArray, slugify } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -20,11 +20,15 @@ export default async function HomePage() {
   const galleryProperties = featuredProperties.slice(0, 3);
   const portalCollections = [
     { label: "Buy Homes", query: "collection=BUY" },
+    { label: "Rent", query: "collection=RENT" },
+    { label: "Lease", query: "collection=LEASE" },
     { label: "Luxury", query: "collection=LUXURY" },
     { label: "New Launches", query: "collection=NEW_LAUNCH" },
     { label: "Ready to Move", query: "collection=READY" },
     { label: "Builder Floors", query: "collection=FLOORS" },
-    { label: "Commercial", query: "collection=COMMERCIAL" }
+    { label: "Commercial", query: "collection=COMMERCIAL" },
+    { label: "Land", query: "collection=LAND" },
+    { label: "Farm Land", query: "collection=FARMLAND" }
   ];
 
   return (
@@ -151,12 +155,38 @@ export default async function HomePage() {
               <Link
                 key={item.location}
                 className="locality-chip-card"
-                href={`/listings?location=${encodeURIComponent(item.location)}`}
+                href={`/gurgaon/${slugify(item.location)}`}
               >
                 <strong>{item.location}</strong>
                 <span>{item.count} listing{item.count === 1 ? "" : "s"}</span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container section-space">
+        <div className="owner-desk">
+          <div className="section-head">
+            <div>
+              <span className="section-tag">Owner / Tenant Desk</span>
+              <h2>Buy, sell, rent, lease, or list any Gurgaon property type</h2>
+            </div>
+            <span className="eyebrow">For land owners, tenants, sellers, investors, and fresh buyers</span>
+          </div>
+          <div className="owner-desk__grid">
+            <article className="owner-desk__card">
+              <strong>Residential Inventory</strong>
+              <p>Apartment, flat, low rise, high rise, builder floor, villa, and kothi requirements.</p>
+            </article>
+            <article className="owner-desk__card">
+              <strong>Land and Farm Opportunities</strong>
+              <p>Plots, farm land, and agriculture land for buying, selling, lease, or long-term hold.</p>
+            </article>
+            <article className="owner-desk__card">
+              <strong>Primary and Resale</strong>
+              <p>Fresh booking, new launches, ready inventory, resale deals, rent, and lease support.</p>
+            </article>
           </div>
         </div>
       </section>

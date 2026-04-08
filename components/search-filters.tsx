@@ -1,4 +1,4 @@
-import { PROPERTY_TYPES } from "@/lib/constants";
+import { PROPERTY_STATUSES, PROPERTY_TYPES } from "@/lib/constants";
 
 type Props = {
   locations: string[];
@@ -8,11 +8,19 @@ type Props = {
 const collections = [
   { value: "", label: "All Gurgaon listings" },
   { value: "BUY", label: "Buy homes" },
+  { value: "RENT", label: "Rent" },
+  { value: "LEASE", label: "Lease" },
   { value: "LUXURY", label: "Luxury homes" },
   { value: "NEW_LAUNCH", label: "New launches" },
   { value: "READY", label: "Ready to move" },
+  { value: "RESALE", label: "Resale" },
+  { value: "FRESH", label: "Fresh booking" },
   { value: "FLOORS", label: "Builder floors" },
+  { value: "VILLAS", label: "Villa / Kothi" },
+  { value: "APARTMENTS", label: "Apartment / Flat" },
   { value: "PLOTS", label: "Plots" },
+  { value: "LAND", label: "Land" },
+  { value: "FARMLAND", label: "Farm / agriculture land" },
   { value: "COMMERCIAL", label: "Commercial" }
 ];
 
@@ -48,6 +56,15 @@ export function SearchFilters({ locations, current }: Props) {
         {PROPERTY_TYPES.map((type) => (
           <option key={type} value={type}>
             {type.replaceAll("_", " ")}
+          </option>
+        ))}
+      </select>
+
+      <select name="status" defaultValue={current.status || ""}>
+        <option value="">All availability types</option>
+        {PROPERTY_STATUSES.map((status) => (
+          <option key={status} value={status}>
+            {status.replaceAll("_", " ")}
           </option>
         ))}
       </select>

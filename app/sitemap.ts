@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
 import { getAllProperties } from "@/lib/data-store";
+import { getGurgaonAreaPages } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  const properties = await getAllProperties();
+  const [properties, areas] = await Promise.all([getAllProperties(), getGurgaonAreaPages()]);
 
   return [
     {
@@ -16,6 +17,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/listings`,
       lastModified: new Date()
     },
+    {
+      url: `${baseUrl}/gurgaon`,
+      lastModified: new Date()
+    },
+    ...areas.map((area) => ({
+      url: `${baseUrl}/gurgaon/${area.slug}`,
+      lastModified: new Date()
+    })),
     ...properties.map((property) => ({
       url: `${baseUrl}/properties/${property.slug}`,
       lastModified: new Date(property.updatedAt)

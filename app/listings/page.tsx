@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { SearchFilters } from "@/components/search-filters";
 import { PropertyCard } from "@/components/property-card";
 import { getProperties, getPropertyLocations, getPropertyLocationStats } from "@/lib/queries";
+import { slugify } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,7 @@ export default async function ListingsPage({ searchParams }: Props) {
     search: typeof params.search === "string" ? params.search : undefined,
     location: typeof params.location === "string" ? params.location : undefined,
     type: typeof params.type === "string" ? params.type : undefined,
+    status: typeof params.status === "string" ? params.status : undefined,
     minBudget: typeof params.minBudget === "string" ? Number(params.minBudget) : undefined,
     maxBudget: typeof params.maxBudget === "string" ? Number(params.maxBudget) : undefined
   };
@@ -33,10 +35,16 @@ export default async function ListingsPage({ searchParams }: Props) {
 
   const quickCollections = [
     { label: "Buy Homes", value: "BUY" },
+    { label: "Rent", value: "RENT" },
+    { label: "Lease", value: "LEASE" },
     { label: "Luxury", value: "LUXURY" },
     { label: "New Launches", value: "NEW_LAUNCH" },
     { label: "Ready to Move", value: "READY" },
+    { label: "Resale", value: "RESALE" },
     { label: "Builder Floors", value: "FLOORS" },
+    { label: "Villa / Kothi", value: "VILLAS" },
+    { label: "Land", value: "LAND" },
+    { label: "Farm Land", value: "FARMLAND" },
     { label: "Commercial", value: "COMMERCIAL" }
   ];
 
@@ -75,47 +83,75 @@ export default async function ListingsPage({ searchParams }: Props) {
         })}
       </div>
 
-      <div className="listing-filter-panel">
-        <SearchFilters
-          locations={locations}
-          current={{
-            collection: normalized.collection,
-            search: normalized.search,
-            location: normalized.location,
-            type: normalized.type,
-            minBudget: normalized.minBudget?.toString(),
-            maxBudget: normalized.maxBudget?.toString()
-          }}
-        />
-      </div>
-
-      <div className="listing-summary">{properties.length} properties found</div>
-
-      <section className="locality-strip">
-        <div className="section-head">
-          <div>
-            <span className="section-tag">Popular Gurgaon Localities</span>
-            <h2>Browse by corridor, not just by keyword</h2>
+      <div className="listings-layout">
+        <aside className="listings-sidebar">
+          <div className="card listings-sidebar__card">
+            <span className="section-tag">Portal Filters</span>
+            <h2>Refine Gurgaon inventory</h2>
+            <SearchFilters
+              locations={locations}
+              current={{
+                collection: normalized.collection,
+                search: normalized.search,
+                location: normalized.location,
+                type: normalized.type,
+                status: normalized.status,
+                minBudget: normalized.minBudget?.toString(),
+                maxBudget: normalized.maxBudget?.toString()
+              }}
+            />
           </div>
-        </div>
-        <div className="locality-strip__grid">
-          {locationStats.slice(0, 6).map((item) => (
-            <a
-              key={item.location}
-              className="locality-chip-card"
-              href={`/listings?location=${encodeURIComponent(item.location)}`}
-            >
-              <strong>{item.location}</strong>
-              <span>{item.count} listing{item.count === 1 ? "" : "s"}</span>
-            </a>
-          ))}
-        </div>
-      </section>
 
-      <div className="property-grid">
-        {properties.map((property) => (
-          <PropertyCard key={property.id} property={property} />
-        ))}
+          <div className="card listings-sidebar__card">
+            <span className="section-tag">Need Service?</span>
+            <h3>Owner, buyer, seller, tenant, or landlord desk</h3>
+            <div className="owner-service-list">
+              <span>Buy and fresh booking assistance</span>
+              <span>Resale and investor exit support</span>
+              <span>Rent and lease coordination</span>
+              <span>Farm land and agriculture land enquiries</span>
+            </div>
+            <a
+              className="button"
+              href="https://wa.me/919999999999"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Discuss requirement
+            </a>
+          </div>
+        </aside>
+
+        <section className="listings-results">
+          <div className="listing-summary">{properties.length} properties found</div>
+
+          <section className="locality-strip">
+            <div className="section-head">
+              <div>
+                <span className="section-tag">Popular Gurgaon Localities</span>
+                <h2>Browse by corridor, sector, or locality page</h2>
+              </div>
+            </div>
+            <div className="locality-strip__grid">
+              {locationStats.slice(0, 6).map((item) => (
+                <a
+                  key={item.location}
+                  className="locality-chip-card"
+                  href={`/gurgaon/${slugify(item.location)}`}
+                >
+                  <strong>{item.location}</strong>
+                  <span>{item.count} listing{item.count === 1 ? "" : "s"}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <div className="property-grid">
+            {properties.map((property) => (
+              <PropertyCard key={property.id} property={property} />
+            ))}
+          </div>
+        </section>
       </div>
     </main>
   );
