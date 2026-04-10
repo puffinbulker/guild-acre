@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { AdminDashboard } from "@/components/admin-dashboard";
+import { AdminDashboardV2 } from "@/components/admin-dashboard-v2";
 import { getAdminCookieName, verifySessionToken } from "@/lib/auth";
 import { getAllDealers, getAllLeads, getAllProperties } from "@/lib/data-store";
 
@@ -22,7 +22,7 @@ export default async function AdminPage() {
 
   return (
     <main className="container page-shell">
-      <AdminDashboard properties={properties} leads={leads} dealers={dealers} />
+      <AdminDashboardV2 properties={properties} leads={leads} dealers={dealers} />
     </main>
   );
 }

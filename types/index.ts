@@ -17,6 +17,9 @@ export type PropertyRecord = {
   amenities: string;
   sourceType: string;
   approvalStatus: string;
+  boostTier: string;
+  leadRoutingMode: string;
+  featuredRequested: boolean;
   listingContactName: string | null;
   listingContactPhone: string | null;
   listingContactRole: string | null;
@@ -31,6 +34,9 @@ export type LeadRecord = {
   phone: string;
   requirement: string;
   propertyId: string | null;
+  assignedDealerId: string | null;
+  routingStatus: string;
+  sourceChannel: string;
   createdAt: string;
 };
 
@@ -42,6 +48,11 @@ export type DealerRecord = {
   phone: string;
   role: string;
   status: string;
+  planType: string;
+  isVerified: boolean;
+  featuredSlots: number;
+  leadBalance: number;
+  analyticsSnapshot: string;
   serviceAreas: string;
   createdAt: string;
   updatedAt: string;

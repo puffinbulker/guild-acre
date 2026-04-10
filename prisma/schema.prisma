@@ -26,6 +26,9 @@ model Property {
   amenities      String
   sourceType     String         @default("ADMIN")
   approvalStatus String         @default("APPROVED")
+  boostTier      String         @default("STANDARD")
+  leadRoutingMode String        @default("PLATFORM")
+  featuredRequested Boolean     @default(false)
   listingContactName String?
   listingContactPhone String?
   listingContactRole String?
@@ -49,6 +52,9 @@ model Lead {
   phone        String
   requirement  String
   propertyId   String?
+  assignedDealerId String?
+  routingStatus String @default("PLATFORM")
+  sourceChannel String @default("WEBSITE")
   property     Property? @relation(fields: [propertyId], references: [id], onDelete: SetNull)
   createdAt    DateTime @default(now())
 
@@ -65,6 +71,11 @@ model Dealer {
   passwordHash  String
   role          String     @default("DEALER")
   status        String     @default("PENDING")
+  planType      String     @default("BASIC")
+  isVerified    Boolean    @default(false)
+  featuredSlots Int        @default(0)
+  leadBalance   Int        @default(0)
+  analyticsSnapshot String @default("{}")
   serviceAreas  String     @default("[]")
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt

@@ -1,7 +1,10 @@
 import { z } from "zod";
 import {
   DEALER_ROLES,
+  DEALER_PLAN_TYPES,
   DEALER_STATUSES,
+  BOOST_TIERS,
+  LEAD_ROUTING_MODES,
   LISTING_APPROVAL_STATUSES,
   PROPERTY_STATUSES,
   PROPERTY_TYPES
@@ -31,6 +34,9 @@ export const propertySchema = z.object({
   amenities: z.array(z.string()).default([]),
   sourceType: z.enum(["ADMIN", "VENDOR"]).optional(),
   approvalStatus: z.enum(LISTING_APPROVAL_STATUSES).optional(),
+  boostTier: z.enum(BOOST_TIERS).optional(),
+  leadRoutingMode: z.enum(LEAD_ROUTING_MODES).optional(),
+  featuredRequested: z.coerce.boolean().optional(),
   listingContactName: z.string().min(2).optional().nullable(),
   listingContactPhone: z.string().min(10).max(15).optional().nullable(),
   listingContactRole: z.string().min(2).optional().nullable()
@@ -52,9 +58,17 @@ export const dealerLoginSchema = z.object({
 });
 
 export const dealerStatusSchema = z.object({
-  status: z.enum(DEALER_STATUSES)
+  status: z.enum(DEALER_STATUSES).optional(),
+  planType: z.enum(DEALER_PLAN_TYPES).optional(),
+  isVerified: z.coerce.boolean().optional(),
+  featuredSlots: z.coerce.number().int().min(0).optional(),
+  leadBalance: z.coerce.number().int().min(0).optional()
 });
 
 export const propertyModerationSchema = z.object({
-  approvalStatus: z.enum(LISTING_APPROVAL_STATUSES)
+  approvalStatus: z.enum(LISTING_APPROVAL_STATUSES).optional(),
+  boostTier: z.enum(BOOST_TIERS).optional(),
+  leadRoutingMode: z.enum(LEAD_ROUTING_MODES).optional(),
+  featuredRequested: z.coerce.boolean().optional(),
+  featured: z.coerce.boolean().optional()
 });

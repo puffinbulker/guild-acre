@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { getAdminCookieName, verifySessionToken } from "@/lib/auth";
-import { updateDealerStatusInStore } from "@/lib/data-store";
+import { updateDealerInStore } from "@/lib/data-store";
 import { dealerStatusSchema } from "@/lib/validations";
 
 export async function PATCH(
@@ -22,8 +22,12 @@ export async function PATCH(
     return NextResponse.json({ error: "Invalid dealer update payload." }, { status: 400 });
   }
 
+  if (Object.values(parsed.data).every((value) => value === undefined)) {
+    return NextResponse.json({ error: "No dealer updates were provided." }, { status: 400 });
+  }
+
   const { id } = await context.params;
-  const dealer = await updateDealerStatusInStore(id, parsed.data.status);
+  const dealer = await updateDealerInStore(id, parsed.data);
 
   if (!dealer) {
     return NextResponse.json({ error: "Dealer not found." }, { status: 404 });

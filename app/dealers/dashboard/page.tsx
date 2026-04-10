@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { DealerDashboard } from "@/components/dealer-dashboard";
+import { DealerDashboardV2 } from "@/components/dealer-dashboard-v2";
 import { getDealerCookieName, verifyDealerSessionToken } from "@/lib/auth";
-import { getDealerByIdFromStore, getPropertiesByVendorFromStore } from "@/lib/data-store";
+import { getAllLeads, getDealerByIdFromStore, getPropertiesByVendorFromStore } from "@/lib/data-store";
 
 export const dynamic = "force-dynamic";
 
@@ -21,11 +21,14 @@ export default async function DealerDashboardPage() {
     redirect("/dealers/login");
   }
 
-  const properties = await getPropertiesByVendorFromStore(dealer.id);
+  const [properties, leads] = await Promise.all([
+    getPropertiesByVendorFromStore(dealer.id),
+    getAllLeads()
+  ]);
 
   return (
     <main className="container page-shell">
-      <DealerDashboard dealer={dealer} properties={properties} />
+      <DealerDashboardV2 dealer={dealer} properties={properties} leads={leads} />
     </main>
   );
 }

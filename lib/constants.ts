@@ -46,9 +46,38 @@ export const DEALER_STATUSES = [
   "SUSPENDED"
 ] as const;
 
+export const DEALER_PLAN_TYPES = [
+  "BASIC",
+  "PRO",
+  "PREMIUM",
+  "ENTERPRISE"
+] as const;
+
+export const BOOST_TIERS = [
+  "STANDARD",
+  "FEATURED",
+  "SPOTLIGHT"
+] as const;
+
+export const LEAD_ROUTING_MODES = [
+  "PLATFORM",
+  "DIRECT_VENDOR",
+  "SHARED"
+] as const;
+
+export const LEAD_ROUTING_STATUSES = [
+  "PLATFORM",
+  "ASSIGNED",
+  "SHARED"
+] as const;
+
 export type ListingApprovalStatus = (typeof LISTING_APPROVAL_STATUSES)[number];
 export type DealerRoleValue = (typeof DEALER_ROLES)[number];
 export type DealerStatusValue = (typeof DEALER_STATUSES)[number];
+export type DealerPlanTypeValue = (typeof DEALER_PLAN_TYPES)[number];
+export type BoostTierValue = (typeof BOOST_TIERS)[number];
+export type LeadRoutingModeValue = (typeof LEAD_ROUTING_MODES)[number];
+export type LeadRoutingStatusValue = (typeof LEAD_ROUTING_STATUSES)[number];
 
 export const GURGAON_AREA_CATALOG = [
   {

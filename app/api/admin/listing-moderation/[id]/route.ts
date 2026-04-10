@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { getAdminCookieName, verifySessionToken } from "@/lib/auth";
-import { updatePropertyApprovalStatusInStore } from "@/lib/data-store";
+import { updatePropertyMonetizationInStore } from "@/lib/data-store";
 import { propertyModerationSchema } from "@/lib/validations";
 
 export async function PATCH(
@@ -22,8 +22,12 @@ export async function PATCH(
     return NextResponse.json({ error: "Invalid moderation payload." }, { status: 400 });
   }
 
+  if (Object.values(parsed.data).every((value) => value === undefined)) {
+    return NextResponse.json({ error: "No listing updates were provided." }, { status: 400 });
+  }
+
   const { id } = await context.params;
-  const property = await updatePropertyApprovalStatusInStore(id, parsed.data.approvalStatus);
+  const property = await updatePropertyMonetizationInStore(id, parsed.data);
 
   if (!property) {
     return NextResponse.json({ error: "Listing not found." }, { status: 404 });

@@ -21,6 +21,11 @@ type DealerInput = {
   role: string;
   serviceAreas?: string[];
   status?: string;
+  planType?: string;
+  isVerified?: boolean;
+  featuredSlots?: number;
+  leadBalance?: number;
+  analyticsSnapshot?: string;
 };
 
 function toPropertyInput(property: PropertyRecord): PropertyInput {
@@ -41,6 +46,9 @@ function toPropertyInput(property: PropertyRecord): PropertyInput {
     amenities: property.amenities,
     sourceType: property.sourceType,
     approvalStatus: property.approvalStatus,
+    boostTier: property.boostTier,
+    leadRoutingMode: property.leadRoutingMode,
+    featuredRequested: property.featuredRequested,
     listingContactName: property.listingContactName,
     listingContactPhone: property.listingContactPhone,
     listingContactRole: property.listingContactRole,
@@ -90,6 +98,9 @@ function toPropertyRecord(property: {
   amenities: string;
   sourceType: string;
   approvalStatus: string;
+  boostTier: string;
+  leadRoutingMode: string;
+  featuredRequested: boolean;
   listingContactName: string | null;
   listingContactPhone: string | null;
   listingContactRole: string | null;
@@ -106,6 +117,9 @@ function toPropertyRecord(property: {
 
 function normalizePropertyRecord(property: Partial<PropertyRecord> & Pick<PropertyRecord, "id" | "title" | "slug" | "description" | "location" | "sector" | "city" | "priceInr" | "type" | "status" | "bedrooms" | "bathrooms" | "areaSqft" | "featured" | "imageUrls" | "amenities" | "createdAt" | "updatedAt">): PropertyRecord {
   return {
+    boostTier: "STANDARD",
+    leadRoutingMode: "PLATFORM",
+    featuredRequested: false,
     sourceType: "ADMIN",
     approvalStatus: "APPROVED",
     listingContactName: null,
@@ -122,6 +136,9 @@ function toLeadRecord(lead: {
   phone: string;
   requirement: string;
   propertyId: string | null;
+  assignedDealerId: string | null;
+  routingStatus: string;
+  sourceChannel: string;
   createdAt: Date;
 }): LeadRecord {
   return {
@@ -138,6 +155,11 @@ function toDealerRecord(dealer: {
   phone: string;
   role: string;
   status: string;
+  planType: string;
+  isVerified: boolean;
+  featuredSlots: number;
+  leadBalance: number;
+  analyticsSnapshot: string;
   serviceAreas: string;
   createdAt: Date;
   updatedAt: Date;
@@ -158,6 +180,11 @@ function normalizeDealerRecord(
 ): DealerRecord & { passwordHash?: string } {
   return {
     companyName: null,
+    planType: "BASIC",
+    isVerified: false,
+    featuredSlots: 0,
+    leadBalance: 0,
+    analyticsSnapshot: "{}",
     serviceAreas: "[]",
     ...dealer
   };
@@ -184,7 +211,13 @@ export async function getAllProperties() {
 
 export async function getAllLeads() {
   if (useJsonFallback()) {
-    return readJsonFile<LeadRecord[]>(leadsPath, []);
+    const leads = await readJsonFile<LeadRecord[]>(leadsPath, []);
+    return leads.map((lead) => ({
+      ...lead,
+      assignedDealerId: lead.assignedDealerId ?? null,
+      routingStatus: lead.routingStatus ?? "PLATFORM",
+      sourceChannel: lead.sourceChannel ?? "WEBSITE"
+    }));
   }
 
   const leads = await prisma.lead.findMany({
@@ -257,6 +290,11 @@ export async function getDealerByEmailFromStore(email: string) {
           phone: string;
           role: string;
           status: string;
+          planType: string;
+          isVerified: boolean;
+          featuredSlots: number;
+          leadBalance: number;
+          analyticsSnapshot: string;
           serviceAreas: string;
           createdAt: Date;
           updatedAt: Date;
@@ -286,6 +324,11 @@ export async function createDealerInStore(input: DealerInput) {
       passwordHash,
       role: input.role,
       status: input.status || "PENDING",
+      planType: input.planType || "BASIC",
+      isVerified: input.isVerified || false,
+      featuredSlots: input.featuredSlots || 0,
+      leadBalance: input.leadBalance || 0,
+      analyticsSnapshot: input.analyticsSnapshot || "{}",
       serviceAreas: JSON.stringify(input.serviceAreas || []),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
@@ -305,6 +348,11 @@ export async function createDealerInStore(input: DealerInput) {
       passwordHash,
       role: input.role,
       status: input.status || "PENDING",
+      planType: input.planType || "BASIC",
+      isVerified: input.isVerified || false,
+      featuredSlots: input.featuredSlots || 0,
+      leadBalance: input.leadBalance || 0,
+      analyticsSnapshot: input.analyticsSnapshot || "{}",
       serviceAreas: JSON.stringify(input.serviceAreas || [])
     }
   });
@@ -312,7 +360,12 @@ export async function createDealerInStore(input: DealerInput) {
   return toDealerRecord(dealer);
 }
 
-export async function updateDealerStatusInStore(id: string, status: string) {
+export async function updateDealerInStore(
+  id: string,
+  updates: Partial<
+    Pick<DealerRecord, "status" | "planType" | "isVerified" | "featuredSlots" | "leadBalance">
+  >
+) {
   if (useJsonFallback()) {
     const dealers = await readJsonFile<Array<DealerRecord & { passwordHash?: string }>>(
       dealersPath,
@@ -326,7 +379,7 @@ export async function updateDealerStatusInStore(id: string, status: string) {
 
     dealers[index] = {
       ...dealers[index],
-      status,
+      ...updates,
       updatedAt: new Date().toISOString()
     };
     await writeJsonFile(dealersPath, dealers);
@@ -336,7 +389,7 @@ export async function updateDealerStatusInStore(id: string, status: string) {
   try {
     const dealer = await prisma.dealer.update({
       where: { id },
-      data: { status }
+      data: updates
     });
     return toDealerRecord(dealer);
   } catch {
@@ -378,6 +431,9 @@ export async function createPropertyInStore(input: PropertyInput) {
     ...input,
     sourceType: input.sourceType || "ADMIN",
     approvalStatus: input.approvalStatus || "APPROVED",
+    boostTier: input.boostTier || (input.featured ? "FEATURED" : "STANDARD"),
+    leadRoutingMode: input.leadRoutingMode || "PLATFORM",
+    featuredRequested: input.featuredRequested || false,
     listingContactName: input.listingContactName || null,
     listingContactPhone: input.listingContactPhone || null,
     listingContactRole: input.listingContactRole || null,
@@ -414,6 +470,9 @@ export async function createVendorPropertyInStore(vendorId: string, input: Prope
     ...input,
     sourceType: "VENDOR",
     approvalStatus: "PENDING",
+    boostTier: input.boostTier || "STANDARD",
+    leadRoutingMode: input.leadRoutingMode || "PLATFORM",
+    featuredRequested: input.featuredRequested || false,
     vendorId,
     featured: false
   });
@@ -424,6 +483,9 @@ export async function updatePropertyInStore(id: string, input: PropertyInput) {
     ...input,
     sourceType: input.sourceType || "ADMIN",
     approvalStatus: input.approvalStatus || "APPROVED",
+    boostTier: input.boostTier || (input.featured ? "FEATURED" : "STANDARD"),
+    leadRoutingMode: input.leadRoutingMode || "PLATFORM",
+    featuredRequested: input.featuredRequested || false,
     listingContactName: input.listingContactName || null,
     listingContactPhone: input.listingContactPhone || null,
     listingContactRole: input.listingContactRole || null,
@@ -481,12 +543,18 @@ export async function updateVendorPropertyInStore(
     ...input,
     sourceType: "VENDOR",
     approvalStatus: existing.approvalStatus === "APPROVED" ? "PENDING" : existing.approvalStatus,
+    featuredRequested: input.featuredRequested ?? existing.featuredRequested,
     vendorId,
     featured: false
   });
 }
 
-export async function updatePropertyApprovalStatusInStore(id: string, approvalStatus: string) {
+export async function updatePropertyMonetizationInStore(
+  id: string,
+  updates: Partial<
+    Pick<PropertyRecord, "approvalStatus" | "boostTier" | "leadRoutingMode" | "featuredRequested" | "featured">
+  >
+) {
   const existing = await getPropertyByIdFromStore(id);
 
   if (!existing) {
@@ -495,7 +563,7 @@ export async function updatePropertyApprovalStatusInStore(id: string, approvalSt
 
   return updatePropertyInStore(id, {
     ...toPropertyInput(existing),
-    approvalStatus
+    ...updates
   });
 }
 
@@ -514,11 +582,34 @@ export async function deletePropertyInStore(id: string) {
   });
 }
 
-export async function createLeadInStore(input: Omit<LeadRecord, "id" | "createdAt">) {
+type LeadInput = Pick<LeadRecord, "name" | "phone" | "requirement"> & {
+  propertyId?: string | null;
+  assignedDealerId?: string | null;
+  routingStatus?: string;
+  sourceChannel?: string;
+};
+
+export async function createLeadInStore(input: LeadInput) {
+  const property = input.propertyId ? await getPropertyByIdFromStore(input.propertyId) : null;
+  const assignedDealerId =
+    input.assignedDealerId ??
+    (property?.vendorId && property.leadRoutingMode !== "PLATFORM" ? property.vendorId : null);
+  const routingStatus =
+    input.routingStatus ??
+    (property?.leadRoutingMode === "DIRECT_VENDOR"
+      ? "ASSIGNED"
+      : property?.leadRoutingMode === "SHARED"
+        ? "SHARED"
+        : "PLATFORM");
+
   if (useJsonFallback()) {
     const leads = await getAllLeads();
     const lead: LeadRecord = {
       ...input,
+      propertyId: input.propertyId ?? null,
+      assignedDealerId,
+      routingStatus,
+      sourceChannel: input.sourceChannel || "WEBSITE",
       id: crypto.randomUUID(),
       createdAt: new Date().toISOString()
     };
@@ -528,7 +619,12 @@ export async function createLeadInStore(input: Omit<LeadRecord, "id" | "createdA
   }
 
   const lead = await prisma.lead.create({
-    data: input
+    data: {
+      ...input,
+      assignedDealerId,
+      routingStatus,
+      sourceChannel: input.sourceChannel || "WEBSITE"
+    }
   });
 
   return toLeadRecord(lead);
