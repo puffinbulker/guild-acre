@@ -33,6 +33,44 @@ export default async function HomePage() {
 
   return (
     <main>
+      <section className="live-banner" aria-label="Live Gurgaon property updates">
+        <div className="container live-banner__shell">
+          <div className="live-banner__label">
+            <span className="live-dot" />
+            <span>Live Now</span>
+          </div>
+          <div className="live-banner__ticker">
+            <div className="live-banner__track">
+              <span>Gurgaon-only property platform</span>
+              <span>Buy, rent, lease, resale, fresh booking</span>
+              <span>Builder floors, villas, kothis, apartments, plots</span>
+              <span>Commercial, land, farm land, agriculture opportunities</span>
+              <span>Dealer onboarding and owner listing desk now active</span>
+              <span>WhatsApp advisory for instant shortlisting</span>
+              <span>Gurgaon-only property platform</span>
+              <span>Buy, rent, lease, resale, fresh booking</span>
+              <span>Builder floors, villas, kothis, apartments, plots</span>
+              <span>Commercial, land, farm land, agriculture opportunities</span>
+              <span>Dealer onboarding and owner listing desk now active</span>
+              <span>WhatsApp advisory for instant shortlisting</span>
+            </div>
+          </div>
+          <div className="live-banner__actions">
+            <Link href="/dealers/join" className="live-banner__link">
+              List Property
+            </Link>
+            <a
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999"}`}
+              className="live-banner__link live-banner__link--accent"
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="hero-section">
         {heroImage ? (
           <div className="hero-backdrop" aria-hidden="true">
