@@ -213,8 +213,8 @@ export default async function HomePage() {
             </div>
             <span className="eyebrow">Public trend references refreshed in April 2026</span>
           </div>
-          <div className="market-intel__grid">
-            {GURGAON_MARKET_GUIDES.slice(0, 6).map((guide) => (
+          <div className="market-intel__grid market-intel__grid--dense">
+            {GURGAON_MARKET_GUIDES.map((guide) => (
               <article className="market-intel__card" key={guide.slug}>
                 <div className="market-intel__media">
                   <Image
@@ -302,7 +302,7 @@ export default async function HomePage() {
             </div>
             <span className="eyebrow">Representative visuals for discovery, marketing, and faster buyer intent mapping</span>
           </div>
-          <div className="property-universe__grid">
+          <div className="property-universe__grid property-universe__grid--dense">
             {PROPERTY_VISUAL_CATEGORIES.map((category) => (
               <article className="property-universe__card" key={category.slug}>
                 <div className="property-universe__image">
@@ -327,6 +327,44 @@ export default async function HomePage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container section-space">
+        <div className="market-matrix">
+          <div className="section-head">
+            <div>
+              <span className="section-tag">Smart Discovery Matrix</span>
+              <h2>Match every buyer requirement with the right Gurgaon asset class</h2>
+            </div>
+            <span className="eyebrow">Built for buyers, sellers, dealers, landlords, and investors</span>
+          </div>
+          <div className="market-matrix__grid">
+            <article className="market-matrix__card">
+              <strong>Buy / Fresh Booking</strong>
+              <p>New launches, under-construction inventory, premium towers, and family-led bookings.</p>
+            </article>
+            <article className="market-matrix__card">
+              <strong>Resale / Ready to Move</strong>
+              <p>Immediate-possession apartments, builder floors, kothis, and low-rise resale supply.</p>
+            </article>
+            <article className="market-matrix__card">
+              <strong>Rent / Lease</strong>
+              <p>Tenant-ready stock for corporate leasing, family occupation, and premium relocations.</p>
+            </article>
+            <article className="market-matrix__card">
+              <strong>Plots / Farm / Agriculture Land</strong>
+              <p>Plot banking, weekend farm concepts, larger land parcels, and rural-edge strategic holdings.</p>
+            </article>
+            <article className="market-matrix__card">
+              <strong>Commercial / SCO / Office</strong>
+              <p>Yield-driven offices, SCO assets, retail formats, and owner-operator acquisition support.</p>
+            </article>
+            <article className="market-matrix__card">
+              <strong>Owner & Dealer Desk</strong>
+              <p>Post inventory, seek mandates, list on behalf of clients, and route serious enquiries faster.</p>
+            </article>
           </div>
         </div>
       </section>

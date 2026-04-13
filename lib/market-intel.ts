@@ -189,6 +189,66 @@ export const GURGAON_MARKET_GUIDES: GurgaonMarketGuide[] = [
     sourceLabel: "Housing.com price trend",
     sourceUrl: "https://housing.com/price-trends/property-rates-for-buy-in-sector_104_gurgaon-P2qgp62svm845z7dw",
     updatedAt: "April 2026"
+  },
+  {
+    slug: "sector-57",
+    title: "Sector 57",
+    kind: "sector",
+    avgPricePerSqft: 13581,
+    indicativeRange: "INR 4,545 - 43,507 / sq.ft.",
+    movement: "+17.23% YoY on Housing.com trend data",
+    outlook: "A highly active buyer pocket for family apartments, floors, and premium low-rise movement.",
+    positioning: "Fast-moving family sector",
+    imageUrl:
+      "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
+    sourceLabel: "Housing.com price trend",
+    sourceUrl: "https://housing.com/price-trends/property-rates-for-buy-in-sector_57_gurgaon-P6nh4kvx3pvh24c5",
+    updatedAt: "April 2026"
+  },
+  {
+    slug: "sector-67",
+    title: "Sector 67",
+    kind: "sector",
+    avgPricePerSqft: 12847,
+    indicativeRange: "INR 2,900 - 24,000 / sq.ft.",
+    movement: "+0.83% YoY on Housing.com trend data",
+    outlook: "Golf Course Extension influence makes this sector relevant for upgrade buyers and launch seekers.",
+    positioning: "Emerging premium-family sector",
+    imageUrl:
+      "https://images.unsplash.com/photo-1519643381401-22c77e60520e?auto=format&fit=crop&w=1400&q=80",
+    sourceLabel: "Housing.com price trend",
+    sourceUrl: "https://housing.com/price-trends/property-rates-for-buy-in-sector_67_gurgaon-P4zcsedyywnwq6rfo",
+    updatedAt: "April 2026"
+  },
+  {
+    slug: "sector-83",
+    title: "Sector 83",
+    kind: "sector",
+    avgPricePerSqft: 12027,
+    indicativeRange: "INR 7,105 - 17,931 / sq.ft.",
+    movement: "+4.74% YoY on Housing.com trend data",
+    outlook: "A practical New Gurgaon family and investor micro-market with scalable inventory depth.",
+    positioning: "Value family inventory",
+    imageUrl:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
+    sourceLabel: "Housing.com price trend",
+    sourceUrl: "https://housing.com/price-trends/property-rates-for-buy-in-sector_83_gurgaon-P3f86fnyfd72wuv7c",
+    updatedAt: "April 2026"
+  },
+  {
+    slug: "sector-84",
+    title: "Sector 84",
+    kind: "sector",
+    avgPricePerSqft: 11310,
+    indicativeRange: "INR 6,896 - 23,679 / sq.ft.",
+    movement: "+0.44% YoY on Housing.com trend data",
+    outlook: "Steady New Gurgaon supply with appeal for buyers seeking value plus corridor access.",
+    positioning: "Steady mid-premium growth",
+    imageUrl:
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
+    sourceLabel: "Housing.com price trend",
+    sourceUrl: "https://housing.com/price-trends/property-rates-for-buy-in-sector_84_gurgaon-P3vidvqx6uu31gzb4",
+    updatedAt: "April 2026"
   }
 ];
 
@@ -255,6 +315,24 @@ export const PROPERTY_VISUAL_CATEGORIES: PropertyVisualCategory[] = [
     imageUrl:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80",
     useCases: ["Yield assets", "SCO / retail", "Corporate leasing"]
+  },
+  {
+    slug: "low-rise",
+    title: "Low Rise Homes",
+    type: "LOW_RISE",
+    description: "Low-rise apartments and independent-style community living for privacy-focused end users.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=80",
+    useCases: ["Family privacy", "Low-density living", "Resale stock"]
+  },
+  {
+    slug: "high-rise",
+    title: "High Rise Towers",
+    type: "HIGH_RISE",
+    description: "Skyline-facing high-rise inventory for amenity-rich urban living and investor-grade positioning.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
+    useCases: ["Luxury towers", "Club living", "Skyline assets"]
   }
 ];
 
@@ -265,4 +343,3 @@ export function getMarketGuideBySlug(slug: string) {
 export function getMarketGuideForArea(title: string) {
   return getMarketGuideBySlug(slugify(title));
 }
-
