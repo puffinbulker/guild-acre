@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { LeadForm } from "@/components/lead-form";
+import { getMarketGuideForArea } from "@/lib/market-intel";
 import { getPropertyBySlug } from "@/lib/queries";
 import { formatPrice, parseJsonArray } from "@/lib/utils";
 
@@ -36,6 +37,9 @@ export default async function PropertyDetailPage({ params }: Props) {
   const amenities = parseJsonArray(property.amenities);
   const primaryImage = images[0];
   const supportingImages = images.slice(1, 5);
+  const marketGuide = getMarketGuideForArea(property.sector) || getMarketGuideForArea(property.location);
+  const propertyRate = Math.round(property.priceInr / property.areaSqft);
+  const pricePosition = marketGuide ? classifyPricePosition(propertyRate, marketGuide.avgPricePerSqft) : null;
 
   return (
     <main className="container page-shell property-detail">
@@ -149,6 +153,41 @@ export default async function PropertyDetailPage({ params }: Props) {
               <span>Designed for WhatsApp-first buyer conversations</span>
             </div>
           </div>
+
+          {marketGuide ? (
+            <div className="property-market-compare">
+              <div className="property-market-compare__head">
+                <span className="section-tag">Comparative Market Price</span>
+                <h3>{marketGuide.title} benchmark</h3>
+              </div>
+              <div className="property-market-compare__stats">
+                <div>
+                  <strong>INR {propertyRate.toLocaleString("en-IN")}</strong>
+                  <span>This listing / sq.ft.</span>
+                </div>
+                <div>
+                  <strong>INR {marketGuide.avgPricePerSqft.toLocaleString("en-IN")}</strong>
+                  <span>Area avg / sq.ft.</span>
+                </div>
+                <div>
+                  <strong>{pricePosition}</strong>
+                  <span>Position vs area average</span>
+                </div>
+              </div>
+              <p>
+                Indicative public range for {marketGuide.title}: {marketGuide.indicativeRange}. Final
+                deal value depends on tower, facing, floor, builder, registry, and finish level.
+              </p>
+              <a
+                className="property-market-compare__source"
+                href={marketGuide.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Source: {marketGuide.sourceLabel}
+              </a>
+            </div>
+          ) : null}
         </section>
 
         <aside className="property-detail__sidebar">
@@ -157,4 +196,12 @@ export default async function PropertyDetailPage({ params }: Props) {
       </div>
     </main>
   );
+}
+
+function classifyPricePosition(pricePerSqft: number, avgPricePerSqft: number) {
+  const delta = pricePerSqft / avgPricePerSqft;
+
+  if (delta >= 1.2) return "Above market average";
+  if (delta <= 0.8) return "Below market average";
+  return "Near market average";
 }

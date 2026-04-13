@@ -4,6 +4,7 @@ import { getFeaturedProperties, getPropertyLocationStats, getPropertyLocations }
 import { PropertyCard } from "@/components/property-card";
 import { SearchFilters } from "@/components/search-filters";
 import { LeadForm } from "@/components/lead-form";
+import { GURGAON_MARKET_GUIDES, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
 import { parseJsonArray, slugify } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -204,6 +205,61 @@ export default async function HomePage() {
       </section>
 
       <section className="container section-space">
+        <div className="market-intel">
+          <div className="section-head">
+            <div>
+              <span className="section-tag">Sector Price Intelligence</span>
+              <h2>Indicative Gurgaon market price benchmarks, sector by sector</h2>
+            </div>
+            <span className="eyebrow">Public trend references refreshed in April 2026</span>
+          </div>
+          <div className="market-intel__grid">
+            {GURGAON_MARKET_GUIDES.slice(0, 6).map((guide) => (
+              <article className="market-intel__card" key={guide.slug}>
+                <div className="market-intel__media">
+                  <Image
+                    src={guide.imageUrl}
+                    alt={`${guide.title} market visual`}
+                    fill
+                    sizes="(max-width: 980px) 100vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                  <div className="market-intel__overlay" />
+                  <div className="market-intel__content">
+                    <span className="section-tag">{guide.positioning}</span>
+                    <strong>{guide.title}</strong>
+                    <p>{guide.kind === "sector" ? "Sector-level benchmark" : "Corridor benchmark"}</p>
+                  </div>
+                </div>
+                <div className="market-intel__body">
+                  <div className="market-intel__price">
+                    <strong>{formatInrPerSqft(guide.avgPricePerSqft)}</strong>
+                    <span>Indicative average</span>
+                  </div>
+                  <div className="market-intel__meta">
+                    <span>{guide.indicativeRange}</span>
+                    <span>{guide.movement}</span>
+                  </div>
+                  <p>{guide.outlook}</p>
+                  <div className="market-intel__footer">
+                    <a href={guide.sourceUrl} target="_blank" rel="noreferrer">
+                      Source: {guide.sourceLabel}
+                    </a>
+                    <Link href={`/gurgaon/${guide.slug}`}>Area page</Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="market-intel__note">
+            These are indicative public benchmarks to help buyers compare sectors quickly. Final
+            asking prices depend on exact project, facing, floor, land parcel, title quality, and
+            inventory condition.
+          </p>
+        </div>
+      </section>
+
+      <section className="container section-space">
         <div className="owner-desk">
           <div className="section-head">
             <div>
@@ -233,6 +289,44 @@ export default async function HomePage() {
             <Link href="/dealers/login" className="button button--ghost">
               Dealer login
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="container section-space">
+        <div className="property-universe">
+          <div className="section-head">
+            <div>
+              <span className="section-tag">Property Universe</span>
+              <h2>Visual coverage for every major Gurgaon property class</h2>
+            </div>
+            <span className="eyebrow">Representative visuals for discovery, marketing, and faster buyer intent mapping</span>
+          </div>
+          <div className="property-universe__grid">
+            {PROPERTY_VISUAL_CATEGORIES.map((category) => (
+              <article className="property-universe__card" key={category.slug}>
+                <div className="property-universe__image">
+                  <Image
+                    src={category.imageUrl}
+                    alt={category.title}
+                    fill
+                    sizes="(max-width: 980px) 100vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                  <div className="property-universe__overlay" />
+                  <div className="property-universe__badge">{category.type}</div>
+                </div>
+                <div className="property-universe__body">
+                  <h3>{category.title}</h3>
+                  <p>{category.description}</p>
+                  <div className="property-universe__uses">
+                    {category.useCases.map((useCase) => (
+                      <span key={useCase}>{useCase}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -427,4 +521,8 @@ function formatPriceCompact(value: number) {
   }
 
   return `INR ${(value / 100_000).toFixed(value % 100_000 === 0 ? 0 : 1)} L`;
+}
+
+function formatInrPerSqft(value: number) {
+  return `INR ${value.toLocaleString("en-IN")} / sq.ft.`;
 }

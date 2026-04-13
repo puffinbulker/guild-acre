@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PropertyCard } from "@/components/property-card";
 import { LeadForm } from "@/components/lead-form";
+import { getMarketGuideBySlug, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
 import { getPropertiesByAreaSlug } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function GurgaonAreaPage({ params }: Props) {
   const { slug } = await params;
   const area = await getPropertiesByAreaSlug(slug);
+  const marketGuide = getMarketGuideBySlug(slug);
 
   if (!area) {
     notFound();
@@ -75,6 +77,33 @@ export default async function GurgaonAreaPage({ params }: Props) {
 
       <div className="area-page__layout">
         <section className="area-page__content">
+          {marketGuide ? (
+            <section className="area-market card">
+              <div className="area-market__intro">
+                <span className="section-tag">Market Snapshot</span>
+                <h2>{marketGuide.title} price benchmark</h2>
+                <p>{marketGuide.outlook}</p>
+              </div>
+              <div className="area-market__stats">
+                <div>
+                  <strong>INR {marketGuide.avgPricePerSqft.toLocaleString("en-IN")}</strong>
+                  <span>Indicative avg / sq.ft.</span>
+                </div>
+                <div>
+                  <strong>{marketGuide.indicativeRange}</strong>
+                  <span>Observed public range</span>
+                </div>
+                <div>
+                  <strong>{marketGuide.movement}</strong>
+                  <span>Current reference note</span>
+                </div>
+              </div>
+              <a href={marketGuide.sourceUrl} target="_blank" rel="noreferrer" className="area-market__source">
+                Source: {marketGuide.sourceLabel}
+              </a>
+            </section>
+          ) : null}
+
           <div className="area-page__service-grid">
             <article className="card area-page__service-card">
               <span className="section-tag">For Buyers</span>
@@ -91,6 +120,15 @@ export default async function GurgaonAreaPage({ params }: Props) {
               <h3>Plots, farm land, and agriculture land</h3>
               <p>Use this page as an enquiry gateway even if your exact match is not listed yet.</p>
             </article>
+          </div>
+
+          <div className="area-visual-grid">
+            {PROPERTY_VISUAL_CATEGORIES.slice(0, 4).map((category) => (
+              <article className="card area-visual-grid__card" key={category.slug}>
+                <strong>{category.title}</strong>
+                <p>{category.description}</p>
+              </article>
+            ))}
           </div>
 
           {areaCount ? (

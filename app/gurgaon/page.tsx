@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GURGAON_MARKET_GUIDES } from "@/lib/market-intel";
 import { getGurgaonAreaPages } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
@@ -71,6 +72,39 @@ export default async function GurgaonHubPage() {
             ))}
           </div>
         </article>
+      </section>
+
+      <section className="market-intel">
+        <div className="section-head">
+          <div>
+            <span className="section-tag">All Sector Benchmarks</span>
+            <h2>Indicative Gurgaon price map for sectors and corridors</h2>
+          </div>
+          <span className="eyebrow">Built from current public trend references</span>
+        </div>
+        <div className="market-intel__grid">
+          {GURGAON_MARKET_GUIDES.map((guide) => (
+            <article className="market-intel__card" key={guide.slug}>
+              <div className="market-intel__body">
+                <div className="market-intel__price">
+                  <strong>INR {guide.avgPricePerSqft.toLocaleString("en-IN")} / sq.ft.</strong>
+                  <span>{guide.title}</span>
+                </div>
+                <div className="market-intel__meta">
+                  <span>{guide.indicativeRange}</span>
+                  <span>{guide.movement}</span>
+                </div>
+                <p>{guide.outlook}</p>
+                <div className="market-intel__footer">
+                  <a href={guide.sourceUrl} target="_blank" rel="noreferrer">
+                    {guide.sourceLabel}
+                  </a>
+                  <Link href={`/gurgaon/${guide.slug}`}>Open page</Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   );
