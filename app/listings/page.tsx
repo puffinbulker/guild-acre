@@ -232,6 +232,29 @@ export default async function ListingsPage({ searchParams }: Props) {
             </div>
           </section>
 
+          <section className="portal-inventory-board">
+            <div className="section-head">
+              <div>
+                <span className="section-tag">Inventory Universe</span>
+                <h2>Sample coverage across Gurgaon property classes</h2>
+              </div>
+            </div>
+            <div className="portal-inventory-board__grid">
+              {propertyUniverse.map((category) => (
+                <article key={category.slug} className="portal-inventory-card">
+                  <strong>{category.title}</strong>
+                  <span>{category.type}</span>
+                  <p>{category.description}</p>
+                  <div className="portal-inventory-card__uses">
+                    {category.useCases.map((useCase) => (
+                      <em key={useCase}>{useCase}</em>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <div className="property-grid">
             {properties.map((property) => (
               <PropertyCard key={property.id} property={property} />

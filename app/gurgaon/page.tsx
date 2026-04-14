@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GURGAON_MARKET_GUIDES } from "@/lib/market-intel";
+import { GURGAON_MARKET_GUIDES, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
 import { getGurgaonAreaPages } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
@@ -24,6 +24,40 @@ export default async function GurgaonHubPage() {
   const areas = await getGurgaonAreaPages();
   const localities = areas.filter((item) => item.kind === "location");
   const sectors = areas.filter((item) => item.kind === "sector");
+  const inventoryClasses = PROPERTY_VISUAL_CATEGORIES.map((category) => {
+    let href = "/listings?collection=BUY";
+
+    switch (category.slug) {
+      case "builder-floors":
+        href = "/listings?collection=FLOORS";
+        break;
+      case "kothi-villa":
+        href = "/listings?collection=VILLAS";
+        break;
+      case "plots":
+      case "agriculture-land":
+        href = "/listings?collection=LAND";
+        break;
+      case "farm-land":
+        href = "/listings?collection=FARMLAND";
+        break;
+      case "commercial":
+        href = "/listings?collection=COMMERCIAL";
+        break;
+      case "apartments":
+      case "low-rise":
+      case "high-rise":
+        href = "/listings?collection=APARTMENTS";
+        break;
+      default:
+        break;
+    }
+
+    return {
+      ...category,
+      href
+    };
+  });
 
   return (
     <main className="container page-shell gurgaon-hub">
@@ -72,6 +106,25 @@ export default async function GurgaonHubPage() {
             ))}
           </div>
         </article>
+      </section>
+
+      <section className="market-matrix">
+        <div className="section-head">
+          <div>
+            <span className="section-tag">Inventory Classes</span>
+            <h2>Everything the Gurgaon platform now covers</h2>
+          </div>
+          <span className="eyebrow">Buy, resale, rent, lease, owner stock, dealer inventory</span>
+        </div>
+        <div className="market-matrix__grid">
+          {inventoryClasses.map((item) => (
+            <Link key={item.slug} href={item.href} className="market-matrix__card">
+              <strong>{item.title}</strong>
+              <p>{item.description}</p>
+              <span>{item.type}</span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="market-intel">

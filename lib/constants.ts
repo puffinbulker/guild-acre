@@ -151,5 +151,29 @@ export const GURGAON_AREA_CATALOG = [
     title: "Sector 104",
     kind: "sector",
     summary: "Dwarka Expressway growth corridor with plotted and launch-led opportunities."
+  },
+  {
+    slug: "sector-57",
+    title: "Sector 57",
+    kind: "sector",
+    summary: "A fast-moving family sector for apartments, builder floors, resale, and premium low-rise demand."
+  },
+  {
+    slug: "sector-67",
+    title: "Sector 67",
+    kind: "sector",
+    summary: "Emerging premium-family inventory with launch stock and Golf Course Extension spillover demand."
+  },
+  {
+    slug: "sector-83",
+    title: "Sector 83",
+    kind: "sector",
+    summary: "New Gurgaon value-family market with practical apartment, floor, and investor-led inventory depth."
+  },
+  {
+    slug: "sector-84",
+    title: "Sector 84",
+    kind: "sector",
+    summary: "Steady growth micro-market with corridor access, launch opportunities, and mixed buyer interest."
   }
 ] as const;
