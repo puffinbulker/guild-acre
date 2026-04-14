@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { SearchFilters } from "@/components/search-filters";
 import { PropertyCard } from "@/components/property-card";
+import { GURGAON_MARKET_GUIDES, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
 import { getProperties, getPropertyLocations, getPropertyLocationStats } from "@/lib/queries";
 import { slugify } from "@/lib/utils";
 
@@ -47,6 +48,9 @@ export default async function ListingsPage({ searchParams }: Props) {
     { label: "Farm Land", value: "FARMLAND" },
     { label: "Commercial", value: "COMMERCIAL" }
   ];
+  const featuredLocations = locationStats.slice(0, 8);
+  const spotlightGuides = GURGAON_MARKET_GUIDES.slice(0, 4);
+  const propertyUniverse = PROPERTY_VISUAL_CATEGORIES.slice(0, 8);
 
   return (
     <main className="container page-shell">
@@ -102,6 +106,37 @@ export default async function ListingsPage({ searchParams }: Props) {
             />
           </div>
 
+          <div className="card listings-sidebar__card listings-sidebar__card--dense">
+            <span className="section-tag">Quick Demand Classes</span>
+            <h3>Scan the categories buyers ask for most</h3>
+            <div className="portal-demand-grid">
+              {propertyUniverse.map((category) => (
+                <a
+                  key={category.slug}
+                  className="portal-demand-card"
+                  href={`/listings?collection=${
+                    category.slug === "builder-floors"
+                      ? "FLOORS"
+                      : category.slug === "kothi-villa"
+                        ? "VILLAS"
+                        : category.slug === "commercial"
+                          ? "COMMERCIAL"
+                          : category.slug === "farm-land"
+                            ? "FARMLAND"
+                            : category.slug === "plots" || category.slug === "agriculture-land"
+                              ? "LAND"
+                              : category.slug === "apartments" || category.slug === "low-rise" || category.slug === "high-rise"
+                                ? "APARTMENTS"
+                                : "BUY"
+                  }`}
+                >
+                  <strong>{category.title}</strong>
+                  <span>{category.type}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           <div className="card listings-sidebar__card">
             <span className="section-tag">Need Service?</span>
             <h3>Owner, buyer, seller, tenant, or landlord desk</h3>
@@ -123,6 +158,35 @@ export default async function ListingsPage({ searchParams }: Props) {
         </aside>
 
         <section className="listings-results">
+          <section className="portal-results-board">
+            <div className="portal-results-board__head">
+              <div>
+                <span className="section-tag">Listings Board</span>
+                <h2>Gurgaon inventory by sector, deal type, and property class</h2>
+              </div>
+              <div className="portal-results-board__chips">
+                <span>{properties.length} live results</span>
+                <span>{normalized.collection ? `Collection: ${normalized.collection.replaceAll("_", " ")}` : "All collections"}</span>
+                <span>{normalized.location || "All Gurgaon localities"}</span>
+              </div>
+            </div>
+
+            <div className="portal-results-board__grid">
+              <div className="portal-results-board__metric">
+                <strong>{properties.filter((item) => item.featured).length}</strong>
+                <span>Featured and priority listings</span>
+              </div>
+              <div className="portal-results-board__metric">
+                <strong>{featuredLocations.length}</strong>
+                <span>High-demand localities in this board</span>
+              </div>
+              <div className="portal-results-board__metric">
+                <strong>{propertyUniverse.length}</strong>
+                <span>Property classes live on the marketplace</span>
+              </div>
+            </div>
+          </section>
+
           <div className="listing-summary">{properties.length} properties found</div>
 
           <section className="locality-strip">
@@ -133,7 +197,7 @@ export default async function ListingsPage({ searchParams }: Props) {
               </div>
             </div>
             <div className="locality-strip__grid">
-              {locationStats.slice(0, 6).map((item) => (
+              {featuredLocations.map((item) => (
                 <a
                   key={item.location}
                   className="locality-chip-card"
@@ -141,6 +205,28 @@ export default async function ListingsPage({ searchParams }: Props) {
                 >
                   <strong>{item.location}</strong>
                   <span>{item.count} listing{item.count === 1 ? "" : "s"}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <section className="portal-benchmarks">
+            <div className="section-head">
+              <div>
+                <span className="section-tag">Market Signals</span>
+                <h2>Quick benchmark cards for the corridors people compare first</h2>
+              </div>
+            </div>
+            <div className="portal-benchmarks__grid">
+              {spotlightGuides.map((guide) => (
+                <a
+                  key={guide.slug}
+                  className="portal-benchmark-card"
+                  href={`/gurgaon/${guide.slug}`}
+                >
+                  <strong>{guide.title}</strong>
+                  <span>{guide.positioning}</span>
+                  <em>{guide.avgPricePerSqft.toLocaleString("en-IN")} / sq.ft.</em>
                 </a>
               ))}
             </div>
