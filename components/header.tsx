@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { cookies } from "next/headers";
 type NavLinkItem = {
   href: string;
   label: string;
@@ -8,33 +8,37 @@ type NavLinkItem = {
 
 type NavDropdownItem = {
   label: string;
+  href: string;
   items: NavLinkItem[];
 };
 
-const navItems: Array<NavLinkItem | NavDropdownItem> = [
+const publicNavItems: Array<NavLinkItem | NavDropdownItem> = [
   { href: "/", label: "Home" },
   {
     label: "Buy",
+    href: "/listings?collection=BUY",
     items: [
-      { href: "/listings?collection=BUY", label: "All Gurgaon homes" },
-      { href: "/listings?collection=LUXURY", label: "Luxury residences" },
-      { href: "/listings?collection=NEW_LAUNCH", label: "New launches" },
-      { href: "/listings?collection=READY", label: "Ready to move" }
+      { href: "/listings?collection=BUY", label: "All Gurgaon Homes" },
+      { href: "/listings?collection=LUXURY", label: "Luxury Residences" },
+      { href: "/listings?collection=NEW_LAUNCH", label: "New Launches" },
+      { href: "/listings?collection=READY", label: "Ready to Move" }
     ]
   },
   {
     label: "Rent / Lease",
+    href: "/listings?collection=RENT",
     items: [
       { href: "/listings?collection=RENT", label: "Rent in Gurgaon" },
-      { href: "/listings?collection=LEASE", label: "Lease inventory" },
-      { href: "/listings?collection=RESALE", label: "Resale opportunities" },
-      { href: "/listings?collection=FRESH", label: "Fresh booking" }
+      { href: "/listings?collection=LEASE", label: "Lease Inventory" },
+      { href: "/listings?collection=RESALE", label: "Resale Opportunities" },
+      { href: "/listings?collection=FRESH", label: "Fresh Booking" }
     ]
   },
   {
     label: "Localities",
+    href: "/gurgaon",
     items: [
-      { href: "/gurgaon", label: "Gurgaon hub" },
+      { href: "/gurgaon", label: "Gurgaon Hub" },
       { href: "/listings?location=Golf%20Course%20Road", label: "Golf Course Road" },
       { href: "/listings?location=DLF%20Phase%202", label: "DLF Phase 2" },
       { href: "/listings?location=New%20Gurgaon", label: "New Gurgaon" },
@@ -43,56 +47,59 @@ const navItems: Array<NavLinkItem | NavDropdownItem> = [
   },
   {
     label: "Services",
+    href: "/listings?collection=COMMERCIAL",
     items: [
-      { href: "/listings?collection=COMMERCIAL", label: "Commercial assets" },
-      { href: "/listings?collection=FLOORS", label: "Builder floors" },
+      { href: "/listings?collection=COMMERCIAL", label: "Commercial Assets" },
+      { href: "/listings?collection=FLOORS", label: "Builder Floors" },
       { href: "/listings?collection=VILLAS", label: "Villa / Kothi" },
-      { href: "/listings?collection=PLOTS", label: "Plots and land" },
-      { href: "/listings?collection=FARMLAND", label: "Farm / agriculture land" },
-      { href: "/listings?collection=LAND", label: "Owner land desk" },
-      { href: "/admin/login", label: "Private admin access" }
+      { href: "/listings?collection=PLOTS", label: "Plots and Land" },
+      { href: "/listings?collection=FARMLAND", label: "Farm / Agriculture Land" },
+      { href: "/listings?collection=LAND", label: "Land Advisory" }
     ]
   },
   {
-    label: "Platform",
+    label: "List Property",
+    href: "/dealers/join",
     items: [
-      { href: "/dealers/join", label: "Join as dealer / owner" },
-      { href: "/dealers/login", label: "Dealer login" },
-      { href: "/dealers/dashboard", label: "Dealer dashboard" }
+      { href: "/dealers/join", label: "Join as Dealer / Owner" },
+      { href: "/dealers/login", label: "Dealer Login" }
     ]
-  },
-  { href: "/admin", label: "Admin" }
+  }
 ];
 
-export function Header() {
+export async function Header() {
+  await cookies();
+
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919711667782";
+
   return (
     <header className="site-header">
       <div className="container nav-shell">
-        <Link href="/" className="brand-mark">
+        <Link href="/" className="brand-mark" aria-label="Guild Acre home">
           <span className="brand-mark__lockup brand-mark__lockup--desktop">
             <Image src="/logo-wordmark.svg" alt="Guild Acre" width={280} height={60} priority />
           </span>
+
           <span className="brand-mark__lockup brand-mark__lockup--mobile">
             <Image src="/logo-mark.svg" alt="Guild Acre" width={48} height={48} />
             <span>
               Guild Acre
-              <small>Private advisory</small>
+              <small>Property advisory</small>
             </span>
           </span>
         </Link>
 
-        <nav className="nav-links">
-          {navItems.map((item) => (
-            isNavLinkItem(item) ? (
-              <Link key={item.href} href={item.href}>
-                {item.label}
-              </Link>
-            ) : (
+        <nav className="nav-links" aria-label="Primary">
+          {publicNavItems.map((item) =>
+            isNavDropdownItem(item) ? (
               <div className="nav-dropdown" key={item.label}>
-                <button type="button" className="nav-dropdown__trigger">
+                <Link href={item.href} className="nav-dropdown__trigger">
                   {item.label}
-                  <span className="nav-dropdown__caret">+</span>
-                </button>
+                  <span className="nav-dropdown__caret" aria-hidden="true">
+                    +
+                  </span>
+                </Link>
+
                 <div className="nav-dropdown__menu">
                   {item.items.map((subItem) => (
                     <Link key={subItem.href} href={subItem.href} className="nav-dropdown__item">
@@ -101,10 +108,15 @@ export function Header() {
                   ))}
                 </div>
               </div>
+            ) : (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
             )
-          ))}
+          )}
+
           <a
-            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999"}`}
+            href={`https://wa.me/${whatsappNumber}`}
             className="button button--ghost nav-cta"
             target="_blank"
             rel="noreferrer"
@@ -117,6 +129,6 @@ export function Header() {
   );
 }
 
-function isNavLinkItem(item: NavLinkItem | NavDropdownItem): item is NavLinkItem {
-  return "href" in item;
+function isNavDropdownItem(item: NavLinkItem | NavDropdownItem): item is NavDropdownItem {
+  return "items" in item;
 }

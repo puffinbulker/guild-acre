@@ -1,26 +1,24 @@
-<svg width="640" height="112" viewBox="0 0 640 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="640" height="116" viewBox="0 0 640 116" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="wordEdge" x1="20" y1="14" x2="106" y2="98" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#8DF7EA"/>
-      <stop offset="0.52" stop-color="#49C7D9"/>
-      <stop offset="1" stop-color="#CFB46D"/>
+    <linearGradient id="wordBg" x1="12" y1="10" x2="116" y2="108" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D2B38"/>
+      <stop offset="1" stop-color="#06131D"/>
     </linearGradient>
-    <linearGradient id="wordNight" x1="64" y1="10" x2="64" y2="102" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0A2434"/>
-      <stop offset="1" stop-color="#05111A"/>
+    <linearGradient id="wordEdge" x1="22" y1="18" x2="108" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8DF7EA"/>
+      <stop offset="0.45" stop-color="#4CC7DA"/>
+      <stop offset="1" stop-color="#BFDFA8"/>
     </linearGradient>
   </defs>
-  <rect x="8" y="8" width="112" height="96" rx="30" fill="url(#wordNight)"/>
-  <rect x="24" y="14" width="80" height="84" rx="24" stroke="url(#wordEdge)" stroke-width="3"/>
-  <path d="M64 28L82 40V82C82 90.3 75.3 97 67 97H61C52.7 97 46 90.3 46 82V40L64 28Z" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linejoin="round"/>
-  <path d="M64 38L74 45V82C74 85.3 71.3 88 68 88H60C56.7 88 54 85.3 54 82V45L64 38Z" stroke="#E9FCFF" stroke-width="3.2" stroke-linejoin="round"/>
-  <path d="M64 41V88" stroke="#E9FCFF" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M54 54H74" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M54 66H74" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M54 78H74" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M38 92H90" stroke="url(#wordEdge)" stroke-width="3.2" stroke-linecap="round"/>
-  <circle cx="64" cy="22" r="5" fill="#E9FCFF"/>
-  <text x="144" y="48" fill="#EFFCFF" font-family="'Cormorant Garamond', Georgia, serif" font-size="37" font-weight="700" letter-spacing="0.16em">GUILD ACRE</text>
-  <line x1="146" y1="64" x2="612" y2="64" stroke="url(#wordEdge)" stroke-opacity="0.45"/>
-  <text x="146" y="88" fill="#8EB7C2" font-family="'Outfit', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="0.28em">GURGAON PRIVATE REAL ESTATE ADVISORY</text>
+  <rect x="8" y="10" width="108" height="96" rx="30" fill="url(#wordBg)"/>
+  <rect x="20" y="20" width="84" height="76" rx="24" stroke="url(#wordEdge)" stroke-width="3"/>
+  <path d="M62 34L84 48V78C84 86.8 76.8 94 68 94H56C47.2 94 40 86.8 40 78V48L62 34Z" stroke="url(#wordEdge)" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M47 68L62 46L77 68" stroke="#EAFDFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M54 68V84C54 86.8 56.2 89 59 89H65C67.8 89 70 86.8 70 84V68" stroke="#EAFDFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 78H84" stroke="url(#wordEdge)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M50 58H74" stroke="url(#wordEdge)" stroke-width="2.8" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="62" cy="28" r="4.6" fill="#EAFDFF"/>
+  <text x="142" y="50" fill="#F2FBFF" font-family="'Cormorant Garamond', Georgia, serif" font-size="38" font-weight="700" letter-spacing="0.14em">GUILD ACRE</text>
+  <line x1="144" y1="66" x2="616" y2="66" stroke="url(#wordEdge)" stroke-opacity="0.42"/>
+  <text x="144" y="90" fill="#8DB6C1" font-family="'Outfit', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="0.26em">GURGAON PRIVATE PROPERTY PLATFORM</text>
 </svg>
