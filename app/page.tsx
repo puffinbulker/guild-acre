@@ -1,8 +1,9 @@
 import Link from "next/link";
 
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 import { HeroSearch } from "@/components/hero-search";
 import { LeadForm } from "@/components/lead-form";
-import { LuxuryHeader } from "@/components/luxury-header";
 import { PropertyCard, Property } from "@/components/property-card";
 
 const services = [
@@ -123,7 +124,7 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-[#061017] text-white">
-      <LuxuryHeader />
+      <Header />
 
       <section className="relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
@@ -134,7 +135,7 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-28 sm:px-6 lg:px-8 lg:pb-24 lg:pt-36">
           <div className="max-w-4xl">
             <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.42em] text-cyan-100/65">
-              Guild Acre · Gurgaon Real Estate Advisory
+              Guild Acre | Gurgaon Real Estate Advisory
             </p>
 
             <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.03em] text-white sm:text-5xl lg:text-7xl">
@@ -169,7 +170,7 @@ export default function HomePage() {
                   key={item}
                   className="rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md"
                 >
-                  {`✔ ${item}`}
+                  {`Verified | ${item}`}
                 </span>
               ))}
             </div>
@@ -300,7 +301,7 @@ export default function HomePage() {
 
           <div className="rounded-[2rem] border border-white/10 bg-[#081822] p-8 shadow-2xl shadow-black/20">
             <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-100/55">
-              Founder Note
+              Advisory Approach
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
               Advisory, Not Brokerage
@@ -413,6 +414,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }
