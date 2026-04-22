@@ -1,421 +1,349 @@
-import Link from "next/link";
+"use client";
 
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
-import { HeroSearch } from "@/components/hero-search";
-import { LeadForm } from "@/components/lead-form";
-import { PropertyCard, Property } from "@/components/property-card";
-
-const services = [
-  {
-    title: "Farmhouse & Weekend Homes",
-    copy:
-      "Curated farmhouse opportunities in peaceful, scenic zones with long-term appreciation potential.",
-  },
-  {
-    title: "Agricultural & Investment Land",
-    copy:
-      "Verified land parcels with clear documentation and strong future growth visibility.",
-  },
-  {
-    title: "High-Growth Investment Deals",
-    copy:
-      "Pre-launch and undervalued opportunities across Gurgaon's fastest-growing corridors.",
-  },
-  {
-    title: "Personalized Advisory",
-    copy:
-      "1:1 consultation to match your budget with the right location, asset type, and timing.",
-  },
-];
-
-const featuredOpportunities: Property[] = [
-  {
-    id: "1",
-    title: "Aravalli Ridge Farm Estates",
-    location: "Sohna",
-    price: "Rs. 2.4 Cr onwards",
-    image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop",
-    beds: 4,
-    baths: 4,
-    area: "1 acre parcels",
-    status: "Registry Ready",
-    featured: true,
-  },
-  {
-    id: "2",
-    title: "Dwarka Gateway Investor Plots",
-    location: "Dwarka Expressway",
-    price: "Rs. 3.1 Cr onwards",
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop",
-    beds: 0,
-    baths: 0,
-    area: "240 - 500 sq. yd.",
-    status: "High Growth Zone",
-    featured: true,
-  },
-  {
-    id: "3",
-    title: "Naugaon Orchard Residences",
-    location: "Naugaon",
-    price: "Rs. 1.2 Cr onwards",
-    image:
-      "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=1600&auto=format&fit=crop",
-    beds: 3,
-    baths: 3,
-    area: "Farmhouse concept",
-    status: "Scenic Weekend Home",
-    featured: false,
-  },
-];
-
-const topLocalities = [
-  {
-    title: "Dwarka Expressway",
-    copy: "Infrastructure-led upside with active investor demand and premium launches.",
-  },
-  {
-    title: "Sohna / Naugaon Belt",
-    copy: "Emerging land and farmhouse demand with stronger entry pricing today.",
-  },
-  {
-    title: "Golf Course Extension",
-    copy: "Premium residential expansion with better depth for lifestyle buyers.",
-  },
-  {
-    title: "New Gurgaon",
-    copy: "Value-led residential absorption with long-term appreciation potential.",
-  },
-];
-
-const testimonials = [
-  {
-    quote: "The shortlist felt curated, not random. Every option made sense.",
-    source: "Investor, Dwarka Expressway",
-  },
-  {
-    quote: "Much better than scrolling portals. Clear advice and fast decisions.",
-    source: "End User, Golf Course Extension",
-  },
-  {
-    quote: "No time wasted. Only serious opportunities.",
-    source: "Buyer, New Gurgaon",
-  },
-];
-
-const trustPoints = [
-  "We show curated deals, not inventory dumps",
-  "Every opportunity is verified before recommendation",
-  "We guide on legal clarity and documentation",
-  "We focus on investment logic, not pushing sales",
-  "Deep understanding of Gurgaon micro-markets and growth corridors",
-];
-
-const heroTrustLine = [
-  "Verified Deals",
-  "On-Ground Insights",
-  "Advisor-Led Shortlisting",
-];
+import { useState } from "react";
 
 export default function HomePage() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919711667782";
+  const [budget, setBudget] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [location, setLocation] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const trustPoints = [
+    "12+ Years Gurgaon Market Experience",
+    "Specialized in Land & Farm Deals",
+    "Trusted by HNI Buyers & Investors",
+    "Focused Only on Genuine Opportunities",
+  ];
+
+  const pillars = [
+    {
+      title: "Curated Opportunities",
+      text: "We do not push random inventory. We filter opportunities based on location strength, buyer fit, and long-term relevance.",
+    },
+    {
+      title: "Deep Deal Understanding",
+      text: "We evaluate pricing, corridor logic, title confidence, and actual deal quality before recommending anything seriously.",
+    },
+    {
+      title: "Premium Buyer Experience",
+      text: "Guild Acre is built for clients who value clarity, discretion, clean communication, and stronger decision quality.",
+    },
+  ];
+
+  const featuredListings = [
+    {
+      title: "Aravalli Ridge Estate",
+      type: "Farm Investment",
+      location: "Sohna, Gurgaon",
+      price: "₹2.40 Cr onwards",
+      badge: "Verified Title",
+      image:
+        "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80",
+    },
+    {
+      title: "Blue Horizon Investor Plots",
+      type: "Investment Land",
+      location: "Dwarka Expressway",
+      price: "₹3.10 Cr onwards",
+      badge: "High Growth Zone",
+      image:
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
+    },
+    {
+      title: "Orchard Valley Residences",
+      type: "Farmhouse Plots",
+      location: "Naugaon Belt",
+      price: "₹1.20 Cr onwards",
+      badge: "Weekend Living",
+      image:
+        "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80",
+    },
+  ];
+
+  const handleShortlist = () => {
+    const message = `Hi Guild Acre,
+
+Budget Range: ${budget || "-"}
+Property Type: ${propertyType || "-"}
+Preferred Location: ${location || "-"}
+Phone Number: ${phone || "-"}
+
+Please share curated opportunities for my requirement.`;
+
+    window.open(
+      `https://wa.me/919711667782?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+  };
 
   return (
-    <main className="min-h-screen bg-[#061017] text-white">
-      <Header />
-
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(38,117,146,0.26),transparent_34%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,11,18,0.2),rgba(4,11,18,0.72),rgba(4,11,18,0.96))]" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-28 sm:px-6 lg:px-8 lg:pb-24 lg:pt-36">
-          <div className="max-w-4xl">
-            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.42em] text-cyan-100/65">
-              Guild Acre | Gurgaon Real Estate Advisory
+    <main className="min-h-screen bg-slate-950 text-white">
+      <section className="bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_28%),linear-gradient(180deg,#020617_0%,#071728_42%,#06111d_100%)]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12 lg:px-8 lg:pb-28 lg:pt-20">
+          <div>
+            <p className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-400/10 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-cyan-300/80 sm:px-4 sm:text-xs sm:tracking-[0.28em]">
+              Gurgaon • Sohna • Naugaon • Premium Corridors
             </p>
 
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.03em] text-white sm:text-5xl lg:text-7xl">
-              Gurgaon&apos;s Curated Real Estate Advisory Platform
+            <h1 className="mt-5 max-w-5xl text-4xl font-semibold leading-[0.96] tracking-tight sm:mt-6 sm:text-5xl lg:text-7xl">
+              Premium real estate advisory for buyers who value clarity, credibility, and conviction.
             </h1>
 
-            <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
-              Exclusive access to verified land, farmhouses, and high-growth investment
-              opportunities guided by local expertise, not random listings.
+            <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
+              Guild Acre helps HNI buyers, investors, and serious Delhi NCR
+              professionals discover curated land, farmhouse, and plotted
+              opportunities with stronger filtering, genuine guidance, and a
+              premium advisory experience.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/listings"
-                className="rounded-full bg-cyan-200 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100"
-              >
-                Explore Verified Opportunities
-              </Link>
+            <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
               <a
-                href={`https://wa.me/${whatsappNumber}`}
-                className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white/10"
+                href="/listings"
+                className="rounded-2xl bg-cyan-500 px-6 py-4 text-center text-sm font-semibold text-slate-950 transition hover:bg-cyan-400"
+              >
+                Explore Curated Listings
+              </a>
+
+              <a
+                href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20start%20private%20advisory."
                 target="_blank"
                 rel="noreferrer"
+                className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-center text-sm font-semibold text-white transition hover:bg-white/10"
               >
-                Book Free Consultation
+                Start Private Advisory
               </a>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-200/90">
-              {heroTrustLine.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md"
-                >
-                  {`Verified | ${item}`}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-12 max-w-5xl">
-              <HeroSearch />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl lg:grid-cols-2 lg:p-10">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-100/55">
-              Problem / Solution
-            </p>
-            <h2 className="mt-3 max-w-xl text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-              Buying Property in Gurgaon Shouldn&apos;t Feel Like Guesswork
-            </h2>
-
-            <div className="mt-8 space-y-4 text-base leading-7 text-slate-300">
-              <p>Endless listings with no real filtering</p>
-              <p>Fake or duplicate inventory across portals</p>
-              <p>Legal confusion in land and farmhouse deals</p>
-              <p>No clarity on where real growth is happening</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col justify-center rounded-[1.75rem] border border-cyan-200/10 bg-[#081822] p-6 shadow-2xl shadow-black/20">
-            <h3 className="text-2xl font-semibold text-white">Guild Acre changes the way you invest.</h3>
-            <p className="mt-4 text-base leading-7 text-slate-300">
-              We don&apos;t flood you with options. We curate, verify, and shortlist only
-              high-potential opportunities based on your requirement.
-            </p>
-            <p className="mt-4 text-base leading-7 text-slate-300">
-              So instead of browsing 100 listings, you evaluate 5 that actually make
-              sense.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-100/55">
-              Services
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-              What You Get Access To
-            </h2>
-          </div>
-
-          <a
-            href={`https://wa.me/${whatsappNumber}`}
-            className="w-fit rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/85 backdrop-blur-md transition hover:bg-white/10"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Get Personalized Recommendations
-          </a>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {services.map((service) => (
-            <article
-              key={service.title}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/20 backdrop-blur-xl"
-            >
-              <h3 className="text-xl font-semibold text-white">{service.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-300">{service.copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-100/55">
-              Featured Opportunities
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-              Handpicked Opportunities (Not Mass Listings)
-            </h2>
-            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-300">
-              Every listing you see here is filtered, verified, and selected for serious buyers only.
-            </p>
-          </div>
-
-          <Link
-            href="/listings"
-            className="w-fit rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/85 backdrop-blur-md transition hover:bg-white/10"
-          >
-            View All Opportunities
-          </Link>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {featuredOpportunities.map((property) => (
-            <PropertyCard key={property.id} property={property} />
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl">
-            <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-100/55">
-              Why Trust Us
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-              Why Serious Investors Choose Guild Acre
-            </h2>
-
-            <div className="mt-8 space-y-4">
-              {trustPoints.map((point) => (
+            <div className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
+              {trustPoints.map((item) => (
                 <div
-                  key={point}
-                  className="rounded-[1.5rem] border border-white/10 bg-[#081822] px-5 py-4 text-sm leading-7 text-slate-300"
+                  key={item}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200 sm:p-5"
                 >
-                  {point}
+                  {item}
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-[#081822] p-8 shadow-2xl shadow-black/20">
-            <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-100/55">
-              Advisory Approach
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-              Advisory, Not Brokerage
-            </h2>
-            <p className="mt-5 text-base leading-8 text-slate-300">
-              At Guild Acre, we believe real estate decisions should be guided, not sold.
-            </p>
-            <p className="mt-4 text-base leading-8 text-slate-300">
-              We work closely with buyers to understand their goals, whether it&apos;s
-              investment, lifestyle, or long-term wealth creation, and then recommend
-              only what truly fits.
-            </p>
-            <p className="mt-4 text-base leading-8 text-slate-300">
-              No pressure. No spam. No random listings.
+          <div className="rounded-[28px] border border-cyan-300/15 bg-slate-950/55 p-5 backdrop-blur-sm sm:rounded-[32px] sm:p-7">
+            <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.3em]">
+              Private Consultation Desk
             </p>
 
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              className="mt-8 inline-flex rounded-full bg-cyan-200 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100"
-              target="_blank"
-              rel="noreferrer"
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:mt-4 sm:text-3xl">
+              Tell us what you are looking for
+            </h2>
+
+            <p className="mt-3 text-sm leading-7 text-slate-300 sm:mt-4">
+              Share your requirement and we will help you shortlist premium
+              opportunities aligned to your budget, purpose, and long-term goals.
+            </p>
+
+            <div className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <label className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                  Budget Range
+                </label>
+                <input
+                  type="text"
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
+                  placeholder="Example: ₹1 Cr - ₹3 Cr"
+                  className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
+                />
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <label className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                  Property Type
+                </label>
+                <input
+                  type="text"
+                  value={propertyType}
+                  onChange={(e) => setPropertyType(e.target.value)}
+                  placeholder="Farmhouse land, plot, apartment, etc."
+                  className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
+                />
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <label className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                  Preferred Location
+                </label>
+                <input
+                  type="text"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder="Example: Sohna, Gurgaon"
+                  className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
+                />
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <label className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                  Phone Number
+                </label>
+                <input
+                  type="text"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Enter phone number"
+                  className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
+                />
+              </div>
+            </div>
+
+            <button
+              onClick={handleShortlist}
+              className="mt-5 inline-block w-full rounded-2xl bg-cyan-500 px-6 py-4 text-center text-sm font-semibold text-slate-950 transition hover:bg-cyan-400 sm:mt-6"
             >
-              Speak Directly on WhatsApp
-            </a>
+              Get Curated Opportunities
+            </button>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mb-10">
-          <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-100/55">
-            Social Proof
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="max-w-3xl">
+          <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
+            Why Guild Acre
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-            What Our Clients Say
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:mt-4 sm:text-4xl lg:text-5xl">
+            A more refined way to discover premium property.
           </h2>
+          <p className="mt-4 text-base leading-7 text-slate-300 sm:mt-5 sm:text-lg sm:leading-8">
+            Our role is not just to show availability. Our role is to improve
+            decision quality through curation, clarity, and stronger advisory.
+          </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <article
-              key={testimonial.source}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl"
+        <div className="mt-8 grid gap-4 sm:mt-10 lg:grid-cols-3 lg:gap-6">
+          {pillars.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-8"
             >
-              <p className="text-lg leading-8 text-white">&ldquo;{testimonial.quote}&rdquo;</p>
-              <p className="mt-5 text-sm uppercase tracking-[0.2em] text-cyan-100/65">
-                {testimonial.source}
+              <h3 className="text-xl font-semibold sm:text-2xl">{item.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">
+                {item.text}
               </p>
-            </article>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="grid gap-10 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/30 backdrop-blur-xl lg:grid-cols-[1.05fr_0.95fr] lg:p-10">
-          <div className="flex flex-col justify-center">
-            <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-100/55">
-              Lead Capture
-            </p>
-
-            <h2 className="mt-3 max-w-xl text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-              Tell Us What You&apos;re Looking For
-            </h2>
-
-            <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
-              Get handpicked options within 24 hours based on your requirement.
-            </p>
-
-            <p className="mt-5 text-sm leading-7 text-cyan-100/70">
-              Or simply WhatsApp &ldquo;INVEST&rdquo; to get latest opportunities instantly.
-            </p>
-
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=INVEST`}
-              className="mt-8 inline-flex w-fit rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white/10"
-              target="_blank"
-              rel="noreferrer"
-            >
-              WhatsApp INVEST
-            </a>
-          </div>
-
-          <LeadForm />
+      <section className="mx-auto max-w-7xl px-4 py-2 sm:px-6 sm:py-4 lg:px-8 lg:py-10">
+        <div className="rounded-[28px] border border-cyan-300/15 bg-gradient-to-r from-cyan-400/10 via-white/5 to-sky-400/10 p-6 sm:rounded-[32px] sm:p-8 lg:p-10">
+          <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
+            Founder
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:mt-4 sm:text-3xl lg:text-4xl">
+            Sandeep Kumar
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-7 text-slate-300 sm:mt-5 sm:text-lg sm:leading-8">
+            With 12+ years of experience in Gurgaon real estate, I focus on
+            helping serious buyers and investors make clearer, higher-conviction
+            decisions in land, farmhouse, and plotted opportunities.
+          </p>
+          <p className="mt-4 max-w-4xl text-sm leading-7 text-slate-400 sm:mt-5 sm:text-base sm:leading-8">
+            I understand deals deeply, focus on genuine properties, and guide
+            clients honestly. Guild Acre is built on that principle.
+          </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-24 pt-20 sm:px-6 lg:px-8">
-        <div className="rounded-[2rem] border border-white/10 bg-[#081822] p-8 shadow-2xl shadow-black/20">
-          <p className="text-[11px] uppercase tracking-[0.35em] text-cyan-100/55">
-            Market Insight
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-            Where Gurgaon is Growing Right Now
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-end lg:gap-6">
+          <div className="max-w-3xl">
+            <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
+              Featured Opportunities
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:mt-4 sm:text-4xl lg:text-5xl">
+              Selective opportunities, not overwhelming inventory.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-300 sm:mt-5 sm:text-lg sm:leading-8">
+              Here is a glimpse of the kind of premium opportunities we help clients evaluate.
+            </p>
+          </div>
+
+          <a
+            href="/listings"
+            className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            View All Listings
+          </a>
+        </div>
+
+        <div className="mt-8 grid gap-4 sm:mt-10 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+          {featuredListings.map((item) => (
+            <div
+              key={item.title}
+              className="group overflow-hidden rounded-[24px] border border-white/10 bg-slate-900 shadow-2xl transition hover:-translate-y-2 hover:border-cyan-300/20 hover:shadow-[0_0_28px_rgba(34,211,238,0.16)] sm:rounded-[28px]"
+            >
+              <div
+                className="h-52 bg-cover bg-center transition duration-500 group-hover:scale-105 sm:h-60"
+                style={{ backgroundImage: `url(${item.image})` }}
+              />
+
+              <div className="p-5 sm:p-6">
+                <div className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-400/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-cyan-300">
+                  {item.badge}
+                </div>
+
+                <h3 className="mt-4 text-xl font-semibold sm:text-2xl">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-slate-400">{item.location}</p>
+
+                <div className="mt-5 text-sm text-slate-300">
+                  Type: {item.type}
+                </div>
+
+                <div className="mt-6 text-2xl font-bold text-cyan-300">
+                  {item.price}
+                </div>
+
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href="/contact"
+                    className="flex-1 rounded-xl bg-cyan-500 px-4 py-3 text-center text-sm font-semibold text-slate-950 transition hover:bg-cyan-400"
+                  >
+                    Request Details
+                  </a>
+                  <a
+                    href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20details%20for%20this%20property."
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/10"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center sm:mt-20">
+          <h2 className="text-2xl font-semibold sm:text-3xl">
+            Serious buyers don’t chase listings. They access the right opportunities early.
           </h2>
 
-          <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
-            We track and analyze Gurgaon&apos;s most active corridors to help you invest early.
+          <p className="mt-4 text-sm leading-7 text-slate-400 sm:text-base">
+            Tell us your requirement and we’ll align you with genuine options.
           </p>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {topLocalities.map((locality) => (
-              <article
-                key={locality.title}
-                className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6"
-              >
-                <h3 className="text-xl font-semibold text-white">{locality.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-300">{locality.copy}</p>
-              </article>
-            ))}
-          </div>
+          <a
+            href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20start%20private%20advisory."
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-block rounded-2xl bg-cyan-500 px-6 py-4 text-sm font-semibold text-slate-950 hover:bg-cyan-400"
+          >
+            Start Private Advisory
+          </a>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

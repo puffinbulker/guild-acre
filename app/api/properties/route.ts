@@ -1,60 +1,58 @@
-import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
-import { getAdminCookieName, verifySessionToken } from "@/lib/auth";
-import { PROPERTY_TYPES } from "@/lib/constants";
-import { createPropertyInStore, getAllProperties } from "@/lib/data-store";
-import { propertySchema } from "@/lib/validations";
+import { NextRequest, NextResponse } from "next/server";
+import fs from "fs";
+import path from "path";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const location = searchParams.get("location");
-  const type = searchParams.get("type");
+const filePath = path.join(process.cwd(), "data", "properties.json");
 
-  const properties = (await getAllProperties()).filter((property) => {
-    if (property.approvalStatus !== "APPROVED") {
-      return false;
-    }
+function readProperties() {
+  try {
+    const data = fs.readFileSync(filePath, "utf-8");
+    return JSON.parse(data);
+  } catch {
+    return [];
+  }
+}
 
-    const matchesLocation = !location || property.location.toLowerCase().includes(location.toLowerCase());
-    const matchesType =
-      !type || (PROPERTY_TYPES.includes(type as (typeof PROPERTY_TYPES)[number]) && property.type === type);
-    return matchesLocation && matchesType;
-  });
+function writeProperties(properties: any[]) {
+  fs.writeFileSync(filePath, JSON.stringify(properties, null, 2), "utf-8");
+}
 
+export async function GET() {
+  const properties = readProperties();
   return NextResponse.json(properties);
 }
 
-export async function POST(request: Request) {
-  const cookieStore = await cookies();
-  const token = cookieStore.get(getAdminCookieName())?.value;
-
-  if (!verifySessionToken(token)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+export async function POST(req: NextRequest) {
+  const isAdmin = req.cookies.get("guildacre_admin")?.value === "true";
+  if (!isAdmin) {
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
-  const body = await request.json();
-  const parsed = propertySchema.safeParse(body);
+  const newProperty = await req.json();
+  const properties = readProperties();
 
-  if (!parsed.success) {
-    return NextResponse.json({ error: "Invalid property payload." }, { status: 400 });
+  properties.unshift(newProperty);
+  writeProperties(properties);
+
+  return NextResponse.json({ success: true, item: newProperty });
+}
+
+export async function DELETE(req: NextRequest) {
+  const isAdmin = req.cookies.get("guildacre_admin")?.value === "true";
+  if (!isAdmin) {
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
-  const property = await createPropertyInStore({
-    ...parsed.data,
-    bedrooms: parsed.data.bedrooms ?? null,
-    bathrooms: parsed.data.bathrooms ?? null,
-    imageUrls: JSON.stringify(parsed.data.imageUrls),
-    amenities: JSON.stringify(parsed.data.amenities),
-    sourceType: parsed.data.sourceType || "ADMIN",
-    approvalStatus: parsed.data.approvalStatus || "APPROVED",
-    boostTier: parsed.data.boostTier || (parsed.data.featured ? "FEATURED" : "STANDARD"),
-    leadRoutingMode: parsed.data.leadRoutingMode || "PLATFORM",
-    featuredRequested: parsed.data.featuredRequested || false,
-    listingContactName: parsed.data.listingContactName || null,
-    listingContactPhone: parsed.data.listingContactPhone || null,
-    listingContactRole: parsed.data.listingContactRole || null,
-    vendorId: null
-  });
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get("id");
 
-  return NextResponse.json(property, { status: 201 });
+  if (!id) {
+    return NextResponse.json({ success: false, message: "Missing id" }, { status: 400 });
+  }
+
+  const properties = readProperties();
+  const updated = properties.filter((item: any) => item.id !== id);
+  writeProperties(updated);
+
+  return NextResponse.json({ success: true });
 }

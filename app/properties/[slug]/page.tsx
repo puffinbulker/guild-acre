@@ -3,7 +3,14 @@ import { notFound } from "next/navigation";
 import { LeadForm } from "@/components/lead-form";
 import { getMarketGuideForArea } from "@/lib/market-intel";
 import { getPropertyBySlug } from "@/lib/queries";
-import { formatPrice, parseJsonArray } from "@/lib/utils";
+import {
+  formatPhotoRightsLabel,
+  formatPrice,
+  formatPropertyStatusLabel,
+  formatPropertyTypeLabel,
+  formatSourceLabel,
+  parseJsonArray
+} from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -53,9 +60,9 @@ export default async function PropertyDetailPage({ params }: Props) {
           </p>
         </div>
         <div className="property-detail__intro-card">
-          <span className="eyebrow">{property.type.replaceAll("_", " ")}</span>
+          <span className="eyebrow">{formatPropertyTypeLabel(property.type)}</span>
           <strong>{formatPrice(property.priceInr)}</strong>
-          <p>{property.status.replaceAll("_", " ")}</p>
+          <p>{formatPropertyStatusLabel(property.status)}</p>
         </div>
       </section>
 
@@ -98,18 +105,18 @@ export default async function PropertyDetailPage({ params }: Props) {
             The gallery is arranged to make the property feel editorial, polished, and easier to
             evaluate on mobile as well as desktop.
           </p>
-          <div className="property-detail__gallery-meta">
-            <span>{images.length} visuals</span>
-            <span>{property.status.replaceAll("_", " ")}</span>
-            <span>{property.type.replaceAll("_", " ")}</span>
+            <div className="property-detail__gallery-meta">
+              <span>{images.length} visuals</span>
+              <span>{formatPropertyStatusLabel(property.status)}</span>
+              <span>{formatPropertyTypeLabel(property.type)}</span>
+            </div>
           </div>
         </div>
-      </div>
 
       <div className="property-detail__content">
         <section className="property-detail__main card">
           <div className="property-detail__chips">
-            <span className="pill pill--light">{property.type.replaceAll("_", " ")}</span>
+            <span className="pill pill--light">{formatPropertyTypeLabel(property.type)}</span>
             <span className="pill pill--light">{property.sector}</span>
             <span className="pill pill--light">{property.city}</span>
           </div>
@@ -130,7 +137,7 @@ export default async function PropertyDetailPage({ params }: Props) {
               <span>Sq.ft.</span>
             </div>
             <div>
-              <strong>{property.status.replaceAll("_", " ")}</strong>
+              <strong>{formatPropertyStatusLabel(property.status)}</strong>
               <span>Status</span>
             </div>
           </div>
@@ -152,6 +159,41 @@ export default async function PropertyDetailPage({ params }: Props) {
               <strong>Fast advisor response</strong>
               <span>Designed for WhatsApp-first buyer conversations</span>
             </div>
+          </div>
+
+          <div className="property-market-compare">
+            <div className="property-market-compare__head">
+              <span className="section-tag">Listing Transparency</span>
+              <h3>Source and display rights</h3>
+            </div>
+            <div className="property-market-compare__stats">
+              <div>
+                <strong>{formatSourceLabel(property.sourcePlatform || property.sourceType)}</strong>
+                <span>Source platform</span>
+              </div>
+              <div>
+                <strong>{property.priceLastVerified || "Recently added"}</strong>
+                <span>Price last verified</span>
+              </div>
+              <div>
+                <strong>{formatPhotoRightsLabel(property.photoRightsStatus)}</strong>
+                <span>Visual rights status</span>
+              </div>
+            </div>
+            <p>
+              Guild Acre only displays listing facts and visuals that are platform-owned, partner-uploaded,
+              licensed, AI-generated, or explicitly approved for use.
+            </p>
+            {property.sourceUrl ? (
+              <a
+                className="property-market-compare__source"
+                href={property.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View original listing source
+              </a>
+            ) : null}
           </div>
 
           {marketGuide ? (

@@ -6,7 +6,9 @@ import {
   BOOST_TIERS,
   LEAD_ROUTING_MODES,
   LISTING_APPROVAL_STATUSES,
+  PHOTO_RIGHTS_STATUSES,
   PROPERTY_STATUSES,
+  PROPERTY_SOURCE_PLATFORMS,
   PROPERTY_TYPES
 } from "@/lib/constants";
 
@@ -33,6 +35,10 @@ export const propertySchema = z.object({
   imageUrls: z.array(z.string().url()).min(1),
   amenities: z.array(z.string()).default([]),
   sourceType: z.enum(["ADMIN", "VENDOR"]).optional(),
+  sourcePlatform: z.enum(PROPERTY_SOURCE_PLATFORMS).optional().nullable(),
+  sourceUrl: z.string().url().optional().nullable(),
+  priceLastVerified: z.string().min(4).optional().nullable(),
+  photoRightsStatus: z.enum(PHOTO_RIGHTS_STATUSES).default("OWNER_UPLOADED"),
   approvalStatus: z.enum(LISTING_APPROVAL_STATUSES).optional(),
   boostTier: z.enum(BOOST_TIERS).optional(),
   leadRoutingMode: z.enum(LEAD_ROUTING_MODES).optional(),

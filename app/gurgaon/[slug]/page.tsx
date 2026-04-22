@@ -4,6 +4,7 @@ import { PropertyCard } from "@/components/property-card";
 import { LeadForm } from "@/components/lead-form";
 import { getMarketGuideBySlug, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
 import { getPropertiesByAreaSlug } from "@/lib/queries";
+import { formatListingCount } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -51,7 +52,7 @@ export default async function GurgaonAreaPage({ params }: Props) {
             `Browse curated opportunities in ${area.title}, Gurgaon for buying, selling, rent, lease, resale, fresh booking, commercial, and land-led requirements.`}
         </p>
         <div className="page-intro__metrics">
-          <span>{areaCount} live listing{areaCount === 1 ? "" : "s"}</span>
+          <span>{formatListingCount(areaCount)} live</span>
           <span>Buy, rent, lease, resale, and fresh inventory</span>
           <span>Plots, floors, villa, kothi, apartment, flat, and land</span>
         </div>

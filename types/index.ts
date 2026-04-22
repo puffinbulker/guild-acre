@@ -16,6 +16,10 @@ export type PropertyRecord = {
   imageUrls: string;
   amenities: string;
   sourceType: string;
+  sourcePlatform: string | null;
+  sourceUrl: string | null;
+  priceLastVerified: string | null;
+  photoRightsStatus: string;
   approvalStatus: string;
   boostTier: string;
   leadRoutingMode: string;

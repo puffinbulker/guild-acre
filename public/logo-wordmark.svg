@@ -20,5 +20,5 @@
   <circle cx="62" cy="28" r="4.6" fill="#EAFDFF"/>
   <text x="142" y="50" fill="#F2FBFF" font-family="'Cormorant Garamond', Georgia, serif" font-size="38" font-weight="700" letter-spacing="0.14em">GUILD ACRE</text>
   <line x1="144" y1="66" x2="616" y2="66" stroke="url(#wordEdge)" stroke-opacity="0.42"/>
-  <text x="144" y="90" fill="#8DB6C1" font-family="'Outfit', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="0.26em">GURGAON PRIVATE PROPERTY PLATFORM</text>
+  <text x="144" y="90" fill="#8DB6C1" font-family="'Outfit', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="0.26em">GURGAON PROPERTY PLATFORM</text>
 </svg>

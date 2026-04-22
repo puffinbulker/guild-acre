@@ -1,267 +1,281 @@
-import { Metadata } from "next";
-import { SearchFilters } from "@/components/search-filters";
-import { PropertyCard } from "@/components/property-card";
-import { GURGAON_MARKET_GUIDES, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
-import { getProperties, getPropertyLocations, getPropertyLocationStats } from "@/lib/queries";
-import { slugify } from "@/lib/utils";
+"use client";
 
-export const dynamic = "force-dynamic";
+import { useEffect, useMemo, useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Property Listings in Gurgaon",
-  description: "Search Gurgaon property listings by budget, type, and location."
+type Property = {
+  id: string;
+  title: string;
+  description: string;
+  priceInr: number;
+  location: string;
+  city: string;
+  type: string;
+  status: string;
+  bedrooms: number;
+  bathrooms: number;
+  areaSqft: number;
+  featured: boolean;
+  imageUrls: string[];
+  videoUrl: string;
+  amenities: string[];
 };
 
-type Props = {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
+// ✅ CLEAN LABELS
+const TYPE_LABELS: Record<string, string> = {
+  AGRICULTURE_LAND: "Agriculture Land",
+  FARM_HOUSE: "Farm House",
+  COMMERCIAL_LAND: "Commercial Land",
+  LAND_FOR_WAREHOUSE: "Warehouse Land",
+  LAND_FOR_LEASE: "Land for Lease",
+  BUILDER_FLOOR: "Builder Floor",
+  FLAT_APARTMENT: "Flat / Apartment",
+  PLOTS: "Plots",
+  VILLA: "Villa",
+  DEEN_DAYAL_PLOTS_LAND: "Deen Dayal Plots / Land",
+  AFFORDABLE_HOUSING: "Affordable Housing",
 };
 
-export default async function ListingsPage({ searchParams }: Props) {
-  const params = await searchParams;
-  const normalized = {
-    collection: typeof params.collection === "string" ? params.collection : undefined,
-    search: typeof params.search === "string" ? params.search : undefined,
-    location: typeof params.location === "string" ? params.location : undefined,
-    type: typeof params.type === "string" ? params.type : undefined,
-    status: typeof params.status === "string" ? params.status : undefined,
-    minBudget: typeof params.minBudget === "string" ? Number(params.minBudget) : undefined,
-    maxBudget: typeof params.maxBudget === "string" ? Number(params.maxBudget) : undefined
-  };
+const STATUS_LABELS: Record<string, string> = {
+  RAW: "Raw",
+  SEMI_DEVELOPED: "Semi Developed",
+  FULLY_DEVELOPED: "Fully Developed",
+  FRESH: "Fresh",
+  RESALE: "Resale",
+  OPEN_FOR_LEASE: "Open for Lease",
+  LEASED: "Leased",
+};
 
-  const [properties, locations, locationStats] = await Promise.all([
-    getProperties(normalized),
-    getPropertyLocations(),
-    getPropertyLocationStats()
-  ]);
+// ✅ FILTERS
+const FILTERS = [
+  { label: "All", value: "ALL" },
+  { label: "Farm House", value: "FARM_HOUSE" },
+  { label: "Plots", value: "PLOTS" },
+  { label: "Land", value: "LAND" },
+  { label: "Commercial", value: "COMMERCIAL" },
+  { label: "Residential", value: "RESIDENTIAL" },
+];
 
-  const quickCollections = [
-    { label: "Buy Homes", value: "BUY" },
-    { label: "Rent", value: "RENT" },
-    { label: "Lease", value: "LEASE" },
-    { label: "Luxury", value: "LUXURY" },
-    { label: "New Launches", value: "NEW_LAUNCH" },
-    { label: "Ready to Move", value: "READY" },
-    { label: "Resale", value: "RESALE" },
-    { label: "Builder Floors", value: "FLOORS" },
-    { label: "Villa / Kothi", value: "VILLAS" },
-    { label: "Land", value: "LAND" },
-    { label: "Farm Land", value: "FARMLAND" },
-    { label: "Commercial", value: "COMMERCIAL" }
-  ];
-  const featuredLocations = locationStats.slice(0, 8);
-  const spotlightGuides = GURGAON_MARKET_GUIDES.slice(0, 4);
-  const propertyUniverse = PROPERTY_VISUAL_CATEGORIES.slice(0, 8);
+function getFilterMatch(type: string, filter: string) {
+  if (filter === "ALL") return true;
+
+  if (filter === "LAND") {
+    return [
+      "AGRICULTURE_LAND",
+      "COMMERCIAL_LAND",
+      "LAND_FOR_WAREHOUSE",
+      "LAND_FOR_LEASE",
+    ].includes(type);
+  }
+
+  if (filter === "COMMERCIAL") {
+    return ["COMMERCIAL_LAND", "LAND_FOR_WAREHOUSE"].includes(type);
+  }
+
+  if (filter === "RESIDENTIAL") {
+    return [
+      "FLAT_APARTMENT",
+      "BUILDER_FLOOR",
+      "VILLA",
+      "AFFORDABLE_HOUSING",
+    ].includes(type);
+  }
+
+  return type === filter;
+}
+
+// ✅ PRICE FORMAT
+function formatPrice(price: number) {
+  if (!price) return "";
+  if (price >= 10000000) return `₹${(price / 10000000).toFixed(2)} Cr`;
+  if (price >= 100000) return `₹${(price / 100000).toFixed(2)} L`;
+  return `₹${price}`;
+}
+
+export default function ListingsPage() {
+  const [properties, setProperties] = useState<Property[]>([]);
+  const [activeFilter, setActiveFilter] = useState("ALL");
+
+  useEffect(() => {
+    fetch("/api/properties")
+      .then((res) => res.json())
+      .then((data) => setProperties(data));
+  }, []);
+
+  const filteredProperties = useMemo(() => {
+    return properties.filter((item) =>
+      getFilterMatch(item.type, activeFilter)
+    );
+  }, [properties, activeFilter]);
 
   return (
-    <main className="container page-shell">
-      <div className="page-intro page-intro--listing">
-        <span className="section-tag">Gurgaon Finder</span>
-        <h1>Explore Gurgaon like a focused property portal</h1>
-        <p>
-          Search only Gurgaon localities, sectors, and premium categories with a cleaner,
-          shortlist-first experience inspired by large portals but built for sharper decisions.
-        </p>
-        <div className="page-intro__metrics">
-          <span>{properties.length} active opportunities</span>
-          <span>{locations.length} tracked locations</span>
-          <span>Buy, luxury, new launch, floors, and commercial</span>
+    <main className="min-h-screen bg-slate-950 text-white">
+
+      {/* HERO */}
+      <section className="bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_30%)]">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
+            Gurgaon Premium Advisory
+          </p>
+
+          <h1 className="mt-4 text-4xl font-semibold sm:text-5xl lg:text-6xl">
+            Curated Land & Investment Opportunities
+          </h1>
+
+          <p className="mt-5 max-w-3xl text-slate-300">
+            Agriculture land, farmhouse investments, commercial land and high-potential deals across Gurgaon.
+          </p>
         </div>
-      </div>
+      </section>
 
-      <div className="collection-tabs">
-        {quickCollections.map((collection) => {
-          const active = normalized.collection === collection.value;
-          const query = new URLSearchParams();
-          query.set("collection", collection.value);
-          if (normalized.location) query.set("location", normalized.location);
-
-          return (
-            <a
-              key={collection.value}
-              href={`/listings?${query.toString()}`}
-              className={active ? "collection-tab collection-tab--active" : "collection-tab"}
+      {/* FILTERS */}
+      <section className="mx-auto max-w-7xl px-4 mt-6">
+        <div className="flex flex-wrap gap-3">
+          {FILTERS.map((f) => (
+            <button
+              key={f.value}
+              onClick={() => setActiveFilter(f.value)}
+              className={`rounded-full px-4 py-2 text-sm ${
+                activeFilter === f.value
+                  ? "bg-cyan-500 text-black"
+                  : "border border-white/10 text-white"
+              }`}
             >
-              {collection.label}
-            </a>
-          );
-        })}
-      </div>
+              {f.label}
+            </button>
+          ))}
+        </div>
+      </section>
 
-      <div className="listings-layout">
-        <aside className="listings-sidebar">
-          <div className="card listings-sidebar__card">
-            <span className="section-tag">Portal Filters</span>
-            <h2>Refine Gurgaon inventory</h2>
-            <SearchFilters
-              locations={locations}
-              current={{
-                collection: normalized.collection,
-                search: normalized.search,
-                location: normalized.location,
-                type: normalized.type,
-                status: normalized.status,
-                minBudget: normalized.minBudget?.toString(),
-                maxBudget: normalized.maxBudget?.toString()
-              }}
-            />
+      {/* LISTINGS */}
+      <section className="mx-auto max-w-7xl px-4 py-12">
+        {filteredProperties.length === 0 ? (
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 text-center text-slate-400">
+            No properties available.
           </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {filteredProperties.map((item) => (
+              <div
+                key={item.id}
+                className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-900 transition hover:-translate-y-2 hover:border-cyan-300/30"
+              >
+                {/* IMAGE */}
+                <div
+                  className="h-60 bg-cover bg-center transition group-hover:scale-105"
+                  style={{
+                    backgroundImage: `url(${item.imageUrls?.[0] || ""})`,
+                  }}
+                />
 
-          <div className="card listings-sidebar__card listings-sidebar__card--dense">
-            <span className="section-tag">Quick Demand Classes</span>
-            <h3>Scan the categories buyers ask for most</h3>
-            <div className="portal-demand-grid">
-              {propertyUniverse.map((category) => (
-                <a
-                  key={category.slug}
-                  className="portal-demand-card"
-                  href={`/listings?collection=${
-                    category.slug === "builder-floors"
-                      ? "FLOORS"
-                      : category.slug === "kothi-villa"
-                        ? "VILLAS"
-                        : category.slug === "commercial"
-                          ? "COMMERCIAL"
-                          : category.slug === "farm-land"
-                            ? "FARMLAND"
-                            : category.slug === "plots" || category.slug === "agriculture-land"
-                              ? "LAND"
-                              : category.slug === "apartments" || category.slug === "low-rise" || category.slug === "high-rise"
-                                ? "APARTMENTS"
-                                : "BUY"
-                  }`}
-                >
-                  <strong>{category.title}</strong>
-                  <span>{category.type}</span>
-                </a>
-              ))}
-            </div>
-          </div>
+                <div className="p-6">
 
-          <div className="card listings-sidebar__card">
-            <span className="section-tag">Need Service?</span>
-            <h3>Owner, buyer, seller, tenant, or landlord desk</h3>
-            <div className="owner-service-list">
-              <span>Buy and fresh booking assistance</span>
-              <span>Resale and investor exit support</span>
-              <span>Rent and lease coordination</span>
-              <span>Farm land and agriculture land enquiries</span>
-            </div>
-            <a
-              className="button"
-              href="https://wa.me/919999999999"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Discuss requirement
-            </a>
-          </div>
-        </aside>
+                  {/* BADGES */}
+                  <div className="flex flex-wrap gap-2">
+                    {item.featured && (
+                      <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
+                        Featured
+                      </span>
+                    )}
 
-        <section className="listings-results">
-          <section className="portal-results-board">
-            <div className="portal-results-board__head">
-              <div>
-                <span className="section-tag">Listings Board</span>
-                <h2>Gurgaon inventory by sector, deal type, and property class</h2>
-              </div>
-              <div className="portal-results-board__chips">
-                <span>{properties.length} live results</span>
-                <span>{normalized.collection ? `Collection: ${normalized.collection.replaceAll("_", " ")}` : "All collections"}</span>
-                <span>{normalized.location || "All Gurgaon localities"}</span>
-              </div>
-            </div>
+                    <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">
+                      {TYPE_LABELS[item.type] || item.type}
+                    </span>
 
-            <div className="portal-results-board__grid">
-              <div className="portal-results-board__metric">
-                <strong>{properties.filter((item) => item.featured).length}</strong>
-                <span>Featured and priority listings</span>
-              </div>
-              <div className="portal-results-board__metric">
-                <strong>{featuredLocations.length}</strong>
-                <span>High-demand localities in this board</span>
-              </div>
-              <div className="portal-results-board__metric">
-                <strong>{propertyUniverse.length}</strong>
-                <span>Property classes live on the marketplace</span>
-              </div>
-            </div>
-          </section>
-
-          <div className="listing-summary">{properties.length} properties found</div>
-
-          <section className="locality-strip">
-            <div className="section-head">
-              <div>
-                <span className="section-tag">Popular Gurgaon Localities</span>
-                <h2>Browse by corridor, sector, or locality page</h2>
-              </div>
-            </div>
-            <div className="locality-strip__grid">
-              {featuredLocations.map((item) => (
-                <a
-                  key={item.location}
-                  className="locality-chip-card"
-                  href={`/gurgaon/${slugify(item.location)}`}
-                >
-                  <strong>{item.location}</strong>
-                  <span>{item.count} listing{item.count === 1 ? "" : "s"}</span>
-                </a>
-              ))}
-            </div>
-          </section>
-
-          <section className="portal-benchmarks">
-            <div className="section-head">
-              <div>
-                <span className="section-tag">Market Signals</span>
-                <h2>Quick benchmark cards for the corridors people compare first</h2>
-              </div>
-            </div>
-            <div className="portal-benchmarks__grid">
-              {spotlightGuides.map((guide) => (
-                <a
-                  key={guide.slug}
-                  className="portal-benchmark-card"
-                  href={`/gurgaon/${guide.slug}`}
-                >
-                  <strong>{guide.title}</strong>
-                  <span>{guide.positioning}</span>
-                  <em>{guide.avgPricePerSqft.toLocaleString("en-IN")} / sq.ft.</em>
-                </a>
-              ))}
-            </div>
-          </section>
-
-          <section className="portal-inventory-board">
-            <div className="section-head">
-              <div>
-                <span className="section-tag">Inventory Universe</span>
-                <h2>Sample coverage across Gurgaon property classes</h2>
-              </div>
-            </div>
-            <div className="portal-inventory-board__grid">
-              {propertyUniverse.map((category) => (
-                <article key={category.slug} className="portal-inventory-card">
-                  <strong>{category.title}</strong>
-                  <span>{category.type}</span>
-                  <p>{category.description}</p>
-                  <div className="portal-inventory-card__uses">
-                    {category.useCases.map((useCase) => (
-                      <em key={useCase}>{useCase}</em>
-                    ))}
+                    {item.status && (
+                      <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">
+                        {STATUS_LABELS[item.status] || item.status}
+                      </span>
+                    )}
                   </div>
-                </article>
-              ))}
-            </div>
-          </section>
 
-          <div className="property-grid">
-            {properties.map((property) => (
-              <PropertyCard key={property.id} property={property} />
+                  {/* TITLE */}
+                  <h2 className="mt-4 text-2xl font-semibold">
+                    {item.title}
+                  </h2>
+
+                  {/* LOCATION */}
+                  <p className="mt-2 text-slate-400">
+                    {item.location}, {item.city}
+                  </p>
+
+                  {/* DESCRIPTION */}
+                  <p className="mt-4 text-sm text-slate-300 leading-7">
+                    {item.description}
+                  </p>
+
+                  {/* DETAILS */}
+                  <div className="mt-5 grid grid-cols-2 gap-3 text-sm text-slate-300">
+                    {item.bedrooms > 0 && <div>Bedrooms: {item.bedrooms}</div>}
+                    {item.bathrooms > 0 && <div>Bathrooms: {item.bathrooms}</div>}
+                    {item.areaSqft > 0 && <div>Area: {item.areaSqft} sqft</div>}
+                  </div>
+
+                  {/* AMENITIES */}
+                  {item.amenities?.length > 0 && (
+                    <div className="mt-5">
+                      <div className="text-xs uppercase tracking-[0.2em] text-slate-400">
+                        Amenities
+                      </div>
+
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {item.amenities.map((a, i) => (
+                          <span
+                            key={i}
+                            className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300"
+                          >
+                            {a}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* PRICE */}
+                  <div className="mt-6 text-2xl font-bold text-cyan-300">
+                    {formatPrice(item.priceInr)}
+                  </div>
+
+                  {/* CTA */}
+                  <div className="mt-6 flex gap-3">
+                    <a
+                      href={`https://wa.me/919711667782?text=${encodeURIComponent(
+                        `Hi, I am interested in this property:\n\n${item.title}\n${item.location}\nPrice: ₹${item.priceInr}\n\nPlease share full details.`
+                      )}`}
+                      target="_blank"
+                      className="flex-1 rounded-xl bg-cyan-500 px-4 py-3 text-center text-sm font-semibold text-slate-950 hover:bg-cyan-400"
+                    >
+                      WhatsApp
+                    </a>
+
+                    {item.videoUrl && (
+                      <a
+                        href={item.videoUrl}
+                        target="_blank"
+                        className="flex-1 rounded-xl border border-white/10 px-4 py-3 text-center text-sm"
+                      >
+                        Video
+                      </a>
+                    )}
+                  </div>
+
+                  {/* REQUEST BUTTON */}
+                  <div className="mt-4">
+                    <button
+                      onClick={() =>
+                        alert("Lead form coming next upgrade")
+                      }
+                      className="w-full rounded-xl border border-cyan-300/20 bg-cyan-400/10 px-4 py-3 text-sm text-cyan-300 hover:bg-cyan-400/20"
+                    >
+                      Request Details
+                    </button>
+                  </div>
+
+                </div>
+              </div>
             ))}
           </div>
-        </section>
-      </div>
+        )}
+      </section>
     </main>
   );
 }

@@ -1,162 +1,250 @@
-import Link from "next/link";
-import { GURGAON_MARKET_GUIDES, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
-import { getGurgaonAreaPages } from "@/lib/queries";
+export default function GurgaonPage() {
+  const localityCards = [
+    {
+      title: "DLF Phase 2",
+      tag: "Prime Rental Belt",
+      text: "Strong rental demand, established occupancy, and continued investor interest driven by Cyber City connectivity.",
+    },
+    {
+      title: "Dwarka Expressway",
+      tag: "High-Growth Corridor",
+      text: "A fast-evolving corridor with plotted, residential, and investment-led opportunities backed by major infrastructure momentum.",
+    },
+    {
+      title: "Golf Course Road",
+      tag: "Luxury Core",
+      text: "One of Gurgaon’s most prestigious premium micro-markets, known for marquee towers, elite addresses, and enduring value.",
+    },
+    {
+      title: "New Gurgaon",
+      tag: "Emerging End-User Zone",
+      text: "Fresh booking activity, builder floors, and expanding family-focused neighbourhoods with improving social infrastructure.",
+    },
+    {
+      title: "Golf Course Extension Road",
+      tag: "Premium Expansion Belt",
+      text: "New-age premium launches, investor demand, and large-format family residences with strong long-term appeal.",
+    },
+    {
+      title: "Sohna Road",
+      tag: "Mixed Demand Corridor",
+      text: "A balanced residential-commercial stretch with practical livability, broad demand, and strong daily-use connectivity.",
+    },
+  ];
 
-export const dynamic = "force-dynamic";
+  const sectorCards = [
+    {
+      title: "Sector 104",
+      text: "Dwarka Expressway growth corridor with plotted and launch-led opportunities.",
+    },
+    {
+      title: "Sector 42",
+      text: "Golf Course Road luxury stock, premium towers, and elite residential addresses.",
+    },
+    {
+      title: "Sector 82A",
+      text: "Builder floors, fresh supply, and family-oriented New Gurgaon demand.",
+    },
+    {
+      title: "Sector 54",
+      text: "Premium family inventory, strong golf-course catchment, and established prestige value.",
+    },
+    {
+      title: "Sector 57",
+      text: "Fast-moving family sector with builder floors, resale activity, and premium low-rise demand.",
+    },
+    {
+      title: "Sector 67",
+      text: "Emerging premium-family inventory with launch stock and corridor spillover demand.",
+    },
+  ];
 
-export const metadata = {
-  title: "Gurgaon Area Hub",
-  description: "Browse Gurgaon property opportunities by sector, corridor, and locality."
-};
-
-const collectionLinks = [
-  { label: "Buy Homes", href: "/listings?collection=BUY" },
-  { label: "Rent", href: "/listings?collection=RENT" },
-  { label: "Lease", href: "/listings?collection=LEASE" },
-  { label: "New Launch", href: "/listings?collection=NEW_LAUNCH" },
-  { label: "Commercial", href: "/listings?collection=COMMERCIAL" },
-  { label: "Plots / Land", href: "/listings?collection=LAND" },
-  { label: "Farm Land", href: "/listings?collection=FARMLAND" },
-  { label: "Builder Floors", href: "/listings?collection=FLOORS" }
-];
-
-export default async function GurgaonHubPage() {
-  const areas = await getGurgaonAreaPages();
-  const localities = areas.filter((item) => item.kind === "location");
-  const sectors = areas.filter((item) => item.kind === "sector");
-  const inventoryClasses = PROPERTY_VISUAL_CATEGORIES.map((category) => {
-    let href = "/listings?collection=BUY";
-
-    switch (category.slug) {
-      case "builder-floors":
-        href = "/listings?collection=FLOORS";
-        break;
-      case "kothi-villa":
-        href = "/listings?collection=VILLAS";
-        break;
-      case "plots":
-      case "agriculture-land":
-        href = "/listings?collection=LAND";
-        break;
-      case "farm-land":
-        href = "/listings?collection=FARMLAND";
-        break;
-      case "commercial":
-        href = "/listings?collection=COMMERCIAL";
-        break;
-      case "apartments":
-      case "low-rise":
-      case "high-rise":
-        href = "/listings?collection=APARTMENTS";
-        break;
-      default:
-        break;
-    }
-
-    return {
-      ...category,
-      href
-    };
-  });
+  const classes = [
+    "Luxury residences",
+    "Builder floors",
+    "Plots & land parcels",
+    "Farmhouse opportunities",
+    "Commercial assets",
+    "Investor-led stock",
+  ];
 
   return (
-    <main className="container page-shell gurgaon-hub">
-      <section className="page-intro page-intro--listing">
-        <span className="section-tag">Gurgaon Portal Hub</span>
-        <h1>Sector-wise and locality-wise Gurgaon property discovery</h1>
-        <p>
-          Browse Gurgaon like a focused portal built for buying, selling, rent, lease, resale,
-          fresh booking, commercial, plots, villa, kothi, and farm land requirements.
-        </p>
-      </section>
+    <main className="min-h-screen bg-slate-950 text-white">
+      <section className="bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_28%),linear-gradient(180deg,#020617_0%,#071728_42%,#06111d_100%)]">
+        <div className="mx-auto max-w-7xl px-6 pb-16 pt-16 lg:px-8 lg:pb-24 lg:pt-24">
+          <div className="max-w-4xl">
+            <p className="text-xs uppercase tracking-[0.32em] text-cyan-300/80">
+              Gurgaon Intelligence Hub
+            </p>
 
-      <section className="hub-links">
-        {collectionLinks.map((item) => (
-          <Link key={item.href} href={item.href} className="collection-tab">
-            {item.label}
-          </Link>
-        ))}
-      </section>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              Discover Gurgaon through a premium, corridor-first investment lens.
+            </h1>
 
-      <section className="hub-grid">
-        <article className="card hub-panel">
-          <span className="section-tag">Prime Localities</span>
-          <h2>Browse by Gurgaon corridor</h2>
-          <div className="hub-panel__grid">
-            {localities.map((item) => (
-              <Link key={item.slug} href={`/gurgaon/${item.slug}`} className="locality-chip-card">
-                <strong>{item.title}</strong>
-                <span>{item.count} listing{item.count === 1 ? "" : "s"}</span>
-                <em>{item.summary || "Curated Gurgaon inventory and advisory support."}</em>
-              </Link>
-            ))}
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+              Explore Gurgaon through curated localities, premium growth belts,
+              and high-potential sectors. This hub is designed to help serious
+              buyers understand where value, lifestyle, and long-term upside are
+              strongest.
+            </p>
           </div>
-        </article>
 
-        <article className="card hub-panel">
-          <span className="section-tag">Sector Pages</span>
-          <h2>Browse by Gurgaon sector</h2>
-          <div className="hub-panel__grid">
-            {sectors.map((item) => (
-              <Link key={item.slug} href={`/gurgaon/${item.slug}`} className="locality-chip-card">
-                <strong>{item.title}</strong>
-                <span>{item.count} listing{item.count === 1 ? "" : "s"}</span>
-                <em>{item.summary || "Sector-level property discovery for serious buyers and investors."}</em>
-              </Link>
-            ))}
-          </div>
-        </article>
-      </section>
-
-      <section className="market-matrix">
-        <div className="section-head">
-          <div>
-            <span className="section-tag">Inventory Classes</span>
-            <h2>Everything the Gurgaon platform now covers</h2>
-          </div>
-          <span className="eyebrow">Buy, resale, rent, lease, owner stock, dealer inventory</span>
-        </div>
-        <div className="market-matrix__grid">
-          {inventoryClasses.map((item) => (
-            <Link key={item.slug} href={item.href} className="market-matrix__card">
-              <strong>{item.title}</strong>
-              <p>{item.description}</p>
-              <span>{item.type}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="market-intel">
-        <div className="section-head">
-          <div>
-            <span className="section-tag">All Sector Benchmarks</span>
-            <h2>Indicative Gurgaon price map for sectors and corridors</h2>
-          </div>
-          <span className="eyebrow">Built from current public trend references</span>
-        </div>
-        <div className="market-intel__grid">
-          {GURGAON_MARKET_GUIDES.map((guide) => (
-            <article className="market-intel__card" key={guide.slug}>
-              <div className="market-intel__body">
-                <div className="market-intel__price">
-                  <strong>INR {guide.avgPricePerSqft.toLocaleString("en-IN")} / sq.ft.</strong>
-                  <span>{guide.title}</span>
-                </div>
-                <div className="market-intel__meta">
-                  <span>{guide.indicativeRange}</span>
-                  <span>{guide.movement}</span>
-                </div>
-                <p>{guide.outlook}</p>
-                <div className="market-intel__footer">
-                  <a href={guide.sourceUrl} target="_blank" rel="noreferrer">
-                    {guide.sourceLabel}
-                  </a>
-                  <Link href={`/gurgaon/${guide.slug}`}>Open page</Link>
-                </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                Coverage
               </div>
-            </article>
+              <div className="mt-2 text-2xl font-semibold">Prime Gurgaon Belts</div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                Focus
+              </div>
+              <div className="mt-2 text-2xl font-semibold">Luxury + Growth Corridors</div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                Best For
+              </div>
+              <div className="mt-2 text-2xl font-semibold">HNI Buyers & Investors</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
+            Prime Localities
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Browse Gurgaon’s most relevant premium and high-potential micro-markets
+          </h2>
+          <p className="mt-4 text-base leading-8 text-slate-400">
+            Each belt has a different demand story — luxury, rental depth,
+            launch momentum, investor traction, or end-user stability.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {localityCards.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[28px] border border-white/10 bg-white/5 p-7 transition hover:border-cyan-300/20 hover:bg-white/[0.07]"
+            >
+              <div className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-400/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-cyan-300">
+                {item.tag}
+              </div>
+              <h3 className="mt-4 text-2xl font-semibold">{item.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">{item.text}</p>
+            </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-4 lg:px-8 lg:py-10">
+        <div className="rounded-[32px] border border-cyan-300/15 bg-gradient-to-r from-cyan-400/10 via-white/5 to-sky-400/10 p-8 lg:p-10">
+          <p className="text-xs uppercase tracking-[0.32em] text-cyan-300/80">
+            Why Gurgaon still matters
+          </p>
+          <h2 className="mt-4 max-w-4xl text-3xl font-semibold tracking-tight sm:text-4xl">
+            Gurgaon remains one of NCR’s strongest real estate markets because demand is layered — not one-dimensional.
+          </h2>
+          <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-300">
+            It combines premium end-user demand, investor participation,
+            corporate-driven rental absorption, infrastructure-led expansion,
+            and the ability of micro-markets to create distinct value stories.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
+            Sector Snapshot
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Selected sectors worth watching
+          </h2>
+        </div>
+
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {sectorCards.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[24px] border border-white/10 bg-slate-900 p-6"
+            >
+              <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                Sector
+              </div>
+              <h3 className="mt-2 text-2xl font-semibold">{item.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-16 lg:px-8 lg:pb-24">
+        <div className="grid gap-8 rounded-[32px] border border-white/10 bg-white/5 p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
+              Inventory Classes
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight">
+              Opportunity types we actively evaluate
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-400">
+              Gurgaon is not one single market. Different buyers require
+              different asset classes depending on return horizon, lifestyle fit,
+              and budget positioning.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {classes.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-white/10 bg-slate-950/40 px-5 py-4 text-sm text-slate-200"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-8 lg:pb-28">
+        <div className="rounded-[32px] border border-cyan-300/15 bg-gradient-to-r from-cyan-400/10 via-white/5 to-sky-400/10 p-8 lg:p-10">
+          <p className="text-xs uppercase tracking-[0.32em] text-cyan-300/80">
+            Private Consultation
+          </p>
+          <h2 className="mt-4 max-w-4xl text-3xl font-semibold tracking-tight sm:text-4xl">
+            Need a sharper Gurgaon shortlist based on your budget and purpose?
+          </h2>
+          <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-300">
+            We can help you evaluate Gurgaon through a more filtered lens —
+            whether you are looking for premium land, investor-led growth
+            opportunities, family-oriented sectors, or luxury residential zones.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="/contact"
+              className="rounded-2xl bg-cyan-500 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400"
+            >
+              Request Consultation
+            </a>
+            <a
+              href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20a%20Gurgaon%20shortlist."
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              WhatsApp for Gurgaon Shortlist
+            </a>
+          </div>
         </div>
       </section>
     </main>

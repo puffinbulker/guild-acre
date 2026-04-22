@@ -25,6 +25,10 @@ model Property {
   imageUrls      String
   amenities      String
   sourceType     String         @default("ADMIN")
+  sourcePlatform String?
+  sourceUrl      String?
+  priceLastVerified String?
+  photoRightsStatus String      @default("OWNER_UPLOADED")
   approvalStatus String         @default("APPROVED")
   boostTier      String         @default("STANDARD")
   leadRoutingMode String        @default("PLATFORM")

@@ -45,13 +45,17 @@ function toPropertyInput(property: PropertyRecord): PropertyInput {
     imageUrls: property.imageUrls,
     amenities: property.amenities,
     sourceType: property.sourceType,
+    sourcePlatform: property.sourcePlatform ?? null,
+    sourceUrl: property.sourceUrl,
+    priceLastVerified: property.priceLastVerified,
+    photoRightsStatus: property.photoRightsStatus,
     approvalStatus: property.approvalStatus,
     boostTier: property.boostTier,
     leadRoutingMode: property.leadRoutingMode,
     featuredRequested: property.featuredRequested,
     listingContactName: property.listingContactName,
     listingContactPhone: property.listingContactPhone,
-    listingContactRole: property.listingContactRole,
+    listingContactRole: property.listingContactRole ?? null,
     vendorId: property.vendorId
   };
 }
@@ -97,6 +101,10 @@ function toPropertyRecord(property: {
   imageUrls: string;
   amenities: string;
   sourceType: string;
+  sourcePlatform: string | null;
+  sourceUrl: string | null;
+  priceLastVerified: string | null;
+  photoRightsStatus: string;
   approvalStatus: string;
   boostTier: string;
   leadRoutingMode: string;
@@ -117,6 +125,11 @@ function toPropertyRecord(property: {
 
 function normalizePropertyRecord(property: Partial<PropertyRecord> & Pick<PropertyRecord, "id" | "title" | "slug" | "description" | "location" | "sector" | "city" | "priceInr" | "type" | "status" | "bedrooms" | "bathrooms" | "areaSqft" | "featured" | "imageUrls" | "amenities" | "createdAt" | "updatedAt">): PropertyRecord {
   return {
+    
+    sourcePlatform: property.sourcePlatform ?? null,
+    sourceUrl: property.sourceUrl ?? null,
+    priceLastVerified: property.priceLastVerified ?? null,
+    photoRightsStatus: "OWNER_UPLOADED",
     boostTier: "STANDARD",
     leadRoutingMode: "PLATFORM",
     featuredRequested: false,
@@ -124,7 +137,7 @@ function normalizePropertyRecord(property: Partial<PropertyRecord> & Pick<Proper
     approvalStatus: "APPROVED",
     listingContactName: null,
     listingContactPhone: null,
-    listingContactRole: null,
+    listingContactRole: property.listingContactRole ?? null,
     vendorId: null,
     ...property
   };
@@ -430,6 +443,10 @@ export async function createPropertyInStore(input: PropertyInput) {
   const data: PropertyInput = {
     ...input,
     sourceType: input.sourceType || "ADMIN",
+   
+    sourceUrl: input.sourceUrl || null,
+    priceLastVerified: input.priceLastVerified || null,
+    photoRightsStatus: input.photoRightsStatus || "OWNER_UPLOADED",
     approvalStatus: input.approvalStatus || "APPROVED",
     boostTier: input.boostTier || (input.featured ? "FEATURED" : "STANDARD"),
     leadRoutingMode: input.leadRoutingMode || "PLATFORM",
@@ -469,6 +486,7 @@ export async function createVendorPropertyInStore(vendorId: string, input: Prope
   return createPropertyInStore({
     ...input,
     sourceType: "VENDOR",
+    
     approvalStatus: "PENDING",
     boostTier: input.boostTier || "STANDARD",
     leadRoutingMode: input.leadRoutingMode || "PLATFORM",
@@ -482,6 +500,10 @@ export async function updatePropertyInStore(id: string, input: PropertyInput) {
   const data: PropertyInput = {
     ...input,
     sourceType: input.sourceType || "ADMIN",
+    
+    sourceUrl: input.sourceUrl || null,
+    priceLastVerified: input.priceLastVerified || null,
+    photoRightsStatus: input.photoRightsStatus || "OWNER_UPLOADED",
     approvalStatus: input.approvalStatus || "APPROVED",
     boostTier: input.boostTier || (input.featured ? "FEATURED" : "STANDARD"),
     leadRoutingMode: input.leadRoutingMode || "PLATFORM",

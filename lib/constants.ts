@@ -59,6 +59,26 @@ export const BOOST_TIERS = [
   "SPOTLIGHT"
 ] as const;
 
+export const PROPERTY_SOURCE_PLATFORMS = [
+  "GUILD_ACRE",
+  "HOUSING",
+  "99ACRES",
+  "MAGICBRICKS",
+  "DEALER_DIRECT",
+  "OWNER_DIRECT",
+  "BUILDER_DIRECT",
+  "OTHER"
+] as const;
+
+export const PHOTO_RIGHTS_STATUSES = [
+  "OWNER_UPLOADED",
+  "DEALER_UPLOADED",
+  "BUILDER_AUTHORIZED",
+  "LICENSED_STOCK",
+  "AI_CONCEPT",
+  "EXTERNAL_LINK_ONLY"
+] as const;
+
 export const LEAD_ROUTING_MODES = [
   "PLATFORM",
   "DIRECT_VENDOR",
@@ -76,6 +96,8 @@ export type DealerRoleValue = (typeof DEALER_ROLES)[number];
 export type DealerStatusValue = (typeof DEALER_STATUSES)[number];
 export type DealerPlanTypeValue = (typeof DEALER_PLAN_TYPES)[number];
 export type BoostTierValue = (typeof BOOST_TIERS)[number];
+export type PropertySourcePlatformValue = (typeof PROPERTY_SOURCE_PLATFORMS)[number];
+export type PhotoRightsStatusValue = (typeof PHOTO_RIGHTS_STATUSES)[number];
 export type LeadRoutingModeValue = (typeof LEAD_ROUTING_MODES)[number];
 export type LeadRoutingStatusValue = (typeof LEAD_ROUTING_STATUSES)[number];
 

@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
+import { getCanonicalSiteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const baseUrl = getCanonicalSiteUrl();
 
   return {
     rules: {
       userAgent: "*",
-      allow: ["/", "/listings", "/properties/"],
-      disallow: ["/admin", "/api/"]
+      allow: ["/", "/listings", "/gurgaon", "/properties/"],
+      disallow: ["/admin", "/dealers/dashboard", "/dealers/login", "/dealers/join", "/api/"]
     },
     sitemap: `${baseUrl}/sitemap.xml`
   };

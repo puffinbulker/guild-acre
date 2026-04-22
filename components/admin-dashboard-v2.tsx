@@ -8,13 +8,17 @@ import {
   DEALER_PLAN_TYPES,
   DEALER_STATUSES,
   LEAD_ROUTING_MODES,
+  PHOTO_RIGHTS_STATUSES,
   PROPERTY_STATUSES,
+  PROPERTY_SOURCE_PLATFORMS,
   PROPERTY_TYPES,
   type BoostTierValue,
   type DealerPlanTypeValue,
   type DealerStatusValue,
   type LeadRoutingModeValue,
+  type PhotoRightsStatusValue,
   type PropertyStatusValue,
+  type PropertySourcePlatformValue,
   type PropertyTypeValue
 } from "@/lib/constants";
 import type { DealerRecord, LeadRecord, PropertyRecord } from "@/types";
@@ -46,6 +50,10 @@ type FormShape = {
   featured: boolean;
   imageUrls: string;
   amenities: string;
+  sourcePlatform: PropertySourcePlatformValue;
+  sourceUrl: string;
+  priceLastVerified: string;
+  photoRightsStatus: PhotoRightsStatusValue;
   boostTier: BoostTierValue;
   leadRoutingMode: LeadRoutingModeValue;
   featuredRequested: boolean;
@@ -66,6 +74,10 @@ const emptyForm: FormShape = {
   featured: false,
   imageUrls: "",
   amenities: "",
+  sourcePlatform: "GUILD_ACRE",
+  sourceUrl: "",
+  priceLastVerified: new Date().toISOString().slice(0, 10),
+  photoRightsStatus: "OWNER_UPLOADED",
   boostTier: "STANDARD",
   leadRoutingMode: "PLATFORM",
   featuredRequested: false
@@ -180,6 +192,10 @@ export function AdminDashboardV2({ properties, leads, dealers }: Props) {
       featured: form.featured,
       imageUrls: form.imageUrls.split("\n").map((item) => item.trim()).filter(Boolean),
       amenities: form.amenities.split(",").map((item) => item.trim()).filter(Boolean),
+      sourcePlatform: form.sourcePlatform,
+      sourceUrl: form.sourceUrl || null,
+      priceLastVerified: form.priceLastVerified || null,
+      photoRightsStatus: form.photoRightsStatus,
       boostTier: form.boostTier,
       leadRoutingMode: form.leadRoutingMode,
       featuredRequested: form.featuredRequested
@@ -226,6 +242,10 @@ export function AdminDashboardV2({ properties, leads, dealers }: Props) {
       featured: property.featured,
       imageUrls: parseJsonArray(property.imageUrls).join("\n"),
       amenities: parseJsonArray(property.amenities).join(", "),
+      sourcePlatform: (property.sourcePlatform || "GUILD_ACRE") as PropertySourcePlatformValue,
+      sourceUrl: property.sourceUrl || "",
+      priceLastVerified: property.priceLastVerified || "",
+      photoRightsStatus: property.photoRightsStatus as PhotoRightsStatusValue,
       boostTier: property.boostTier as BoostTierValue,
       leadRoutingMode: property.leadRoutingMode as LeadRoutingModeValue,
       featuredRequested: property.featuredRequested
@@ -389,6 +409,26 @@ export function AdminDashboardV2({ properties, leads, dealers }: Props) {
             <div className="admin-form__split">
               <input type="number" value={form.bedrooms} onChange={(event) => setForm({ ...form, bedrooms: event.target.value })} placeholder="Bedrooms" />
               <input type="number" value={form.bathrooms} onChange={(event) => setForm({ ...form, bathrooms: event.target.value })} placeholder="Bathrooms" />
+            </div>
+            <div className="admin-form__split">
+              <select value={form.sourcePlatform} onChange={(event) => setForm({ ...form, sourcePlatform: event.target.value as PropertySourcePlatformValue })}>
+                {PROPERTY_SOURCE_PLATFORMS.map((platform) => (
+                  <option key={platform} value={platform}>
+                    {platform.replaceAll("_", " ")}
+                  </option>
+                ))}
+              </select>
+              <select value={form.photoRightsStatus} onChange={(event) => setForm({ ...form, photoRightsStatus: event.target.value as PhotoRightsStatusValue })}>
+                {PHOTO_RIGHTS_STATUSES.map((statusValue) => (
+                  <option key={statusValue} value={statusValue}>
+                    {statusValue.replaceAll("_", " ")}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="admin-form__split">
+              <input value={form.sourceUrl} onChange={(event) => setForm({ ...form, sourceUrl: event.target.value })} placeholder="Original source URL (optional)" />
+              <input type="date" value={form.priceLastVerified} onChange={(event) => setForm({ ...form, priceLastVerified: event.target.value })} />
             </div>
             <div className="admin-form__split">
               <select value={form.boostTier} onChange={(event) => setForm({ ...form, boostTier: event.target.value as BoostTierValue })}>
@@ -583,10 +623,12 @@ export function AdminDashboardV2({ properties, leads, dealers }: Props) {
                   <div className="admin-card__meta">
                     <span className="admin-badge">{property.type.replaceAll("_", " ")}</span>
                     <span className="admin-badge">{property.status.replaceAll("_", " ")}</span>
-                    <span className="admin-badge">{property.approvalStatus}</span>
-                    <span className="admin-badge">{property.boostTier}</span>
-                    {property.vendorId ? <span className="admin-badge">{dealerMap.get(property.vendorId)?.companyName || "Vendor"}</span> : null}
-                  </div>
+                  <span className="admin-badge">{property.approvalStatus}</span>
+                  <span className="admin-badge">{property.boostTier}</span>
+                  <span className="admin-badge">{property.sourcePlatform || "GUILD_ACRE"}</span>
+                  <span className="admin-badge">{property.photoRightsStatus.replaceAll("_", " ")}</span>
+                  {property.vendorId ? <span className="admin-badge">{dealerMap.get(property.vendorId)?.companyName || "Vendor"}</span> : null}
+                </div>
                   <div className="admin-form__split">
                     <select
                       value={draft.approvalStatus}
