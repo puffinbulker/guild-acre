@@ -12,6 +12,7 @@ const navItems = [
   { label: "Partners", href: "/dealers/join" },
   { label: "Contact", href: "/contact" },
   { label: "Admin", href: "/admin" },
+  { label: "Login", href: "/dealers/login" },
 ];
 
 export default function Navbar() {
