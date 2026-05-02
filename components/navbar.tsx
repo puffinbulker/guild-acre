@@ -12,7 +12,6 @@ const navItems = [
   { label: "Partners", href: "/dealers/join" },
   { label: "Contact", href: "/contact" },
   { label: "Admin", href: "/admin" },
-  { label: "Login", href: "/dealers/login" },
 ];
 
 export default function Navbar() {
@@ -24,7 +23,7 @@ export default function Navbar() {
 
   return (
     <div className="relative flex items-center gap-3">
-      <nav className="hidden items-center gap-6 lg:flex">
+      <nav className="hidden items-center gap-5 lg:flex">
         {navItems.map((item) => {
           const active = isActive(item.href);
 
@@ -47,6 +46,13 @@ export default function Navbar() {
             </Link>
           );
         })}
+
+        <Link
+          href="/dealers/login"
+          className="rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-200 transition hover:border-cyan-300/60 hover:bg-cyan-400 hover:text-slate-950"
+        >
+          Dealer Login
+        </Link>
       </nav>
 
       <a
@@ -66,21 +72,9 @@ export default function Navbar() {
         aria-expanded={open}
       >
         <span className="flex flex-col gap-1.5">
-          <span
-            className={`block h-0.5 w-5 rounded bg-white transition ${
-              open ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-5 rounded bg-white transition ${
-              open ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-5 rounded bg-white transition ${
-              open ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
+          <span className={`block h-0.5 w-5 rounded bg-white transition ${open ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`block h-0.5 w-5 rounded bg-white transition ${open ? "opacity-0" : ""}`} />
+          <span className={`block h-0.5 w-5 rounded bg-white transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
         </span>
       </button>
 
@@ -105,6 +99,14 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            <Link
+              href="/dealers/login"
+              onClick={() => setOpen(false)}
+              className="rounded-xl border border-cyan-300/30 bg-cyan-400/10 px-4 py-3 text-center text-sm font-semibold text-cyan-200"
+            >
+              Dealer Login
+            </Link>
 
             <a
               href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20book%20a%20private%20advisory."
