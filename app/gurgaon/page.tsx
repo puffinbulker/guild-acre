@@ -1,4 +1,30 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gurgaon Property Advisory by Locality, Sector & Corridor | Guild Acre",
+  description:
+    "Explore Gurgaon property opportunities by corridor, sector, and buyer intent across luxury homes, plots, land, and investment-led micro-markets.",
+};
+
 export default function GurgaonPage() {
+  const faqs = [
+    {
+      question: "Which Gurgaon corridors are best for premium family buyers?",
+      answer:
+        "Golf Course Road, Golf Course Extension Road, and selected adjoining sectors usually suit premium-family and upgrade buyers better than generic corridor-led comparisons.",
+    },
+    {
+      question: "Which Gurgaon areas are more investor-led right now?",
+      answer:
+        "Corridors like Dwarka Expressway often attract more growth-oriented and infrastructure-led investor interest, though project quality and exact entry level still matter heavily.",
+    },
+    {
+      question: "Can Guild Acre help me compare sectors more selectively?",
+      answer:
+        "Yes. The Gurgaon hub is designed to help you narrow direction first, then move into a more filtered shortlist based on budget, purpose, and asset type.",
+    },
+  ];
+
   const localityCards = [
     {
       title: "DLF Phase 2",
@@ -13,7 +39,7 @@ export default function GurgaonPage() {
     {
       title: "Golf Course Road",
       tag: "Luxury Core",
-      text: "One of Gurgaon’s most prestigious premium micro-markets, known for marquee towers, elite addresses, and enduring value.",
+      text: "One of Gurgaon's most prestigious premium micro-markets, known for marquee towers, elite addresses, and enduring value.",
     },
     {
       title: "New Gurgaon",
@@ -78,13 +104,14 @@ export default function GurgaonPage() {
             </p>
 
             <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              Discover Gurgaon through a premium, corridor-first investment lens.
+              Gurgaon property guidance by corridor, locality, and buyer intent.
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              Explore Gurgaon through curated localities, premium growth belts,
-              and high-potential sectors. This hub is designed to help serious
-              buyers understand where value, lifestyle, and long-term upside are
+              Explore Gurgaon through the lens that matters most to serious
+              buyers: corridor strength, locality fit, inventory type, and
+              practical decision logic. This hub is designed to help clients
+              compare where lifestyle, value, and long-term relevance are
               strongest.
             </p>
           </div>
@@ -120,10 +147,10 @@ export default function GurgaonPage() {
             Prime Localities
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Browse Gurgaon’s most relevant premium and high-potential micro-markets
+            Browse Gurgaon's most relevant premium and high-potential micro-markets
           </h2>
           <p className="mt-4 text-base leading-8 text-slate-400">
-            Each belt has a different demand story — luxury, rental depth,
+            Each belt has a different demand story: luxury, rental depth,
             launch momentum, investor traction, or end-user stability.
           </p>
         </div>
@@ -150,7 +177,7 @@ export default function GurgaonPage() {
             Why Gurgaon still matters
           </p>
           <h2 className="mt-4 max-w-4xl text-3xl font-semibold tracking-tight sm:text-4xl">
-            Gurgaon remains one of NCR’s strongest real estate markets because demand is layered — not one-dimensional.
+            Gurgaon remains one of NCR's strongest real estate markets because demand is layered, not one-dimensional.
           </h2>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-300">
             It combines premium end-user demand, investor participation,
@@ -224,7 +251,7 @@ export default function GurgaonPage() {
             Need a sharper Gurgaon shortlist based on your budget and purpose?
           </h2>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-300">
-            We can help you evaluate Gurgaon through a more filtered lens —
+            We can help you evaluate Gurgaon through a more filtered lens,
             whether you are looking for premium land, investor-led growth
             opportunities, family-oriented sectors, or luxury residential zones.
           </p>
@@ -245,6 +272,31 @@ export default function GurgaonPage() {
               WhatsApp for Gurgaon Shortlist
             </a>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-8 lg:pb-28">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
+            Gurgaon FAQ
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Questions buyers often ask before shortlisting Gurgaon.
+          </h2>
+        </div>
+
+        <div className="mt-8 space-y-4">
+          {faqs.map((item) => (
+            <div
+              key={item.question}
+              className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-7"
+            >
+              <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
+                {item.answer}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
     </main>

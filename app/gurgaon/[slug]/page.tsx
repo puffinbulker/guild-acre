@@ -8,6 +8,33 @@ import { formatListingCount } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
+const AREA_INSIGHTS: Record<
+  string,
+  { title: string; summary: string; caution: string }
+> = {
+  "golf-course-extension-road": {
+    title: "Why buyers track this corridor closely",
+    summary:
+      "Golf Course Extension Road suits premium upgrade buyers, newer-launch seekers, and families looking for larger-format homes with long-term relevance. The corridor performs best when buyers compare product quality and positioning carefully rather than assuming every project commands the same premium.",
+    caution:
+      "This market rewards selective shortlisting. Product quality, exact pocket, and pricing discipline matter more here than generic corridor branding.",
+  },
+  "dwarka-expressway": {
+    title: "Why investors keep returning to this belt",
+    summary:
+      "Dwarka Expressway continues to attract buyers looking for infrastructure-led upside, launch-stage positioning, and high-visibility residential or plotted opportunities. It works best for buyers who are clear about entry level, holding horizon, and the difference between momentum and durable value.",
+    caution:
+      "Do not treat every Dwarka Expressway option as equal. Access, project quality, and exit comfort can vary sharply by micro-pocket.",
+  },
+  "sohna-road": {
+    title: "What makes this corridor different",
+    summary:
+      "Sohna Road is more mixed than trophy-led. It suits buyers who want practical connectivity, everyday livability, and a broader spread of residential and commercial demand rather than a purely luxury narrative.",
+    caution:
+      "The right fit here depends heavily on whether you are buying for end use, rental practicality, or land-led positioning around the wider belt.",
+  },
+};
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
@@ -21,10 +48,10 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return {
-    title: `${area.title} Properties in Gurgaon`,
+    title: `${area.title} Property in Gurgaon | Prices, Insights & Curated Options | Guild Acre`,
     description:
       area.summary ||
-      `Browse property opportunities in ${area.title}, Gurgaon across buy, rent, lease, resale, and fresh inventory.`
+      `Explore ${area.title} property in Gurgaon with price context, buyer-fit guidance, and curated options across luxury, plotted, and land-led requirements.`
   };
 }
 
@@ -49,10 +76,14 @@ export default async function GurgaonAreaPage({ params }: Props) {
         <h1>{area.title}</h1>
         <p>
           {area.summary ||
-            `Browse curated opportunities in ${area.title}, Gurgaon for buying, selling, rent, lease, resale, fresh booking, commercial, and land-led requirements.`}
+            `Explore curated opportunities in ${area.title}, Gurgaon for buying, selling, rent, lease, resale, fresh booking, commercial, and land-led requirements.`}
         </p>
         <div className="page-intro__metrics">
-          <span>{formatListingCount(areaCount)} live</span>
+          <span>
+            {areaCount
+              ? `${formatListingCount(areaCount)} currently visible`
+              : "Private matching available on enquiry"}
+          </span>
           <span>Buy, rent, lease, resale, and fresh inventory</span>
           <span>Plots, floors, villa, kothi, apartment, flat, and land</span>
         </div>
@@ -119,9 +150,29 @@ export default async function GurgaonAreaPage({ params }: Props) {
             <article className="card area-page__service-card">
               <span className="section-tag">For Land Deals</span>
               <h3>Plots, farm land, and agriculture land</h3>
-              <p>Use this page as an enquiry gateway even if your exact match is not listed yet.</p>
+              <p>Use this page to request filtered options even when the most suitable match is discussed privately.</p>
             </article>
           </div>
+
+          {AREA_INSIGHTS[slug] ? (
+            <section className="area-market card">
+              <div className="area-market__intro">
+                <span className="section-tag">Local Buyer Insight</span>
+                <h2>{AREA_INSIGHTS[slug].title}</h2>
+                <p>{AREA_INSIGHTS[slug].summary}</p>
+              </div>
+              <div className="area-market__stats">
+                <div>
+                  <strong>Buyer fit</strong>
+                  <span>Use case matters more than generic location buzz</span>
+                </div>
+                <div>
+                  <strong>Key caution</strong>
+                  <span>{AREA_INSIGHTS[slug].caution}</span>
+                </div>
+              </div>
+            </section>
+          ) : null}
 
           <div className="area-visual-grid">
             {PROPERTY_VISUAL_CATEGORIES.slice(0, 4).map((category) => (
@@ -141,11 +192,11 @@ export default async function GurgaonAreaPage({ params }: Props) {
           ) : (
             <div className="card area-page__empty">
               <span className="section-tag">Inventory Desk</span>
-              <h2>No live listing card here yet</h2>
+              <h2>Curated opportunities are often shared privately here</h2>
               <p>
-                This Gurgaon page is ready for sector-wise discovery. If you are looking to buy,
-                sell, rent, lease, or source land in {area.title}, send your requirement and we can
-                line up matching options directly.
+                If you are looking to buy, sell, rent, lease, or source land in{" "}
+                {area.title}, send your requirement and we can help shortlist
+                relevant options directly based on fit, availability, and timing.
               </p>
             </div>
           )}

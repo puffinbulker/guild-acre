@@ -10,51 +10,130 @@ export default function HomePage() {
 
   const trustPoints = [
     "12+ Years Gurgaon Market Experience",
-    "Specialized in Land & Farm Deals",
-    "Trusted by HNI Buyers & Investors",
-    "Focused Only on Genuine Opportunities",
+    "Focused on Land, Farmhouse & Plotted Deals",
+    "Private Advisory for Serious Buyers",
+    "Filtered Opportunities Across Premium Corridors",
   ];
 
   const pillars = [
     {
       title: "Curated Opportunities",
-      text: "We do not push random inventory. We filter opportunities based on location strength, buyer fit, and long-term relevance.",
+      text: "We shortlist opportunities based on location strength, buyer fit, and practical relevance instead of overwhelming you with random inventory.",
     },
     {
-      title: "Deep Deal Understanding",
-      text: "We evaluate pricing, corridor logic, title confidence, and actual deal quality before recommending anything seriously.",
+      title: "Corridor-Level Understanding",
+      text: "We assess pricing, surrounding demand, and market context before recommending a deal seriously.",
     },
     {
       title: "Premium Buyer Experience",
-      text: "Guild Acre is built for clients who value clarity, discretion, clean communication, and stronger decision quality.",
+      text: "Guild Acre is built for clients who value discretion, direct communication, and cleaner decision-making support.",
+    },
+  ];
+
+  const proofPoints = [
+    {
+      label: "Primary Markets",
+      value: "Gurgaon, Sohna, and Naugaon",
+    },
+    {
+      label: "Advisory Focus",
+      value: "Land, farmhouse, and plotted opportunities",
+    },
+    {
+      label: "Client Profile",
+      value: "Serious buyers, investors, and selective NCR professionals",
+    },
+  ];
+
+  const evaluationSteps = [
+    {
+      title: "Location logic",
+      text: "We first assess whether the micro-market actually fits your use case, instead of relying on generic hype around the corridor.",
+    },
+    {
+      title: "Pricing realism",
+      text: "We compare the asking level against the corridor, product type, and nearby demand so you can judge whether the deal is stretched or sensible.",
+    },
+    {
+      title: "Title-awareness",
+      text: "We flag the diligence questions that should be raised early, especially in land-led and farmhouse-linked opportunities.",
+    },
+    {
+      title: "Buyer fit",
+      text: "Every opportunity is filtered by purpose, whether that means investment, future use, lifestyle purchase, or a more selective long-term hold.",
+    },
+    {
+      title: "Exit clarity",
+      text: "We look beyond the entry story and consider how usable, liquid, and relevant the opportunity is likely to remain over time.",
+    },
+  ];
+
+  const clientStories = [
+    {
+      title: "Land-banking brief",
+      summary:
+        "A Delhi NCR investor looking for a cleaner long-hold land position was narrowed from multiple noisy options down to a smaller, more practical shortlist based on corridor fit and holding horizon.",
+    },
+    {
+      title: "Farmhouse lifestyle search",
+      summary:
+        "A weekend-use buyer exploring farmhouse options wanted privacy, access, and a better-quality micro-market rather than just a large parcel on paper.",
+    },
+    {
+      title: "Upgrade-led residential shortlisting",
+      summary:
+        "A family buyer comparing premium Gurgaon inventory was guided toward the sectors and product types that matched end use, livability, and resale comfort.",
+    },
+  ];
+
+  const faqs = [
+    {
+      question: "What kind of properties does Guild Acre focus on most?",
+      answer:
+        "Guild Acre focuses primarily on land, farmhouse, and plotted opportunities, while also advising on selective premium residential requirements in Gurgaon and nearby growth corridors.",
+    },
+    {
+      question: "Who is this advisory best suited for?",
+      answer:
+        "The service is designed for serious buyers, investors, and selective NCR professionals who want better filtering, cleaner guidance, and fewer low-quality options.",
+    },
+    {
+      question: "Do you only work with investors?",
+      answer:
+        "No. Some clients are investing for long-term appreciation, while others are buying for lifestyle, future use, or family-led end use.",
+    },
+    {
+      question: "How does the shortlisting process work?",
+      answer:
+        "You share your budget, location preference, and objective. We then filter opportunities based on buyer fit, market context, and practical decision factors before recommending what deserves serious attention.",
     },
   ];
 
   const featuredListings = [
     {
-      title: "Aravalli Ridge Estate",
-      type: "Farm Investment",
+      title: "Sohna Green-Belt Farm Parcel",
+      type: "Farm land for long-hold and weekend use",
       location: "Sohna, Gurgaon",
-      price: "₹2.40 Cr onwards",
-      badge: "Verified Title",
+      price: "Rs. 2.40 Cr onwards",
+      badge: "Title-led shortlisting",
       image:
         "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80",
     },
     {
-      title: "Blue Horizon Investor Plots",
-      type: "Investment Land",
+      title: "Dwarka Expressway Investor Plot Option",
+      type: "Plotted opportunity in a growth corridor",
       location: "Dwarka Expressway",
-      price: "₹3.10 Cr onwards",
-      badge: "High Growth Zone",
+      price: "Rs. 3.10 Cr onwards",
+      badge: "Growth-corridor fit",
       image:
         "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
     },
     {
-      title: "Orchard Valley Residences",
-      type: "Farmhouse Plots",
+      title: "Naugaon Lifestyle Farm Plot",
+      type: "Farmhouse plot for retreat-led buyers",
       location: "Naugaon Belt",
-      price: "₹1.20 Cr onwards",
-      badge: "Weekend Living",
+      price: "Rs. 1.20 Cr onwards",
+      badge: "Weekend-use profile",
       image:
         "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80",
     },
@@ -82,18 +161,18 @@ Please share curated opportunities for my requirement.`;
         <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-14 pt-10 sm:px-6 sm:pb-16 sm:pt-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12 lg:px-8 lg:pb-28 lg:pt-20">
           <div>
             <p className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-400/10 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-cyan-300/80 sm:px-4 sm:text-xs sm:tracking-[0.28em]">
-              Gurgaon • Sohna • Naugaon • Premium Corridors
+              Gurgaon | Sohna | Naugaon | Premium Corridors
             </p>
 
             <h1 className="mt-5 max-w-5xl text-4xl font-semibold leading-[0.96] tracking-tight sm:mt-6 sm:text-5xl lg:text-7xl">
-              Premium real estate advisory for buyers who value clarity, credibility, and conviction.
+              Private real estate advisory for serious land and premium property buyers in Gurgaon.
             </h1>
 
             <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
-              Guild Acre helps HNI buyers, investors, and serious Delhi NCR
-              professionals discover curated land, farmhouse, and plotted
-              opportunities with stronger filtering, genuine guidance, and a
-              premium advisory experience.
+              Guild Acre helps serious buyers and investors shortlist land,
+              farmhouse, and plotted opportunities across Gurgaon, Sohna, and
+              Naugaon with stronger filtering, clearer guidance, and better
+              decision support.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
@@ -149,7 +228,7 @@ Please share curated opportunities for my requirement.`;
                   type="text"
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
-                  placeholder="Example: ₹1 Cr - ₹3 Cr"
+                  placeholder="Example: Rs. 1 Cr - Rs. 3 Cr"
                   className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
                 />
               </div>
@@ -210,11 +289,13 @@ Please share curated opportunities for my requirement.`;
             Why Guild Acre
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:mt-4 sm:text-4xl lg:text-5xl">
-            A more refined way to discover premium property.
+            Why serious buyers work with Guild Acre.
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-300 sm:mt-5 sm:text-lg sm:leading-8">
-            Our role is not just to show availability. Our role is to improve
-            decision quality through curation, clarity, and stronger advisory.
+            Guild Acre is built for buyers who do not want random inventory,
+            noisy follow-up, or vague recommendations. We help clients focus on
+            opportunities that align with their budget, intended use, and
+            long-term priorities.
           </p>
         </div>
 
@@ -233,22 +314,129 @@ Please share curated opportunities for my requirement.`;
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
+        <div className="max-w-3xl">
+          <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
+            Frequently Asked Questions
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:mt-4 sm:text-4xl lg:text-5xl">
+            Common questions from serious buyers.
+          </h2>
+        </div>
+
+        <div className="mt-8 space-y-4 sm:mt-10">
+          {faqs.map((item) => (
+            <div
+              key={item.question}
+              className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-7"
+            >
+              <h3 className="text-lg font-semibold text-white sm:text-xl">
+                {item.question}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
+                {item.answer}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-2 sm:px-6 sm:py-4 lg:px-8 lg:py-10">
+        <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
+          {proofPoints.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-7"
+            >
+              <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.3em]">
+                {item.label}
+              </p>
+              <p className="mt-3 text-lg font-semibold leading-7 text-white sm:text-xl">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
+        <div className="max-w-3xl">
+          <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
+            How We Evaluate Opportunities
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:mt-4 sm:text-4xl lg:text-5xl">
+            A clearer process before we recommend a property seriously.
+          </h2>
+          <p className="mt-4 text-base leading-7 text-slate-300 sm:mt-5 sm:text-lg sm:leading-8">
+            Every serious property decision deserves more than a sales pitch.
+            Our filtering process is built to improve decision quality before
+            you spend time on site visits, negotiations, or paperwork.
+          </p>
+        </div>
+
+        <div className="mt-8 grid gap-4 sm:mt-10 lg:grid-cols-5 lg:gap-5">
+          {evaluationSteps.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[24px] border border-cyan-300/10 bg-slate-900/70 p-5 sm:rounded-[28px] sm:p-6"
+            >
+              <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-300">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-2 sm:px-6 sm:py-4 lg:px-8 lg:py-10">
+        <div className="max-w-3xl">
+          <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
+            Buyer Context
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:mt-4 sm:text-4xl lg:text-5xl">
+            The kind of buyer situations we help clarify.
+          </h2>
+          <p className="mt-4 text-base leading-7 text-slate-300 sm:mt-5 sm:text-lg sm:leading-8">
+            The best advisory work usually begins when a buyer has options on
+            paper but still needs a cleaner decision path. These are typical
+            situations that come to us.
+          </p>
+        </div>
+
+        <div className="mt-8 grid gap-4 sm:mt-10 lg:grid-cols-3 lg:gap-5">
+          {clientStories.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-7"
+            >
+              <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">
+                {item.summary}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-4 py-2 sm:px-6 sm:py-4 lg:px-8 lg:py-10">
         <div className="rounded-[28px] border border-cyan-300/15 bg-gradient-to-r from-cyan-400/10 via-white/5 to-sky-400/10 p-6 sm:rounded-[32px] sm:p-8 lg:p-10">
           <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
             Founder
           </p>
           <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:mt-4 sm:text-3xl lg:text-4xl">
-            Sandeep Kumar
+            Advisory led by on-ground Gurgaon market experience
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-7 text-slate-300 sm:mt-5 sm:text-lg sm:leading-8">
-            With 12+ years of experience in Gurgaon real estate, I focus on
-            helping serious buyers and investors make clearer, higher-conviction
-            decisions in land, farmhouse, and plotted opportunities.
+            Guild Acre is led by Sandeep Kumar, with 12+ years of experience in
+            Gurgaon real estate. The focus is simple: help serious buyers and
+            investors evaluate land, farmhouse, and plotted opportunities with
+            more clarity, better filtering, and fewer low-quality distractions.
           </p>
           <p className="mt-4 max-w-4xl text-sm leading-7 text-slate-400 sm:mt-5 sm:text-base sm:leading-8">
-            I understand deals deeply, focus on genuine properties, and guide
-            clients honestly. Guild Acre is built on that principle.
+            The advisory approach is built around honest guidance, cleaner
+            communication, and better decision quality for buyers who take
+            property seriously.
           </p>
         </div>
       </section>
@@ -263,7 +451,9 @@ Please share curated opportunities for my requirement.`;
               Selective opportunities, not overwhelming inventory.
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-300 sm:mt-5 sm:text-lg sm:leading-8">
-              Here is a glimpse of the kind of premium opportunities we help clients evaluate.
+              Here is a glimpse of the kind of selective opportunities we help
+              clients evaluate. Availability changes, and many options are
+              discussed privately based on buyer fit, requirement, and timing.
             </p>
           </div>
 
@@ -327,11 +517,11 @@ Please share curated opportunities for my requirement.`;
 
         <div className="mt-16 text-center sm:mt-20">
           <h2 className="text-2xl font-semibold sm:text-3xl">
-            Serious buyers don’t chase listings. They access the right opportunities early.
+            Serious buyers do not chase listings. They access the right opportunities early.
           </h2>
 
           <p className="mt-4 text-sm leading-7 text-slate-400 sm:text-base">
-            Tell us your requirement and we’ll align you with genuine options.
+            Tell us your requirement and we will align you with genuine options.
           </p>
 
           <a

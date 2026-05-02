@@ -4,8 +4,9 @@ import Navbar from "../components/navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Guild Acre",
-  description: "Premium Land Investment Advisory",
+  title: "Guild Acre | Premium Real Estate Advisory in Gurgaon",
+  description:
+    "Private real estate advisory for serious buyers and investors in Gurgaon, Sohna, and Naugaon across land, farmhouse, and plotted opportunities.",
 };
 
 export default function RootLayout({

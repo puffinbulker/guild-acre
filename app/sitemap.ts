@@ -24,6 +24,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/gurgaon`,
       lastModified: now
     },
+    {
+      url: `${baseUrl}/insights`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/insights/verify-land-title-near-gurgaon`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/insights/sohna-vs-naugaon-farmhouse-investment`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/insights/dwarka-expressway-vs-golf-course-extension-road`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/insights/red-flags-in-plotted-land-deals-near-gurgaon`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/insights/title-checks-before-buying-farmhouse-land`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/insights/gurgaon-corridor-comparison-for-serious-buyers`,
+      lastModified: now
+    },
     ...areas.map((area) => ({
       url: `${baseUrl}/gurgaon/${area.slug}`,
       lastModified: now

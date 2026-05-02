@@ -20,7 +20,6 @@ type Property = {
   amenities: string[];
 };
 
-// ✅ CLEAN LABELS
 const TYPE_LABELS: Record<string, string> = {
   AGRICULTURE_LAND: "Agriculture Land",
   FARM_HOUSE: "Farm House",
@@ -45,7 +44,6 @@ const STATUS_LABELS: Record<string, string> = {
   LEASED: "Leased",
 };
 
-// ✅ FILTERS
 const FILTERS = [
   { label: "All", value: "ALL" },
   { label: "Farm House", value: "FARM_HOUSE" },
@@ -53,6 +51,24 @@ const FILTERS = [
   { label: "Land", value: "LAND" },
   { label: "Commercial", value: "COMMERCIAL" },
   { label: "Residential", value: "RESIDENTIAL" },
+];
+
+const listingFaqs = [
+  {
+    question: "Are all opportunities shown here the full available inventory?",
+    answer:
+      "No. This page is a public-facing shortlist. Some opportunities are discussed privately depending on buyer fit, timing, and requirement quality.",
+  },
+  {
+    question: "Can Guild Acre help narrow the right options for my brief?",
+    answer:
+      "Yes. The best use of this page is usually to get a feel for category and pricing, then move into a more filtered shortlist based on your actual objective.",
+  },
+  {
+    question: "Do you only handle land and farmhouse deals?",
+    answer:
+      "Land, farmhouse, and plotted opportunities are core strengths, but selective premium residential and corridor-led requirements are also handled.",
+  },
 ];
 
 function getFilterMatch(type: string, filter: string) {
@@ -83,12 +99,11 @@ function getFilterMatch(type: string, filter: string) {
   return type === filter;
 }
 
-// ✅ PRICE FORMAT
 function formatPrice(price: number) {
   if (!price) return "";
-  if (price >= 10000000) return `₹${(price / 10000000).toFixed(2)} Cr`;
-  if (price >= 100000) return `₹${(price / 100000).toFixed(2)} L`;
-  return `₹${price}`;
+  if (price >= 10000000) return `Rs. ${(price / 10000000).toFixed(2)} Cr`;
+  if (price >= 100000) return `Rs. ${(price / 100000).toFixed(2)} L`;
+  return `Rs. ${price}`;
 }
 
 export default function ListingsPage() {
@@ -102,42 +117,69 @@ export default function ListingsPage() {
   }, []);
 
   const filteredProperties = useMemo(() => {
-    return properties.filter((item) =>
-      getFilterMatch(item.type, activeFilter)
-    );
+    return properties.filter((item) => getFilterMatch(item.type, activeFilter));
   }, [properties, activeFilter]);
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-
-      {/* HERO */}
       <section className="bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_30%)]">
-        <div className="mx-auto max-w-7xl px-4 py-16">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
-            Gurgaon Premium Advisory
+            Curated Listings Desk
           </p>
 
-          <h1 className="mt-4 text-4xl font-semibold sm:text-5xl lg:text-6xl">
-            Curated Land & Investment Opportunities
+          <h1 className="mt-4 max-w-5xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            Filtered property opportunities for serious Gurgaon and NCR buyers.
           </h1>
 
-          <p className="mt-5 max-w-3xl text-slate-300">
-            Agriculture land, farmhouse investments, commercial land and high-potential deals across Gurgaon.
+          <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+            Explore a public-facing shortlist across land, farmhouse, plotted,
+            commercial, and selective residential categories. This is designed
+            to help you scan the market more cleanly before moving into a more
+            focused advisory shortlist.
           </p>
         </div>
       </section>
 
-      {/* FILTERS */}
-      <section className="mx-auto max-w-7xl px-4 mt-6">
+      <section className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8 lg:py-4">
+        <div className="grid gap-4 rounded-[28px] border border-white/10 bg-white/5 p-6 sm:grid-cols-3 sm:p-8">
+          <div>
+            <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+              What this page does best
+            </p>
+            <p className="mt-3 text-lg font-semibold text-white">
+              Helps you compare categories and price positioning.
+            </p>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+              What it does not replace
+            </p>
+            <p className="mt-3 text-lg font-semibold text-white">
+              A filtered shortlist built around your exact use case.
+            </p>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+              Best next step
+            </p>
+            <p className="mt-3 text-lg font-semibold text-white">
+              Shortlist the right options, then move into private advisory.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap gap-3">
           {FILTERS.map((f) => (
             <button
               key={f.value}
               onClick={() => setActiveFilter(f.value)}
-              className={`rounded-full px-4 py-2 text-sm ${
+              className={`rounded-full px-4 py-2 text-sm transition ${
                 activeFilter === f.value
-                  ? "bg-cyan-500 text-black"
-                  : "border border-white/10 text-white"
+                  ? "bg-cyan-500 text-slate-950"
+                  : "border border-white/10 text-white hover:bg-white/5"
               }`}
             >
               {f.label}
@@ -146,20 +188,20 @@ export default function ListingsPage() {
         </div>
       </section>
 
-      {/* LISTINGS */}
-      <section className="mx-auto max-w-7xl px-4 py-12">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         {filteredProperties.length === 0 ? (
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 text-center text-slate-400">
-            No properties available.
+          <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-center text-slate-300">
+            No public-facing opportunities are showing in this category right
+            now. If your requirement is specific, private matching may still be
+            available on enquiry.
           </div>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {filteredProperties.map((item) => (
               <div
                 key={item.id}
-                className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-900 transition hover:-translate-y-2 hover:border-cyan-300/30"
+                className="group overflow-hidden rounded-[28px] border border-white/10 bg-slate-900 transition hover:-translate-y-2 hover:border-cyan-300/30"
               >
-                {/* IMAGE */}
                 <div
                   className="h-60 bg-cover bg-center transition group-hover:scale-105"
                   style={{
@@ -168,8 +210,6 @@ export default function ListingsPage() {
                 />
 
                 <div className="p-6">
-
-                  {/* BADGES */}
                   <div className="flex flex-wrap gap-2">
                     {item.featured && (
                       <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">
@@ -188,29 +228,22 @@ export default function ListingsPage() {
                     )}
                   </div>
 
-                  {/* TITLE */}
-                  <h2 className="mt-4 text-2xl font-semibold">
-                    {item.title}
-                  </h2>
+                  <h2 className="mt-4 text-2xl font-semibold">{item.title}</h2>
 
-                  {/* LOCATION */}
                   <p className="mt-2 text-slate-400">
                     {item.location}, {item.city}
                   </p>
 
-                  {/* DESCRIPTION */}
-                  <p className="mt-4 text-sm text-slate-300 leading-7">
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
                     {item.description}
                   </p>
 
-                  {/* DETAILS */}
                   <div className="mt-5 grid grid-cols-2 gap-3 text-sm text-slate-300">
                     {item.bedrooms > 0 && <div>Bedrooms: {item.bedrooms}</div>}
                     {item.bathrooms > 0 && <div>Bathrooms: {item.bathrooms}</div>}
                     {item.areaSqft > 0 && <div>Area: {item.areaSqft} sqft</div>}
                   </div>
 
-                  {/* AMENITIES */}
                   {item.amenities?.length > 0 && (
                     <div className="mt-5">
                       <div className="text-xs uppercase tracking-[0.2em] text-slate-400">
@@ -230,18 +263,17 @@ export default function ListingsPage() {
                     </div>
                   )}
 
-                  {/* PRICE */}
                   <div className="mt-6 text-2xl font-bold text-cyan-300">
                     {formatPrice(item.priceInr)}
                   </div>
 
-                  {/* CTA */}
                   <div className="mt-6 flex gap-3">
                     <a
                       href={`https://wa.me/919711667782?text=${encodeURIComponent(
-                        `Hi, I am interested in this property:\n\n${item.title}\n${item.location}\nPrice: ₹${item.priceInr}\n\nPlease share full details.`
+                        `Hi, I am interested in this property:\n\n${item.title}\n${item.location}\nPrice: Rs. ${item.priceInr}\n\nPlease share full details.`
                       )}`}
                       target="_blank"
+                      rel="noreferrer"
                       className="flex-1 rounded-xl bg-cyan-500 px-4 py-3 text-center text-sm font-semibold text-slate-950 hover:bg-cyan-400"
                     >
                       WhatsApp
@@ -251,6 +283,7 @@ export default function ListingsPage() {
                       <a
                         href={item.videoUrl}
                         target="_blank"
+                        rel="noreferrer"
                         className="flex-1 rounded-xl border border-white/10 px-4 py-3 text-center text-sm"
                       >
                         Video
@@ -258,23 +291,44 @@ export default function ListingsPage() {
                     )}
                   </div>
 
-                  {/* REQUEST BUTTON */}
                   <div className="mt-4">
-                    <button
-                      onClick={() =>
-                        alert("Lead form coming next upgrade")
-                      }
-                      className="w-full rounded-xl border border-cyan-300/20 bg-cyan-400/10 px-4 py-3 text-sm text-cyan-300 hover:bg-cyan-400/20"
+                    <a
+                      href="/contact"
+                      className="block w-full rounded-xl border border-cyan-300/20 bg-cyan-400/10 px-4 py-3 text-center text-sm text-cyan-300 hover:bg-cyan-400/20"
                     >
                       Request Details
-                    </button>
+                    </a>
                   </div>
-
                 </div>
               </div>
             ))}
           </div>
         )}
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 lg:pb-16">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
+            Listings FAQ
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Common questions about the public shortlist.
+          </h2>
+        </div>
+
+        <div className="mt-8 space-y-4">
+          {listingFaqs.map((item) => (
+            <div
+              key={item.question}
+              className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-7"
+            >
+              <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
+                {item.answer}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
