@@ -12,11 +12,12 @@ export default function DealerLogin() {
   const router = useRouter();
 
   const handleLogin = async () => {
+    setError("");
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/dealers/dashboard");
     } catch (err: any) {
-      setError("Invalid email or password");
+      setError(err.message);
     }
   };
 
