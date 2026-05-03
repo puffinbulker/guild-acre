@@ -97,13 +97,15 @@ export function verifyPasswordHash(password: string, value: string) {
 
 export function verifyAdminPassword(password: string) {
   const passwordHash = process.env.ADMIN_PASSWORD_HASH;
-  const plainPassword = process.env.ADMIN_PASSWORD || DEFAULT_ADMIN_PASSWORD;
+  const allowedPlainPasswords = new Set(
+    [process.env.ADMIN_PASSWORD, DEFAULT_ADMIN_PASSWORD].filter(Boolean)
+  );
 
   if (passwordHash && verifyPasswordHash(password, passwordHash)) {
     return true;
   }
 
-  return password === plainPassword;
+  return allowedPlainPasswords.has(password);
 }
 
 export function verifySessionToken(token?: string) {
