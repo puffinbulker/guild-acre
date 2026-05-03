@@ -28,7 +28,7 @@ export function SiteHeader() {
 
           {/* Dealer Login Button */}
           <Link
-            href="/dealers/login"
+            href="/dealers/join"
             className="rounded-full border border-cyan-300/30 px-4 py-2 text-sm font-semibold text-cyan-200 hover:bg-cyan-400/10"
           >
             Dealer Login

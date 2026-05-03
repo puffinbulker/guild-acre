@@ -48,7 +48,7 @@ export default function Navbar() {
         })}
 
         <Link
-          href="/dealers/login"
+          href="/dealers/join"
           className="rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-200 transition hover:border-cyan-300/60 hover:bg-cyan-400 hover:text-slate-950"
         >
           Dealer Login
@@ -101,7 +101,7 @@ export default function Navbar() {
             })}
 
             <Link
-              href="/dealers/login"
+              href="/dealers/join"
               onClick={() => setOpen(false)}
               className="rounded-xl border border-cyan-300/30 bg-cyan-400/10 px-4 py-3 text-center text-sm font-semibold text-cyan-200"
             >
