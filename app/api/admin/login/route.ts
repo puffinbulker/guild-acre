@@ -1,23 +1,59 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import {
+  createSessionToken,
+  getAdminCookieName,
+  verifyAdminPassword,
+  verifySessionToken,
+} from "@/lib/auth";
+
+const DEFAULT_ADMIN_EMAIL = "admin@guildacre.com";
+
+function isAllowedAdminIdentity(value: unknown) {
+  if (typeof value !== "string") {
+    return false;
+  }
+
+  const identity = value.trim().toLowerCase();
+  const allowedIdentities = new Set(
+    [
+      process.env.ADMIN_EMAIL,
+      process.env.ADMIN_USERNAME,
+      DEFAULT_ADMIN_EMAIL,
+      "admin",
+    ]
+      .filter(Boolean)
+      .map((item) => item!.trim().toLowerCase())
+  );
+
+  return allowedIdentities.has(identity);
+}
+
+export async function GET(req: NextRequest) {
+  const token = req.cookies.get(getAdminCookieName())?.value;
+  return NextResponse.json({ authenticated: verifySessionToken(token) });
+}
 
 export async function POST(req: NextRequest) {
   try {
-    const { username, password } = await req.json();
+    const { email, username, password } = await req.json();
+    const identity = email ?? username;
 
-    const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
-    const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
-
-    // Debug log (temporary)
-    console.log("ENV USER:", ADMIN_USERNAME);
-    console.log("ENV PASS:", ADMIN_PASSWORD);
-
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+    if (isAllowedAdminIdentity(identity) && verifyAdminPassword(password)) {
       const res = NextResponse.json({ success: true });
+      const adminEmail = process.env.ADMIN_EMAIL || DEFAULT_ADMIN_EMAIL;
+
+      res.cookies.set(getAdminCookieName(), createSessionToken(adminEmail), {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
+        path: "/",
+      });
 
       res.cookies.set("guildacre_admin", "true", {
         httpOnly: true,
         sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
         path: "/",
       });
 

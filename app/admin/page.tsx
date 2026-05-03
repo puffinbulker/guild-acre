@@ -99,8 +99,15 @@ export default function AdminPage() {
   }
 
   useEffect(() => {
+    async function checkAdminSession() {
+      const res = await fetch("/api/admin/login", { cache: "no-store" });
+      const data = await res.json().catch(() => null);
+      setLoggedIn(Boolean(data?.authenticated));
+      setChecked(true);
+    }
+
     loadProperties();
-    setChecked(true);
+    checkAdminSession();
   }, []);
 
   async function handleLogin() {

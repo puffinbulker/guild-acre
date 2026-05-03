@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { getAdminCookieName, verifySessionToken } from "@/lib/auth";
 
 const filePath = path.join(process.cwd(), "data", "properties.json");
 
@@ -23,7 +24,9 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const isAdmin = req.cookies.get("guildacre_admin")?.value === "true";
+  const isAdmin =
+    verifySessionToken(req.cookies.get(getAdminCookieName())?.value) ||
+    req.cookies.get("guildacre_admin")?.value === "true";
   if (!isAdmin) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
@@ -38,7 +41,9 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  const isAdmin = req.cookies.get("guildacre_admin")?.value === "true";
+  const isAdmin =
+    verifySessionToken(req.cookies.get(getAdminCookieName())?.value) ||
+    req.cookies.get("guildacre_admin")?.value === "true";
   if (!isAdmin) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
