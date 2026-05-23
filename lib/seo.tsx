@@ -52,7 +52,7 @@ export function createPageMetadata({
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: "Guild Acre premium real estate advisory",
+          alt: "Guild Acre private land intelligence office",
         },
       ],
     },
@@ -74,7 +74,7 @@ export function createPageMetadata({
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness", "RealEstateAgent"],
+    "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
     name: siteName,
     url: getCanonicalSiteUrl(),
     logo: absoluteUrl("/logo.png"),
@@ -140,7 +140,7 @@ export function propertySchema(property: PropertyRecord) {
       addressCountry: "IN",
     },
     provider: {
-      "@type": "RealEstateAgent",
+      "@type": "ProfessionalService",
       name: siteName,
       telephone: phone,
       url: getCanonicalSiteUrl(),

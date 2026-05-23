@@ -1,24 +1,25 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useState } from "react";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [budget, setBudget] = useState("");
-  const [location, setLocation] = useState("");
-  const [requirement, setRequirement] = useState("");
+  const [capitalRange, setCapitalRange] = useState("");
+  const [corridor, setCorridor] = useState("");
+  const [mandate, setMandate] = useState("");
 
   const handleWhatsAppSubmit = () => {
     const message = `Hi Guild Acre,
 
 Name: ${name || "-"}
 Phone: ${phone || "-"}
-Budget: ${budget || "-"}
-Preferred Location: ${location || "-"}
-Requirement: ${requirement || "-"}
+Capital Range: ${capitalRange || "-"}
+Corridor / Geography: ${corridor || "-"}
+Acquisition Brief: ${mandate || "-"}
 
-I want to discuss a premium property opportunity.`;
+I want to request a private land intelligence consultation.`;
 
     window.open(
       `https://wa.me/919711667782?text=${encodeURIComponent(message)}`,
@@ -27,166 +28,144 @@ I want to discuss a premium property opportunity.`;
   };
 
   return (
-    <main className="min-h-screen bg-[#020617] text-white">
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-        <div className="rounded-[28px] border border-[#C6A76A]/20 bg-[linear-gradient(135deg,rgba(7,24,39,0.78),rgba(2,6,23,0.96))] p-5 sm:rounded-[34px] sm:p-8 lg:p-12">
-          <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
-            <div>
-              <p className="text-[10px] uppercase text-[#C6A76A] sm:text-xs">
-                Contact Guild Acre
-              </p>
+    <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
+      <section className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-32">
+        <div>
+          <p className="text-xs uppercase text-[#b9a46d]">
+            Private consultation desk
+          </p>
 
-              <h1 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight sm:mt-4 sm:text-4xl lg:text-6xl">
-                Start your premium property journey with trust, clarity, and focused advisory.
-              </h1>
+          <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[0.98] text-[#f4ead8] sm:text-6xl lg:text-7xl">
+            Submit an acquisition brief for confidential review.
+          </h1>
 
-              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
-                Tell us what you are looking for and we'll help you explore genuine,
-                well-aligned opportunities in Gurgaon and nearby high-growth corridors.
-              </p>
+          <p className="mt-8 max-w-2xl text-lg leading-9 text-[#cfc5b3]">
+            Share the capital range, geography, and acquisition logic. Guild
+            Acre responds with a private intelligence-led next step, not a
+            public catalogue of options.
+          </p>
 
-              <div className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4">
-                <div className="rounded-2xl border border-white/10 bg-slate-950/45 p-4 backdrop-blur-sm">
-                  <label className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Enter your name"
-                    className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
-                  />
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-slate-950/45 p-4 backdrop-blur-sm">
-                  <label className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                    Phone Number
-                  </label>
-                  <input
-                    type="text"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="Enter your phone number"
-                    className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
-                  />
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-slate-950/45 p-4 backdrop-blur-sm">
-                  <label className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                    Budget Range
-                  </label>
-                  <input
-                    type="text"
-                    value={budget}
-                    onChange={(e) => setBudget(e.target.value)}
-                    placeholder="Example: Rs. 1 Cr - Rs. 3 Cr"
-                    className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
-                  />
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-slate-950/45 p-4 backdrop-blur-sm">
-                  <label className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                    Preferred Location
-                  </label>
-                  <input
-                    type="text"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    placeholder="Example: Sohna, Gurgaon"
-                    className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-3 rounded-2xl border border-white/10 bg-slate-950/45 p-4 backdrop-blur-sm sm:mt-4">
-                <label className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                  Requirement
-                </label>
-                <textarea
-                  value={requirement}
-                  onChange={(e) => setRequirement(e.target.value)}
-                  placeholder="Tell us whether you are looking for farmhouse land, plotted development, investment property, or a personalized shortlist."
-                  rows={5}
-                  className="mt-3 w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
-                />
-              </div>
-
-              <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
-                <button
-                  onClick={handleWhatsAppSubmit}
-                  className="rounded-2xl border border-[#D4AF37] bg-[#D4AF37] px-6 py-4 text-sm font-semibold text-[#020617] transition hover:bg-[#C6A76A]"
-                >
-                  Send on WhatsApp
-                </button>
-
-                <a
-                  href="tel:+919711667782"
-                  className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-center text-sm font-semibold text-white transition hover:bg-white/10"
-                >
-                  Call Now
-                </a>
-              </div>
-
-              <p className="mt-5 text-xs leading-5 text-slate-400">
-                By submitting this enquiry, you consent to Guild Acre contacting
-                you by phone or WhatsApp about your property requirement. Your
-                details are handled according to our{" "}
-                <a href="/privacy-policy" className="text-[#F6E7B7] underline underline-offset-4">
-                  Privacy Policy
-                </a>
-                .
-              </p>
-            </div>
-
-            <div className="rounded-[28px] border border-white/10 bg-slate-950/55 p-5 backdrop-blur-sm sm:rounded-[30px] sm:p-7">
-              <p className="text-[10px] uppercase text-[#C6A76A] sm:text-xs">
-                Private Consultation Desk
-              </p>
-
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:mt-4 sm:text-3xl">
-                Premium Land Investment Advisory in Gurgaon & Beyond
-              </h2>
-
-              <p className="mt-4 text-sm leading-7 text-slate-300 sm:mt-5">
-                We work with serious buyers who value genuine opportunities,
-                honest guidance, and better decision quality before committing.
-              </p>
-
-              <div className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
-                {[
-                  { label: "WhatsApp", value: "+91 97116 67782" },
-                  { label: "Email", value: "hello@guildacre.com" },
-                  { label: "Location", value: "Gurgaon, Haryana, India" },
-                  { label: "Consultation", value: "By appointment" },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-4"
-                  >
-                    <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                      {item.label}
-                    </div>
-                    <div className="mt-2 text-sm text-slate-100">
-                      {item.value}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-2xl border border-[#C6A76A]/20 bg-[#D4AF37]/10 p-5 sm:mt-8">
-                <div className="text-xs uppercase text-[#F6E7B7]">
-                  Preferred Process
-                </div>
-                <p className="mt-3 text-sm leading-7 text-slate-200">
-                  We first understand your intent, then shortlist relevant
-                  options, and only after that move to calls, meetings, or site visits.
+          <div className="mt-12 divide-y divide-[#2d2a22] border-y border-[#2d2a22]">
+            {[
+              ["Mandate fit", "We first decide whether the geography, capital range, timing, and risk appetite make sense together."],
+              ["Diligence direction", "The response identifies the records, access questions, zoning signals, and sensitivity checks that need attention."],
+              ["Private movement", "Only relevant conversations, site context, or deeper advisory work follows after the brief is understood."],
+            ].map(([title, text]) => (
+              <div key={title} className="grid gap-4 py-7 sm:grid-cols-[0.35fr_0.65fr]">
+                <h2 className="text-2xl font-semibold text-[#f4ead8]">{title}</h2>
+                <p className="text-sm leading-7 text-[#b8ad9b] sm:text-base sm:leading-8">
+                  {text}
                 </p>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="border border-[#2d2a22] bg-[#0b0b0a] p-5 sm:p-7 lg:p-8">
+          <div className="mb-7 border-b border-[#2d2a22] pb-6">
+            <p className="text-xs uppercase text-[#b9a46d]">
+              Confidential brief
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#f4ead8] sm:text-4xl">
+              Request Private Consultation
+            </h2>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Name">
+              <input
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                placeholder="Your name"
+                className="institutional-input"
+              />
+            </Field>
+
+            <Field label="Phone Number">
+              <input
+                type="tel"
+                value={phone}
+                onChange={(event) => setPhone(event.target.value)}
+                placeholder="+91"
+                className="institutional-input"
+              />
+            </Field>
+
+            <Field label="Capital Range">
+              <input
+                type="text"
+                value={capitalRange}
+                onChange={(event) => setCapitalRange(event.target.value)}
+                placeholder="Example: Rs. 5 Cr - Rs. 20 Cr"
+                className="institutional-input"
+              />
+            </Field>
+
+            <Field label="Corridor / Geography">
+              <input
+                type="text"
+                value={corridor}
+                onChange={(event) => setCorridor(event.target.value)}
+                placeholder="Gurgaon NCR, Sohna, Aravali Belt"
+                className="institutional-input"
+              />
+            </Field>
+          </div>
+
+          <label className="mt-4 block border border-[#2d2a22] bg-[#050505] p-4 transition duration-500 focus-within:border-[#bda56a]/70">
+            <span className="text-xs uppercase text-[#9d927f]">
+              Acquisition Brief
+            </span>
+            <textarea
+              value={mandate}
+              onChange={(event) => setMandate(event.target.value)}
+              placeholder="Purpose, hold period, preferred belt, legal concerns, timing, or any private context."
+              rows={5}
+              className="institutional-input min-h-36 resize-none"
+            />
+          </label>
+
+          <button
+            onClick={handleWhatsAppSubmit}
+            className="mt-5 w-full rounded-full border border-[#bda56a] bg-[#bda56a] px-6 py-4 text-sm font-semibold text-[#070706] transition duration-500 hover:bg-[#d4c083] sm:mt-6"
+          >
+            Request Private Consultation
+          </button>
+
+          <p className="mt-5 text-xs leading-6 text-[#958b7c]">
+            Submitted information is used to assess fit for a private
+            consultation. Read our{" "}
+            <a href="/privacy-policy" className="text-[#d4c083] underline underline-offset-4">
+              Privacy Policy
+            </a>
+            .
+          </p>
+
+          <div className="mt-8 grid gap-px border border-[#2d2a22] bg-[#2d2a22] sm:grid-cols-2">
+            {[
+              ["WhatsApp", "+91 97116 67782"],
+              ["Email", "hello@guildacre.com"],
+              ["Location", "Gurgaon, Haryana"],
+              ["Office", "By appointment"],
+            ].map(([label, value]) => (
+              <div key={label} className="bg-[#10100e] p-5">
+                <p className="text-xs uppercase text-[#9d927f]">{label}</p>
+                <p className="mt-2 text-sm text-[#f4ead8]">{value}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
     </main>
+  );
+}
+
+function Field({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <label className="block border border-[#2d2a22] bg-[#050505] p-4 transition duration-500 focus-within:border-[#bda56a]/70">
+      <span className="text-xs uppercase text-[#9d927f]">{label}</span>
+      {children}
+    </label>
   );
 }

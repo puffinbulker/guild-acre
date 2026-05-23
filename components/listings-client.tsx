@@ -45,29 +45,29 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const FILTERS = [
-  { label: "All", value: "ALL" },
-  { label: "Farm House", value: "FARM_HOUSE" },
+  { label: "All Records", value: "ALL" },
+  { label: "Farm Land", value: "FARM_HOUSE" },
   { label: "Plots", value: "PLOTS" },
-  { label: "Land", value: "LAND" },
-  { label: "Commercial", value: "COMMERCIAL" },
-  { label: "Residential", value: "RESIDENTIAL" },
+  { label: "Land Assets", value: "LAND" },
+  { label: "Commercial Land", value: "COMMERCIAL" },
+  { label: "Selective Residential", value: "RESIDENTIAL" },
 ];
 
 const listingFaqs = [
   {
-    question: "Are all opportunities shown here the full available inventory?",
+    question: "Is this the full available inventory?",
     answer:
-      "No. This page is a public-facing shortlist. Some opportunities are discussed privately depending on buyer fit, timing, and requirement quality.",
+      "No. This is a limited public register. Most land-led work begins privately once the buyer profile, corridor intent, and acquisition logic are understood.",
   },
   {
-    question: "Can Guild Acre help narrow the right options for my brief?",
+    question: "Can Guild Acre evaluate a private land brief?",
     answer:
-      "Yes. The best use of this page is usually to get a feel for category and pricing, then move into a more filtered shortlist based on your actual objective.",
+      "Yes. A private brief is reviewed for geography, title context, access, zoning, infrastructure probability, and exit logic before any serious movement.",
   },
   {
-    question: "Do you only handle land and farmhouse deals?",
+    question: "Why are some opportunities not shown publicly?",
     answer:
-      "Land, farmhouse, and plotted opportunities are core strengths, but selective premium residential and corridor-led requirements are also handled.",
+      "Some opportunities require discretion because of seller preference, diligence sensitivity, timing, or the need to avoid casual market circulation.",
   },
 ];
 
@@ -122,56 +122,61 @@ export default function ListingsPage() {
   }, [properties, activeFilter]);
 
   return (
-    <main className="min-h-screen bg-[#020617] text-white">
-      <section className="bg-[linear-gradient(180deg,#020617_0%,#06111F_100%)]">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <p className="text-xs uppercase text-[#C6A76A]">
-            Curated Listings Desk
+    <main className="min-h-screen bg-[#050505] text-[#efe7d6]">
+      <section className="border-b border-[#2d2a22] bg-[#050505]">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
+          <p className="text-xs uppercase text-[#b9a46d]">
+            Private opportunity register
           </p>
 
-          <h1 className="mt-4 max-w-5xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-            Filtered property opportunities for serious Gurgaon and NCR buyers.
+          <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl lg:text-7xl">
+            Public records are only the surface of the land intelligence process.
           </h1>
 
-          <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-            Explore a public-facing shortlist across land, farmhouse, plotted,
-            commercial, and selective residential categories. This is designed
-            to help you scan the market more cleanly before moving into a more
-            focused advisory shortlist.
+          <p className="mt-7 max-w-3xl text-lg leading-9 text-[#cfc5b3]">
+            This register shows limited approved opportunities. Serious land
+            acquisition work is handled through private briefs, diligence notes,
+            and corridor-specific intelligence rather than open-market browsing.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8 lg:py-4">
-        <div className="grid gap-4 rounded-[28px] border border-white/10 bg-white/5 p-6 sm:grid-cols-3 sm:p-8">
+      <section className="mx-auto max-w-7xl px-5 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-px overflow-hidden border border-[#2d2a22] bg-[#2d2a22] sm:grid-cols-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
-              What this page does best
+            <div className="h-full bg-[#0b0b0a] p-6 sm:p-8">
+            <p className="text-xs uppercase text-[#9d927f]">
+              Register role
             </p>
-            <p className="mt-3 text-lg font-semibold text-white">
-              Helps you compare categories and price positioning.
+            <p className="mt-4 text-xl font-semibold text-[#f4ead8]">
+              Records directional availability, not open-market inventory.
             </p>
+            </div>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
-              What it does not replace
+            <div className="h-full bg-[#0b0b0a] p-6 sm:p-8">
+            <p className="text-xs uppercase text-[#9d927f]">
+              What it avoids
             </p>
-            <p className="mt-3 text-lg font-semibold text-white">
-              A filtered shortlist built around your exact use case.
+            <p className="mt-4 text-xl font-semibold text-[#f4ead8]">
+              Casual comparison behavior and noisy property shopping.
             </p>
+            </div>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+            <div className="h-full bg-[#0b0b0a] p-6 sm:p-8">
+            <p className="text-xs uppercase text-[#9d927f]">
               Best next step
             </p>
-            <p className="mt-3 text-lg font-semibold text-white">
-              Shortlist the right options, then move into private advisory.
+            <p className="mt-4 text-xl font-semibold text-[#f4ead8]">
+              Submit a brief and request a private intelligence note.
             </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto mt-4 max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex flex-wrap gap-3">
           {FILTERS.map((f) => (
             <button
@@ -179,8 +184,8 @@ export default function ListingsPage() {
               onClick={() => setActiveFilter(f.value)}
               className={`rounded-full px-4 py-2 text-sm transition ${
                 activeFilter === f.value
-                  ? "border border-[#D4AF37] bg-[#D4AF37] text-[#020617]"
-                  : "border border-white/10 text-white hover:border-[#C6A76A]/50 hover:bg-white/5"
+                  ? "border border-[#bda56a] bg-[#bda56a] text-[#050505]"
+                  : "border border-[#efe7d6]/10 text-[#efe7d6] hover:border-[#bda56a]/50 hover:bg-[#efe7d6]/5"
               }`}
             >
               {f.label}
@@ -189,34 +194,34 @@ export default function ListingsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <section className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-20 lg:px-8">
         {filteredProperties.length === 0 ? (
-          <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 text-left text-slate-300 sm:p-8 lg:grid lg:grid-cols-[1fr_0.72fr] lg:gap-8">
+          <div className="border border-[#2d2a22] bg-[#0b0b0a] p-6 text-left text-[#cfc5b3] sm:p-8 lg:grid lg:grid-cols-[1fr_0.72fr] lg:gap-8">
             <div>
-              <p className="text-xs uppercase text-[#C6A76A]">
-                Private Matching Desk
+              <p className="text-xs uppercase text-[#b9a46d]">
+                Intelligence desk
               </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                No approved public listings are available in this category right now.
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#f4ead8] sm:text-4xl">
+                No public record is available for this lens right now.
               </h2>
               <p className="mt-4 text-sm leading-7 sm:text-base sm:leading-8">
-                We only show listings after approval and source checks. Share your
-                requirement and Guild Acre can respond with suitable options if
-                there is a real match available privately.
+                Some land opportunities remain private until buyer fit, diligence
+                direction, and seller discretion are aligned. Share a brief for a
+                more relevant intelligence-led response.
               </p>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-[#C6A76A]/20 bg-[#06111F]/70 p-5 lg:mt-0">
-              <p className="text-sm font-semibold text-white">Request a shortlist</p>
+            <div className="mt-6 border border-[#bda56a]/20 bg-[#050505] p-5 lg:mt-0">
+              <p className="text-sm font-semibold text-[#f4ead8]">Request a private note</p>
               <p className="mt-2 text-sm leading-6 text-slate-400">
-                Include budget, asset type, and preferred corridor so the first
-                response is useful.
+                Include capital range, corridor, hold logic, and timing so the
+                review starts with useful context.
               </p>
               <a
                 href="/contact"
-                className="mt-5 block rounded-2xl border border-[#D4AF37] bg-[#D4AF37] px-5 py-3 text-center text-sm font-semibold text-[#020617] transition hover:bg-[#C6A76A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF37]"
+                className="mt-5 block rounded-full border border-[#bda56a] bg-[#bda56a] px-5 py-3 text-center text-sm font-semibold text-[#050505] transition hover:bg-[#d4c083] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a]"
               >
-                Share Requirement
+                Submit Brief
               </a>
               <p className="mt-4 text-xs leading-5 text-slate-500">
                 By enquiring, you agree to be contacted about your property
@@ -225,24 +230,24 @@ export default function ListingsPage() {
             </div>
           </div>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-5">
             {filteredProperties.map((item) => (
-              <div
+              <article
                 key={item.id}
-                className="group overflow-hidden rounded-[28px] border border-white/10 bg-[#06111F] transition hover:-translate-y-2 hover:border-[#C6A76A]/40"
+                className="group grid overflow-hidden border border-[#2d2a22] bg-[#0b0b0a] transition duration-500 hover:border-[#bda56a]/50 md:grid-cols-[0.35fr_0.65fr]"
               >
                 <div
-                  className="h-60 bg-cover bg-center transition group-hover:scale-105"
+                  className="min-h-64 bg-cover bg-center transition duration-700 group-hover:scale-[1.02]"
                   style={{
                     backgroundImage: `url(${item.imageUrls?.[0] || ""})`,
                   }}
                 />
 
-                <div className="p-6">
+                <div className="p-6 sm:p-8">
                   <div className="flex flex-wrap gap-2">
                     {item.featured && (
-                      <span className="rounded-full bg-[#D4AF37]/10 px-3 py-1 text-xs text-[#F6E7B7]">
-                        Featured
+                      <span className="rounded-full bg-[#bda56a]/10 px-3 py-1 text-xs text-[#d4c083]">
+                        Priority Record
                       </span>
                     )}
 
@@ -257,26 +262,26 @@ export default function ListingsPage() {
                     )}
                   </div>
 
-                  <h2 className="mt-4 text-2xl font-semibold">{item.title}</h2>
+                  <h2 className="mt-5 text-3xl font-semibold leading-tight text-[#f4ead8]">{item.title}</h2>
 
                   <p className="mt-2 text-slate-400">
                     {item.location}, {item.city}
                   </p>
 
-                  <p className="mt-4 text-sm leading-7 text-slate-300">
+                  <p className="mt-5 text-sm leading-7 text-[#cfc5b3]">
                     {item.description}
                   </p>
 
-                  <div className="mt-5 grid grid-cols-2 gap-3 text-sm text-slate-300">
-                    {item.bedrooms > 0 && <div>Bedrooms: {item.bedrooms}</div>}
-                    {item.bathrooms > 0 && <div>Bathrooms: {item.bathrooms}</div>}
-                    {item.areaSqft > 0 && <div>Area: {item.areaSqft} sqft</div>}
+                  <div className="mt-6 grid gap-3 text-sm text-[#b8ad9b] sm:grid-cols-3">
+                    {item.bedrooms > 0 && <div>Bedrooms {item.bedrooms}</div>}
+                    {item.bathrooms > 0 && <div>Bathrooms {item.bathrooms}</div>}
+                    {item.areaSqft > 0 && <div>{item.areaSqft} sqft</div>}
                   </div>
 
                   {item.amenities?.length > 0 && (
                     <div className="mt-5">
-                      <div className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                        Amenities
+                      <div className="text-xs uppercase tracking-[0.2em] text-[#9d927f]">
+                        Context
                       </div>
 
                       <div className="mt-2 flex flex-wrap gap-2">
@@ -292,20 +297,23 @@ export default function ListingsPage() {
                     </div>
                   )}
 
-                  <div className="mt-6 text-2xl font-bold text-[#D4AF37]">
+                  <div className="mt-7 text-sm uppercase text-[#9d927f]">
+                    Indicative capital
+                  </div>
+                  <div className="mt-2 text-2xl font-semibold text-[#d4c083]">
                     {formatPrice(item.priceInr)}
                   </div>
 
-                  <div className="mt-6 flex gap-3">
+                  <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                     <a
                       href={`https://wa.me/919711667782?text=${encodeURIComponent(
-                        `Hi, I am interested in this property:\n\n${item.title}\n${item.location}\nPrice: Rs. ${item.priceInr}\n\nPlease share full details.`
+                        `Hi Guild Acre, I want to request an intelligence note for:\n\n${item.title}\n${item.location}\nIndicative capital: Rs. ${item.priceInr}`
                       )}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 rounded-xl border border-[#D4AF37] bg-[#D4AF37] px-4 py-3 text-center text-sm font-semibold text-[#020617] hover:bg-[#C6A76A]"
+                      className="flex-1 rounded-full border border-[#bda56a] bg-[#bda56a] px-4 py-3 text-center text-sm font-semibold text-[#050505] hover:bg-[#d4c083]"
                     >
-                      WhatsApp
+                      Request Intelligence Note
                     </a>
 
                     {item.videoUrl && (
@@ -313,35 +321,26 @@ export default function ListingsPage() {
                         href={item.videoUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 rounded-xl border border-white/10 px-4 py-3 text-center text-sm"
+                        className="flex-1 rounded-full border border-[#efe7d6]/10 px-4 py-3 text-center text-sm"
                       >
-                        Video
+                        View Visual Context
                       </a>
                     )}
                   </div>
-
-                  <div className="mt-4">
-                    <a
-                      href="/contact"
-                      className="block w-full rounded-xl border border-[#C6A76A]/30 bg-[#D4AF37]/10 px-4 py-3 text-center text-sm text-[#F6E7B7] hover:bg-[#D4AF37]/15"
-                    >
-                      Request Details
-                    </a>
-                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         )}
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 lg:pb-16">
+      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-6 sm:pb-28 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase text-[#C6A76A]">
-            Listings FAQ
+          <p className="text-xs uppercase text-[#b9a46d]">
+            Register notes
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Common questions about the public shortlist.
+          <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+            Questions before a private intelligence review.
           </h2>
         </div>
 
@@ -349,10 +348,10 @@ export default function ListingsPage() {
           {listingFaqs.map((item) => (
             <div
               key={item.question}
-              className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-7"
+              className="border border-[#2d2a22] bg-[#0b0b0a] p-6 sm:p-7"
             >
-              <h3 className="text-lg font-semibold text-white">{item.question}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
+              <h3 className="text-2xl font-semibold text-[#f4ead8]">{item.question}</h3>
+              <p className="mt-3 text-sm leading-7 text-[#b8ad9b] sm:text-base sm:leading-8">
                 {item.answer}
               </p>
             </div>

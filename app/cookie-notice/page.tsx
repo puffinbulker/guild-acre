@@ -16,15 +16,15 @@ export default function CookieNoticePage() {
           { name: "Cookie Notice", path: "/cookie-notice" },
         ])}
       />
-      <main className="min-h-screen bg-slate-950 text-white">
+      <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
         <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
+          <p className="text-xs uppercase text-[#b9a46d]">
             Legal
           </p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">
             Cookie Notice
           </h1>
-          <div className="mt-8 space-y-7 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
+          <div className="mt-8 space-y-7 text-sm leading-7 text-[#cfc5b3] sm:text-base sm:leading-8">
             <p>
               Guild Acre may use essential cookies and similar technologies to
               keep the website reliable, secure, and usable.

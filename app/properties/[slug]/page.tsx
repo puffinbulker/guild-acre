@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return createPageMetadata({
-    title: `${property.title} | Guild Acre`,
+    title: `${property.title} | Guild Acre Intelligence Record`,
     description: property.description,
     path: `/properties/${slug}`,
     image: parseJsonArray(property.imageUrls)[0] || "/logo.png",
@@ -69,8 +69,8 @@ export default async function PropertyDetailPage({ params }: Props) {
           <span className="section-tag">{property.location}</span>
           <h1>{property.title}</h1>
           <p className="property-detail__summary">
-            A more immersive presentation of this opportunity, with sharper visual storytelling,
-            luxury positioning, and the key details surfaced before the first conversation.
+            A public reference record for early context. Deeper movement should
+            follow title, access, use-case, and corridor-specific review.
           </p>
         </div>
         <div className="property-detail__intro-card">
@@ -93,7 +93,7 @@ export default async function PropertyDetailPage({ params }: Props) {
             />
             <div className="property-detail__hero-overlay" />
             <div className="property-detail__hero-caption">
-              <span className="section-tag">Signature View</span>
+          <span className="section-tag">Visual Context</span>
               <strong>{property.location}</strong>
               <p>{property.sector}, {property.city}</p>
             </div>
@@ -114,10 +114,10 @@ export default async function PropertyDetailPage({ params }: Props) {
         </div>
         <div className="property-detail__gallery-note card">
           <span className="section-tag">Visual Brief</span>
-          <h3>Luxury presentation, faster buyer conviction</h3>
+          <h3>Visual context before diligence</h3>
           <p>
-            The gallery is arranged to make the property feel editorial, polished, and easier to
-            evaluate on mobile as well as desktop.
+            The visuals provide first-pass context only. Acquisition conviction
+            should be formed through documentation, access, and use-case review.
           </p>
             <div className="property-detail__gallery-meta">
               <span>{images.length} visuals</span>
@@ -166,19 +166,19 @@ export default async function PropertyDetailPage({ params }: Props) {
 
           <div className="property-detail__trust-band">
             <div>
-              <strong>Premium curation</strong>
-              <span>Shortlisted for serious end users and investors</span>
+              <strong>Private review</strong>
+              <span>Structured for serious buyers and investors</span>
             </div>
             <div>
-              <strong>Fast advisor response</strong>
-              <span>Designed for WhatsApp-first buyer conversations</span>
+              <strong>Diligence direction</strong>
+              <span>Records, access, zoning, and exit logic before movement</span>
             </div>
           </div>
 
           <div className="property-market-compare">
             <div className="property-market-compare__head">
-              <span className="section-tag">Listing Transparency</span>
-              <h3>Source and display rights</h3>
+                <span className="section-tag">Record transparency</span>
+                <h3>Source and display rights</h3>
             </div>
             <div className="property-market-compare__stats">
               <div>
@@ -195,7 +195,7 @@ export default async function PropertyDetailPage({ params }: Props) {
               </div>
             </div>
             <p>
-              Guild Acre only displays listing facts and visuals that are owned, licensed,
+              Guild Acre only displays record facts and visuals that are owned, licensed,
               AI-generated, or explicitly approved for use.
             </p>
             {property.sourceUrl ? (
@@ -205,7 +205,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                 target="_blank"
                 rel="noreferrer"
               >
-                View original listing source
+                View original record source
               </a>
             ) : null}
           </div>
@@ -213,13 +213,13 @@ export default async function PropertyDetailPage({ params }: Props) {
           {marketGuide ? (
             <div className="property-market-compare">
               <div className="property-market-compare__head">
-                <span className="section-tag">Comparative Market Price</span>
+                <span className="section-tag">Market Reference</span>
                 <h3>{marketGuide.title} benchmark</h3>
               </div>
               <div className="property-market-compare__stats">
                 <div>
                   <strong>INR {propertyRate.toLocaleString("en-IN")}</strong>
-                  <span>This listing / sq.ft.</span>
+                  <span>This record / sq.ft.</span>
                 </div>
                 <div>
                   <strong>INR {marketGuide.avgPricePerSqft.toLocaleString("en-IN")}</strong>

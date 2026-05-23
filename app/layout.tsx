@@ -8,11 +8,11 @@ import { absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
   title: {
-    default: "Guild Acre | Private Land Advisory in Gurgaon",
+    default: "Guild Acre | Private Land Intelligence Office",
     template: "%s",
   },
   description:
-    "Private land and premium real estate intelligence advisory for serious buyers and investors in Gurgaon, Sohna, and Naugaon.",
+    "Private land intelligence and strategic acquisition advisory for select NCR buyers across Gurgaon, Sohna, the Aravali Belt, and emerging growth corridors.",
   applicationName: "Guild Acre",
   icons: {
     icon: "/icon.svg",
@@ -47,7 +47,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
-      <body className="bg-[#020617] text-white antialiased">
+      <body className="bg-[#050505] text-[#f4ead8] antialiased">
         {gaId ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
@@ -63,19 +63,19 @@ export default function RootLayout({
         ) : null}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[#D4AF37] focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#020617]"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[#bda56a] focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#050505]"
         >
           Skip to main content
         </a>
-        <header className="sticky top-0 z-50 border-b border-white/[0.07] bg-[#020617]/86 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-5 sm:px-6 lg:px-8 lg:py-6">
+        <header className="sticky top-0 z-50 border-b border-[#2d2a22] bg-[#050505]/88 backdrop-blur-xl">
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-5 sm:px-6 lg:px-8 lg:py-7">
             <Link href="/" className="group flex min-w-0 items-center gap-4 py-1">
               <div className="min-w-0">
-                <div className="font-[var(--font-editorial)] text-2xl font-semibold uppercase leading-none tracking-[0.2em] text-[#F8FAFC] transition group-hover:text-[#F6E7B7] sm:text-3xl sm:tracking-[0.24em]">
+                <div className="font-[var(--font-editorial)] text-2xl font-semibold uppercase leading-none tracking-[0.2em] text-[#f4ead8] transition group-hover:text-[#d4c083] sm:text-3xl sm:tracking-[0.24em]">
                   GUILD ACRE
                 </div>
-                <div className="mt-2 hidden text-[10px] uppercase tracking-[0.34em] text-[#8FA3B8] sm:block">
-                  Private Land Advisory
+                <div className="mt-2 hidden text-[10px] uppercase tracking-[0.34em] text-[#9d927f] sm:block">
+                  Land Intelligence Office
                 </div>
               </div>
             </Link>
@@ -86,38 +86,38 @@ export default function RootLayout({
 
         <div id="main-content">{children}</div>
 
-        <footer className="border-t border-white/[0.07] bg-[#020617] px-6 py-12 text-sm text-[#8FA3B8] lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+        <footer className="border-t border-[#2d2a22] bg-[#050505] px-6 py-16 text-sm text-[#9d927f] lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.25fr_0.75fr_0.75fr]">
             <div>
-              <p className="font-[var(--font-editorial)] text-2xl font-semibold uppercase tracking-[0.22em] text-white">GUILD ACRE</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#C6A76A]">Private Land Advisory</p>
+              <p className="font-[var(--font-editorial)] text-2xl font-semibold uppercase tracking-[0.22em] text-[#f4ead8]">GUILD ACRE</p>
+              <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#bda56a]">Land Intelligence Office</p>
               <p className="mt-3 max-w-xl leading-7">
-                Gurgaon-focused property intelligence for serious buyers and investors evaluating
-                land, farmhouse, plotted, and premium real estate requirements.
+                Private land intelligence and strategic acquisition advisory for
+                select NCR buyers evaluating complex land-led opportunities.
               </p>
             </div>
             <div>
-              <p className="font-semibold text-white">Contact</p>
+              <p className="font-semibold text-[#f4ead8]">Contact</p>
               <div className="mt-3 space-y-2">
-                <a className="block transition hover:text-[#F6E7B7]" href="tel:+919711667782">
+                <a className="block transition hover:text-[#d4c083]" href="tel:+919711667782">
                   +91 97116 67782
                 </a>
-                <a className="block transition hover:text-[#F6E7B7]" href="mailto:hello@guildacre.com">
+                <a className="block transition hover:text-[#d4c083]" href="mailto:hello@guildacre.com">
                   hello@guildacre.com
                 </a>
                 <p>Gurgaon, Haryana</p>
               </div>
             </div>
             <div>
-              <p className="font-semibold text-white">Website</p>
+              <p className="font-semibold text-[#f4ead8]">Office</p>
               <div className="mt-3 space-y-2">
-                <Link className="block transition hover:text-[#F6E7B7]" href="/privacy-policy">
+                <Link className="block transition hover:text-[#d4c083]" href="/privacy-policy">
                   Privacy Policy
                 </Link>
-                <Link className="block transition hover:text-[#F6E7B7]" href="/cookie-notice">
+                <Link className="block transition hover:text-[#d4c083]" href="/cookie-notice">
                   Cookie Notice
                 </Link>
-                <Link className="block transition hover:text-[#F6E7B7]" href="/contact">
+                <Link className="block transition hover:text-[#d4c083]" href="/contact">
                   Contact
                 </Link>
               </div>
@@ -129,9 +129,9 @@ export default function RootLayout({
           href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20speak%20to%20an%20advisor."
           target="_blank"
           rel="noreferrer"
-          className="fixed bottom-5 right-5 z-50 rounded-full border border-[#C6A76A]/50 bg-[#06111F]/92 px-5 py-3 text-sm font-semibold text-[#F6E7B7] shadow-xl shadow-black/25 transition duration-300 hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#020617] sm:bottom-6 sm:right-6 sm:px-6 sm:py-4"
+          className="fixed bottom-5 right-5 z-50 rounded-full border border-[#bda56a]/50 bg-[#0b0b0a]/92 px-5 py-3 text-sm font-semibold text-[#f4ead8] shadow-xl shadow-black/25 transition duration-500 hover:border-[#bda56a] hover:bg-[#bda56a] hover:text-[#050505] sm:bottom-6 sm:right-6 sm:px-6 sm:py-4"
         >
-          Talk to Advisor
+          Private Consultation
         </a>
       </body>
     </html>

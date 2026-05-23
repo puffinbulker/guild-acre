@@ -2,9 +2,9 @@ import HomePageClient from "@/components/home-page-client";
 import { JsonLd, breadcrumbSchema, createPageMetadata, organizationSchema } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Guild Acre | Private Land Advisory & Real Estate Intelligence",
+  title: "Guild Acre | Private Land Intelligence for Select NCR Buyers",
   description:
-    "Private land and premium real estate intelligence advisory for HNI buyers and serious investors evaluating Gurgaon, Sohna, and Naugaon opportunities.",
+    "Strategic acquisition advisory across Gurgaon NCR, Sohna, the Aravali Belt, and emerging growth corridors for select buyers and investors.",
   path: "/",
 });
 

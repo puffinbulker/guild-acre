@@ -2,9 +2,9 @@ import Link from "next/link";
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Property Insights | Gurgaon, Sohna & Land Advisory Guides | Guild Acre",
+  title: "Land Intelligence Notes | Guild Acre",
   description:
-    "Read practical guides on Gurgaon property, land due diligence, farmhouse buying, and corridor comparison for serious NCR buyers and investors.",
+    "Read private-office style notes on Gurgaon NCR land diligence, corridor intelligence, title checks, and acquisition risk.",
   path: "/insights",
 });
 
@@ -51,19 +51,19 @@ export default function InsightsPage() {
   return (
     <>
     <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }])} />
-    <main className="min-h-screen bg-slate-950 text-white">
-      <section className="bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_30%)]">
+    <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
+      <section className="border-b border-[#2d2a22] bg-[#050505]">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
-            Guild Acre Insights
+          <p className="text-xs uppercase text-[#b9a46d]">
+            Guild Acre intelligence notes
           </p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-            Practical property guides for serious Gurgaon and NCR buyers.
+          <h1 className="mt-4 max-w-4xl text-4xl font-semibold sm:text-5xl lg:text-6xl">
+            Editorial notes for serious land acquisition decisions.
           </h1>
-          <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-            These guides are designed to help buyers think more clearly about
-            land, plotted opportunities, farmhouse decisions, and corridor-level
-            tradeoffs before moving deeper into site visits or negotiations.
+          <p className="mt-5 max-w-3xl text-base leading-7 text-[#cfc5b3] sm:text-lg sm:leading-8">
+            These notes help buyers think more clearly about land, title,
+            access, farmhouse decisions, and corridor-level tradeoffs before
+            deeper diligence or negotiation begins.
           </p>
         </div>
       </section>
@@ -74,16 +74,16 @@ export default function InsightsPage() {
             <Link
               key={article.href}
               href={article.href}
-              className="rounded-[28px] border border-white/10 bg-white/5 p-6 transition hover:border-cyan-300/20 hover:bg-white/[0.07] sm:p-8"
+              className="border border-[#2d2a22] bg-[#0b0b0a] p-6 transition duration-500 hover:border-[#bda56a]/45 hover:bg-[#11100d] sm:p-8"
             >
-              <h2 className="text-2xl font-semibold tracking-tight text-white">
+              <h2 className="text-2xl font-semibold text-[#f4ead8]">
                 {article.title}
               </h2>
-              <p className="mt-4 text-sm leading-7 text-slate-300">
+              <p className="mt-4 text-sm leading-7 text-[#b8ad9b]">
                 {article.summary}
               </p>
-              <div className="mt-6 text-sm font-semibold text-cyan-300">
-                Read guide
+              <div className="mt-6 text-sm font-semibold text-[#d4c083]">
+                Read note
               </div>
             </Link>
           ))}

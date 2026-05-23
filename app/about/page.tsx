@@ -1,204 +1,163 @@
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "About Guild Acre | Premium Real Estate Advisory in Gurgaon",
+  title: "About Guild Acre | Private Land Intelligence Office",
   description:
-    "Learn how Guild Acre approaches land, farmhouse, plotted, and selective premium property advisory across Gurgaon, Sohna, and Naugaon.",
+    "Learn how Guild Acre operates as a private land intelligence office for strategic acquisition advisory across Gurgaon NCR, Sohna, and the Aravali Belt.",
   path: "/about",
 });
 
 export default function AboutPage() {
-  const strengths = [
-    "12+ years of Gurgaon market experience",
-    "Focused on land, farmhouse, and plotted opportunities",
-    "Private advisory for serious buyers and investors",
-    "Clearer filtering before deeper engagement",
+  const principles = [
+    {
+      title: "Intelligence before exposure",
+      text: "The work begins with geography, records, access, policy context, and buyer intent before any site movement or negotiation pressure.",
+    },
+    {
+      title: "Capital-fit discipline",
+      text: "A mandate is judged by purpose, holding period, liquidity, and risk tolerance rather than headline pricing or market excitement.",
+    },
+    {
+      title: "Private office cadence",
+      text: "Serious buyers receive quiet, relevant, and structured input. The process is intentionally selective and low-noise.",
+    },
   ];
 
-  const approach = [
-    {
-      title: "We narrow the noise first",
-      text: "Most buyers do not need more listings. They need a cleaner way to decide what deserves attention and what should be ignored early.",
-    },
-    {
-      title: "We think in use cases, not just categories",
-      text: "An investor, a farmhouse lifestyle buyer, and a family-led upgrade buyer may all look at the same geography very differently. The advisory approach changes with the objective.",
-    },
-    {
-      title: "We stay closer to judgment than hype",
-      text: "Corridor stories, pricing narratives, and growth claims matter, but they only help when they are matched to product quality, buyer fit, and practical reality.",
-    },
+  const strengths = [
+    "Gurgaon NCR and southern corridor reading",
+    "Land, farmhouse, plotted, and strategic acreage evaluation",
+    "Title, access, zoning, and environmental sensitivity orientation",
+    "Founder-led judgement before deeper capital movement",
   ];
 
   const faqs = [
     {
-      question: "What makes Guild Acre different from a typical volume-led property experience?",
+      question: "What is Guild Acre?",
       answer:
-        "Guild Acre is positioned as an advisory-led real estate business rather than a volume-led listing operation. The focus is on filtering, judgment, and cleaner shortlisting before deeper engagement.",
+        "Guild Acre is a private land intelligence office for select NCR buyers who need strategic acquisition clarity before committing time, capital, or reputation to a land-led opportunity.",
     },
     {
-      question: "Who usually works with Guild Acre?",
+      question: "Who is the work designed for?",
       answer:
-        "Serious buyers, investors, and selective NCR professionals who want stronger filtering, more thoughtful guidance, and fewer low-quality options.",
+        "The work suits HNI buyers, family offices, founders, and serious investors evaluating Gurgaon NCR, Sohna, Aravali-adjacent belts, and emerging growth corridors.",
     },
     {
-      question: "Which markets do you focus on most actively?",
+      question: "How does the process begin?",
       answer:
-        "Guild Acre is most active across Gurgaon, Sohna, and Naugaon, with a particular focus on land, farmhouse, plotted, and selected premium property requirements.",
+        "It begins with a confidential brief: capital range, geography, acquisition logic, timing, and known concerns. The next step is shaped around diligence direction and mandate fit.",
     },
   ];
 
   return (
     <>
-    <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />
-    <main className="min-h-screen bg-slate-950 text-white">
-      <section className="bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_28%),linear-gradient(180deg,#020617_0%,#071728_42%,#06111d_100%)]">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
+      <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
+        <section className="border-b border-[#2d2a22] bg-[#050505]">
+          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-32">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
-                About Guild Acre
-              </p>
-
-              <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight sm:mt-4 sm:text-5xl lg:text-6xl">
-                Premium real estate advisory built for buyers who want better judgment, not more noise.
+              <p className="text-xs uppercase text-[#b9a46d]">About Guild Acre</p>
+              <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f4ead8] sm:text-6xl lg:text-7xl">
+                A private land intelligence office for strategic NCR acquisition.
               </h1>
-
-              <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
-                Guild Acre is a Gurgaon-focused advisory business helping serious
-                buyers and investors think more clearly about land, farmhouse,
-                plotted, and selective premium property opportunities across
-                Gurgaon, Sohna, and Naugaon.
-              </p>
-
-              <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-400 sm:mt-6 sm:text-base sm:leading-8">
-                The goal is not to overwhelm you with inventory. The goal is to
-                help you evaluate what deserves attention, what should be
-                filtered out, and where conviction actually makes sense.
-              </p>
             </div>
 
-            <div className="rounded-[28px] border border-cyan-300/15 bg-gradient-to-br from-cyan-400/10 via-white/5 to-sky-400/10 p-6 sm:rounded-[32px] sm:p-8">
-              <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.3em]">
-                Positioning
+            <div className="flex flex-col justify-end text-lg leading-9 text-[#cfc5b3]">
+              <p>
+                Guild Acre helps serious buyers understand land-led opportunities
+                before the market becomes noisy. The focus is on judgement,
+                discretion, and acquisition logic across Gurgaon NCR, Sohna,
+                Aravali-adjacent terrain, and emerging growth corridors.
               </p>
-
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:mt-4 sm:text-3xl">
-                Advisory-led, corridor-aware, and buyer-fit focused
-              </h2>
-
-              <div className="mt-5 space-y-4 text-slate-300 sm:mt-6 sm:space-y-5">
-                <p className="leading-7 sm:leading-8">
-                  With 12+ years in Gurgaon real estate, Guild Acre is built on
-                  practical market understanding rather than volume-driven
-                  volume-led selling behavior.
-                </p>
-
-                <p className="leading-7 sm:leading-8">
-                  The focus stays strongest where judgment matters most: land,
-                  farmhouse, plotted opportunities, and selective premium
-                  requirements that need cleaner shortlisting.
-                </p>
-
-                <p className="leading-7 sm:leading-8">
-                  We work best with buyers who value discretion, sharper
-                  filtering, and a more thoughtful decision process.
-                </p>
-              </div>
+              <p className="mt-6">
+                The office is not built around public browsing behavior. It is
+                built around selective briefs, corridor intelligence, diligence
+                orientation, and the decision quality required before capital
+                moves.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid gap-4 sm:gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-8">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-cyan-300/80 sm:text-xs sm:tracking-[0.28em]">
-              Core Strengths
-            </p>
-            <div className="mt-5 space-y-3 sm:mt-6 sm:space-y-4">
+        <section className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
+          <div>
+            <p className="text-xs uppercase text-[#b9a46d]">Operating principles</p>
+            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl">
+              Quiet process. Stronger judgement. Fewer false signals.
+            </h2>
+          </div>
+
+          <div className="grid gap-px border border-[#2d2a22] bg-[#2d2a22]">
+            {principles.map((item) => (
+              <article
+                key={item.title}
+                className="bg-[#0b0b0a] p-7 transition duration-500 hover:bg-[#11100d] sm:p-9"
+              >
+                <h3 className="text-3xl font-semibold leading-tight text-[#f4ead8]">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-base leading-8 text-[#b8ad9b]">
+                  {item.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="border-y border-[#2d2a22] bg-[#0b0b0a]">
+          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+            <div>
+              <p className="text-xs uppercase text-[#b9a46d]">Founder-led office</p>
+              <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl">
+                Built around field memory and institutional discipline.
+              </h2>
+              <p className="mt-7 text-base leading-8 text-[#cfc5b3]">
+                Led by Sandeep Kumar, Guild Acre combines more than a decade of
+                Gurgaon market experience with a private-office approach to land
+                evaluation. The advisory posture is intentionally calm,
+                evidence-aware, and selective.
+              </p>
+            </div>
+
+            <div className="grid gap-px border border-[#2d2a22] bg-[#2d2a22] sm:grid-cols-2">
               {strengths.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-4 text-sm text-slate-200"
-                >
+                <div key={item} className="bg-[#10100e] p-6 text-base leading-7 text-[#d5cab8] sm:p-7">
                   {item}
                 </div>
               ))}
             </div>
           </div>
+        </section>
 
-          <div className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-8">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-cyan-300/80 sm:text-xs sm:tracking-[0.28em]">
-              Why Clients Work With Us
-            </p>
-
-            <div className="mt-5 space-y-5 sm:mt-6">
-              {approach.map((item) => (
-                <div key={item.title}>
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
-                    {item.text}
-                  </p>
-                </div>
-              ))}
-            </div>
+        <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs uppercase text-[#b9a46d]">About FAQ</p>
+            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl">
+              Questions before a private mandate.
+            </h2>
           </div>
-        </div>
-      </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-2 sm:px-6 sm:py-4 lg:px-8 lg:py-10">
-        <div className="rounded-[28px] border border-cyan-300/15 bg-gradient-to-r from-cyan-400/10 via-white/5 to-sky-400/10 p-6 sm:rounded-[32px] sm:p-8 lg:p-10">
-          <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
-            Founder
-          </p>
-
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:mt-4 sm:text-3xl lg:text-4xl">
-            Advisory led by Sandeep Kumar
-          </h2>
-
-          <p className="mt-4 max-w-4xl text-base leading-7 text-slate-300 sm:mt-5 sm:text-lg sm:leading-8">
-            With 12+ years of Gurgaon market experience, Sandeep Kumar focuses
-            on helping serious buyers and investors make clearer, more
-            defensible decisions in land, farmhouse, plotted, and selective
-            premium property opportunities.
-          </p>
-
-          <p className="mt-4 max-w-4xl text-sm leading-7 text-slate-400 sm:mt-5 sm:text-base sm:leading-8">
-            The operating principle is simple: understand deals carefully,
-            filter more honestly, and create better decision conditions before a
-            buyer commits capital or time.
-          </p>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="max-w-3xl">
-          <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-300/80 sm:text-xs sm:tracking-[0.32em]">
-            About FAQ
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:mt-4 sm:text-4xl lg:text-5xl">
-            Questions people often ask before working with Guild Acre.
-          </h2>
-        </div>
-
-        <div className="mt-8 space-y-4 sm:mt-10">
-          {faqs.map((item) => (
-            <div
-              key={item.question}
-              className="rounded-[24px] border border-white/10 bg-white/5 p-6 sm:rounded-[28px] sm:p-7"
-            >
-              <h3 className="text-lg font-semibold text-white sm:text-xl">
-                {item.question}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
-                {item.answer}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-    </main>
+          <div className="mt-12 space-y-4">
+            {faqs.map((item) => (
+              <article
+                key={item.question}
+                className="border border-[#2d2a22] bg-[#0b0b0a] p-6 transition duration-500 hover:border-[#bda56a]/45 sm:p-8"
+              >
+                <h3 className="text-2xl font-semibold text-[#f4ead8]">
+                  {item.question}
+                </h3>
+                <p className="mt-4 text-base leading-8 text-[#b8ad9b]">
+                  {item.answer}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
     </>
   );
 }

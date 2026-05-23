@@ -2,9 +2,9 @@ import ContactClient from "@/components/contact-client";
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Contact Guild Acre | Private Property Advisory in Gurgaon",
+  title: "Contact Guild Acre | Private Land Intelligence Consultation",
   description:
-    "Contact Guild Acre to discuss land, farmhouse, plotted, and premium property requirements across Gurgaon, Sohna, Naugaon, and Delhi NCR.",
+    "Submit a confidential acquisition brief for private land intelligence and strategic advisory across Gurgaon NCR, Sohna, and the Aravali Belt.",
   path: "/contact",
 });
 

@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --color-ink: #020617;
-    --color-night: #06111f;
-    --color-blueprint: #071827;
-    --color-gold: #d4af37;
-    --color-brass: #c6a76a;
-    --color-steel: #8fa3b8;
-    --color-mist: #e5e7eb;
+    --color-ink: #050505;
+    --color-night: #0b0b0a;
+    --color-graphite: #12110f;
+    --color-gold: #bda56a;
+    --color-brass: #d4c083;
+    --color-stone: #9d927f;
+    --color-ivory: #f4ead8;
     --font-sans: "Inter";
     --font-editorial: "Cormorant Garamond";
   }
@@ -26,7 +26,7 @@
 
   body {
     background: var(--color-ink);
-    color: var(--color-mist);
+    color: var(--color-ivory);
     font-family: var(--font-sans), Inter, ui-sans-serif, system-ui, sans-serif;
     letter-spacing: 0;
   }
@@ -47,20 +47,41 @@
   }
 
   ::selection {
-    background: rgba(212, 175, 55, 0.24);
+    background: rgba(189, 165, 106, 0.24);
     color: #fff;
   }
 }
 
 @layer utilities {
   .luxury-panel {
-    border: 1px solid rgba(198, 167, 106, 0.18);
-    background: linear-gradient(145deg, rgba(7, 24, 39, 0.84), rgba(2, 6, 23, 0.94));
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(189, 165, 106, 0.18);
+    background: #0b0b0a;
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.24);
   }
 
   .luxury-rule {
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.72), transparent);
+    background: linear-gradient(90deg, transparent, rgba(189, 165, 106, 0.72), transparent);
+  }
+
+  .institutional-input {
+    margin-top: 0.75rem;
+    width: 100%;
+    border: 1px solid rgba(244, 234, 216, 0.1);
+    background: rgba(18, 17, 15, 0.76);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: #f4ead8;
+    outline: none;
+    transition: border-color 500ms ease, background-color 500ms ease;
+  }
+
+  .institutional-input::placeholder {
+    color: rgba(157, 146, 127, 0.72);
+  }
+
+  .institutional-input:focus {
+    border-color: rgba(189, 165, 106, 0.72);
+    background: rgba(5, 5, 5, 0.92);
   }
 
   [class*="tracking-"] {

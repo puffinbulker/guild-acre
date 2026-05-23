@@ -9,33 +9,33 @@ export const metadata = createPageMetadata({
 
 export default function RedFlagsPlottedLandPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">
+        <p className="text-xs uppercase text-[#b9a46d]">
           Plot Buying Guide
         </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">
           Red flags in plotted land deals near Gurgaon
         </h1>
-        <p className="mt-6 text-base leading-8 text-slate-300 sm:text-lg">
+        <p className="mt-6 text-base leading-8 text-[#cfc5b3] sm:text-lg">
           Plotted deals can look straightforward on the surface, especially when
           pricing, access, and future-growth language are packaged well. In
           practice, many weak opportunities reveal themselves through patterns
           buyers can spot earlier if they know what to watch.
         </p>
 
-        <div className="mt-10 space-y-8 text-slate-300">
+        <div className="mt-10 space-y-8 text-[#cfc5b3]">
           <section>
-            <h2 className="text-2xl font-semibold text-white">1. The price feels attractive, but the explanation feels vague</h2>
+            <h2 className="text-2xl font-semibold text-[#f4ead8]">1. The price feels attractive, but the explanation feels vague</h2>
             <p className="mt-3 leading-8">
               A deal can be well-priced, but if no one can clearly explain why
-              it is priced that way relative to nearby inventory, buyer demand,
+              it is priced that way relative to nearby supply, buyer demand,
               or exact location context, caution is justified.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white">2. The location story is stronger than the parcel story</h2>
+            <h2 className="text-2xl font-semibold text-[#f4ead8]">2. The location story is stronger than the parcel story</h2>
             <p className="mt-3 leading-8">
               Some plotted deals are sold almost entirely through corridor hype.
               Buyers should still ask whether the exact parcel, access pattern,
@@ -44,7 +44,7 @@ export default function RedFlagsPlottedLandPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white">3. Questions around ownership or use case create discomfort</h2>
+            <h2 className="text-2xl font-semibold text-[#f4ead8]">3. Questions around ownership or use case create discomfort</h2>
             <p className="mt-3 leading-8">
               If the conversation becomes evasive the moment a buyer asks about
               title chain, exact use case, transfer comfort, or parcel history,
@@ -53,7 +53,7 @@ export default function RedFlagsPlottedLandPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white">4. Every plotted option is being positioned as a “must-buy”</h2>
+            <h2 className="text-2xl font-semibold text-[#f4ead8]">4. Every plotted option is being positioned as a "must-buy"</h2>
             <p className="mt-3 leading-8">
               Strong plotted opportunities are selective by nature. If
               everything in a micro-market is being framed as premium, fast

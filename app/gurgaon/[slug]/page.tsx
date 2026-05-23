@@ -18,7 +18,7 @@ const AREA_INSIGHTS: Record<
     summary:
       "Golf Course Extension Road suits premium upgrade buyers, newer-launch seekers, and families looking for larger-format homes with long-term relevance. The corridor performs best when buyers compare product quality and positioning carefully rather than assuming every project commands the same premium.",
     caution:
-      "This market rewards selective shortlisting. Product quality, exact pocket, and pricing discipline matter more here than generic corridor branding.",
+      "This market rewards selective evaluation discipline. Product quality, exact pocket, and pricing discipline matter more here than generic corridor branding.",
   },
   "dwarka-expressway": {
     title: "Why investors keep returning to this belt",
@@ -49,10 +49,10 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return createPageMetadata({
-    title: `${area.title} Property in Gurgaon | Prices, Insights & Curated Options | Guild Acre`,
+    title: `${area.title} Land Intelligence in Gurgaon | Guild Acre`,
     description:
       area.summary ||
-      `Explore ${area.title} property in Gurgaon with price context, buyer-fit guidance, and curated options across luxury, plotted, and land-led requirements.`,
+      `Review ${area.title} with price context, buyer-fit guidance, and corridor intelligence for selective land-led requirements.`,
     path: `/gurgaon/${slug}`,
   });
 }
@@ -86,7 +86,7 @@ export default async function GurgaonAreaPage({ params }: Props) {
         <h1>{area.title}</h1>
         <p>
           {area.summary ||
-            `Explore curated opportunities in ${area.title}, Gurgaon for buying, selling, rent, lease, resale, fresh booking, commercial, and land-led requirements.`}
+            `Review private acquisition context in ${area.title}, Gurgaon for land-led requirements, corridor fit, and diligence direction.`}
         </p>
         <div className="page-intro__metrics">
           <span>
@@ -94,14 +94,14 @@ export default async function GurgaonAreaPage({ params }: Props) {
               ? `${formatListingCount(areaCount)} currently visible`
               : "Private matching available on enquiry"}
           </span>
-          <span>Buy, rent, lease, resale, and fresh inventory</span>
-          <span>Plots, floors, villa, kothi, apartment, flat, and land</span>
+          <span>Public reference records and private review available</span>
+          <span>Land, plotted assets, farm land, and selective built stock</span>
         </div>
       </section>
 
       <div className="area-page__actions">
         <Link href={`/listings?location=${areaQuery}`} className="button">
-          View all in {area.title}
+          View public register for {area.title}
         </Link>
         <Link href="/gurgaon" className="button button--ghost">
           Back to Gurgaon hub
@@ -148,19 +148,19 @@ export default async function GurgaonAreaPage({ params }: Props) {
 
           <div className="area-page__service-grid">
             <article className="card area-page__service-card">
-              <span className="section-tag">For Buyers</span>
-              <h3>Primary, resale, and luxury shortlisting</h3>
-              <p>Choose from fresh booking, ready-to-move, or resale inventory with guided negotiation support.</p>
+              <span className="section-tag">Buyer fit</span>
+              <h3>Acquisition thesis before exposure</h3>
+              <p>Study use case, capital range, timing, and fit before moving toward any public or private record.</p>
             </article>
             <article className="card area-page__service-card">
-              <span className="section-tag">For Owners</span>
-              <h3>Sell, rent, lease, or mandate your property</h3>
-              <p>We can position apartments, floors, villa, kothi, plots, and commercial assets for serious enquiries.</p>
+              <span className="section-tag">Diligence</span>
+              <h3>Title, access, and use-case review</h3>
+              <p>Frame the key questions around records, approach, boundaries, zoning, and practical usability.</p>
             </article>
             <article className="card area-page__service-card">
-              <span className="section-tag">For Land Deals</span>
-              <h3>Plots, farm land, and agriculture land</h3>
-              <p>Use this page to request filtered options even when the most suitable match is discussed privately.</p>
+              <span className="section-tag">Corridor logic</span>
+              <h3>Market context and exit quality</h3>
+              <p>Read the area through demand depth, infrastructure probability, and realistic liquidity.</p>
             </article>
           </div>
 
@@ -204,9 +204,9 @@ export default async function GurgaonAreaPage({ params }: Props) {
               <span className="section-tag">Inventory Desk</span>
               <h2>Curated opportunities are often shared privately here</h2>
               <p>
-                If you are looking to buy, sell, rent, lease, or source land in{" "}
-                {area.title}, send your requirement and we can help shortlist
-                relevant options directly based on fit, availability, and timing.
+                If you are evaluating land in {area.title}, send the brief so
+                the response can be shaped around fit, availability, timing, and
+                diligence direction.
               </p>
             </div>
           )}

@@ -2,9 +2,9 @@ import ListingsClient from "@/components/listings-client";
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Curated Property Listings in Gurgaon & NCR | Guild Acre",
+  title: "Private Opportunity Register | Guild Acre",
   description:
-    "Browse approved public property opportunities from Guild Acre, or share a requirement for a private shortlist across Gurgaon, Sohna, Naugaon, and NCR growth corridors.",
+    "Review a limited public register from Guild Acre, or request a private intelligence note for Gurgaon NCR, Sohna, Aravali Belt, and emerging growth corridors.",
   path: "/listings",
 });
 
