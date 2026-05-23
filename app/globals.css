@@ -29,6 +29,7 @@
     color: var(--color-ivory);
     font-family: var(--font-sans), Inter, ui-sans-serif, system-ui, sans-serif;
     letter-spacing: 0;
+    text-rendering: geometricPrecision;
   }
 
   h1,
@@ -36,6 +37,12 @@
   h3 {
     font-family: var(--font-editorial), Georgia, serif;
     letter-spacing: 0;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   input,
@@ -49,6 +56,476 @@
   ::selection {
     background: rgba(189, 165, 106, 0.24);
     color: #fff;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    max-width: 86rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .page-shell {
+    padding-block: clamp(4.5rem, 8vw, 7.5rem);
+  }
+
+  .card {
+    border: 1px solid #2d2a22;
+    background: #0b0b0a;
+  }
+
+  .section-tag,
+  .eyebrow {
+    display: inline-flex;
+    color: #b9a46d;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .button,
+  .collection-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    border: 1px solid rgba(189, 165, 106, 0.38);
+    border-radius: 999px;
+    background: rgba(244, 234, 216, 0.025);
+    padding: 0.75rem 1.15rem;
+    color: #f4ead8;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: border-color 500ms ease, background-color 500ms ease, color 500ms ease, transform 500ms ease;
+  }
+
+  .button:hover,
+  .collection-tab:hover {
+    border-color: rgba(212, 192, 131, 0.72);
+    background: rgba(189, 165, 106, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .button--ghost,
+  .collection-tab {
+    border-color: rgba(244, 234, 216, 0.1);
+    color: rgba(244, 234, 216, 0.78);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.42rem 0.75rem;
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+
+  .pill--light {
+    border: 1px solid rgba(244, 234, 216, 0.1);
+    background: rgba(244, 234, 216, 0.035);
+    color: rgba(244, 234, 216, 0.78);
+  }
+
+  .page-intro {
+    border: 1px solid #2d2a22;
+    background:
+      linear-gradient(135deg, rgba(189, 165, 106, 0.09), transparent 38%),
+      #050505;
+    padding: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .page-intro h1 {
+    max-width: 58rem;
+    margin-top: 1rem;
+    color: #f4ead8;
+    font-size: clamp(3rem, 7vw, 6.8rem);
+    font-weight: 600;
+    line-height: 0.92;
+  }
+
+  .page-intro p {
+    max-width: 48rem;
+    margin-top: 1.5rem;
+    color: #cfc5b3;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.8;
+  }
+
+  .page-intro__metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 2.4rem;
+    border: 1px solid #2d2a22;
+    background: #2d2a22;
+  }
+
+  .page-intro__metrics span {
+    min-height: 5.4rem;
+    background: rgba(11, 11, 10, 0.92);
+    padding: 1.2rem;
+    color: #d5cab8;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .area-page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-block: 1.6rem 3rem;
+  }
+
+  .area-page__layout,
+  .property-detail__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 23rem);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .area-page__content {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .area-page__sidebar,
+  .property-detail__sidebar {
+    position: sticky;
+    top: 7.5rem;
+  }
+
+  .area-market,
+  .area-page__empty,
+  .property-detail__main,
+  .property-detail__gallery-note {
+    padding: clamp(1.5rem, 4vw, 2.6rem);
+  }
+
+  .area-market__intro h2,
+  .area-page__records h2,
+  .property-market-compare__head h3,
+  .property-detail__gallery-note h3 {
+    margin-top: 0.8rem;
+    color: #f4ead8;
+    font-size: clamp(2.1rem, 4vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .area-market__intro p,
+  .area-page__service-card p,
+  .area-visual-grid__card p,
+  .area-page__empty p,
+  .property-detail__gallery-note p,
+  .property-market-compare p,
+  .property-detail__main > p {
+    margin-top: 1rem;
+    color: #b8ad9b;
+    line-height: 1.8;
+  }
+
+  .area-market__stats,
+  .property-market-compare__stats,
+  .detail-specs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 1.5rem;
+    border: 1px solid #2d2a22;
+    background: #2d2a22;
+  }
+
+  .area-market__stats div,
+  .property-market-compare__stats div,
+  .detail-specs div {
+    background: #10100e;
+    padding: 1.1rem;
+  }
+
+  .area-market__stats strong,
+  .property-market-compare__stats strong,
+  .detail-specs strong {
+    display: block;
+    color: #f4ead8;
+    font-size: 1.02rem;
+    font-weight: 600;
+  }
+
+  .area-market__stats span,
+  .property-market-compare__stats span,
+  .detail-specs span {
+    display: block;
+    margin-top: 0.35rem;
+    color: #9d927f;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .area-market__source,
+  .property-market-compare__source {
+    display: inline-flex;
+    margin-top: 1.25rem;
+    color: #d4c083;
+    font-size: 0.88rem;
+    transition: color 400ms ease;
+  }
+
+  .area-market__source:hover,
+  .property-market-compare__source:hover {
+    color: #f4ead8;
+  }
+
+  .area-page__service-grid,
+  .area-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    border: 1px solid #2d2a22;
+    background: #2d2a22;
+  }
+
+  .area-page__service-card,
+  .area-visual-grid__card {
+    background: #0b0b0a;
+    padding: clamp(1.3rem, 3vw, 2rem);
+    transition: border-color 500ms ease, background-color 500ms ease, transform 500ms ease;
+  }
+
+  .area-page__service-card:hover,
+  .area-visual-grid__card:hover {
+    background: #11100d;
+    transform: translateY(-2px);
+  }
+
+  .area-page__service-card h3,
+  .area-visual-grid__card strong {
+    display: block;
+    margin-top: 0.85rem;
+    color: #f4ead8;
+    font-family: var(--font-editorial), Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.05;
+  }
+
+  .area-page__records {
+    display: grid;
+    gap: 1.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    gap: 1.25rem;
+  }
+
+  .property-detail__intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: end;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+  }
+
+  .property-detail__intro h1 {
+    max-width: 62rem;
+    margin-top: 1rem;
+    color: #f4ead8;
+    font-size: clamp(3rem, 7vw, 6.8rem);
+    font-weight: 600;
+    line-height: 0.92;
+  }
+
+  .property-detail__summary {
+    max-width: 42rem;
+    margin-top: 1.4rem;
+    color: #cfc5b3;
+    font-size: 1.12rem;
+    line-height: 1.85;
+  }
+
+  .property-detail__intro-card {
+    border: 1px solid rgba(189, 165, 106, 0.24);
+    background: #0b0b0a;
+    padding: 1.5rem;
+  }
+
+  .property-detail__intro-card strong,
+  .detail-price {
+    display: block;
+    margin-top: 0.8rem;
+    color: #d4c083;
+    font-family: var(--font-editorial), Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .property-detail__intro-card p {
+    margin-top: 0.6rem;
+    color: #9d927f;
+  }
+
+  .property-detail__gallery {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+    gap: 1px;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+    border: 1px solid #2d2a22;
+    background: #2d2a22;
+  }
+
+  .property-detail__gallery-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(10rem, 14rem);
+    gap: 1px;
+    background: #2d2a22;
+  }
+
+  .property-detail__hero-image,
+  .property-detail__thumb {
+    position: relative;
+    overflow: hidden;
+    background: #10100e;
+  }
+
+  .property-detail__hero-image {
+    min-height: clamp(24rem, 48vw, 38rem);
+  }
+
+  .property-detail__hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(5, 5, 5, 0.86));
+  }
+
+  .property-detail__hero-caption {
+    position: absolute;
+    inset-inline: clamp(1.25rem, 4vw, 2.2rem);
+    bottom: clamp(1.25rem, 4vw, 2.2rem);
+  }
+
+  .property-detail__hero-caption strong {
+    display: block;
+    margin-top: 0.6rem;
+    color: #f4ead8;
+    font-family: var(--font-editorial), Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .property-detail__hero-caption p,
+  .property-detail__gallery-meta,
+  .amenity-list {
+    margin-top: 1rem;
+    color: #b8ad9b;
+  }
+
+  .property-detail__thumbs {
+    display: grid;
+    gap: 1px;
+  }
+
+  .property-detail__thumb {
+    min-height: 9rem;
+  }
+
+  .property-detail__chips,
+  .amenity-list,
+  .property-detail__gallery-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .property-detail__trust-band {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 2rem;
+    border: 1px solid rgba(189, 165, 106, 0.18);
+    background: rgba(189, 165, 106, 0.18);
+  }
+
+  .property-detail__trust-band div {
+    background: #10100e;
+    padding: 1.2rem;
+  }
+
+  .property-detail__trust-band strong {
+    display: block;
+    color: #f4ead8;
+    font-size: 1rem;
+  }
+
+  .property-detail__trust-band span {
+    display: block;
+    margin-top: 0.4rem;
+    color: #9d927f;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .property-market-compare {
+    margin-top: 2rem;
+    border-top: 1px solid #2d2a22;
+    padding-top: 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    .area-page__layout,
+    .property-detail__content,
+    .property-detail__intro,
+    .property-detail__gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .area-page__sidebar,
+    .property-detail__sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .page-shell {
+      padding-block: 3.5rem;
+    }
+
+    .page-intro {
+      padding: 1.5rem;
+    }
+
+    .page-intro h1,
+    .property-detail__intro h1 {
+      font-size: clamp(2.65rem, 15vw, 4.5rem);
+      line-height: 0.96;
+    }
+
+    .page-intro__metrics,
+    .area-market__stats,
+    .property-market-compare__stats,
+    .detail-specs,
+    .area-page__service-grid,
+    .area-visual-grid,
+    .property-detail__trust-band,
+    .property-detail__gallery-shell {
+      grid-template-columns: 1fr;
+    }
+
+    .area-page__actions {
+      margin-bottom: 2rem;
+    }
+
+    .button,
+    .collection-tab {
+      width: 100%;
+    }
   }
 }
 

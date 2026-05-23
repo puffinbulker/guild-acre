@@ -55,7 +55,7 @@ const FILTERS = [
 
 const listingFaqs = [
   {
-    question: "Is this the full available inventory?",
+    question: "Is this the full opportunity universe?",
     answer:
       "No. This is a limited public register. Most land-led work begins privately once the buyer profile, corridor intent, and acquisition logic are understood.",
   },
@@ -126,7 +126,7 @@ export default function ListingsPage() {
       <section className="border-b border-[#2d2a22] bg-[#050505]">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
           <p className="text-xs uppercase text-[#b9a46d]">
-            Private opportunity register
+            Strategic opportunities
           </p>
 
           <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl lg:text-7xl">
@@ -134,7 +134,7 @@ export default function ListingsPage() {
           </h1>
 
           <p className="mt-7 max-w-3xl text-lg leading-9 text-[#cfc5b3]">
-            This register shows limited approved opportunities. Serious land
+            This register shows limited approved opportunity records. Serious land
             acquisition work is handled through private briefs, diligence notes,
             and corridor-specific intelligence rather than open-market browsing.
           </p>
@@ -159,7 +159,7 @@ export default function ListingsPage() {
               What it avoids
             </p>
             <p className="mt-4 text-xl font-semibold text-[#f4ead8]">
-              Casual comparison behavior and noisy property shopping.
+              Casual comparison behavior and noisy open-market browsing.
             </p>
             </div>
           </div>
@@ -184,7 +184,7 @@ export default function ListingsPage() {
               onClick={() => setActiveFilter(f.value)}
               className={`rounded-full px-4 py-2 text-sm transition ${
                 activeFilter === f.value
-                  ? "border border-[#bda56a] bg-[#bda56a] text-[#050505]"
+                  ? "border border-[#bda56a]/60 bg-[#bda56a]/10 text-[#f4ead8]"
                   : "border border-[#efe7d6]/10 text-[#efe7d6] hover:border-[#bda56a]/50 hover:bg-[#efe7d6]/5"
               }`}
             >
@@ -219,13 +219,13 @@ export default function ListingsPage() {
               </p>
               <a
                 href="/contact"
-                className="mt-5 block rounded-full border border-[#bda56a] bg-[#bda56a] px-5 py-3 text-center text-sm font-semibold text-[#050505] transition hover:bg-[#d4c083] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a]"
+                className="mt-5 block rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-5 py-3 text-center text-sm font-medium text-[#f4ead8] transition hover:border-[#d4c083] hover:bg-[#bda56a]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a]"
               >
                 Submit Brief
               </a>
               <p className="mt-4 text-xs leading-5 text-slate-500">
-                By enquiring, you agree to be contacted about your property
-                requirement. See our Privacy Policy for details.
+                By enquiring, you agree to be contacted about your acquisition
+                brief. See our Privacy Policy for details.
               </p>
             </div>
           </div>
@@ -311,7 +311,7 @@ export default function ListingsPage() {
                       )}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 rounded-full border border-[#bda56a] bg-[#bda56a] px-4 py-3 text-center text-sm font-semibold text-[#050505] hover:bg-[#d4c083]"
+                      className="flex-1 rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-4 py-3 text-center text-sm font-medium text-[#f4ead8] transition hover:border-[#d4c083] hover:bg-[#bda56a]/10"
                     >
                       Request Intelligence Note
                     </a>
@@ -321,7 +321,7 @@ export default function ListingsPage() {
                         href={item.videoUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 rounded-full border border-[#efe7d6]/10 px-4 py-3 text-center text-sm"
+                        className="flex-1 rounded-full border border-[#efe7d6]/10 px-4 py-3 text-center text-sm text-[#cfc5b3] transition hover:border-[#bda56a]/45 hover:text-[#f4ead8]"
                       >
                         View Visual Context
                       </a>

@@ -48,7 +48,7 @@ export function PropertyCard({ property }: { property: PropertyCardValue }) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/30 to-transparent" />
 
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-          {card.featured && <GlassTag label="Featured" />}
+          {card.featured && <GlassTag label="Priority Record" />}
           <GlassTag label={card.status} />
           {card.type ? <GlassTag label={card.type} /> : null}
         </div>

@@ -32,7 +32,7 @@ I want to request a private land intelligence consultation.`;
       <section className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-32">
         <div>
           <p className="text-xs uppercase text-[#b9a46d]">
-            Private consultation desk
+            Acquisition desk
           </p>
 
           <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[0.98] text-[#f4ead8] sm:text-6xl lg:text-7xl">
@@ -128,7 +128,7 @@ I want to request a private land intelligence consultation.`;
 
           <button
             onClick={handleWhatsAppSubmit}
-            className="mt-5 w-full rounded-full border border-[#bda56a] bg-[#bda56a] px-6 py-4 text-sm font-semibold text-[#070706] transition duration-500 hover:bg-[#d4c083] sm:mt-6"
+            className="mt-5 w-full rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-6 py-4 text-sm font-medium text-[#f4ead8] transition duration-500 hover:border-[#d4c083] hover:bg-[#bda56a]/10 sm:mt-6"
           >
             Request Private Consultation
           </button>

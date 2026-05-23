@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
   title: {
-    default: "Guild Acre | Private Land Intelligence Office",
+    default: "Guild Acre | Private Land Intelligence Institution",
     template: "%s",
   },
   description:
@@ -67,15 +67,15 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <header className="sticky top-0 z-50 border-b border-[#2d2a22] bg-[#050505]/88 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-5 sm:px-6 lg:px-8 lg:py-7">
+        <header className="sticky top-0 z-50 border-b border-[#2d2a22] bg-[#050505]/90 backdrop-blur-xl">
+          <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-6 px-5 py-5 sm:px-6 lg:px-8 lg:py-7">
             <Link href="/" className="group flex min-w-0 items-center gap-4 py-1">
               <div className="min-w-0">
                 <div className="font-[var(--font-editorial)] text-2xl font-semibold uppercase leading-none tracking-[0.2em] text-[#f4ead8] transition group-hover:text-[#d4c083] sm:text-3xl sm:tracking-[0.24em]">
                   GUILD ACRE
                 </div>
                 <div className="mt-2 hidden text-[10px] uppercase tracking-[0.34em] text-[#9d927f] sm:block">
-                  Land Intelligence Office
+                  Private Land Intelligence Institution
                 </div>
               </div>
             </Link>
@@ -90,14 +90,14 @@ export default function RootLayout({
           <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.25fr_0.75fr_0.75fr]">
             <div>
               <p className="font-[var(--font-editorial)] text-2xl font-semibold uppercase tracking-[0.22em] text-[#f4ead8]">GUILD ACRE</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#bda56a]">Land Intelligence Office</p>
+              <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#bda56a]">Private Land Intelligence Institution</p>
               <p className="mt-3 max-w-xl leading-7">
                 Private land intelligence and strategic acquisition advisory for
                 select NCR buyers evaluating complex land-led opportunities.
               </p>
             </div>
             <div>
-              <p className="font-semibold text-[#f4ead8]">Contact</p>
+              <p className="font-semibold text-[#f4ead8]">Acquisition Desk</p>
               <div className="mt-3 space-y-2">
                 <a className="block transition hover:text-[#d4c083]" href="tel:+919711667782">
                   +91 97116 67782
@@ -118,21 +118,12 @@ export default function RootLayout({
                   Cookie Notice
                 </Link>
                 <Link className="block transition hover:text-[#d4c083]" href="/contact">
-                  Contact
+                  Acquisition Desk
                 </Link>
               </div>
             </div>
           </div>
         </footer>
-
-        <a
-          href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20speak%20to%20an%20advisor."
-          target="_blank"
-          rel="noreferrer"
-          className="fixed bottom-5 right-5 z-50 rounded-full border border-[#bda56a]/50 bg-[#0b0b0a]/92 px-5 py-3 text-sm font-semibold text-[#f4ead8] shadow-xl shadow-black/25 transition duration-500 hover:border-[#bda56a] hover:bg-[#bda56a] hover:text-[#050505] sm:bottom-6 sm:right-6 sm:px-6 sm:py-4"
-        >
-          Private Consultation
-        </a>
       </body>
     </html>
   );

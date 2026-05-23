@@ -1,9 +1,9 @@
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "About Guild Acre | Private Land Intelligence Office",
+  title: "About Guild Acre | Private Land Intelligence Institution",
   description:
-    "Learn how Guild Acre operates as a private land intelligence office for strategic acquisition advisory across Gurgaon NCR, Sohna, and the Aravali Belt.",
+    "Learn how Guild Acre operates as a private land intelligence institution for strategic acquisition advisory across Gurgaon NCR, Sohna, and the Aravali Belt.",
   path: "/about",
 });
 
@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div>
               <p className="text-xs uppercase text-[#b9a46d]">About Guild Acre</p>
               <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f4ead8] sm:text-6xl lg:text-7xl">
-                A private land intelligence office for strategic NCR acquisition.
+                A private land intelligence institution for strategic NCR acquisition.
               </h1>
             </div>
 

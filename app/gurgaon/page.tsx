@@ -1,7 +1,7 @@
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Gurgaon NCR Land Intelligence | Guild Acre",
+  title: "Corridor Coverage | Guild Acre",
   description:
     "Private corridor intelligence for select buyers evaluating Gurgaon NCR, Sohna, Aravali-adjacent belts, and emerging strategic growth corridors.",
   path: "/gurgaon",
@@ -73,7 +73,7 @@ export default function GurgaonPage() {
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Gurgaon", path: "/gurgaon" },
+          { name: "Corridor Coverage", path: "/gurgaon" },
         ])}
       />
       <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
@@ -178,7 +178,7 @@ export default function GurgaonPage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="/contact"
-                  className="rounded-full border border-[#bda56a] bg-[#bda56a] px-6 py-4 text-center text-sm font-semibold text-[#050505] transition duration-500 hover:bg-[#d4c083]"
+                  className="rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-6 py-4 text-center text-sm font-medium text-[#f4ead8] transition duration-500 hover:border-[#d4c083] hover:bg-[#bda56a]/10"
                 >
                   Request Private Consultation
                 </a>
@@ -186,7 +186,7 @@ export default function GurgaonPage() {
                   href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20a%20private%20Gurgaon%20land%20intelligence%20brief."
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-[#efe7d6]/15 px-6 py-4 text-center text-sm font-semibold text-[#efe7d6] transition duration-500 hover:border-[#bda56a] hover:text-[#d4c083]"
+                  className="rounded-full border border-[#efe7d6]/15 px-6 py-4 text-center text-sm font-medium text-[#cfc5b3] transition duration-500 hover:border-[#bda56a] hover:text-[#f4ead8]"
                 >
                   Access Intelligence Brief
                 </a>

@@ -57,7 +57,7 @@ export default async function PropertyDetailPage({ params }: Props) {
       data={[
         breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Listings", path: "/listings" },
+          { name: "Strategic Opportunities", path: "/listings" },
           { name: property.title, path: `/properties/${slug}` },
         ]),
         propertySchema(property),
@@ -66,7 +66,7 @@ export default async function PropertyDetailPage({ params }: Props) {
     <main className="container page-shell property-detail">
       <section className="property-detail__intro">
         <div>
-          <span className="section-tag">{property.location}</span>
+          <span className="section-tag">Reference record</span>
           <h1>{property.title}</h1>
           <p className="property-detail__summary">
             A public reference record for early context. Deeper movement should
@@ -232,7 +232,8 @@ export default async function PropertyDetailPage({ params }: Props) {
               </div>
               <p>
                 Indicative public range for {marketGuide.title}: {marketGuide.indicativeRange}. Final
-                deal value depends on tower, facing, floor, builder, registry, and finish level.
+                deal value depends on access, frontage, registry position, seller urgency,
+                development stage, and diligence outcome.
               </p>
               <a
                 className="property-market-compare__source"

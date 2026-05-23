@@ -101,7 +101,7 @@ export function LeadFormContent({
 
         <button
           type="submit"
-          className="w-full rounded-full border border-[#bda56a] bg-[#bda56a] px-5 py-3 text-sm font-semibold text-[#050505] transition hover:bg-[#d4c083] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a]"
+          className="w-full rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-5 py-3 text-sm font-semibold text-[#f4ead8] transition duration-500 hover:border-[#d4c083] hover:bg-[#bda56a]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a]"
         >
           Request Private Consultation
         </button>

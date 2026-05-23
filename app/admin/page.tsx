@@ -285,10 +285,10 @@ export default function AdminPage() {
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.32em] text-cyan-300/80">
-              Admin Panel
+            <p className="text-xs uppercase tracking-[0.32em] text-[#bda56a]">
+              Admin Console
             </p>
-            <h1 className="mt-2 text-3xl font-semibold">Add / Delete Properties</h1>
+            <h1 className="mt-2 text-3xl font-semibold">Manage Opportunity Records</h1>
           </div>
 
           <div className="flex gap-3">
@@ -296,7 +296,7 @@ export default function AdminPage() {
               href="/listings"
               className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10"
             >
-              View Listings
+              View Strategic Opportunities
             </a>
             <button
               onClick={handleLogout}
@@ -444,7 +444,7 @@ export default function AdminPage() {
                   checked={form.featured}
                   onChange={(e) => setForm((p) => ({ ...p, featured: e.target.checked }))}
                 />
-                <span>Featured Property</span>
+                <span>Priority Record</span>
               </label>
             </div>
 
@@ -452,12 +452,12 @@ export default function AdminPage() {
               onClick={handleAddProperty}
               className="mt-6 w-full rounded-xl bg-cyan-500 px-4 py-3 text-sm font-semibold text-slate-950 hover:bg-cyan-400"
             >
-              Add Property
+              Add Record
             </button>
           </div>
 
           <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
-            <h2 className="text-2xl font-semibold">Saved Properties</h2>
+            <h2 className="text-2xl font-semibold">Saved Records</h2>
 
             <div className="mt-5 space-y-4">
               {properties.length === 0 ? (

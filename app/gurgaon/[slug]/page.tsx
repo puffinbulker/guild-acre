@@ -74,14 +74,14 @@ export default async function GurgaonAreaPage({ params }: Props) {
     <JsonLd
       data={breadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Gurgaon", path: "/gurgaon" },
+        { name: "Corridor Coverage", path: "/gurgaon" },
         { name: area.title, path: `/gurgaon/${slug}` },
       ])}
     />
     <main className="container page-shell area-page">
       <section className="page-intro page-intro--listing">
         <span className="section-tag">
-          Gurgaon {area.kind === "sector" ? "Sector Page" : "Locality Page"}
+          Corridor intelligence record
         </span>
         <h1>{area.title}</h1>
         <p>
@@ -91,29 +91,29 @@ export default async function GurgaonAreaPage({ params }: Props) {
         <div className="page-intro__metrics">
           <span>
             {areaCount
-              ? `${formatListingCount(areaCount)} currently visible`
+              ? `${formatListingCount(areaCount)} public reference records`
               : "Private matching available on enquiry"}
           </span>
-          <span>Public reference records and private review available</span>
-          <span>Land, plotted assets, farm land, and selective built stock</span>
+          <span>Reference visibility and private review available</span>
+          <span>Land thesis, access, zoning, and exit logic</span>
         </div>
       </section>
 
       <div className="area-page__actions">
         <Link href={`/listings?location=${areaQuery}`} className="button">
-          View public register for {area.title}
+          Review public reference records
         </Link>
         <Link href="/gurgaon" className="button button--ghost">
-          Back to Gurgaon hub
+          Back to corridor coverage
         </Link>
         <Link href={`/listings?location=${areaQuery}&collection=COMMERCIAL`} className="collection-tab">
-          Commercial
+          Commercial context
         </Link>
         <Link href={`/listings?location=${areaQuery}&collection=LAND`} className="collection-tab">
-          Plots / Land
+          Land / plotted context
         </Link>
         <Link href={`/listings?location=${areaQuery}&collection=FARMLAND`} className="collection-tab">
-          Farm Land
+          Farm land context
         </Link>
       </div>
 
@@ -122,7 +122,7 @@ export default async function GurgaonAreaPage({ params }: Props) {
           {marketGuide ? (
             <section className="area-market card">
               <div className="area-market__intro">
-                <span className="section-tag">Market Snapshot</span>
+                <span className="section-tag">Corridor benchmark</span>
                 <h2>{marketGuide.title} price benchmark</h2>
                 <p>{marketGuide.outlook}</p>
               </div>
@@ -194,15 +194,21 @@ export default async function GurgaonAreaPage({ params }: Props) {
           </div>
 
           {areaCount ? (
-            <div className="property-grid">
-              {area.properties.map((property) => (
-                <PropertyCard key={property.id} property={property} />
-              ))}
-            </div>
+            <section className="area-page__records">
+              <div>
+                <span className="section-tag">Visible reference records</span>
+                <h2>Records for orientation, not open-market browsing.</h2>
+              </div>
+              <div className="property-grid">
+                {area.properties.map((property) => (
+                  <PropertyCard key={property.id} property={property} />
+                ))}
+              </div>
+            </section>
           ) : (
             <div className="card area-page__empty">
-              <span className="section-tag">Inventory Desk</span>
-              <h2>Curated opportunities are often shared privately here</h2>
+              <span className="section-tag">Acquisition desk</span>
+              <h2>Relevant opportunities are often reviewed privately here</h2>
               <p>
                 If you are evaluating land in {area.title}, send the brief so
                 the response can be shaped around fit, availability, timing, and
