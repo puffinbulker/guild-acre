@@ -25,7 +25,7 @@ export const PROPERTY_STATUSES = [
 export type PropertyTypeValue = (typeof PROPERTY_TYPES)[number];
 export type PropertyStatusValue = (typeof PROPERTY_STATUSES)[number];
 
-export const LISTING_APPROVAL_STATUSES = [
+export const RECORD_APPROVAL_STATUSES = [
   "APPROVED",
   "PENDING",
   "REJECTED"
@@ -67,19 +67,19 @@ export const LEAD_ROUTING_STATUSES = [
   "SHARED"
 ] as const;
 
-export type ListingApprovalStatus = (typeof LISTING_APPROVAL_STATUSES)[number];
+export type RecordApprovalStatus = (typeof RECORD_APPROVAL_STATUSES)[number];
 export type BoostTierValue = (typeof BOOST_TIERS)[number];
 export type PropertySourcePlatformValue = (typeof PROPERTY_SOURCE_PLATFORMS)[number];
 export type PhotoRightsStatusValue = (typeof PHOTO_RIGHTS_STATUSES)[number];
 export type LeadRoutingModeValue = (typeof LEAD_ROUTING_MODES)[number];
 export type LeadRoutingStatusValue = (typeof LEAD_ROUTING_STATUSES)[number];
 
-export const GURGAON_AREA_CATALOG = [
+export const CORRIDOR_AREA_CATALOG = [
   {
     slug: "golf-course-road",
     title: "Golf Course Road",
     kind: "location",
-    summary: "Luxury residences, marquee towers, and ultra-premium golf-facing inventory."
+    summary: "Luxury residences, marquee towers, and ultra-premium golf-facing micro-market context."
   },
   {
     slug: "golf-course-extension-road",
@@ -127,7 +127,7 @@ export const GURGAON_AREA_CATALOG = [
     slug: "sector-54",
     title: "Sector 54",
     kind: "sector",
-    summary: "Luxury apartments and premium family inventory near rapid metro access."
+    summary: "Luxury apartments and premium family demand near rapid metro access."
   },
   {
     slug: "sector-65",
@@ -139,7 +139,7 @@ export const GURGAON_AREA_CATALOG = [
     slug: "sector-82a",
     title: "Sector 82A",
     kind: "sector",
-    summary: "Builder floors, fresh inventory, and family-focused New Gurgaon supply."
+    summary: "Builder floors, fresh availability signals, and family-focused New Gurgaon demand."
   },
   {
     slug: "sector-104",
@@ -157,13 +157,13 @@ export const GURGAON_AREA_CATALOG = [
     slug: "sector-67",
     title: "Sector 67",
     kind: "sector",
-    summary: "Emerging premium-family inventory with launch stock and Golf Course Extension spillover demand."
+    summary: "Emerging premium-family demand with launch signals and Golf Course Extension spillover."
   },
   {
     slug: "sector-83",
     title: "Sector 83",
     kind: "sector",
-    summary: "New Gurgaon value-family market with practical apartment, floor, and investor-led inventory depth."
+    summary: "New Gurgaon value-family market with practical apartment, floor, and investor-led depth."
   },
   {
     slug: "sector-84",

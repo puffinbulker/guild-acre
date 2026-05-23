@@ -114,7 +114,7 @@ export function propertySchema(property: PropertyRecord) {
 
   return {
     "@context": "https://schema.org",
-    "@type": "RealEstateListing",
+    "@type": "Product",
     name: property.title,
     url: absoluteUrl(`/properties/${property.slug}`),
     description: property.description,

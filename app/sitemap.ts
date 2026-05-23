@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
 import { getAllProperties } from "@/lib/data-store";
-import { getGurgaonAreaPages } from "@/lib/queries";
+import { getCorridorCoveragePages } from "@/lib/queries";
 import { getCanonicalSiteUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getCanonicalSiteUrl();
-  const [properties, areas] = await Promise.all([getAllProperties(), getGurgaonAreaPages()]);
+  const [properties, areas] = await Promise.all([getAllProperties(), getCorridorCoveragePages()]);
   const publicProperties = properties.filter((property) => property.approvalStatus === "APPROVED");
   const now = new Date();
 
@@ -17,11 +17,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now
     },
     {
-      url: `${baseUrl}/listings`,
+      url: `${baseUrl}/strategic-opportunities`,
       lastModified: now
     },
     {
-      url: `${baseUrl}/gurgaon`,
+      url: `${baseUrl}/corridor-coverage`,
       lastModified: now
     },
     {
@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/acquisition-desk`,
       lastModified: now
     },
     {
@@ -65,11 +65,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now
     },
     {
-      url: `${baseUrl}/insights/gurgaon-corridor-comparison-for-serious-buyers`,
+      url: `${baseUrl}/insights/corridor-coverage-comparison-for-serious-buyers`,
       lastModified: now
     },
     ...areas.map((area) => ({
-      url: `${baseUrl}/gurgaon/${area.slug}`,
+      url: `${baseUrl}/corridor-coverage/${area.slug}`,
       lastModified: now
     })),
     ...publicProperties.map((property) => ({

@@ -40,7 +40,7 @@ export default function VerifyLandTitlePage() {
             <p className="mt-3 leading-8">
               Buyers should be very clear on whether the parcel is being
               discussed as agricultural land, farmhouse-oriented land, plotted
-              inventory, or something else entirely. Many mistakes begin when
+              development potential, or something else entirely. Many mistakes begin when
               buyers assume one use case while the documentation supports
               another.
             </p>
@@ -51,7 +51,7 @@ export default function VerifyLandTitlePage() {
             <p className="mt-3 leading-8">
               If basic answers around ownership chain, access, parcel
               boundaries, or transfer confidence are vague, that is already
-              useful information. Buyers should not confuse sales confidence
+              useful information. Buyers should not confuse presentation confidence
               with document clarity.
             </p>
           </section>

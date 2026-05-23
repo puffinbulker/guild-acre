@@ -1,6 +1,6 @@
 import { slugify } from "@/lib/utils";
 
-export type GurgaonMarketGuide = {
+export type CorridorMarketGuide = {
   slug: string;
   title: string;
   kind: "location" | "sector";
@@ -24,7 +24,7 @@ export type PropertyVisualCategory = {
   useCases: string[];
 };
 
-export const GURGAON_MARKET_GUIDES: GurgaonMarketGuide[] = [
+export const CORRIDOR_MARKET_GUIDES: CorridorMarketGuide[] = [
   {
     slug: "golf-course-road",
     title: "Golf Course Road",
@@ -77,7 +77,7 @@ export const GURGAON_MARKET_GUIDES: GurgaonMarketGuide[] = [
     avgPricePerSqft: 18668,
     indicativeRange: "Indicative 3 BHK deal band INR 2.6 Cr - 4 Cr in prime projects",
     movement: "Corridor appreciation accelerated after expressway opening",
-    outlook: "High-growth zone for apartments, plots, SCO, and launch-led inventory.",
+    outlook: "High-growth zone for apartments, plots, SCO, and launch-led opportunity signals.",
     positioning: "High-growth investment corridor",
     imageUrl:
       "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
@@ -138,7 +138,7 @@ export const GURGAON_MARKET_GUIDES: GurgaonMarketGuide[] = [
     indicativeRange: "INR 11,814 - 77,777 / sq.ft.",
     movement: "-9.22% YoY on Housing.com trend data",
     outlook: "Luxury apartments and rapid-metro convenience keep this highly searched by end users.",
-    positioning: "Luxury family inventory",
+    positioning: "Luxury family demand",
     imageUrl:
       "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
     sourceLabel: "Housing.com price trend",
@@ -227,8 +227,8 @@ export const GURGAON_MARKET_GUIDES: GurgaonMarketGuide[] = [
     avgPricePerSqft: 12027,
     indicativeRange: "INR 7,105 - 17,931 / sq.ft.",
     movement: "+4.74% YoY on Housing.com trend data",
-    outlook: "A practical New Gurgaon family and investor micro-market with scalable inventory depth.",
-    positioning: "Value family inventory",
+    outlook: "A practical New Gurgaon family and investor micro-market with scalable demand depth.",
+    positioning: "Value family demand",
     imageUrl:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
     sourceLabel: "Housing.com price trend",
@@ -260,13 +260,13 @@ export const PROPERTY_VISUAL_CATEGORIES: PropertyVisualCategory[] = [
     description: "High-rise, low-rise, and family flats for buy, resale, rent, and lease in core Gurgaon sectors.",
     imageUrl:
       "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
-    useCases: ["End-user homes", "Rental stock", "Resale inventory"]
+    useCases: ["End-user homes", "Rental context", "Resale signals"]
   },
   {
     slug: "builder-floors",
     title: "Builder Floors",
     type: "BUILDER_FLOOR",
-    description: "Independent floor inventory with terrace rights, stilt parking, and premium low-rise positioning.",
+    description: "Independent floor records with terrace rights, stilt parking, and premium low-rise positioning.",
     imageUrl:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
     useCases: ["Family upgrade", "Low-rise living", "Fresh and resale"]
@@ -329,7 +329,7 @@ export const PROPERTY_VISUAL_CATEGORIES: PropertyVisualCategory[] = [
     slug: "high-rise",
     title: "High Rise Towers",
     type: "HIGH_RISE",
-    description: "Skyline-facing high-rise inventory for amenity-rich urban living and investor-grade positioning.",
+    description: "Skyline-facing high-rise records for amenity-rich urban living and investor-grade positioning.",
     imageUrl:
       "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
     useCases: ["Luxury towers", "Club living", "Skyline assets"]
@@ -337,7 +337,7 @@ export const PROPERTY_VISUAL_CATEGORIES: PropertyVisualCategory[] = [
 ];
 
 export function getMarketGuideBySlug(slug: string) {
-  return GURGAON_MARKET_GUIDES.find((guide) => guide.slug === slug) || null;
+  return CORRIDOR_MARKET_GUIDES.find((guide) => guide.slug === slug) || null;
 }
 
 export function getMarketGuideForArea(title: string) {

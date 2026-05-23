@@ -1,4 +1,4 @@
-import { GURGAON_AREA_CATALOG, PROPERTY_TYPES } from "@/lib/constants";
+import { CORRIDOR_AREA_CATALOG, PROPERTY_TYPES } from "@/lib/constants";
 import { getAllProperties, getPropertyByIdFromStore, getPropertyBySlugFromStore } from "@/lib/data-store";
 import { slugify } from "@/lib/utils";
 
@@ -110,7 +110,7 @@ export async function getPropertyLocationStats() {
     .sort((a, b) => b.count - a.count || a.location.localeCompare(b.location));
 }
 
-export async function getGurgaonAreaPages() {
+export async function getCorridorCoveragePages() {
   const properties = (await getAllProperties()).filter((property) => property.approvalStatus === "APPROVED");
   const areaMap = new Map<
     string,
@@ -123,7 +123,7 @@ export async function getGurgaonAreaPages() {
     }
   >();
 
-  for (const area of GURGAON_AREA_CATALOG) {
+  for (const area of CORRIDOR_AREA_CATALOG) {
     areaMap.set(area.slug, {
       slug: area.slug,
       title: area.title,
@@ -165,7 +165,7 @@ export async function getGurgaonAreaPages() {
 
 export async function getPropertiesByAreaSlug(slug: string) {
   const properties = (await getAllProperties()).filter((property) => property.approvalStatus === "APPROVED");
-  const preset = GURGAON_AREA_CATALOG.find((item) => item.slug === slug);
+  const preset = CORRIDOR_AREA_CATALOG.find((item) => item.slug === slug);
   const matches = properties.filter(
     (property) => slugify(property.location) === slug || slugify(property.sector) === slug
   );

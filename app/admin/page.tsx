@@ -293,7 +293,7 @@ export default function AdminPage() {
 
           <div className="flex gap-3">
             <a
-              href="/listings"
+              href="/strategic-opportunities"
               className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10"
             >
               View Strategic Opportunities

@@ -2,7 +2,7 @@ import { z } from "zod";
 import {
   BOOST_TIERS,
   LEAD_ROUTING_MODES,
-  LISTING_APPROVAL_STATUSES,
+  RECORD_APPROVAL_STATUSES,
   PHOTO_RIGHTS_STATUSES,
   PROPERTY_STATUSES,
   PROPERTY_SOURCE_PLATFORMS,
@@ -36,7 +36,7 @@ export const propertySchema = z.object({
   sourceUrl: z.string().url().optional().nullable(),
   priceLastVerified: z.string().min(4).optional().nullable(),
   photoRightsStatus: z.enum(PHOTO_RIGHTS_STATUSES).default("OWNER_UPLOADED"),
-  approvalStatus: z.enum(LISTING_APPROVAL_STATUSES).optional(),
+  approvalStatus: z.enum(RECORD_APPROVAL_STATUSES).optional(),
   boostTier: z.enum(BOOST_TIERS).optional(),
   leadRoutingMode: z.enum(LEAD_ROUTING_MODES).optional(),
   featuredRequested: z.coerce.boolean().optional(),
@@ -46,7 +46,7 @@ export const propertySchema = z.object({
 });
 
 export const propertyModerationSchema = z.object({
-  approvalStatus: z.enum(LISTING_APPROVAL_STATUSES).optional(),
+  approvalStatus: z.enum(RECORD_APPROVAL_STATUSES).optional(),
   boostTier: z.enum(BOOST_TIERS).optional(),
   leadRoutingMode: z.enum(LEAD_ROUTING_MODES).optional(),
   featuredRequested: z.coerce.boolean().optional(),

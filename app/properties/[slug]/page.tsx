@@ -57,7 +57,7 @@ export default async function PropertyDetailPage({ params }: Props) {
       data={[
         breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Strategic Opportunities", path: "/listings" },
+          { name: "Strategic Opportunities", path: "/strategic-opportunities" },
           { name: property.title, path: `/properties/${slug}` },
         ]),
         propertySchema(property),

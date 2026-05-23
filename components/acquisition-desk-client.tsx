@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { useState } from "react";
 
-export default function ContactPage() {
+export default function AcquisitionDeskClient() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [capitalRange, setCapitalRange] = useState("");

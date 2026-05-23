@@ -8,9 +8,9 @@ import { Menu, X } from "lucide-react";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Strategic Opportunities", href: "/listings" },
-  { label: "Corridor Coverage", href: "/gurgaon" },
-  { label: "Acquisition Desk", href: "/contact" },
+  { label: "Strategic Opportunities", href: "/strategic-opportunities" },
+  { label: "Corridor Coverage", href: "/corridor-coverage" },
+  { label: "Acquisition Desk", href: "/acquisition-desk" },
 ];
 
 export default function Navbar() {

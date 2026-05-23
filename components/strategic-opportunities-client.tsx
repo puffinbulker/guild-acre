@@ -45,15 +45,15 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const FILTERS = [
-  { label: "All Records", value: "ALL" },
-  { label: "Farm Land", value: "FARM_HOUSE" },
-  { label: "Plots", value: "PLOTS" },
-  { label: "Land Assets", value: "LAND" },
-  { label: "Commercial Land", value: "COMMERCIAL" },
-  { label: "Selective Residential", value: "RESIDENTIAL" },
+  { label: "Full Register", value: "ALL" },
+  { label: "Rural / Farm Land", value: "FARM_HOUSE" },
+  { label: "Plotted Land", value: "PLOTS" },
+  { label: "Strategic Land", value: "LAND" },
+  { label: "Commercial / Institutional", value: "COMMERCIAL" },
+  { label: "Selective Built Assets", value: "RESIDENTIAL" },
 ];
 
-const listingFaqs = [
+const opportunityFaqs = [
   {
     question: "Is this the full opportunity universe?",
     answer:
@@ -106,7 +106,7 @@ function formatPrice(price: number) {
   return `Rs. ${price}`;
 }
 
-export default function ListingsPage() {
+export default function StrategicOpportunitiesClient() {
   const [properties, setProperties] = useState<Property[]>([]);
   const [activeFilter, setActiveFilter] = useState("ALL");
 
@@ -136,7 +136,7 @@ export default function ListingsPage() {
           <p className="mt-7 max-w-3xl text-lg leading-9 text-[#cfc5b3]">
             This register shows limited approved opportunity records. Serious land
             acquisition work is handled through private briefs, diligence notes,
-            and corridor-specific intelligence rather than open-market browsing.
+            and corridor-specific intelligence rather than catalogue browsing.
           </p>
         </div>
       </section>
@@ -149,7 +149,7 @@ export default function ListingsPage() {
               Register role
             </p>
             <p className="mt-4 text-xl font-semibold text-[#f4ead8]">
-              Records directional availability, not open-market inventory.
+              Records directional relevance, not public stock.
             </p>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function ListingsPage() {
               What it avoids
             </p>
             <p className="mt-4 text-xl font-semibold text-[#f4ead8]">
-              Casual comparison behavior and noisy open-market browsing.
+              Casual comparison behavior and open-market browsing.
             </p>
             </div>
           </div>
@@ -218,7 +218,7 @@ export default function ListingsPage() {
                 review starts with useful context.
               </p>
               <a
-                href="/contact"
+                href="/acquisition-desk"
                 className="mt-5 block rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-5 py-3 text-center text-sm font-medium text-[#f4ead8] transition hover:border-[#d4c083] hover:bg-[#bda56a]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a]"
               >
                 Submit Brief
@@ -345,7 +345,7 @@ export default function ListingsPage() {
         </div>
 
         <div className="mt-8 space-y-4">
-          {listingFaqs.map((item) => (
+          {opportunityFaqs.map((item) => (
             <div
               key={item.question}
               className="border border-[#2d2a22] bg-[#0b0b0a] p-6 sm:p-7"

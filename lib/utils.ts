@@ -125,8 +125,8 @@ export function formatPropertyStatusLabel(value: string | null | undefined) {
   return labels[normalized] || humanizeToken(normalized);
 }
 
-export function formatListingCount(count: number) {
-  return `${count} ${count === 1 ? "listing" : "listings"}`;
+export function formatRecordCount(count: number) {
+  return `${count} ${count === 1 ? "record" : "records"}`;
 }
 
 export function formatCollectionLabel(value: string | null | undefined) {

@@ -99,7 +99,7 @@ export function PropertyCard({ property }: { property: PropertyCardValue }) {
               </Link>
 
               <Link
-                href="/contact"
+                href="/acquisition-desk"
                 className="rounded-full px-4 py-2 text-sm font-medium text-[#d4c083] transition hover:text-[#f4ead8]"
               >
                 Request Note
@@ -133,7 +133,7 @@ function normalizePropertyCard(property: PropertyCardValue) {
   }
 
   return {
-    href: property.slug ? `/properties/${property.slug}` : "/listings",
+    href: property.slug ? `/properties/${property.slug}` : "/strategic-opportunities",
     title: property.title,
     location: property.location,
     price: property.price,

@@ -117,7 +117,7 @@ export default function RootLayout({
                 <Link className="block transition hover:text-[#d4c083]" href="/cookie-notice">
                   Cookie Notice
                 </Link>
-                <Link className="block transition hover:text-[#d4c083]" href="/contact">
+                <Link className="block transition hover:text-[#d4c083]" href="/acquisition-desk">
                   Acquisition Desk
                 </Link>
               </div>

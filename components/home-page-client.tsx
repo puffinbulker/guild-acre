@@ -160,10 +160,16 @@ I want to request a private land intelligence consultation.`;
               Private land intelligence institution
             </p>
 
-            <h1 className="mt-7 max-w-4xl text-[2.55rem] font-semibold leading-[1.05] text-[#f4ead8] sm:text-6xl lg:text-[4.85rem] xl:text-[5.35rem]">
+            <h1
+              aria-label="Private Land Intelligence for Select NCR Buyers"
+              className="mt-7 max-w-4xl text-[2.55rem] font-semibold leading-[1.05] text-[#f4ead8] sm:text-6xl lg:text-[4.85rem] xl:text-[5.35rem]"
+            >
               <span className="block">Private Land</span>
+              {" "}
               <span className="block">Intelligence</span>
+              {" "}
               <span className="block">for Select NCR</span>
+              {" "}
               <span className="block text-[#d6c184]">Buyers</span>
             </h1>
 

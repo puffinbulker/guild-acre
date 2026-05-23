@@ -1,6 +1,6 @@
 # Guild Acre
 
-A premium Gurgaon real estate website built with Next.js and Prisma, prepared for a permanent Vercel deployment backed by PostgreSQL.
+A private land intelligence platform built with Next.js and Prisma, prepared for a permanent Vercel deployment backed by PostgreSQL.
 
 ## Brand recommendation
 
@@ -26,10 +26,10 @@ I did not find clear indexed web results for `guildacre.com` or the `Guild Acre`
 
 ## Features
 
-- Premium homepage and listing pages for a private real estate advisory
-- Search and filter by budget, location, property type, and keyword
-- Property detail pages with image gallery and lead capture form
-- Admin login and CRUD tools for properties
+- Institutional homepage and strategic opportunity records for a private land intelligence institution
+- Corridor, capital range, and acquisition-focus review flows
+- Reference record pages with visual context and acquisition brief capture
+- Admin login and record-management tools
 - WhatsApp CTA
 - SEO-friendly metadata, sitemap, and robots rules
 - Mobile-friendly layout
@@ -198,7 +198,9 @@ NEXT_PUBLIC_SITE_URL="https://guildacre.com"
 8. Redeploy after saving the env change.
 9. Recheck these URLs:
    - `/`
-   - `/listings`
+   - `/strategic-opportunities`
+   - `/corridor-coverage`
+   - `/acquisition-desk`
    - `/admin/login`
    - `/sitemap.xml`
    - `/robots.txt`

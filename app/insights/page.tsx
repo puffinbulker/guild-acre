@@ -25,7 +25,7 @@ const articles = [
     href: "/insights/dwarka-expressway-vs-golf-course-extension-road",
     title: "Dwarka Expressway vs Golf Course Extension Road",
     summary:
-      "A corridor comparison for buyers deciding between growth momentum and premium-family positioning in Gurgaon.",
+      "A corridor comparison for buyers deciding between growth momentum and premium-family positioning in NCR.",
   },
   {
     href: "/insights/red-flags-in-plotted-land-deals-near-gurgaon",
@@ -40,10 +40,10 @@ const articles = [
       "A simpler way to think about ownership, use-case risk, and diligence questions before moving deeper into a farmhouse land deal.",
   },
   {
-    href: "/insights/gurgaon-corridor-comparison-for-serious-buyers",
-    title: "Gurgaon corridor comparison for serious buyers",
+    href: "/insights/corridor-coverage-comparison-for-serious-buyers",
+    title: "Corridor coverage comparison for serious buyers",
     summary:
-      "A high-level comparison of how Gurgaon corridors differ for premium-family buyers, investors, and land-led enquiries.",
+      "A high-level comparison of how NCR corridors differ for premium-family buyers, investors, and land-led enquiries.",
   },
 ];
 
