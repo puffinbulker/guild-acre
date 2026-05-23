@@ -26,10 +26,10 @@ I did not find clear indexed web results for `guildacre.com` or the `Guild Acre`
 
 ## Features
 
-- Premium homepage and listing pages inspired by modern real estate portals
+- Premium homepage and listing pages for a private real estate advisory
 - Search and filter by budget, location, property type, and keyword
 - Property detail pages with image gallery and lead capture form
-- Admin login and CRUD dashboard for properties
+- Admin login and CRUD tools for properties
 - WhatsApp CTA
 - SEO-friendly metadata, sitemap, and robots rules
 - Mobile-friendly layout

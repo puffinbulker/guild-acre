@@ -46,18 +46,18 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 style={{ fontSize: "13px", textTransform: "uppercase", letterSpacing: "0.24em", color: "#67e8f9" }}>
+          <h3 style={{ fontSize: "13px", textTransform: "uppercase", letterSpacing: 0, color: "#c6a76a" }}>
             Explore
           </h3>
           <div style={{ marginTop: "16px", display: "grid", gap: "12px" }}>
             <a href="/listings" style={{ color: "#e2e8f0", textDecoration: "none" }}>Listings</a>
             <a href="/gurgaon" style={{ color: "#e2e8f0", textDecoration: "none" }}>Gurgaon Hub</a>
-            <a href="/dealers/join" style={{ color: "#e2e8f0", textDecoration: "none" }}>List Property</a>
+            <a href="/contact" style={{ color: "#e2e8f0", textDecoration: "none" }}>Contact</a>
           </div>
         </div>
 
         <div>
-          <h3 style={{ fontSize: "13px", textTransform: "uppercase", letterSpacing: "0.24em", color: "#67e8f9" }}>
+          <h3 style={{ fontSize: "13px", textTransform: "uppercase", letterSpacing: 0, color: "#c6a76a" }}>
             Contact
           </h3>
           <div style={{ marginTop: "16px", display: "grid", gap: "12px" }}>

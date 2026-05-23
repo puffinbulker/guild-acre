@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Title Checks Before Buying Farmhouse Land | Guild Acre",
   description:
     "A practical guide to title checks, ownership comfort, and diligence questions before buying farmhouse land near Gurgaon or Sohna.",
-};
+  path: "/insights/title-checks-before-buying-farmhouse-land",
+});
 
 export default function TitleChecksFarmhouseLandPage() {
   return (

@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Dwarka Expressway vs Golf Course Extension Road | Guild Acre",
   description:
     "A practical comparison of Dwarka Expressway and Golf Course Extension Road for Gurgaon buyers deciding between growth momentum and premium family positioning.",
-};
+  path: "/insights/dwarka-expressway-vs-golf-course-extension-road",
+});
 
 export default function CorridorComparisonPage() {
   return (

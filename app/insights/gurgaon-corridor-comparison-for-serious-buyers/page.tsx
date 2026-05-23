@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Gurgaon Corridor Comparison for Serious Buyers | Guild Acre",
   description:
     "A practical comparison of Gurgaon corridors for premium-family buyers, investors, and land-led enquiries.",
-};
+  path: "/insights/gurgaon-corridor-comparison-for-serious-buyers",
+});
 
 export default function GurgaonCorridorComparisonPage() {
   return (

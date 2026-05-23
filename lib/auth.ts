@@ -1,14 +1,8 @@
 import crypto from "node:crypto";
 
 const ADMIN_COOKIE_NAME = "ge_admin_session";
-const DEALER_COOKIE_NAME = "ge_dealer_session";
 const DEFAULT_ADMIN_EMAIL = "admin@guildacre.com";
 const DEFAULT_ADMIN_PASSWORD = "sunny@1234";
-
-type DealerSession = {
-  dealerId: string;
-  email: string;
-};
 
 function getSecret() {
   return process.env.ADMIN_COOKIE_SECRET || "dev-secret";
@@ -63,16 +57,8 @@ export function getAdminCookieName() {
   return ADMIN_COOKIE_NAME;
 }
 
-export function getDealerCookieName() {
-  return DEALER_COOKIE_NAME;
-}
-
 export function createSessionToken(email: string) {
   return encodeSignedPayload(`admin:${email}:${Date.now()}`);
-}
-
-export function createDealerSessionToken(dealerId: string, email: string) {
-  return encodeSignedPayload(`dealer:${dealerId}:${email}:${Date.now()}`);
 }
 
 export function hashAdminPassword(password: string, salt: string) {
@@ -128,20 +114,4 @@ export function verifySessionToken(token?: string) {
   ]);
 
   return allowedEmails.has(email);
-}
-
-export function verifyDealerSessionToken(token?: string): DealerSession | null {
-  const payload = decodeSignedPayload(token);
-
-  if (!payload) {
-    return null;
-  }
-
-  const [kind, dealerId, email] = payload.split(":");
-
-  if (kind !== "dealer" || !dealerId || !email) {
-    return null;
-  }
-
-  return { dealerId, email };
 }

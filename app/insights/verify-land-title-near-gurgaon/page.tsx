@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "How to Verify Land Title Before Buying Near Gurgaon | Guild Acre",
   description:
     "A practical land-title checklist for serious buyers evaluating plotted, farmhouse, or land-led opportunities near Gurgaon and Sohna.",
-};
+  path: "/insights/verify-land-title-near-gurgaon",
+});
 
 export default function VerifyLandTitlePage() {
   return (

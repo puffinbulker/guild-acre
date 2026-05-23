@@ -18,28 +18,18 @@ export function SiteHeader() {
           <Link href="/about" className="text-white/70 hover:text-white">About</Link>
           <Link href="/listings" className="text-white/70 hover:text-white">Listings</Link>
           <Link href="/gurgaon" className="text-white/70 hover:text-white">Gurgaon</Link>
-          <Link href="/dealers/join" className="text-white/70 hover:text-white">Partners</Link>
           <Link href="/contact" className="text-white/70 hover:text-white">Contact</Link>
           <Link href="/admin" className="text-white/70 hover:text-white">Admin</Link>
         </nav>
 
         {/* Right Side Buttons */}
         <div className="flex items-center gap-3">
-
-          {/* Dealer Login Button */}
-          <Link
-            href="/dealers/join"
-            className="rounded-full border border-cyan-300/30 px-4 py-2 text-sm font-semibold text-cyan-200 hover:bg-cyan-400/10"
-          >
-            Dealer Login
-          </Link>
-
           {/* WhatsApp CTA */}
           <a
             href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20book%20a%20private%20advisory."
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-cyan-500 px-5 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-400"
+            className="rounded-full border border-[#D4AF37] bg-[#D4AF37] px-5 py-2 text-sm font-semibold text-[#020617] hover:bg-[#C6A76A]"
           >
             Book Private Advisory
           </a>

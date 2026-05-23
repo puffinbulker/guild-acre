@@ -56,7 +56,6 @@ export function formatSourceLabel(value: string | null | undefined) {
     HOUSING: "Housing",
     "99ACRES": "99acres",
     MAGICBRICKS: "MagicBricks",
-    DEALER_DIRECT: "Dealer Direct",
     OWNER_DIRECT: "Owner Direct",
     BUILDER_DIRECT: "Builder Direct",
     OTHER: "External Source"
@@ -73,7 +72,6 @@ export function formatPhotoRightsLabel(value: string | null | undefined) {
 
   const labels: Record<string, string> = {
     OWNER_UPLOADED: "Owner Uploaded",
-    DEALER_UPLOADED: "Dealer Uploaded",
     BUILDER_AUTHORIZED: "Builder Authorized",
     LICENSED_STOCK: "Licensed Stock",
     AI_CONCEPT: "AI Concept Visual",
@@ -166,9 +164,20 @@ export function slugify(value: string) {
     .replace(/^-+|-+$/g, "");
 }
 
-export function parseJsonArray(value: string) {
+export function parseJsonArray(value: string | string[] | null | undefined) {
+  if (Array.isArray(value)) {
+    return value.filter((item): item is string => typeof item === "string" && item.length > 0);
+  }
+
+  if (!value) {
+    return [];
+  }
+
   try {
-    return JSON.parse(value) as string[];
+    const parsed = JSON.parse(value);
+    return Array.isArray(parsed)
+      ? parsed.filter((item): item is string => typeof item === "string" && item.length > 0)
+      : [];
   } catch {
     return [];
   }

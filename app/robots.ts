@@ -7,8 +7,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: ["/", "/listings", "/gurgaon", "/insights", "/properties/"],
-      disallow: ["/admin", "/dealers/dashboard", "/dealers/login", "/dealers/join", "/api/"]
+      allow: ["/", "/about", "/contact", "/listings", "/gurgaon", "/insights", "/properties/", "/privacy-policy", "/cookie-notice"],
+      disallow: ["/admin", "/api/"]
     },
     sitemap: `${baseUrl}/sitemap.xml`
   };

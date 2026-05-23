@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Property Insights | Gurgaon, Sohna & Land Advisory Guides | Guild Acre",
   description:
     "Read practical guides on Gurgaon property, land due diligence, farmhouse buying, and corridor comparison for serious NCR buyers and investors.",
-};
+  path: "/insights",
+});
 
 const articles = [
   {
@@ -48,6 +49,8 @@ const articles = [
 
 export default function InsightsPage() {
   return (
+    <>
+    <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }])} />
     <main className="min-h-screen bg-slate-950 text-white">
       <section className="bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_30%)]">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -87,5 +90,6 @@ export default function InsightsPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

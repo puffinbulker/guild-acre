@@ -31,28 +31,6 @@ export const LISTING_APPROVAL_STATUSES = [
   "REJECTED"
 ] as const;
 
-export const DEALER_ROLES = [
-  "DEALER",
-  "BUILDER",
-  "OWNER",
-  "LANDLORD",
-  "CHANNEL_PARTNER"
-] as const;
-
-export const DEALER_STATUSES = [
-  "PENDING",
-  "APPROVED",
-  "REJECTED",
-  "SUSPENDED"
-] as const;
-
-export const DEALER_PLAN_TYPES = [
-  "BASIC",
-  "PRO",
-  "PREMIUM",
-  "ENTERPRISE"
-] as const;
-
 export const BOOST_TIERS = [
   "STANDARD",
   "FEATURED",
@@ -64,7 +42,6 @@ export const PROPERTY_SOURCE_PLATFORMS = [
   "HOUSING",
   "99ACRES",
   "MAGICBRICKS",
-  "DEALER_DIRECT",
   "OWNER_DIRECT",
   "BUILDER_DIRECT",
   "OTHER"
@@ -72,7 +49,6 @@ export const PROPERTY_SOURCE_PLATFORMS = [
 
 export const PHOTO_RIGHTS_STATUSES = [
   "OWNER_UPLOADED",
-  "DEALER_UPLOADED",
   "BUILDER_AUTHORIZED",
   "LICENSED_STOCK",
   "AI_CONCEPT",
@@ -92,9 +68,6 @@ export const LEAD_ROUTING_STATUSES = [
 ] as const;
 
 export type ListingApprovalStatus = (typeof LISTING_APPROVAL_STATUSES)[number];
-export type DealerRoleValue = (typeof DEALER_ROLES)[number];
-export type DealerStatusValue = (typeof DEALER_STATUSES)[number];
-export type DealerPlanTypeValue = (typeof DEALER_PLAN_TYPES)[number];
 export type BoostTierValue = (typeof BOOST_TIERS)[number];
 export type PropertySourcePlatformValue = (typeof PROPERTY_SOURCE_PLATFORMS)[number];
 export type PhotoRightsStatusValue = (typeof PHOTO_RIGHTS_STATUSES)[number];

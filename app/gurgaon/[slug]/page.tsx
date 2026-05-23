@@ -4,6 +4,7 @@ import { PropertyCard } from "@/components/property-card";
 import { LeadForm } from "@/components/lead-form";
 import { getMarketGuideBySlug, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
 import { getPropertiesByAreaSlug } from "@/lib/queries";
+import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 import { formatListingCount } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -47,12 +48,13 @@ export async function generateMetadata({ params }: Props) {
     return {};
   }
 
-  return {
+  return createPageMetadata({
     title: `${area.title} Property in Gurgaon | Prices, Insights & Curated Options | Guild Acre`,
     description:
       area.summary ||
-      `Explore ${area.title} property in Gurgaon with price context, buyer-fit guidance, and curated options across luxury, plotted, and land-led requirements.`
-  };
+      `Explore ${area.title} property in Gurgaon with price context, buyer-fit guidance, and curated options across luxury, plotted, and land-led requirements.`,
+    path: `/gurgaon/${slug}`,
+  });
 }
 
 export default async function GurgaonAreaPage({ params }: Props) {
@@ -68,6 +70,14 @@ export default async function GurgaonAreaPage({ params }: Props) {
   const areaCount = area.properties.length;
 
   return (
+    <>
+    <JsonLd
+      data={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Gurgaon", path: "/gurgaon" },
+        { name: area.title, path: `/gurgaon/${slug}` },
+      ])}
+    />
     <main className="container page-shell area-page">
       <section className="page-intro page-intro--listing">
         <span className="section-tag">
@@ -207,5 +217,6 @@ export default async function GurgaonAreaPage({ params }: Props) {
         </aside>
       </div>
     </main>
+    </>
   );
 }

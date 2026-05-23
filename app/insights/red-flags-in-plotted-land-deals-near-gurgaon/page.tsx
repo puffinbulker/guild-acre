@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Red Flags in Plotted Land Deals Near Gurgaon | Guild Acre",
   description:
     "A practical guide to the warning signs serious buyers should notice before moving deeper into a plotted land deal near Gurgaon.",
-};
+  path: "/insights/red-flags-in-plotted-land-deals-near-gurgaon",
+});
 
 export default function RedFlagsPlottedLandPage() {
   return (

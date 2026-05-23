@@ -1,21 +1,8 @@
 <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="iconBg" x1="24" y1="18" x2="136" y2="142" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0D2B38"/>
-      <stop offset="1" stop-color="#06131D"/>
-    </linearGradient>
-    <linearGradient id="iconEdge" x1="32" y1="24" x2="126" y2="136" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#8DF7EA"/>
-      <stop offset="0.45" stop-color="#4CC7DA"/>
-      <stop offset="1" stop-color="#BFDFA8"/>
-    </linearGradient>
-  </defs>
-  <rect width="160" height="160" rx="38" fill="url(#iconBg)"/>
-  <rect x="22" y="22" width="116" height="116" rx="34" stroke="url(#iconEdge)" stroke-width="3.5"/>
-  <path d="M80 40L106 56V108C106 118 97.9 126 88 126H72C62.1 126 54 118 54 108V56L80 40Z" stroke="url(#iconEdge)" stroke-width="3.5" stroke-linejoin="round"/>
-  <path d="M62 84L80 56L98 84" stroke="#EAFDFF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M70 84V106C70 109.3 72.7 112 76 112H84C87.3 112 90 109.3 90 106V84" stroke="#EAFDFF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M54 108H106" stroke="url(#iconEdge)" stroke-width="3.5" stroke-linecap="round"/>
-  <path d="M66 70H94" stroke="url(#iconEdge)" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
-  <circle cx="80" cy="31" r="5.5" fill="#EAFDFF"/>
+  <rect width="160" height="160" fill="#020617"/>
+  <circle cx="80" cy="80" r="56" stroke="#C6A76A" stroke-width="1.6"/>
+  <path d="M45 98C59 86 74 82 91 86C102 89 111 88 119 80" stroke="#8FA3B8" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M43 112C61 98 78 94 97 99C108 102 118 101 127 94" stroke="#C6A76A" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M48 63C57 51 69 45 84 45C99 45 111 51 119 62" stroke="#C6A76A" stroke-width="1.6" stroke-linecap="round"/>
+  <text x="80" y="85" text-anchor="middle" fill="#F8FAFC" font-family="Cormorant Garamond, Georgia, serif" font-size="48" font-weight="600">GA</text>
 </svg>

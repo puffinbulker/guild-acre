@@ -2,11 +2,10 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/listings?collection=BUY", label: "Buy" },
-  { href: "/listings?collection=RENT", label: "Rent / Lease" },
-  { href: "/gurgaon", label: "Localities" },
-  { href: "/listings?collection=COMMERCIAL", label: "Services" },
-  { href: "/dealers/join", label: "List Property" },
+  { href: "/about", label: "About" },
+  { href: "/listings", label: "Listings" },
+  { href: "/gurgaon", label: "Gurgaon" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -50,11 +49,11 @@ export function Header() {
               width: "54px",
               height: "54px",
               borderRadius: "18px",
-              border: "1px solid rgba(103,232,249,0.25)",
-              background: "linear-gradient(180deg, rgba(34,211,238,0.16), rgba(255,255,255,0.04))",
+              border: "1px solid rgba(198,167,106,0.25)",
+              background: "rgba(212,175,55,0.08)",
               display: "grid",
               placeItems: "center",
-              color: "#cffafe",
+              color: "#f6e7b7",
               fontWeight: 800,
               letterSpacing: "0.18em",
             }}
@@ -78,7 +77,7 @@ export function Header() {
                 fontSize: "11px",
                 textTransform: "uppercase",
                 letterSpacing: "0.26em",
-                color: "#94a3b8",
+              color: "#94a3b8",
               }}
             >
               Gurgaon Real Estate Advisory
@@ -124,7 +123,7 @@ export function Header() {
               fontWeight: 700,
             }}
           >
-            WhatsApp
+            Book Private Advisory
           </a>
         </nav>
       </div>

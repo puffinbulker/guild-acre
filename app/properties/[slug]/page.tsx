@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { LeadForm } from "@/components/lead-form";
 import { getMarketGuideForArea } from "@/lib/market-intel";
 import { getPropertyBySlug } from "@/lib/queries";
+import { JsonLd, breadcrumbSchema, createPageMetadata, propertySchema } from "@/lib/seo";
 import {
   formatPhotoRightsLabel,
   formatPrice,
@@ -26,10 +27,12 @@ export async function generateMetadata({ params }: Props) {
     return {};
   }
 
-  return {
-    title: property.title,
-    description: property.description
-  };
+  return createPageMetadata({
+    title: `${property.title} | Guild Acre`,
+    description: property.description,
+    path: `/properties/${slug}`,
+    image: parseJsonArray(property.imageUrls)[0] || "/logo.png",
+  });
 }
 
 export default async function PropertyDetailPage({ params }: Props) {
@@ -42,13 +45,24 @@ export default async function PropertyDetailPage({ params }: Props) {
 
   const images = parseJsonArray(property.imageUrls);
   const amenities = parseJsonArray(property.amenities);
-  const primaryImage = images[0];
+  const primaryImage = images[0] || "/logo.png";
   const supportingImages = images.slice(1, 5);
   const marketGuide = getMarketGuideForArea(property.sector) || getMarketGuideForArea(property.location);
-  const propertyRate = Math.round(property.priceInr / property.areaSqft);
+  const propertyRate = property.areaSqft ? Math.round(property.priceInr / property.areaSqft) : 0;
   const pricePosition = marketGuide ? classifyPricePosition(propertyRate, marketGuide.avgPricePerSqft) : null;
 
   return (
+    <>
+    <JsonLd
+      data={[
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Listings", path: "/listings" },
+          { name: property.title, path: `/properties/${slug}` },
+        ]),
+        propertySchema(property),
+      ]}
+    />
     <main className="container page-shell property-detail">
       <section className="property-detail__intro">
         <div>
@@ -181,8 +195,8 @@ export default async function PropertyDetailPage({ params }: Props) {
               </div>
             </div>
             <p>
-              Guild Acre only displays listing facts and visuals that are platform-owned, partner-uploaded,
-              licensed, AI-generated, or explicitly approved for use.
+              Guild Acre only displays listing facts and visuals that are owned, licensed,
+              AI-generated, or explicitly approved for use.
             </p>
             {property.sourceUrl ? (
               <a
@@ -237,6 +251,7 @@ export default async function PropertyDetailPage({ params }: Props) {
         </aside>
       </div>
     </main>
+    </>
   );
 }
 

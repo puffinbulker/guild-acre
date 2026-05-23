@@ -29,6 +29,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now
     },
     {
+      url: `${baseUrl}/about`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/cookie-notice`,
+      lastModified: now
+    },
+    {
       url: `${baseUrl}/insights/verify-land-title-near-gurgaon`,
       lastModified: now
     },

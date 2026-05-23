@@ -20,7 +20,15 @@ function writeProperties(properties: any[]) {
 
 export async function GET() {
   const properties = readProperties();
-  return NextResponse.json(properties);
+  const approvedProperties = properties.filter(
+    (property: any) =>
+      property?.approvalStatus === "APPROVED" &&
+      property?.photoRightsStatus &&
+      property?.sourceType &&
+      Array.isArray(property?.imageUrls)
+  );
+
+  return NextResponse.json(approvedProperties);
 }
 
 export async function POST(req: NextRequest) {

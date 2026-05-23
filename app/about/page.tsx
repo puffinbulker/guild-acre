@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "About Guild Acre | Premium Real Estate Advisory in Gurgaon",
   description:
     "Learn how Guild Acre approaches land, farmhouse, plotted, and selective premium property advisory across Gurgaon, Sohna, and Naugaon.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   const strengths = [
@@ -31,9 +32,9 @@ export default function AboutPage() {
 
   const faqs = [
     {
-      question: "What makes Guild Acre different from a typical broker-led experience?",
+      question: "What makes Guild Acre different from a typical volume-led property experience?",
       answer:
-        "Guild Acre is positioned as an advisory-led real estate business rather than a volume-led brokerage. The focus is on filtering, judgment, and cleaner shortlisting before deeper engagement.",
+        "Guild Acre is positioned as an advisory-led real estate business rather than a volume-led listing operation. The focus is on filtering, judgment, and cleaner shortlisting before deeper engagement.",
     },
     {
       question: "Who usually works with Guild Acre?",
@@ -48,6 +49,8 @@ export default function AboutPage() {
   ];
 
   return (
+    <>
+    <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />
     <main className="min-h-screen bg-slate-950 text-white">
       <section className="bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_28%),linear-gradient(180deg,#020617_0%,#071728_42%,#06111d_100%)]">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -88,7 +91,7 @@ export default function AboutPage() {
                 <p className="leading-7 sm:leading-8">
                   With 12+ years in Gurgaon real estate, Guild Acre is built on
                   practical market understanding rather than volume-driven
-                  brokerage behavior.
+                  volume-led selling behavior.
                 </p>
 
                 <p className="leading-7 sm:leading-8">
@@ -196,5 +199,6 @@ export default function AboutPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

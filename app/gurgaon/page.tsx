@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Gurgaon Property Advisory by Locality, Sector & Corridor | Guild Acre",
   description:
     "Explore Gurgaon property opportunities by corridor, sector, and buyer intent across luxury homes, plots, land, and investment-led micro-markets.",
-};
+  path: "/gurgaon",
+});
 
 export default function GurgaonPage() {
   const faqs = [
@@ -95,6 +96,8 @@ export default function GurgaonPage() {
   ];
 
   return (
+    <>
+    <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Gurgaon", path: "/gurgaon" }])} />
     <main className="min-h-screen bg-slate-950 text-white">
       <section className="bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_28%),linear-gradient(180deg,#020617_0%,#071728_42%,#06111d_100%)]">
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-16 lg:px-8 lg:pb-24 lg:pt-24">
@@ -300,5 +303,6 @@ export default function GurgaonPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

@@ -1,8 +1,5 @@
 import { z } from "zod";
 import {
-  DEALER_ROLES,
-  DEALER_PLAN_TYPES,
-  DEALER_STATUSES,
   BOOST_TIERS,
   LEAD_ROUTING_MODES,
   LISTING_APPROVAL_STATUSES,
@@ -46,29 +43,6 @@ export const propertySchema = z.object({
   listingContactName: z.string().min(2).optional().nullable(),
   listingContactPhone: z.string().min(10).max(15).optional().nullable(),
   listingContactRole: z.string().min(2).optional().nullable()
-});
-
-export const dealerRegistrationSchema = z.object({
-  name: z.string().min(2),
-  companyName: z.string().optional().nullable(),
-  email: z.string().email(),
-  phone: z.string().min(10).max(15),
-  password: z.string().min(8),
-  role: z.enum(DEALER_ROLES),
-  serviceAreas: z.array(z.string()).default([])
-});
-
-export const dealerLoginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(1)
-});
-
-export const dealerStatusSchema = z.object({
-  status: z.enum(DEALER_STATUSES).optional(),
-  planType: z.enum(DEALER_PLAN_TYPES).optional(),
-  isVerified: z.coerce.boolean().optional(),
-  featuredSlots: z.coerce.number().int().min(0).optional(),
-  leadBalance: z.coerce.number().int().min(0).optional()
 });
 
 export const propertyModerationSchema = z.object({

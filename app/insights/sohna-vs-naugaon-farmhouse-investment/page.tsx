@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Sohna vs Naugaon for Farmhouse Investment | Guild Acre",
   description:
     "Compare Sohna and Naugaon for farmhouse buying, weekend-use land, and long-hold lifestyle investment from an NCR buyer perspective.",
-};
+  path: "/insights/sohna-vs-naugaon-farmhouse-investment",
+});
 
 export default function SohnaVsNaugaonPage() {
   return (

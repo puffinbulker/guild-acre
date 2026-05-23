@@ -38,26 +38,7 @@ export type LeadRecord = {
   phone: string;
   requirement: string;
   propertyId: string | null;
-  assignedDealerId: string | null;
   routingStatus: string;
   sourceChannel: string;
   createdAt: string;
-};
-
-export type DealerRecord = {
-  id: string;
-  name: string;
-  companyName: string | null;
-  email: string;
-  phone: string;
-  role: string;
-  status: string;
-  planType: string;
-  isVerified: boolean;
-  featuredSlots: number;
-  leadBalance: number;
-  analyticsSnapshot: string;
-  serviceAreas: string;
-  createdAt: string;
-  updatedAt: string;
 };
