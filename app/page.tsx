@@ -4,7 +4,7 @@ import { JsonLd, breadcrumbSchema, createPageMetadata, organizationSchema } from
 export const metadata = createPageMetadata({
   title: "Guild Acre | Private Land Intelligence for Select NCR Buyers",
   description:
-    "Strategic acquisition advisory across Gurgaon NCR, Sohna, the Aravali Belt, and emerging growth corridors for select buyers and investors.",
+    "AI-assisted corridor intelligence and private land acquisition advisory across Gurgaon NCR, Sohna, Naugaon, and emerging growth corridors.",
   path: "/",
 });
 

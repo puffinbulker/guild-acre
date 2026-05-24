@@ -67,14 +67,14 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <header className="sticky top-0 z-50 border-b border-[#2d2a22] bg-[#050505]/90 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-6 px-5 py-5 sm:px-6 lg:px-8 lg:py-7">
+        <header className="sticky top-0 z-50 border-b border-[#2d2a22]/80 bg-[#050505]/88 backdrop-blur-xl">
+          <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-8 px-5 py-4 sm:px-7 lg:px-10 lg:py-5">
             <Link href="/" className="group flex min-w-0 items-center gap-4 py-1">
               <div className="min-w-0">
-                <div className="font-[var(--font-editorial)] text-2xl font-semibold uppercase leading-none tracking-[0.2em] text-[#f4ead8] transition group-hover:text-[#d4c083] sm:text-3xl sm:tracking-[0.24em]">
+                <div className="font-[var(--font-editorial)] text-2xl font-semibold uppercase leading-none tracking-[0.18em] text-[#f4ead8] transition duration-700 group-hover:text-[#d4c083] sm:text-[1.7rem] sm:tracking-[0.2em]">
                   GUILD ACRE
                 </div>
-                <div className="mt-2 hidden text-[10px] uppercase tracking-[0.34em] text-[#9d927f] sm:block">
+                <div className="mt-2 hidden text-[9px] uppercase tracking-[0.28em] text-[#9d927f] sm:block">
                   Private Land Intelligence Institution
                 </div>
               </div>

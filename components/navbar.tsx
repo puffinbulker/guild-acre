@@ -21,8 +21,8 @@ export default function Navbar() {
     pathname === href || (href !== "/" && pathname.startsWith(href));
 
   return (
-    <div className="relative flex items-center gap-4">
-      <nav className="hidden items-center gap-6 xl:flex">
+    <div className="relative flex items-center gap-5">
+      <nav className="hidden items-center gap-7 2xl:gap-8 xl:flex">
         {navItems.map((item) => {
           const active = isActive(item.href);
 
@@ -30,7 +30,7 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`group relative rounded-md text-[11px] font-medium uppercase tracking-[0.18em] transition duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a] ${
+              className={`group relative rounded-md text-[10px] font-medium uppercase tracking-[0.16em] transition duration-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a] 2xl:text-[11px] ${
                 active ? "text-[#d4c083]" : "text-[#efe7d6]/68 hover:text-[#efe7d6]"
               }`}
             >
@@ -51,9 +51,9 @@ export default function Navbar() {
         href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20book%20a%20private%20advisory."
         target="_blank"
         rel="noreferrer"
-        className="hidden rounded-full border border-[#bda56a]/35 bg-[#f4ead8]/[0.02] px-5 py-3 text-sm font-medium text-[#efe7d6] transition duration-500 hover:border-[#bda56a]/70 hover:bg-[#bda56a]/10 hover:text-[#f4ead8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a] xl:inline-flex"
+        className="hidden rounded-[2px] border border-[#c6a76a]/38 bg-[#f4ead8]/[0.018] px-5 py-3 text-sm font-medium text-[#efe7d6] transition duration-700 hover:-translate-y-px hover:border-[#c6a76a]/70 hover:bg-[#f4ead8]/[0.045] hover:text-[#f4ead8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a] xl:inline-flex"
       >
-        Request Consultation
+        Investor Desk
       </a>
 
       <button
@@ -95,7 +95,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className="mt-2 border border-[#bda56a]/45 bg-[#bda56a]/10 px-4 py-3 text-center text-sm font-medium text-[#f4ead8] transition hover:border-[#bda56a]/70 hover:bg-[#bda56a]/15"
             >
-              Request Consultation
+              Investor Desk
             </a>
           </div>
         </div>
