@@ -21,8 +21,8 @@ export default function Navbar() {
     pathname === href || (href !== "/" && pathname.startsWith(href));
 
   return (
-    <div className="relative flex items-center gap-5">
-      <nav className="hidden items-center gap-7 2xl:gap-8 xl:flex">
+    <div className="relative flex items-center gap-6">
+      <nav className="hidden items-center gap-7 2xl:gap-9 xl:flex">
         {navItems.map((item) => {
           const active = isActive(item.href);
 
@@ -30,7 +30,7 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`group relative rounded-md text-[10px] font-medium uppercase tracking-[0.16em] transition duration-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a] 2xl:text-[11px] ${
+              className={`group relative rounded-[2px] text-[10px] font-medium uppercase tracking-[0.13em] transition duration-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a76a] 2xl:text-[11px] ${
                 active ? "text-[#d4c083]" : "text-[#efe7d6]/68 hover:text-[#efe7d6]"
               }`}
             >
@@ -39,7 +39,7 @@ export default function Navbar() {
                 className={`absolute -bottom-3 left-0 h-px rounded-full bg-[#bda56a] transition-all duration-500 ${
                   active
                     ? "w-full opacity-100"
-                    : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                    : "w-0 opacity-0 group-hover:w-full group-hover:opacity-80"
                 }`}
               />
             </Link>
@@ -51,7 +51,7 @@ export default function Navbar() {
         href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20book%20a%20private%20advisory."
         target="_blank"
         rel="noreferrer"
-        className="hidden rounded-[2px] border border-[#c6a76a]/38 bg-[#f4ead8]/[0.018] px-5 py-3 text-sm font-medium text-[#efe7d6] transition duration-700 hover:-translate-y-px hover:border-[#c6a76a]/70 hover:bg-[#f4ead8]/[0.045] hover:text-[#f4ead8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a] xl:inline-flex"
+        className="hidden rounded-[2px] border border-[#c6a76a]/34 bg-[#f4ead8]/[0.016] px-5 py-3 text-sm font-medium text-[#efe7d6] transition duration-700 hover:-translate-y-px hover:border-[#c6a76a]/68 hover:bg-[#f4ead8]/[0.04] hover:text-[#f4ead8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a76a] xl:inline-flex"
       >
         Investor Desk
       </a>

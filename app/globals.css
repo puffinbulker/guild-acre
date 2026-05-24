@@ -4,10 +4,10 @@
 
 @layer base {
   :root {
-    --color-ink: #050505;
+    --color-ink: #040403;
     --color-night: #0b0b0a;
-    --color-graphite: #12110f;
-    --color-gold: #bda56a;
+    --color-graphite: #12100d;
+    --color-gold: #c6a76a;
     --color-brass: #d4c083;
     --color-stone: #9d927f;
     --color-ivory: #f4ead8;
@@ -25,7 +25,8 @@
   }
 
   body {
-    background: var(--color-ink);
+    background:
+      linear-gradient(180deg, #040403 0%, #080806 44%, #040403 100%);
     color: var(--color-ivory);
     font-family: var(--font-sans), Inter, ui-sans-serif, system-ui, sans-serif;
     letter-spacing: 0;
@@ -104,19 +105,19 @@
     justify-content: center;
     min-height: 2.9rem;
     border: 1px solid rgba(189, 165, 106, 0.38);
-    border-radius: 999px;
+    border-radius: 2px;
     background: rgba(244, 234, 216, 0.025);
     padding: 0.75rem 1.15rem;
     color: #f4ead8;
     font-size: 0.88rem;
     font-weight: 500;
-    transition: border-color 500ms ease, background-color 500ms ease, color 500ms ease, transform 500ms ease;
+    transition: border-color 700ms ease, background-color 700ms ease, color 700ms ease, transform 700ms ease;
   }
 
   .button:hover,
   .collection-tab:hover {
     border-color: rgba(212, 192, 131, 0.72);
-    background: rgba(189, 165, 106, 0.1);
+    background: rgba(244, 234, 216, 0.045);
     transform: translateY(-1px);
   }
 
@@ -144,8 +145,8 @@
   .page-intro {
     border: 1px solid #2d2a22;
     background:
-      linear-gradient(135deg, rgba(189, 165, 106, 0.09), transparent 38%),
-      #050505;
+      linear-gradient(135deg, rgba(198, 167, 106, 0.08), transparent 42%),
+      #050504;
     padding: clamp(2rem, 5vw, 4.5rem);
   }
 
@@ -571,7 +572,7 @@
     font-size: 0.875rem;
     color: #f4ead8;
     outline: none;
-    transition: border-color 500ms ease, background-color 500ms ease;
+    transition: border-color 700ms ease, background-color 700ms ease;
   }
 
   .institutional-input::placeholder {

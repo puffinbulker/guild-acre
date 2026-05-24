@@ -26,19 +26,19 @@ const intelligenceUrl =
 
 const trustLayer = [
   {
-    title: "AI-Assisted Corridor Intelligence",
+    title: "Private Land Intelligence",
     Icon: Compass,
   },
   {
-    title: "Private Acquisition Advisory",
+    title: "Strategic Acquisition Advisory",
     Icon: FileSearch,
   },
   {
-    title: "Confidential Land Evaluation",
+    title: "AI-Assisted Corridor Research",
     Icon: ShieldCheck,
   },
   {
-    title: "Guild Verified\u2122 Framework",
+    title: "Guild Verified\u2122 Evaluation",
     Icon: BadgeCheck,
   },
 ];
@@ -46,11 +46,11 @@ const trustLayer = [
 const rejectionPrinciples = [
   {
     title: "Broker-led urgency",
-    text: "No pressure cycles, mass forwarding, or deadline theatre.",
+    text: "No pressure cycles, forwarded lists, or deadline theatre.",
   },
   {
-    title: "Listing volume",
-    text: "We prioritize disciplined land selection over inventory volume.",
+    title: "Inventory-first logic",
+    text: "We prioritize disciplined land selection over available stock.",
   },
   {
     title: "Weak diligence",
@@ -62,21 +62,21 @@ const rejectionPrinciples = [
   },
 ];
 
-const corridorFramework = [
+const coreFrameworks = [
+  {
+    title: "Guild Verified\u2122",
+    Icon: BadgeCheck,
+    text: "A structured verification discipline for title continuity, CLU, zoning, access, environment, and acquisition risk.",
+  },
   {
     title: "Corridor Intelligence\u2122",
     Icon: MapPinned,
-    text: "Gurgaon fringe expansion, Sohna growth signals, Naugaon movement, and infrastructure impact.",
+    text: "AI-assisted micro-market intelligence across Gurgaon fringe expansion, Sohna growth, Naugaon movement, and infrastructure impact.",
   },
   {
     title: "Land Risk Index\u2122",
     Icon: Radar,
-    text: "Legal clarity, liquidity potential, growth probability, strategic position, and acquisition risk.",
-  },
-  {
-    title: "Private Sourcing Desk",
-    Icon: FileSearch,
-    text: "Controlled discovery for mandates that require discretion, patience, and verified context.",
+    text: "A proprietary scoring lens for legal clarity, liquidity potential, growth probability, strategic positioning, and downside exposure.",
   },
 ];
 
@@ -122,7 +122,7 @@ const seriousBuyers = [
   "HNIs",
   "NRIs",
   "Family offices",
-  "Business owners",
+  "Founders",
   "Strategic investors",
   "Long-term capital allocators",
 ];
@@ -134,11 +134,11 @@ const advisorySteps = [
   },
   {
     title: "Intelligence Review",
-    text: "Micro-market movement, access, policy, environmental, and liquidity context.",
+    text: "Micro-market movement, access, policy, environmental sensitivity, and liquidity context.",
   },
   {
     title: "Acquisition Direction",
-    text: "A disciplined view on whether to proceed, pause, negotiate, or stay silent.",
+    text: "A disciplined view on whether to proceed, pause, negotiate, or remain silent.",
   },
 ];
 
@@ -146,12 +146,12 @@ const curatedOpportunities = [
   {
     title: "Sohna Corridor Signals",
     code: "Signal Brief 01",
-    deck: "Access discipline, parcel quality, pricing restraint, and demand migration indicators.",
+    deck: "Access discipline, parcel quality, pricing restraint, and demand migration.",
   },
   {
     title: "Gurgaon Expansion Watch",
     code: "Signal Brief 02",
-    deck: "Edge-market pressure, infrastructure dependency, and long-horizon acquisition logic.",
+    deck: "Edge-market pressure, infrastructure dependency, and acquisition timing.",
   },
   {
     title: "Aravali Sensitivity Review",
@@ -161,7 +161,7 @@ const curatedOpportunities = [
   {
     title: "CLU Movement Tracker",
     code: "Policy Note",
-    deck: "Change-of-land-use signals, policy friction, and commercial viability notes.",
+    deck: "Change-of-land-use signals, policy friction, and viability context.",
   },
 ];
 
@@ -193,11 +193,11 @@ I want to request a private land intelligence consultation.`;
           fill
           priority
           sizes="100vw"
-          className="scale-[1.04] object-cover object-[center_54%] opacity-[0.42] [filter:saturate(0.58)_contrast(1.12)_brightness(0.58)_sepia(0.16)]"
+          className="scale-[1.04] object-cover object-[center_54%] opacity-[0.4] [filter:saturate(0.54)_contrast(1.12)_brightness(0.56)_sepia(0.18)]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,3,3,0.98)_0%,rgba(3,3,3,0.86)_34%,rgba(3,3,3,0.56)_66%,rgba(3,3,3,0.78)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,3,3,0.92)_0%,rgba(3,3,3,0.12)_30%,rgba(3,3,3,0.38)_68%,#040403_100%)]" />
-        <div className="absolute inset-x-0 top-[28%] h-px bg-[linear-gradient(90deg,transparent,rgba(198,167,106,0.32),transparent)] opacity-60" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,3,3,0.98)_0%,rgba(3,3,3,0.88)_36%,rgba(3,3,3,0.58)_66%,rgba(3,3,3,0.82)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,3,3,0.94)_0%,rgba(3,3,3,0.12)_30%,rgba(3,3,3,0.42)_68%,#040403_100%)]" />
+        <div className="absolute inset-x-0 top-[28%] h-px bg-[linear-gradient(90deg,transparent,rgba(198,167,106,0.26),transparent)] opacity-60" />
         <div className="absolute inset-x-0 bottom-0 h-72 bg-[linear-gradient(180deg,rgba(4,4,3,0)_0%,rgba(4,4,3,0.84)_56%,#040403_100%)]" />
 
         <div className="relative mx-auto grid min-h-[calc(92svh-88px)] max-w-[88rem] gap-16 px-5 py-20 sm:px-7 sm:py-24 lg:min-h-[calc(88svh-88px)] lg:grid-cols-[0.96fr_1.04fr] lg:px-10 lg:py-10 xl:gap-24">
@@ -258,7 +258,7 @@ I want to request a private land intelligence consultation.`;
 
               <div className="divide-y divide-[#2d2a22]/90">
                 {[
-                  ["Gurgaon NCR", "Mature demand, land scarcity, premium micro-market pressure"],
+                  ["Gurgaon NCR", "Mature demand, land scarcity, micro-market pressure"],
                   ["Sohna", "Growth corridor review, parcel quality, access, liquidity"],
                   ["Naugaon", "Emerging movement, capital migration, early risk filters"],
                   ["Aravali Belt", "Sensitivity checks, use constraints, risk containment"],
@@ -309,13 +309,13 @@ I want to request a private land intelligence consultation.`;
         <div className="space-y-7 text-lg leading-9 text-[#cfc5b3]">
           <p>
             Guild Acre operates as a private acquisition and intelligence desk
-            for investors who need clarity before committing time, capital, or
-            reputation.
+            for investors who need clarity before committing capital,
+            reputation, or time.
           </p>
           <p className="text-[#b8ad9b]">
             We study corridor movement, title context, access, zoning,
             environmental sensitivity, infrastructure probability, and exit
-            logic before a buyer forms conviction.
+            logic before conviction is formed.
           </p>
         </div>
       </section>
@@ -330,7 +330,7 @@ I want to request a private land intelligence consultation.`;
               </h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#b8ad9b]">
                 Guild Acre is not a listing portal or property dealership. The
-                desk is built for disciplined filtering, not transaction noise.
+                desk exists for disciplined filtering, not transaction noise.
               </p>
             </div>
 
@@ -359,23 +359,23 @@ I want to request a private land intelligence consultation.`;
           <div>
             <p className="text-xs uppercase text-[#c9b276]">Corridor Intelligence Framework</p>
             <h2 className="mt-5 text-4xl font-medium leading-tight text-[#f4ead8] sm:text-6xl">
-              Research systems for land-led capital decisions.
+              Three frameworks before any acquisition thesis.
             </h2>
           </div>
           <p className="max-w-3xl text-lg leading-9 text-[#cfc5b3] lg:justify-self-end">
-            AI-assisted research helps organize signals. Final judgement remains
-            strategic, contextual, and mandate-led.
+            AI-assisted research organizes signals. Final judgement remains
+            contextual, strategic, and mandate-led.
           </p>
         </div>
 
         <div className="mt-16 grid gap-5 lg:grid-cols-3">
-          {corridorFramework.map((item) => {
+          {coreFrameworks.map((item) => {
             const Icon = item.Icon;
 
             return (
               <article
                 key={item.title}
-                className="group min-h-72 border border-[#2d2a22] bg-[#0b0b0a] p-8 transition duration-700 hover:-translate-y-1 hover:border-[#c6a76a]/38 hover:bg-[#11100d]"
+                className="group min-h-80 border border-[#2d2a22] bg-[#0b0b0a] p-8 transition duration-700 hover:-translate-y-1 hover:border-[#c6a76a]/38 hover:bg-[#11100d]"
               >
                 <Icon className="h-6 w-6 text-[#c6a76a]" />
                 <h3 className="mt-14 text-3xl font-medium leading-tight text-[#f4ead8]">
@@ -399,7 +399,7 @@ I want to request a private land intelligence consultation.`;
               A structured land evaluation framework.
             </h2>
             <p className="mx-auto mt-7 max-w-3xl text-lg leading-9 text-[#cfc5b3]">
-              A structured land evaluation framework covering title continuity,
+              A structured evaluation framework covering title continuity,
               zoning intelligence, CLU assessment, environmental sensitivity,
               access validation, infrastructure probability, and acquisition risk.
             </p>
@@ -529,7 +529,7 @@ I want to request a private land intelligence consultation.`;
           </p>
           <p className="text-[#b8ad9b]">
             Guild Acre exists to become India&apos;s leading AI-powered private
-            land intelligence platform for corridor-based acquisition advisory.
+            land intelligence office for corridor-based acquisition advisory.
           </p>
         </div>
       </section>
