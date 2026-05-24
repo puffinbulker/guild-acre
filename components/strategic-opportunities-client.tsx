@@ -122,18 +122,18 @@ export default function StrategicOpportunitiesClient() {
   }, [properties, activeFilter]);
 
   return (
-    <main className="min-h-screen bg-[#050505] text-[#efe7d6]">
-      <section className="border-b border-[#2d2a22] bg-[#050505]">
+    <main className="min-h-screen bg-[#02070d] text-[#e8f0f2]">
+      <section className="border-b border-[#16344a] bg-[#02070d]">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <p className="text-xs uppercase text-[#b9a46d]">
+          <p className="text-xs uppercase text-[#86b8c8]">
             Strategic opportunities
           </p>
 
-          <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl lg:text-7xl">
+          <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl lg:text-7xl">
             Public records are only the surface of the land intelligence process.
           </h1>
 
-          <p className="mt-7 max-w-3xl text-lg leading-9 text-[#cfc5b3]">
+          <p className="mt-7 max-w-3xl text-lg leading-9 text-[#b9cbd2]">
             This register shows limited approved opportunity records. Serious land
             acquisition work is handled through private briefs, diligence notes,
             and corridor-specific intelligence rather than catalogue browsing.
@@ -142,33 +142,33 @@ export default function StrategicOpportunitiesClient() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-10 sm:px-6 lg:px-8">
-        <div className="grid gap-px overflow-hidden border border-[#2d2a22] bg-[#2d2a22] sm:grid-cols-3">
+        <div className="grid gap-px overflow-hidden border border-[#16344a] bg-[#16344a] sm:grid-cols-3">
           <div>
-            <div className="h-full bg-[#0b0b0a] p-6 sm:p-8">
-            <p className="text-xs uppercase text-[#9d927f]">
+            <div className="h-full bg-[#081725] p-6 sm:p-8">
+            <p className="text-xs uppercase text-[#738a99]">
               Register role
             </p>
-            <p className="mt-4 text-xl font-semibold text-[#f4ead8]">
+            <p className="mt-4 text-xl font-semibold text-[#f2efe7]">
               Records directional relevance, not public stock.
             </p>
             </div>
           </div>
           <div>
-            <div className="h-full bg-[#0b0b0a] p-6 sm:p-8">
-            <p className="text-xs uppercase text-[#9d927f]">
+            <div className="h-full bg-[#081725] p-6 sm:p-8">
+            <p className="text-xs uppercase text-[#738a99]">
               What it avoids
             </p>
-            <p className="mt-4 text-xl font-semibold text-[#f4ead8]">
+            <p className="mt-4 text-xl font-semibold text-[#f2efe7]">
               Casual comparison behavior and open-market browsing.
             </p>
             </div>
           </div>
           <div>
-            <div className="h-full bg-[#0b0b0a] p-6 sm:p-8">
-            <p className="text-xs uppercase text-[#9d927f]">
+            <div className="h-full bg-[#081725] p-6 sm:p-8">
+            <p className="text-xs uppercase text-[#738a99]">
               Best next step
             </p>
-            <p className="mt-4 text-xl font-semibold text-[#f4ead8]">
+            <p className="mt-4 text-xl font-semibold text-[#f2efe7]">
               Submit a brief and request a private intelligence note.
             </p>
             </div>
@@ -184,8 +184,8 @@ export default function StrategicOpportunitiesClient() {
               onClick={() => setActiveFilter(f.value)}
               className={`rounded-full px-4 py-2 text-sm transition ${
                 activeFilter === f.value
-                  ? "border border-[#bda56a]/60 bg-[#bda56a]/10 text-[#f4ead8]"
-                  : "border border-[#efe7d6]/10 text-[#efe7d6] hover:border-[#bda56a]/50 hover:bg-[#efe7d6]/5"
+                  ? "border border-[#7aaec1]/60 bg-[#7aaec1]/10 text-[#f2efe7]"
+                  : "border border-[#e8f0f2]/10 text-[#e8f0f2] hover:border-[#7aaec1]/50 hover:bg-[#e8f0f2]/5"
               }`}
             >
               {f.label}
@@ -196,12 +196,12 @@ export default function StrategicOpportunitiesClient() {
 
       <section className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-20 lg:px-8">
         {filteredProperties.length === 0 ? (
-          <div className="border border-[#2d2a22] bg-[#0b0b0a] p-6 text-left text-[#cfc5b3] sm:p-8 lg:grid lg:grid-cols-[1fr_0.72fr] lg:gap-8">
+          <div className="border border-[#16344a] bg-[#081725] p-6 text-left text-[#b9cbd2] sm:p-8 lg:grid lg:grid-cols-[1fr_0.72fr] lg:gap-8">
             <div>
-              <p className="text-xs uppercase text-[#b9a46d]">
+              <p className="text-xs uppercase text-[#86b8c8]">
                 Intelligence desk
               </p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#f4ead8] sm:text-4xl">
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#f2efe7] sm:text-4xl">
                 No public record is available for this lens right now.
               </h2>
               <p className="mt-4 text-sm leading-7 sm:text-base sm:leading-8">
@@ -211,15 +211,15 @@ export default function StrategicOpportunitiesClient() {
               </p>
             </div>
 
-            <div className="mt-6 border border-[#bda56a]/20 bg-[#050505] p-5 lg:mt-0">
-              <p className="text-sm font-semibold text-[#f4ead8]">Request a private note</p>
+            <div className="mt-6 border border-[#7aaec1]/20 bg-[#02070d] p-5 lg:mt-0">
+              <p className="text-sm font-semibold text-[#f2efe7]">Request a private note</p>
               <p className="mt-2 text-sm leading-6 text-slate-400">
                 Include capital range, corridor, hold logic, and timing so the
                 review starts with useful context.
               </p>
               <a
                 href="/acquisition-desk"
-                className="mt-5 block rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-5 py-3 text-center text-sm font-medium text-[#f4ead8] transition hover:border-[#d4c083] hover:bg-[#bda56a]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a]"
+                className="mt-5 block rounded-full border border-[#7aaec1]/55 bg-[#f2efe7]/[0.025] px-5 py-3 text-center text-sm font-medium text-[#f2efe7] transition hover:border-[#a9d4df] hover:bg-[#7aaec1]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7aaec1]"
               >
                 Submit Brief
               </a>
@@ -234,7 +234,7 @@ export default function StrategicOpportunitiesClient() {
             {filteredProperties.map((item) => (
               <article
                 key={item.id}
-                className="group grid overflow-hidden border border-[#2d2a22] bg-[#0b0b0a] transition duration-500 hover:border-[#bda56a]/50 md:grid-cols-[0.35fr_0.65fr]"
+                className="group grid overflow-hidden border border-[#16344a] bg-[#081725] transition duration-500 hover:border-[#7aaec1]/50 md:grid-cols-[0.35fr_0.65fr]"
               >
                 <div
                   className="min-h-64 bg-cover bg-center transition duration-700 group-hover:scale-[1.02]"
@@ -246,7 +246,7 @@ export default function StrategicOpportunitiesClient() {
                 <div className="p-6 sm:p-8">
                   <div className="flex flex-wrap gap-2">
                     {item.featured && (
-                      <span className="rounded-full bg-[#bda56a]/10 px-3 py-1 text-xs text-[#d4c083]">
+                      <span className="rounded-full bg-[#7aaec1]/10 px-3 py-1 text-xs text-[#a9d4df]">
                         Priority Record
                       </span>
                     )}
@@ -262,17 +262,17 @@ export default function StrategicOpportunitiesClient() {
                     )}
                   </div>
 
-                  <h2 className="mt-5 text-3xl font-semibold leading-tight text-[#f4ead8]">{item.title}</h2>
+                  <h2 className="mt-5 text-3xl font-semibold leading-tight text-[#f2efe7]">{item.title}</h2>
 
                   <p className="mt-2 text-slate-400">
                     {item.location}, {item.city}
                   </p>
 
-                  <p className="mt-5 text-sm leading-7 text-[#cfc5b3]">
+                  <p className="mt-5 text-sm leading-7 text-[#b9cbd2]">
                     {item.description}
                   </p>
 
-                  <div className="mt-6 grid gap-3 text-sm text-[#b8ad9b] sm:grid-cols-3">
+                  <div className="mt-6 grid gap-3 text-sm text-[#93aab6] sm:grid-cols-3">
                     {item.bedrooms > 0 && <div>Bedrooms {item.bedrooms}</div>}
                     {item.bathrooms > 0 && <div>Bathrooms {item.bathrooms}</div>}
                     {item.areaSqft > 0 && <div>{item.areaSqft} sqft</div>}
@@ -280,7 +280,7 @@ export default function StrategicOpportunitiesClient() {
 
                   {item.amenities?.length > 0 && (
                     <div className="mt-5">
-                      <div className="text-xs uppercase tracking-[0.2em] text-[#9d927f]">
+                      <div className="text-xs uppercase tracking-[0.2em] text-[#738a99]">
                         Context
                       </div>
 
@@ -297,10 +297,10 @@ export default function StrategicOpportunitiesClient() {
                     </div>
                   )}
 
-                  <div className="mt-7 text-sm uppercase text-[#9d927f]">
+                  <div className="mt-7 text-sm uppercase text-[#738a99]">
                     Indicative capital
                   </div>
-                  <div className="mt-2 text-2xl font-semibold text-[#d4c083]">
+                  <div className="mt-2 text-2xl font-semibold text-[#a9d4df]">
                     {formatPrice(item.priceInr)}
                   </div>
 
@@ -311,7 +311,7 @@ export default function StrategicOpportunitiesClient() {
                       )}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-4 py-3 text-center text-sm font-medium text-[#f4ead8] transition hover:border-[#d4c083] hover:bg-[#bda56a]/10"
+                      className="flex-1 rounded-full border border-[#7aaec1]/55 bg-[#f2efe7]/[0.025] px-4 py-3 text-center text-sm font-medium text-[#f2efe7] transition hover:border-[#a9d4df] hover:bg-[#7aaec1]/10"
                     >
                       Request Intelligence Note
                     </a>
@@ -321,7 +321,7 @@ export default function StrategicOpportunitiesClient() {
                         href={item.videoUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 rounded-full border border-[#efe7d6]/10 px-4 py-3 text-center text-sm text-[#cfc5b3] transition hover:border-[#bda56a]/45 hover:text-[#f4ead8]"
+                        className="flex-1 rounded-full border border-[#e8f0f2]/10 px-4 py-3 text-center text-sm text-[#b9cbd2] transition hover:border-[#7aaec1]/45 hover:text-[#f2efe7]"
                       >
                         View Visual Context
                       </a>
@@ -336,7 +336,7 @@ export default function StrategicOpportunitiesClient() {
 
       <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-6 sm:pb-28 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase text-[#b9a46d]">
+          <p className="text-xs uppercase text-[#86b8c8]">
             Register notes
           </p>
           <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -348,10 +348,10 @@ export default function StrategicOpportunitiesClient() {
           {opportunityFaqs.map((item) => (
             <div
               key={item.question}
-              className="border border-[#2d2a22] bg-[#0b0b0a] p-6 sm:p-7"
+              className="border border-[#16344a] bg-[#081725] p-6 sm:p-7"
             >
-              <h3 className="text-2xl font-semibold text-[#f4ead8]">{item.question}</h3>
-              <p className="mt-3 text-sm leading-7 text-[#b8ad9b] sm:text-base sm:leading-8">
+              <h3 className="text-2xl font-semibold text-[#f2efe7]">{item.question}</h3>
+              <p className="mt-3 text-sm leading-7 text-[#93aab6] sm:text-base sm:leading-8">
                 {item.answer}
               </p>
             </div>

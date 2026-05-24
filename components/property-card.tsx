@@ -36,7 +36,7 @@ export function PropertyCard({ property }: { property: PropertyCardValue }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.55, ease: "easeOut" }}
-      className="group overflow-hidden border border-[#2d2a22] bg-[#0b0b0a] shadow-2xl shadow-black/20"
+      className="group overflow-hidden border border-[#16344a] bg-[#081725] shadow-2xl shadow-black/20"
     >
       <div className="relative aspect-[4/4.8] overflow-hidden">
         <img
@@ -45,7 +45,7 @@ export function PropertyCard({ property }: { property: PropertyCardValue }) {
           className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#02070d] via-[#02070d]/30 to-transparent" />
 
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
           {card.featured && <GlassTag label="Priority Record" />}
@@ -54,24 +54,24 @@ export function PropertyCard({ property }: { property: PropertyCardValue }) {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-5">
-          <div className="border border-[#efe7d6]/10 bg-[#050505]/72 p-4 backdrop-blur-xl">
+          <div className="border border-[#e8f0f2]/10 bg-[#02070d]/72 p-4 backdrop-blur-xl">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h3 className="text-lg font-semibold text-[#f4ead8]">
+                <h3 className="text-lg font-semibold text-[#f2efe7]">
                   {card.title}
                 </h3>
-                <p className="mt-1 flex items-center gap-1 text-sm text-[#b8ad9b]">
+                <p className="mt-1 flex items-center gap-1 text-sm text-[#93aab6]">
                   <MapPin className="h-4 w-4" />
                   {card.location}
                 </p>
               </div>
 
-              <p className="shrink-0 text-lg font-semibold text-[#d4c083]">
+              <p className="shrink-0 text-lg font-semibold text-[#a9d4df]">
                 {card.price}
               </p>
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-[#b8ad9b]">
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-[#93aab6]">
               {card.beds ? (
                 <MetaItem
                   icon={<BedDouble className="h-4 w-4" />}
@@ -93,14 +93,14 @@ export function PropertyCard({ property }: { property: PropertyCardValue }) {
             <div className="mt-5 flex items-center justify-between gap-3">
               <Link
                 href={card.href}
-                className="rounded-full border border-[#efe7d6]/10 bg-[#efe7d6]/5 px-4 py-2 text-sm text-[#efe7d6]/85 backdrop-blur-md transition hover:border-[#bda56a]/60 hover:text-[#f4ead8]"
+                className="rounded-full border border-[#e8f0f2]/10 bg-[#e8f0f2]/5 px-4 py-2 text-sm text-[#e8f0f2]/85 backdrop-blur-md transition hover:border-[#7aaec1]/60 hover:text-[#f2efe7]"
               >
                 View Record
               </Link>
 
               <Link
                 href="/acquisition-desk"
-                className="rounded-full px-4 py-2 text-sm font-medium text-[#d4c083] transition hover:text-[#f4ead8]"
+                className="rounded-full px-4 py-2 text-sm font-medium text-[#a9d4df] transition hover:text-[#f2efe7]"
               >
                 Request Note
               </Link>
@@ -149,7 +149,7 @@ function normalizePropertyCard(property: PropertyCardValue) {
 
 function GlassTag({ label }: { label: string }) {
   return (
-    <span className="rounded-full border border-[#efe7d6]/15 bg-[#050505]/45 px-3 py-1 text-[11px] font-medium uppercase text-[#f4ead8] shadow-lg backdrop-blur-xl">
+    <span className="rounded-full border border-[#e8f0f2]/15 bg-[#02070d]/45 px-3 py-1 text-[11px] font-medium uppercase text-[#f2efe7] shadow-lg backdrop-blur-xl">
       {label}
     </span>
   );
@@ -163,7 +163,7 @@ function MetaItem({
   value: string;
 }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-[#efe7d6]/10 bg-[#efe7d6]/5 px-3 py-1.5 backdrop-blur-md">
+    <span className="inline-flex items-center gap-2 rounded-full border border-[#e8f0f2]/10 bg-[#e8f0f2]/5 px-3 py-1.5 backdrop-blur-md">
       {icon}
       {value}
     </span>

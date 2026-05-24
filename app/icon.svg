@@ -1,8 +1,8 @@
 <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="160" height="160" fill="#020617"/>
-  <circle cx="80" cy="80" r="56" stroke="#C6A76A" stroke-width="1.6"/>
-  <path d="M45 98C59 86 74 82 91 86C102 89 111 88 119 80" stroke="#8FA3B8" stroke-width="1.6" stroke-linecap="round"/>
-  <path d="M43 112C61 98 78 94 97 99C108 102 118 101 127 94" stroke="#C6A76A" stroke-width="1.6" stroke-linecap="round"/>
-  <path d="M48 63C57 51 69 45 84 45C99 45 111 51 119 62" stroke="#C6A76A" stroke-width="1.6" stroke-linecap="round"/>
+  <rect width="160" height="160" fill="#02070d"/>
+  <circle cx="80" cy="80" r="56" stroke="#7fb7ca" stroke-width="1.6"/>
+  <path d="M45 98C59 86 74 82 91 86C102 89 111 88 119 80" stroke="#8fbfcd" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M43 112C61 98 78 94 97 99C108 102 118 101 127 94" stroke="#7fb7ca" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M48 63C57 51 69 45 84 45C99 45 111 51 119 62" stroke="#7fb7ca" stroke-width="1.6" stroke-linecap="round"/>
   <text x="80" y="85" text-anchor="middle" fill="#F8FAFC" font-family="Cormorant Garamond, Georgia, serif" font-size="48" font-weight="600">GA</text>
 </svg>

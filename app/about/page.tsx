@@ -56,17 +56,17 @@ export default function AboutPage() {
           { name: "About", path: "/about" },
         ])}
       />
-      <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
-        <section className="border-b border-[#2d2a22] bg-[#050505]">
+      <main className="min-h-screen bg-[#02070d] text-[#f2efe7]">
+        <section className="border-b border-[#16344a] bg-[#02070d]">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-32">
             <div>
-              <p className="text-xs uppercase text-[#b9a46d]">About Guild Acre</p>
-              <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f4ead8] sm:text-6xl lg:text-7xl">
+              <p className="text-xs uppercase text-[#86b8c8]">About Guild Acre</p>
+              <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f2efe7] sm:text-6xl lg:text-7xl">
                 A private land intelligence institution for strategic NCR acquisition.
               </h1>
             </div>
 
-            <div className="flex flex-col justify-end text-lg leading-9 text-[#cfc5b3]">
+            <div className="flex flex-col justify-end text-lg leading-9 text-[#b9cbd2]">
               <p>
                 Guild Acre helps serious buyers understand land-led opportunities
                 before the market becomes noisy. The focus is on judgement,
@@ -85,22 +85,22 @@ export default function AboutPage() {
 
         <section className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
           <div>
-            <p className="text-xs uppercase text-[#b9a46d]">Operating principles</p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl">
+            <p className="text-xs uppercase text-[#86b8c8]">Operating principles</p>
+            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
               Quiet process. Stronger judgement. Fewer false signals.
             </h2>
           </div>
 
-          <div className="grid gap-px border border-[#2d2a22] bg-[#2d2a22]">
+          <div className="grid gap-px border border-[#16344a] bg-[#16344a]">
             {principles.map((item) => (
               <article
                 key={item.title}
-                className="bg-[#0b0b0a] p-7 transition duration-500 hover:bg-[#11100d] sm:p-9"
+                className="bg-[#081725] p-7 transition duration-500 hover:bg-[#10283b] sm:p-9"
               >
-                <h3 className="text-3xl font-semibold leading-tight text-[#f4ead8]">
+                <h3 className="text-3xl font-semibold leading-tight text-[#f2efe7]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-base leading-8 text-[#b8ad9b]">
+                <p className="mt-4 text-base leading-8 text-[#93aab6]">
                   {item.text}
                 </p>
               </article>
@@ -108,14 +108,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="border-y border-[#2d2a22] bg-[#0b0b0a]">
+        <section className="border-y border-[#16344a] bg-[#081725]">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
             <div>
-              <p className="text-xs uppercase text-[#b9a46d]">Founder-led office</p>
-              <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl">
+              <p className="text-xs uppercase text-[#86b8c8]">Founder-led office</p>
+              <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
                 Built around field memory and institutional discipline.
               </h2>
-              <p className="mt-7 text-base leading-8 text-[#cfc5b3]">
+              <p className="mt-7 text-base leading-8 text-[#b9cbd2]">
                 Led by Sandeep Kumar, Guild Acre combines more than a decade of
                 Gurgaon market experience with a private-office approach to land
                 evaluation. The advisory posture is intentionally calm,
@@ -123,9 +123,9 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid gap-px border border-[#2d2a22] bg-[#2d2a22] sm:grid-cols-2">
+            <div className="grid gap-px border border-[#16344a] bg-[#16344a] sm:grid-cols-2">
               {strengths.map((item) => (
-                <div key={item} className="bg-[#10100e] p-6 text-base leading-7 text-[#d5cab8] sm:p-7">
+                <div key={item} className="bg-[#0d2030] p-6 text-base leading-7 text-[#c7d8de] sm:p-7">
                   {item}
                 </div>
               ))}
@@ -135,8 +135,8 @@ export default function AboutPage() {
 
         <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs uppercase text-[#b9a46d]">About FAQ</p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl">
+            <p className="text-xs uppercase text-[#86b8c8]">About FAQ</p>
+            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
               Questions before a private mandate.
             </h2>
           </div>
@@ -145,12 +145,12 @@ export default function AboutPage() {
             {faqs.map((item) => (
               <article
                 key={item.question}
-                className="border border-[#2d2a22] bg-[#0b0b0a] p-6 transition duration-500 hover:border-[#bda56a]/45 sm:p-8"
+                className="border border-[#16344a] bg-[#081725] p-6 transition duration-500 hover:border-[#7aaec1]/45 sm:p-8"
               >
-                <h3 className="text-2xl font-semibold text-[#f4ead8]">
+                <h3 className="text-2xl font-semibold text-[#f2efe7]">
                   {item.question}
                 </h3>
-                <p className="mt-4 text-base leading-8 text-[#b8ad9b]">
+                <p className="mt-4 text-base leading-8 text-[#93aab6]">
                   {item.answer}
                 </p>
               </article>

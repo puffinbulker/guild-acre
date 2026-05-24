@@ -30,13 +30,13 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`group relative rounded-[2px] text-[10px] font-medium uppercase tracking-[0.13em] transition duration-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a76a] 2xl:text-[11px] ${
-                active ? "text-[#d4c083]" : "text-[#efe7d6]/68 hover:text-[#efe7d6]"
+              className={`group relative rounded-[2px] text-[10px] font-medium uppercase tracking-[0.13em] transition duration-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7fb7ca] 2xl:text-[11px] ${
+                active ? "text-[#a9d4df]" : "text-[#e8f0f2]/68 hover:text-[#e8f0f2]"
               }`}
             >
               {item.label}
               <span
-                className={`absolute -bottom-3 left-0 h-px rounded-full bg-[#bda56a] transition-all duration-500 ${
+                className={`absolute -bottom-3 left-0 h-px rounded-full bg-[#7aaec1] transition-all duration-500 ${
                   active
                     ? "w-full opacity-100"
                     : "w-0 opacity-0 group-hover:w-full group-hover:opacity-80"
@@ -51,7 +51,7 @@ export default function Navbar() {
         href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20book%20a%20private%20advisory."
         target="_blank"
         rel="noreferrer"
-        className="hidden rounded-[2px] border border-[#c6a76a]/34 bg-[#f4ead8]/[0.016] px-5 py-3 text-sm font-medium text-[#efe7d6] transition duration-700 hover:-translate-y-px hover:border-[#c6a76a]/68 hover:bg-[#f4ead8]/[0.04] hover:text-[#f4ead8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a76a] xl:inline-flex"
+        className="hidden rounded-[2px] border border-[#7fb7ca]/34 bg-[#f2efe7]/[0.016] px-5 py-3 text-sm font-medium text-[#e8f0f2] transition duration-700 hover:-translate-y-px hover:border-[#7fb7ca]/68 hover:bg-[#f2efe7]/[0.04] hover:text-[#f2efe7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7fb7ca] xl:inline-flex"
       >
         Investor Desk
       </a>
@@ -59,7 +59,7 @@ export default function Navbar() {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#efe7d6]/10 bg-[#efe7d6]/5 text-[#efe7d6] transition hover:border-[#bda56a]/50 hover:text-[#d4c083] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bda56a] xl:hidden"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#e8f0f2]/10 bg-[#e8f0f2]/5 text-[#e8f0f2] transition hover:border-[#7aaec1]/50 hover:text-[#a9d4df] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7aaec1] xl:hidden"
         aria-label="Toggle menu"
         aria-expanded={open}
       >
@@ -67,7 +67,7 @@ export default function Navbar() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-16 z-50 w-[min(340px,calc(100vw-2rem))] overflow-hidden border border-[#2d2a22] bg-[#050505]/96 p-4 shadow-2xl shadow-black/40 backdrop-blur-xl xl:hidden">
+        <div className="absolute right-0 top-16 z-50 w-[min(340px,calc(100vw-2rem))] overflow-hidden border border-[#16344a] bg-[#02070d]/96 p-4 shadow-2xl shadow-black/40 backdrop-blur-xl xl:hidden">
           <div className="flex flex-col gap-2">
             {navItems.map((item) => {
               const active = isActive(item.href);
@@ -79,8 +79,8 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className={`px-4 py-3 text-sm font-medium transition ${
                     active
-                      ? "bg-[#bda56a]/10 text-[#d4c083]"
-                      : "text-[#efe7d6]/80 hover:bg-[#efe7d6]/5 hover:text-[#efe7d6]"
+                      ? "bg-[#7aaec1]/10 text-[#a9d4df]"
+                      : "text-[#e8f0f2]/80 hover:bg-[#e8f0f2]/5 hover:text-[#e8f0f2]"
                   }`}
                 >
                   {item.label}
@@ -93,7 +93,7 @@ export default function Navbar() {
               target="_blank"
               rel="noreferrer"
               onClick={() => setOpen(false)}
-              className="mt-2 border border-[#bda56a]/45 bg-[#bda56a]/10 px-4 py-3 text-center text-sm font-medium text-[#f4ead8] transition hover:border-[#bda56a]/70 hover:bg-[#bda56a]/15"
+              className="mt-2 border border-[#7aaec1]/45 bg-[#7aaec1]/10 px-4 py-3 text-center text-sm font-medium text-[#f2efe7] transition hover:border-[#7aaec1]/70 hover:bg-[#7aaec1]/15"
             >
               Investor Desk
             </a>

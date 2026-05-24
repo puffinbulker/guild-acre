@@ -76,32 +76,32 @@ export default function CorridorCoveragePage() {
           { name: "Corridor Coverage", path: "/corridor-coverage" },
         ])}
       />
-      <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
-        <section className="border-b border-[#2d2a22] bg-[#050505]">
+      <main className="min-h-screen bg-[#02070d] text-[#f2efe7]">
+        <section className="border-b border-[#16344a] bg-[#02070d]">
           <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-            <p className="text-xs uppercase text-[#b9a46d]">
+            <p className="text-xs uppercase text-[#86b8c8]">
               Corridor coverage intelligence
             </p>
 
-            <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f4ead8] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f2efe7] sm:text-6xl lg:text-7xl">
               Corridor intelligence for selective land acquisition.
             </h1>
 
-            <p className="mt-8 max-w-3xl text-lg leading-9 text-[#cfc5b3]">
+            <p className="mt-8 max-w-3xl text-lg leading-9 text-[#b9cbd2]">
               NCR land is not one market. Each belt requires its own view
               on access, policy, demand depth, infrastructure probability, and
               the quality of exit that a buyer can realistically expect.
             </p>
 
-            <div className="mt-14 grid gap-px border border-[#2d2a22] bg-[#2d2a22] sm:grid-cols-3">
+            <div className="mt-14 grid gap-px border border-[#16344a] bg-[#16344a] sm:grid-cols-3">
               {[
                 ["Coverage", "NCR and southern growth belts"],
                 ["Method", "Private brief and diligence orientation"],
                 ["Best for", "HNI buyers, founders, and family offices"],
               ].map(([label, value]) => (
-                <div key={label} className="bg-[#0b0b0a] p-6 sm:p-7">
-                  <p className="text-xs uppercase text-[#9d927f]">{label}</p>
-                  <p className="mt-3 text-2xl font-semibold text-[#f4ead8]">
+                <div key={label} className="bg-[#081725] p-6 sm:p-7">
+                  <p className="text-xs uppercase text-[#738a99]">{label}</p>
+                  <p className="mt-3 text-2xl font-semibold text-[#f2efe7]">
                     {value}
                   </p>
                 </div>
@@ -112,25 +112,25 @@ export default function CorridorCoveragePage() {
 
         <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs uppercase text-[#b9a46d]">
+            <p className="text-xs uppercase text-[#86b8c8]">
               Corridor watch
             </p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl">
+            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
               Strategic belts are evaluated by risk, timing, and liquidity.
             </h2>
           </div>
 
-          <div className="mt-14 grid gap-px border border-[#2d2a22] bg-[#2d2a22] md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-14 grid gap-px border border-[#16344a] bg-[#16344a] md:grid-cols-2 xl:grid-cols-3">
             {corridorCards.map((item) => (
               <article
                 key={item.title}
-                className="group min-h-[260px] bg-[#0b0b0a] p-7 transition duration-500 hover:bg-[#11100d] sm:p-8"
+                className="group min-h-[260px] bg-[#081725] p-7 transition duration-500 hover:bg-[#10283b] sm:p-8"
               >
-                <p className="text-xs uppercase text-[#b9a46d]">{item.tag}</p>
-                <h3 className="mt-8 text-3xl font-semibold leading-tight text-[#f4ead8]">
+                <p className="text-xs uppercase text-[#86b8c8]">{item.tag}</p>
+                <h3 className="mt-8 text-3xl font-semibold leading-tight text-[#f2efe7]">
                   {item.title}
                 </h3>
-                <p className="mt-5 text-sm leading-7 text-[#afa492] transition duration-500 group-hover:text-[#d5cab8]">
+                <p className="mt-5 text-sm leading-7 text-[#899eaa] transition duration-500 group-hover:text-[#c7d8de]">
                   {item.text}
                 </p>
               </article>
@@ -138,20 +138,20 @@ export default function CorridorCoveragePage() {
           </div>
         </section>
 
-        <section className="border-y border-[#2d2a22] bg-[#0b0b0a]">
+        <section className="border-y border-[#16344a] bg-[#081725]">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
             <div>
-              <p className="text-xs uppercase text-[#b9a46d]">
+              <p className="text-xs uppercase text-[#86b8c8]">
                 Intelligence lenses
               </p>
-              <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl">
+              <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
                 The question is not where to buy. It is what can be proven.
               </h2>
             </div>
 
-            <div className="grid gap-px border border-[#2d2a22] bg-[#2d2a22] sm:grid-cols-2">
+            <div className="grid gap-px border border-[#16344a] bg-[#16344a] sm:grid-cols-2">
               {lenses.map((item) => (
-                <div key={item} className="bg-[#10100e] p-6 text-base leading-7 text-[#d5cab8] transition duration-500 hover:bg-[#17150f] sm:p-7">
+                <div key={item} className="bg-[#0d2030] p-6 text-base leading-7 text-[#c7d8de] transition duration-500 hover:bg-[#173850] sm:p-7">
                   {item}
                 </div>
               ))}
@@ -160,17 +160,17 @@ export default function CorridorCoveragePage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="grid gap-10 border border-[#2d2a22] bg-[#0b0b0a] p-7 sm:p-9 lg:grid-cols-[0.78fr_1.22fr] lg:p-12">
+          <div className="grid gap-10 border border-[#16344a] bg-[#081725] p-7 sm:p-9 lg:grid-cols-[0.78fr_1.22fr] lg:p-12">
             <div>
-              <p className="text-xs uppercase text-[#b9a46d]">
+              <p className="text-xs uppercase text-[#86b8c8]">
                 Request corridor brief
               </p>
-              <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-5xl">
+              <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-5xl">
                 Need a private corridor intelligence note?
               </h2>
             </div>
             <div>
-              <p className="text-lg leading-9 text-[#cfc5b3]">
+              <p className="text-lg leading-9 text-[#b9cbd2]">
                 Share the target belt, capital range, intended hold period, and
                 known constraints. Guild Acre will respond with the most useful
                 next step for a disciplined acquisition review.
@@ -178,7 +178,7 @@ export default function CorridorCoveragePage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="/acquisition-desk"
-                  className="rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-6 py-4 text-center text-sm font-medium text-[#f4ead8] transition duration-500 hover:border-[#d4c083] hover:bg-[#bda56a]/10"
+                  className="rounded-full border border-[#7aaec1]/55 bg-[#f2efe7]/[0.025] px-6 py-4 text-center text-sm font-medium text-[#f2efe7] transition duration-500 hover:border-[#a9d4df] hover:bg-[#7aaec1]/10"
                 >
                   Request Private Consultation
                 </a>
@@ -186,7 +186,7 @@ export default function CorridorCoveragePage() {
                   href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20a%20private%20Gurgaon%20land%20intelligence%20brief."
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-[#efe7d6]/15 px-6 py-4 text-center text-sm font-medium text-[#cfc5b3] transition duration-500 hover:border-[#bda56a] hover:text-[#f4ead8]"
+                  className="rounded-full border border-[#e8f0f2]/15 px-6 py-4 text-center text-sm font-medium text-[#b9cbd2] transition duration-500 hover:border-[#7aaec1] hover:text-[#f2efe7]"
                 >
                   Access Intelligence Brief
                 </a>
@@ -197,10 +197,10 @@ export default function CorridorCoveragePage() {
 
         <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-6 sm:pb-28 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs uppercase text-[#b9a46d]">
+            <p className="text-xs uppercase text-[#86b8c8]">
               Corridor coverage FAQ
             </p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f4ead8] sm:text-6xl">
+            <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
               Questions before corridor commitment.
             </h2>
           </div>
@@ -209,12 +209,12 @@ export default function CorridorCoveragePage() {
             {faqs.map((item) => (
               <article
                 key={item.question}
-                className="border border-[#2d2a22] bg-[#0b0b0a] p-6 transition duration-500 hover:border-[#bda56a]/45 sm:p-8"
+                className="border border-[#16344a] bg-[#081725] p-6 transition duration-500 hover:border-[#7aaec1]/45 sm:p-8"
               >
-                <h3 className="text-2xl font-semibold text-[#f4ead8]">
+                <h3 className="text-2xl font-semibold text-[#f2efe7]">
                   {item.question}
                 </h3>
-                <p className="mt-4 text-base leading-8 text-[#b8ad9b]">
+                <p className="mt-4 text-base leading-8 text-[#93aab6]">
                   {item.answer}
                 </p>
               </article>

@@ -28,32 +28,32 @@ I want to request a private land intelligence consultation.`;
   };
 
   return (
-    <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
+    <main className="min-h-screen bg-[#02070d] text-[#f2efe7]">
       <section className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-32">
         <div>
-          <p className="text-xs uppercase text-[#b9a46d]">
+          <p className="text-xs uppercase text-[#86b8c8]">
             Acquisition desk
           </p>
 
-          <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[0.98] text-[#f4ead8] sm:text-6xl lg:text-7xl">
+          <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[0.98] text-[#f2efe7] sm:text-6xl lg:text-7xl">
             Submit an acquisition brief for confidential review.
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-9 text-[#cfc5b3]">
+          <p className="mt-8 max-w-2xl text-lg leading-9 text-[#b9cbd2]">
             Share the capital range, geography, and acquisition logic. Guild
             Acre responds with a private intelligence-led next step, not a
             public catalogue of options.
           </p>
 
-          <div className="mt-12 divide-y divide-[#2d2a22] border-y border-[#2d2a22]">
+          <div className="mt-12 divide-y divide-[#16344a] border-y border-[#16344a]">
             {[
               ["Mandate fit", "We first decide whether the geography, capital range, timing, and risk appetite make sense together."],
               ["Diligence direction", "The response identifies the records, access questions, zoning signals, and sensitivity checks that need attention."],
               ["Private movement", "Only relevant conversations, site context, or deeper advisory work follows after the brief is understood."],
             ].map(([title, text]) => (
               <div key={title} className="grid gap-4 py-7 sm:grid-cols-[0.35fr_0.65fr]">
-                <h2 className="text-2xl font-semibold text-[#f4ead8]">{title}</h2>
-                <p className="text-sm leading-7 text-[#b8ad9b] sm:text-base sm:leading-8">
+                <h2 className="text-2xl font-semibold text-[#f2efe7]">{title}</h2>
+                <p className="text-sm leading-7 text-[#93aab6] sm:text-base sm:leading-8">
                   {text}
                 </p>
               </div>
@@ -61,12 +61,12 @@ I want to request a private land intelligence consultation.`;
           </div>
         </div>
 
-        <div className="border border-[#2d2a22] bg-[#0b0b0a] p-5 sm:p-7 lg:p-8">
-          <div className="mb-7 border-b border-[#2d2a22] pb-6">
-            <p className="text-xs uppercase text-[#b9a46d]">
+        <div className="border border-[#16344a] bg-[#081725] p-5 sm:p-7 lg:p-8">
+          <div className="mb-7 border-b border-[#16344a] pb-6">
+            <p className="text-xs uppercase text-[#86b8c8]">
               Confidential brief
             </p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#f4ead8] sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#f2efe7] sm:text-4xl">
               Request Private Consultation
             </h2>
           </div>
@@ -113,8 +113,8 @@ I want to request a private land intelligence consultation.`;
             </Field>
           </div>
 
-          <label className="mt-4 block border border-[#2d2a22] bg-[#050505] p-4 transition duration-500 focus-within:border-[#bda56a]/70">
-            <span className="text-xs uppercase text-[#9d927f]">
+          <label className="mt-4 block border border-[#16344a] bg-[#02070d] p-4 transition duration-500 focus-within:border-[#7aaec1]/70">
+            <span className="text-xs uppercase text-[#738a99]">
               Acquisition Brief
             </span>
             <textarea
@@ -128,30 +128,30 @@ I want to request a private land intelligence consultation.`;
 
           <button
             onClick={handleWhatsAppSubmit}
-            className="mt-5 w-full rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-6 py-4 text-sm font-medium text-[#f4ead8] transition duration-500 hover:border-[#d4c083] hover:bg-[#bda56a]/10 sm:mt-6"
+            className="mt-5 w-full rounded-full border border-[#7aaec1]/55 bg-[#f2efe7]/[0.025] px-6 py-4 text-sm font-medium text-[#f2efe7] transition duration-500 hover:border-[#a9d4df] hover:bg-[#7aaec1]/10 sm:mt-6"
           >
             Request Private Consultation
           </button>
 
-          <p className="mt-5 text-xs leading-6 text-[#958b7c]">
+          <p className="mt-5 text-xs leading-6 text-[#6f8391]">
             Submitted information is used to assess fit for a private
             consultation. Read our{" "}
-            <a href="/privacy-policy" className="text-[#d4c083] underline underline-offset-4">
+            <a href="/privacy-policy" className="text-[#a9d4df] underline underline-offset-4">
               Privacy Policy
             </a>
             .
           </p>
 
-          <div className="mt-8 grid gap-px border border-[#2d2a22] bg-[#2d2a22] sm:grid-cols-2">
+          <div className="mt-8 grid gap-px border border-[#16344a] bg-[#16344a] sm:grid-cols-2">
             {[
               ["WhatsApp", "+91 97116 67782"],
               ["Email", "hello@guildacre.com"],
               ["Location", "Gurgaon, Haryana"],
               ["Office", "By appointment"],
             ].map(([label, value]) => (
-              <div key={label} className="bg-[#10100e] p-5">
-                <p className="text-xs uppercase text-[#9d927f]">{label}</p>
-                <p className="mt-2 text-sm text-[#f4ead8]">{value}</p>
+              <div key={label} className="bg-[#0d2030] p-5">
+                <p className="text-xs uppercase text-[#738a99]">{label}</p>
+                <p className="mt-2 text-sm text-[#f2efe7]">{value}</p>
               </div>
             ))}
           </div>
@@ -163,8 +163,8 @@ I want to request a private land intelligence consultation.`;
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <label className="block border border-[#2d2a22] bg-[#050505] p-4 transition duration-500 focus-within:border-[#bda56a]/70">
-      <span className="text-xs uppercase text-[#9d927f]">{label}</span>
+    <label className="block border border-[#16344a] bg-[#02070d] p-4 transition duration-500 focus-within:border-[#7aaec1]/70">
+      <span className="text-xs uppercase text-[#738a99]">{label}</span>
       {children}
     </label>
   );

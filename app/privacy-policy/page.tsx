@@ -16,15 +16,15 @@ export default function PrivacyPolicyPage() {
           { name: "Privacy Policy", path: "/privacy-policy" },
         ])}
       />
-      <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
+      <main className="min-h-screen bg-[#02070d] text-[#f2efe7]">
         <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <p className="text-xs uppercase text-[#b9a46d]">
+          <p className="text-xs uppercase text-[#86b8c8]">
             Legal
           </p>
           <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">
             Privacy Policy
           </h1>
-          <div className="mt-8 space-y-7 text-sm leading-7 text-[#cfc5b3] sm:text-base sm:leading-8">
+          <div className="mt-8 space-y-7 text-sm leading-7 text-[#b9cbd2] sm:text-base sm:leading-8">
             <p>
               Guild Acre collects enquiry details such as name, phone number,
               capital range, preferred geography, and acquisition brief when you

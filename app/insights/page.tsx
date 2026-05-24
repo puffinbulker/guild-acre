@@ -51,16 +51,16 @@ export default function InsightsPage() {
   return (
     <>
     <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }])} />
-    <main className="min-h-screen bg-[#050505] text-[#f4ead8]">
-      <section className="border-b border-[#2d2a22] bg-[#050505]">
+    <main className="min-h-screen bg-[#02070d] text-[#f2efe7]">
+      <section className="border-b border-[#16344a] bg-[#02070d]">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <p className="text-xs uppercase text-[#b9a46d]">
+          <p className="text-xs uppercase text-[#86b8c8]">
             Guild Acre intelligence notes
           </p>
           <h1 className="mt-4 max-w-4xl text-4xl font-semibold sm:text-5xl lg:text-6xl">
             Editorial notes for serious land acquisition decisions.
           </h1>
-          <p className="mt-5 max-w-3xl text-base leading-7 text-[#cfc5b3] sm:text-lg sm:leading-8">
+          <p className="mt-5 max-w-3xl text-base leading-7 text-[#b9cbd2] sm:text-lg sm:leading-8">
             These notes help buyers think more clearly about land, title,
             access, farmhouse decisions, and corridor-level tradeoffs before
             deeper diligence or negotiation begins.
@@ -74,15 +74,15 @@ export default function InsightsPage() {
             <Link
               key={article.href}
               href={article.href}
-              className="border border-[#2d2a22] bg-[#0b0b0a] p-6 transition duration-500 hover:border-[#bda56a]/45 hover:bg-[#11100d] sm:p-8"
+              className="border border-[#16344a] bg-[#081725] p-6 transition duration-500 hover:border-[#7aaec1]/45 hover:bg-[#10283b] sm:p-8"
             >
-              <h2 className="text-2xl font-semibold text-[#f4ead8]">
+              <h2 className="text-2xl font-semibold text-[#f2efe7]">
                 {article.title}
               </h2>
-              <p className="mt-4 text-sm leading-7 text-[#b8ad9b]">
+              <p className="mt-4 text-sm leading-7 text-[#93aab6]">
                 {article.summary}
               </p>
-              <div className="mt-6 text-sm font-semibold text-[#d4c083]">
+              <div className="mt-6 text-sm font-semibold text-[#a9d4df]">
                 Read note
               </div>
             </Link>

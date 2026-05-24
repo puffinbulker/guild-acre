@@ -47,7 +47,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
-      <body className="bg-[#050505] text-[#f4ead8] antialiased">
+      <body className="bg-[#02070d] text-[#f2efe7] antialiased">
         {gaId ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
@@ -63,18 +63,18 @@ export default function RootLayout({
         ) : null}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[#bda56a] focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#050505]"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[#7aaec1] focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#02070d]"
         >
           Skip to main content
         </a>
-        <header className="sticky top-0 z-50 border-b border-[#2d2a22]/70 bg-[#040403]/88 backdrop-blur-xl">
+        <header className="sticky top-0 z-50 border-b border-[#16344a]/70 bg-[#02070d]/88 backdrop-blur-xl">
           <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-8 px-5 py-4 sm:px-7 lg:px-10 lg:py-[1.1rem]">
             <Link href="/" className="group flex min-w-0 items-center gap-4 py-1">
               <div className="min-w-0">
-                <div className="font-[var(--font-editorial)] text-2xl font-semibold uppercase leading-none tracking-[0.16em] text-[#f4ead8] transition duration-700 group-hover:text-[#d4c083] sm:text-[1.65rem] sm:tracking-[0.18em]">
+                <div className="font-[var(--font-editorial)] text-2xl font-semibold uppercase leading-none tracking-[0.16em] text-[#f2efe7] transition duration-700 group-hover:text-[#a9d4df] sm:text-[1.65rem] sm:tracking-[0.18em]">
                   GUILD ACRE
                 </div>
-                <div className="mt-2 hidden text-[9px] uppercase tracking-[0.24em] text-[#9d927f] sm:block">
+                <div className="mt-2 hidden text-[9px] uppercase tracking-[0.24em] text-[#738a99] sm:block">
                   Private Land Intelligence & Acquisition Desk
                 </div>
               </div>
@@ -86,38 +86,38 @@ export default function RootLayout({
 
         <div id="main-content">{children}</div>
 
-        <footer className="border-t border-[#2d2a22] bg-[#050505] px-6 py-16 text-sm text-[#9d927f] lg:px-8">
+        <footer className="border-t border-[#16344a] bg-[#02070d] px-6 py-16 text-sm text-[#738a99] lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.25fr_0.75fr_0.75fr]">
             <div>
-              <p className="font-[var(--font-editorial)] text-2xl font-semibold uppercase tracking-[0.22em] text-[#f4ead8]">GUILD ACRE</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#bda56a]">Private Land Intelligence Institution</p>
+              <p className="font-[var(--font-editorial)] text-2xl font-semibold uppercase tracking-[0.22em] text-[#f2efe7]">GUILD ACRE</p>
+              <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#7aaec1]">Private Land Intelligence Institution</p>
               <p className="mt-3 max-w-xl leading-7">
                 Private land intelligence and strategic acquisition advisory for
                 select NCR buyers evaluating complex land-led opportunities.
               </p>
             </div>
             <div>
-              <p className="font-semibold text-[#f4ead8]">Acquisition Desk</p>
+              <p className="font-semibold text-[#f2efe7]">Acquisition Desk</p>
               <div className="mt-3 space-y-2">
-                <a className="block transition hover:text-[#d4c083]" href="tel:+919711667782">
+                <a className="block transition hover:text-[#a9d4df]" href="tel:+919711667782">
                   +91 97116 67782
                 </a>
-                <a className="block transition hover:text-[#d4c083]" href="mailto:hello@guildacre.com">
+                <a className="block transition hover:text-[#a9d4df]" href="mailto:hello@guildacre.com">
                   hello@guildacre.com
                 </a>
                 <p>Gurgaon, Haryana</p>
               </div>
             </div>
             <div>
-              <p className="font-semibold text-[#f4ead8]">Office</p>
+              <p className="font-semibold text-[#f2efe7]">Office</p>
               <div className="mt-3 space-y-2">
-                <Link className="block transition hover:text-[#d4c083]" href="/privacy-policy">
+                <Link className="block transition hover:text-[#a9d4df]" href="/privacy-policy">
                   Privacy Policy
                 </Link>
-                <Link className="block transition hover:text-[#d4c083]" href="/cookie-notice">
+                <Link className="block transition hover:text-[#a9d4df]" href="/cookie-notice">
                   Cookie Notice
                 </Link>
-                <Link className="block transition hover:text-[#d4c083]" href="/acquisition-desk">
+                <Link className="block transition hover:text-[#a9d4df]" href="/acquisition-desk">
                   Acquisition Desk
                 </Link>
               </div>
