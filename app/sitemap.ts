@@ -25,6 +25,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now
     },
     {
+      url: `${baseUrl}/ncr-land-intelligence`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/due-diligence-framework`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/sohna-land-outlook`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/naugaon-farmhouse-belt`,
+      lastModified: now
+    },
+    {
+      url: `${baseUrl}/intelligence-reports`,
+      lastModified: now
+    },
+    {
       url: `${baseUrl}/insights`,
       lastModified: now
     },

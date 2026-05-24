@@ -21,9 +21,6 @@ import {
 const consultationUrl =
   "https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20request%20a%20private%20land%20intelligence%20consultation.";
 
-const intelligenceUrl =
-  "https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20access%20a%20private%20land%20intelligence%20brief.";
-
 const trustLayer = [
   {
     title: "Private Land Intelligence",
@@ -246,7 +243,7 @@ I want to request a private land intelligence consultation.`;
               </a>
 
               <a
-                href="#intelligence-briefs"
+                href="/intelligence-reports"
                 className="rounded-[2px] border border-[#e8f0f2]/12 bg-[#010814]/20 px-8 py-4 text-center text-sm font-medium text-[#b9cbd2] transition duration-700 hover:-translate-y-px hover:border-[#7fb7ca]/50 hover:bg-[#f2efe7]/[0.035] hover:text-[#f2efe7]"
               >
                 Access Intelligence Brief
@@ -512,12 +509,10 @@ I want to request a private land intelligence consultation.`;
                 ))}
               </div>
               <a
-                href={intelligenceUrl}
-                target="_blank"
-                rel="noreferrer"
+                href="/intelligence-reports"
                 className="mt-8 inline-flex rounded-[2px] border border-[#7fb7ca]/45 px-7 py-4 text-sm font-medium text-[#f2efe7] transition duration-700 hover:-translate-y-px hover:border-[#a9d4df]/75 hover:bg-[#f2efe7]/[0.04]"
               >
-                Request Brief Access
+                View Restricted Reports
               </a>
             </div>
           </div>

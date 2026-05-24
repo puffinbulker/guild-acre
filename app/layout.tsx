@@ -87,7 +87,7 @@ export default function RootLayout({
         <div id="main-content">{children}</div>
 
         <footer className="border-t border-[#16344a] bg-[#02070d] px-6 py-16 text-sm text-[#738a99] lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.25fr_0.75fr_0.75fr]">
+          <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_0.8fr_0.75fr_0.75fr]">
             <div>
               <p className="font-[var(--font-editorial)] text-2xl font-semibold uppercase tracking-[0.22em] text-[#f2efe7]">GUILD ACRE</p>
               <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#7aaec1]">Private Land Intelligence Institution</p>
@@ -95,6 +95,26 @@ export default function RootLayout({
                 Private land intelligence and strategic acquisition advisory for
                 select NCR buyers evaluating complex land-led opportunities.
               </p>
+            </div>
+            <div>
+              <p className="font-semibold text-[#f2efe7]">Intelligence</p>
+              <div className="mt-3 space-y-2">
+                <Link className="block transition hover:text-[#a9d4df]" href="/ncr-land-intelligence">
+                  NCR Land Intelligence
+                </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/due-diligence-framework">
+                  Due Diligence Framework
+                </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/sohna-land-outlook">
+                  Sohna Land Outlook
+                </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/naugaon-farmhouse-belt">
+                  Naugaon Farmhouse Belt
+                </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/intelligence-reports">
+                  Intelligence Reports
+                </Link>
+              </div>
             </div>
             <div>
               <p className="font-semibold text-[#f2efe7]">Acquisition Desk</p>

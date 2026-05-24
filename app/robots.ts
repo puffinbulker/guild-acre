@@ -7,7 +7,22 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: ["/", "/about", "/acquisition-desk", "/strategic-opportunities", "/corridor-coverage", "/insights", "/properties/", "/privacy-policy", "/cookie-notice"],
+      allow: [
+        "/",
+        "/about",
+        "/acquisition-desk",
+        "/strategic-opportunities",
+        "/corridor-coverage",
+        "/ncr-land-intelligence",
+        "/due-diligence-framework",
+        "/sohna-land-outlook",
+        "/naugaon-farmhouse-belt",
+        "/intelligence-reports",
+        "/insights",
+        "/properties/",
+        "/privacy-policy",
+        "/cookie-notice"
+      ],
       disallow: ["/admin", "/api/"]
     },
     sitemap: `${baseUrl}/sitemap.xml`
