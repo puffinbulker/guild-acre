@@ -141,28 +141,31 @@ I want to request a private land intelligence consultation.`;
   };
 
   return (
-    <main className="min-h-screen bg-[#050505] text-[#efe7d6]">
-      <section className="relative min-h-[calc(88svh-88px)] overflow-hidden border-b border-[#2d2a22] bg-[#050505] lg:min-h-[calc(86svh-88px)]">
+    <main className="min-h-screen bg-[#040403] text-[#efe7d6]">
+      <section className="relative min-h-[calc(92svh-88px)] overflow-hidden border-b border-[#2b261d] bg-[#030303] lg:min-h-[calc(88svh-88px)]">
         <Image
           src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=82"
           alt="Cinematic land horizon in low light"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-[0.28]"
+          className="scale-[1.04] object-cover object-[center_54%] opacity-[0.42] [filter:saturate(0.62)_contrast(1.12)_brightness(0.62)_sepia(0.14)]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.96)_0%,rgba(5,5,5,0.8)_48%,rgba(5,5,5,0.46)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-52 bg-[linear-gradient(180deg,rgba(5,5,5,0)_0%,#050505_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,3,3,0.98)_0%,rgba(3,3,3,0.86)_34%,rgba(3,3,3,0.56)_66%,rgba(3,3,3,0.76)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,3,3,0.9)_0%,rgba(3,3,3,0.12)_30%,rgba(3,3,3,0.36)_68%,#040403_100%)]" />
+        <div className="absolute inset-x-0 top-[28%] h-px bg-[linear-gradient(90deg,transparent,rgba(212,192,131,0.34),transparent)] opacity-60" />
+        <div className="absolute inset-x-0 bottom-0 h-72 bg-[linear-gradient(180deg,rgba(4,4,3,0)_0%,rgba(4,4,3,0.84)_56%,#040403_100%)]" />
 
-        <div className="relative mx-auto grid min-h-[calc(88svh-88px)] max-w-7xl gap-12 px-5 py-14 sm:px-6 sm:py-16 lg:min-h-[calc(86svh-88px)] lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-16 xl:gap-20">
-          <div className="flex flex-col justify-center">
-            <p className="text-xs uppercase text-[#b9a46d] sm:text-sm">
+        <div className="relative mx-auto grid min-h-[calc(92svh-88px)] max-w-[88rem] gap-16 px-5 py-20 sm:px-7 sm:py-24 lg:min-h-[calc(88svh-88px)] lg:grid-cols-[0.96fr_1.04fr] lg:px-10 lg:py-10 xl:gap-24">
+          <div className="flex max-w-4xl flex-col justify-center">
+            <p className="inline-flex items-center gap-4 text-[0.72rem] font-medium uppercase text-[#c9b276] sm:text-[0.82rem]">
+              <span className="h-px w-10 bg-[#c6a76a]/55" />
               Private land intelligence institution
             </p>
 
             <h1
               aria-label="Private Land Intelligence for Select NCR Buyers"
-              className="mt-7 max-w-4xl text-[2.55rem] font-semibold leading-[1.05] text-[#f4ead8] sm:text-6xl lg:text-[4.85rem] xl:text-[5.35rem]"
+              className="mt-6 max-w-4xl text-[2.72rem] font-medium leading-[1.02] text-[#f7ecdc] sm:text-[3.85rem] lg:text-[4.1rem] xl:text-[4.25rem]"
             >
               <span className="block">Private Land</span>
               {" "}
@@ -173,24 +176,24 @@ I want to request a private land intelligence consultation.`;
               <span className="block text-[#d6c184]">Buyers</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-8 text-[#cfc5b3] sm:text-lg sm:leading-9">
+            <p className="mt-7 max-w-[42rem] text-[1.02rem] leading-8 text-[#d6cbb8] sm:text-[1.14rem] sm:leading-9">
               Strategic acquisition advisory across Gurgaon NCR, Sohna,
               Aravali Belt, and emerging growth corridors.
             </p>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={consultationUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-[#bda56a]/55 bg-[#f4ead8]/[0.025] px-7 py-4 text-center text-sm font-medium text-[#f4ead8] transition duration-500 hover:-translate-y-0.5 hover:border-[#d4c083] hover:bg-[#bda56a]/10"
+                className="rounded-[2px] border border-[#c6a76a]/45 bg-[#f4ead8]/[0.018] px-8 py-4 text-center text-sm font-medium text-[#f5ead8] transition duration-500 hover:-translate-y-px hover:border-[#d4c083]/75 hover:bg-[#f4ead8]/[0.05]"
               >
                 Request Private Consultation
               </a>
 
               <a
                 href="#intelligence-briefs"
-                className="rounded-full border border-[#efe7d6]/12 px-7 py-4 text-center text-sm font-medium text-[#cfc5b3] transition duration-500 hover:-translate-y-0.5 hover:border-[#bda56a]/55 hover:text-[#f4ead8]"
+                className="rounded-[2px] border border-[#efe7d6]/12 bg-[#030303]/20 px-8 py-4 text-center text-sm font-medium text-[#cfc5b3] transition duration-500 hover:-translate-y-px hover:border-[#c6a76a]/50 hover:bg-[#f4ead8]/[0.035] hover:text-[#f4ead8]"
               >
                 Access Intelligence Brief
               </a>
@@ -198,24 +201,25 @@ I want to request a private land intelligence consultation.`;
           </div>
 
           <aside className="hidden items-end lg:flex lg:justify-end">
-            <div className="w-full max-w-xl border border-[#bda56a]/18 bg-[#080807]/72 p-5 backdrop-blur-md sm:p-7 lg:mb-8">
-              <div className="flex items-center justify-between gap-4 border-b border-[#2d2a22] pb-5">
-                <p className="text-xs uppercase text-[#b9a46d]">Active coverage desk</p>
+            <div className="relative w-full max-w-xl overflow-hidden border border-[#c6a76a]/16 bg-[#050505]/58 p-6 shadow-[0_42px_120px_rgba(0,0,0,0.42)] backdrop-blur-xl sm:p-8 lg:mb-10">
+              <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(212,192,131,0.46),transparent)]" />
+              <div className="flex items-center justify-between gap-4 border-b border-[#2d2a22]/90 pb-6">
+                <p className="text-xs uppercase text-[#c9b276]">Active coverage desk</p>
                 <span className="text-xs text-[#8f8678]">NCR / 2026</span>
               </div>
 
-              <div className="divide-y divide-[#2d2a22]">
+              <div className="divide-y divide-[#2d2a22]/90">
                 {[
                   ["Gurgaon NCR", "Demand depth, land scarcity, mature micro-market pressure"],
                   ["Sohna", "Growth corridor review, parcel quality, access, liquidity"],
                   ["Aravali Belt", "Sensitivity checks, use constraints, risk containment"],
                   ["Emerging Corridors", "Infrastructure probability and capital-fit review"],
                 ].map(([title, text]) => (
-                  <div key={title} className="group grid gap-4 py-6 sm:grid-cols-[0.35fr_0.65fr]">
-                    <h2 className="text-2xl font-semibold leading-tight text-[#f4ead8] transition duration-500 group-hover:text-[#d4c083]">
+                  <div key={title} className="group grid gap-5 py-7 sm:grid-cols-[0.36fr_0.64fr]">
+                    <h2 className="text-[1.72rem] font-medium leading-[1.02] text-[#f4ead8] transition duration-500 group-hover:text-[#d4c083]">
                       {title}
                     </h2>
-                    <p className="text-sm leading-7 text-[#a99f8f] transition duration-500 group-hover:text-[#cfc5b3]">
+                    <p className="text-[0.92rem] leading-7 text-[#aaa08e] transition duration-500 group-hover:text-[#d0c4b1]">
                       {text}
                     </p>
                   </div>
