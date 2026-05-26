@@ -69,14 +69,17 @@ export default function RootLayout({
         </a>
         <header className="sticky top-0 z-50 border-b border-[#16344a]/70 bg-[#02070d]/88 backdrop-blur-xl">
           <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-8 px-5 py-4 sm:px-7 lg:px-10 lg:py-[1.1rem]">
-            <Link href="/" className="group flex min-w-0 items-center py-1" aria-label="Guild Acre home">
+            <Link href="/" className="group flex min-w-0 flex-col items-start py-1" aria-label="Guild Acre home">
               <img
                 src="/guild-acre-logo.png"
                 alt="Guild Acre"
                 width={959}
                 height={260}
-                className="h-12 w-auto max-w-[190px] object-contain transition duration-700 group-hover:opacity-90 sm:h-14 sm:max-w-[218px] lg:h-16 lg:max-w-[250px]"
+                className="h-10 w-auto max-w-[180px] object-contain transition duration-700 group-hover:opacity-90 sm:h-12 sm:max-w-[218px] lg:h-14 lg:max-w-[250px]"
               />
+              <span className="mt-1 max-w-[210px] text-[9px] font-medium leading-4 tracking-[0.08em] text-[#8fbfcd] transition duration-700 group-hover:text-[#b8dbe3] sm:max-w-[270px]">
+                Guild Acre — Private Land Intelligence & Acquisition Desk
+              </span>
             </Link>
 
             <Navbar />
@@ -95,7 +98,9 @@ export default function RootLayout({
                 height={260}
                 className="h-16 w-auto max-w-[250px] object-contain"
               />
-              <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#7aaec1]">Private Land Investment Intelligence Desk</p>
+              <p className="mt-2 text-[10px] font-medium tracking-[0.14em] text-[#7aaec1]">
+                Guild Acre — Private Land Intelligence & Acquisition Desk
+              </p>
               <p className="mt-3 max-w-xl leading-7">
                 Private land investment intelligence and strategic acquisition
                 advisory across Gurgaon NCR and emerging Haryana growth
