@@ -8,7 +8,7 @@ const advisors = [
     label: "Advisor 01",
     name: "Harvinder Yadav",
     focus: "Gurgaon & NCR corridor land",
-    text: "Focused on buyer-side mandate structuring, local diligence coordination, and land-led acquisition context across Gurgaon core and emerging NCR corridors.",
+    text: "Focused on buyer-side mandate structuring, field diligence coordination, and land-led acquisition context across Gurgaon core and emerging NCR corridors.",
   },
   {
     label: "Advisor 02",
@@ -35,7 +35,7 @@ const acceptance = [
 
 const deskWork = [
   ["Advisory Mandate", "A private research brief aligned with capital allocation, corridor preference, and strategic intent."],
-  ["Deal Access", "Selective access to privately reviewed land opportunities only where the risk profile fits the buyer."],
+  ["Opportunity Access", "Selective access to privately reviewed land opportunities only where the risk profile fits the buyer."],
   ["Acquisition Support", "Coordination across diligence, legal review, negotiation logic, documentation, and post-acquisition checks."],
 ];
 
@@ -209,7 +209,7 @@ I want to request a private land intelligence consultation.`;
 
             <p className="mt-5 text-xs leading-6 text-[#6f8391]">
               Your brief is seen only by the Guild Acre advisory team. It is
-              not shared with developers, seller networks, or third-party
+              not shared with developers, seller networks, or external
               platforms. Read our{" "}
               <a href="/privacy-policy" className="text-[#a9d4df] underline underline-offset-4">
                 Privacy Policy

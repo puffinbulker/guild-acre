@@ -68,7 +68,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now
     },
     {
-      url: `${baseUrl}/insights/red-flags-in-plotted-land-deals-near-gurgaon`,
+      url: `${baseUrl}/insights/plotted-land-risk-signals-near-gurgaon`,
       lastModified: now
     },
     {

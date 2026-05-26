@@ -18,7 +18,7 @@ export default function VerifyLandTitlePage() {
           How to verify land title before buying near Gurgaon
         </h1>
         <p className="mt-6 text-base leading-8 text-[#b9cbd2] sm:text-lg">
-          Land deals require more caution than standard apartment purchases.
+          Land acquisitions require more caution than standard apartment purchases.
           Before getting influenced by price, location hype, or future growth
           claims, buyers should first understand whether the ownership and use
           narrative is actually clean enough to justify deeper interest.

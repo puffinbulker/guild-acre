@@ -22,16 +22,16 @@ const articles = [
       "A corridor comparison for buyers deciding between growth momentum and premium-family positioning in NCR.",
   },
   {
-    href: "/insights/red-flags-in-plotted-land-deals-near-gurgaon",
-    title: "Red flags in plotted land deals near Gurgaon",
+    href: "/insights/plotted-land-risk-signals-near-gurgaon",
+    title: "Plotted land risk signals near Gurgaon",
     summary:
-      "A practical guide to the warning signs buyers should notice before treating a plotted deal as serious.",
+      "A practical guide to risk signals buyers should notice before treating a plotted opportunity as serious.",
   },
   {
     href: "/insights/title-checks-before-buying-farmhouse-land",
     title: "Title checks before buying farmhouse land",
     summary:
-      "A simpler way to think about ownership, use-case risk, and diligence questions before moving deeper into a farmhouse land deal.",
+      "A simpler way to think about ownership, use-case risk, and diligence questions before advancing into a farmhouse land acquisition.",
   },
   {
     href: "/insights/corridor-coverage-comparison-for-serious-buyers",

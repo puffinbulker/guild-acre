@@ -192,7 +192,7 @@ export default async function CorridorAreaPage({ params }: Props) {
           {AREA_INSIGHTS[slug] ? (
             <section className="area-market card">
               <div className="area-market__intro">
-                <span className="section-tag">Local Buyer Insight</span>
+                <span className="section-tag">Market Intelligence Note</span>
                 <h2>{AREA_INSIGHTS[slug].title}</h2>
                 <p>{AREA_INSIGHTS[slug].summary}</p>
               </div>

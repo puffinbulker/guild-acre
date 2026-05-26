@@ -54,7 +54,7 @@ export default function TitleChecksFarmhouseLandPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">Use legal review before the deal feels emotionally "done"</h2>
+            <h2 className="text-2xl font-semibold text-[#f2efe7]">Use legal review before the acquisition feels emotionally final</h2>
             <p className="mt-3 leading-8">
               The right time for legal checking is before the property becomes a
               lifestyle dream in your mind. Buyers tend to rationalize risk once

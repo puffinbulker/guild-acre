@@ -74,7 +74,7 @@ export function createPageMetadata({
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+    "@type": ["Organization", "ProfessionalService"],
     name: siteName,
     url: getCanonicalSiteUrl(),
     logo: absoluteUrl("/guild-acre-logo.png"),

@@ -170,7 +170,7 @@ export const PROPERTY_VISUAL_CATEGORIES: PropertyVisualCategory[] = [
     description: "Larger agricultural parcels and mandatable rural-edge holdings for strategic buyers.",
     imageUrl:
       "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80",
-    useCases: ["Large parcel enquiry", "Long-hold strategy", "Rural edge deals"]
+    useCases: ["Large parcel enquiry", "Long-hold strategy", "Rural edge acquisitions"]
   },
   {
     slug: "commercial",

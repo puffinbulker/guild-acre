@@ -127,7 +127,7 @@ export default function DueDiligenceFrameworkPage() {
             <div>
               <p className="text-lg leading-9 text-[#b9cbd2]">
                 Guild Acre does not treat land acquisition as a simple
-                introduction. Each dimension requires local record access, legal
+                introduction. Each dimension requires field record access, legal
                 interpretation, and buyer-specific judgement.
               </p>
               <Link

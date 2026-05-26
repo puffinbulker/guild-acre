@@ -232,7 +232,7 @@ export default async function PropertyDetailPage({ params }: Props) {
               </div>
               <p>
                 Indicative public range for {marketGuide.title}: {marketGuide.indicativeRange}. Final
-                deal value depends on access, frontage, registry position, seller urgency,
+                valuation context depends on access, frontage, registry position, seller urgency,
                 development stage, and diligence outcome.
               </p>
               <a
