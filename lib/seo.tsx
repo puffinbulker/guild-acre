@@ -77,7 +77,7 @@ export function organizationSchema() {
     "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
     name: siteName,
     url: getCanonicalSiteUrl(),
-    logo: absoluteUrl("/logo.png"),
+    logo: absoluteUrl("/guild-acre-logo.png"),
     image: absoluteUrl("/logo.png"),
     telephone: phone,
     email,

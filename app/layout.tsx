@@ -69,15 +69,14 @@ export default function RootLayout({
         </a>
         <header className="sticky top-0 z-50 border-b border-[#16344a]/70 bg-[#02070d]/88 backdrop-blur-xl">
           <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-8 px-5 py-4 sm:px-7 lg:px-10 lg:py-[1.1rem]">
-            <Link href="/" className="group flex min-w-0 items-center gap-4 py-1">
-              <div className="min-w-0">
-                <div className="font-[var(--font-editorial)] text-2xl font-semibold uppercase leading-none tracking-[0.16em] text-[#f2efe7] transition duration-700 group-hover:text-[#a9d4df] sm:text-[1.65rem] sm:tracking-[0.18em]">
-                  GUILD ACRE
-                </div>
-                <div className="mt-2 hidden text-[9px] uppercase tracking-[0.24em] text-[#738a99] sm:block">
-                  Private Land Investment Intelligence Desk
-                </div>
-              </div>
+            <Link href="/" className="group flex min-w-0 items-center py-1" aria-label="Guild Acre home">
+              <img
+                src="/guild-acre-logo.png"
+                alt="Guild Acre"
+                width={959}
+                height={260}
+                className="h-12 w-auto max-w-[190px] object-contain transition duration-700 group-hover:opacity-90 sm:h-14 sm:max-w-[218px] lg:h-16 lg:max-w-[250px]"
+              />
             </Link>
 
             <Navbar />
@@ -89,7 +88,13 @@ export default function RootLayout({
         <footer className="border-t border-[#16344a] bg-[#02070d] px-6 py-16 text-sm text-[#738a99] lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_0.8fr_0.75fr_0.75fr]">
             <div>
-              <p className="font-[var(--font-editorial)] text-2xl font-semibold uppercase tracking-[0.22em] text-[#f2efe7]">GUILD ACRE</p>
+              <img
+                src="/guild-acre-logo.png"
+                alt="Guild Acre"
+                width={959}
+                height={260}
+                className="h-16 w-auto max-w-[250px] object-contain"
+              />
               <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#7aaec1]">Private Land Investment Intelligence Desk</p>
               <p className="mt-3 max-w-xl leading-7">
                 Private land investment intelligence and strategic acquisition
