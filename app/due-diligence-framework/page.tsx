@@ -36,10 +36,10 @@ const pillars = [
 ];
 
 const sampleLens = [
-  ["Parcel profile", "3.2-acre agricultural parcel on the Sohna-Naugaon approach corridor."],
+  ["Parcel profile", "3.2-acre agricultural parcel on an emerging Haryana growth corridor."],
   ["Developer affiliation", "None. Treated as buyer-side land diligence, not a project purchase."],
-  ["Primary concern", "Title continuity, PLPA sensitivity, access-road legality, and long-horizon liquidity."],
-  ["Advisory position", "Proceed only if revenue records, legal access, and environmental status are independently confirmed."],
+  ["Primary concern", "Title continuity, CLU relevance, access-road legality, land-use fit, and long-horizon liquidity."],
+  ["Advisory position", "Proceed only if revenue records, legal access, zoning context, and infrastructure availability are independently confirmed."],
 ];
 
 export default function DueDiligenceFrameworkPage() {

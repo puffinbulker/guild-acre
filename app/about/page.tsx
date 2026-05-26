@@ -1,9 +1,9 @@
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "About Guild Acre | Private Land Intelligence Institution",
+  title: "About Guild Acre | Private Land Investment Intelligence Desk",
   description:
-    "Learn how Guild Acre operates as a private land intelligence institution for strategic acquisition advisory across Gurgaon NCR, Sohna, and the Aravali Belt.",
+    "Learn how Guild Acre operates as a private land investment intelligence desk for Gurgaon NCR and emerging Haryana growth corridors.",
   path: "/about",
 });
 
@@ -24,9 +24,9 @@ export default function AboutPage() {
   ];
 
   const strengths = [
-    "Gurgaon NCR and southern corridor reading",
+    "Gurgaon NCR and emerging Haryana corridor mapping",
     "Land, farmhouse, plotted, and strategic acreage evaluation",
-    "Title, access, zoning, and environmental sensitivity orientation",
+    "Title, access, zoning, CLU, and acquisition risk orientation",
     "Founder-led judgement before deeper capital movement",
   ];
 
@@ -34,12 +34,12 @@ export default function AboutPage() {
     {
       question: "What is Guild Acre?",
       answer:
-        "Guild Acre is a private land intelligence office for select NCR buyers who need strategic acquisition clarity before committing time, capital, or reputation to a land-led opportunity.",
+        "Guild Acre is a Private Land Investment Intelligence Desk for Gurgaon NCR & Emerging Haryana Growth Corridors, built for buyers who need strategic clarity before committing time, capital, or reputation.",
     },
     {
       question: "Who is the work designed for?",
       answer:
-        "The work suits HNI buyers, family offices, founders, and serious investors evaluating Gurgaon NCR, Sohna, Aravali-adjacent belts, and emerging growth corridors.",
+        "The work suits HNI buyers, family offices, founders, and serious investors evaluating Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh.",
     },
     {
       question: "How does the process begin?",
@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div>
               <p className="text-xs uppercase text-[#86b8c8]">About Guild Acre</p>
               <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f2efe7] sm:text-6xl lg:text-7xl">
-                A private land intelligence institution for strategic NCR acquisition.
+                A private land investment intelligence desk for strategic Haryana corridor acquisition.
               </h1>
             </div>
 
@@ -70,8 +70,8 @@ export default function AboutPage() {
               <p>
                 Guild Acre helps serious buyers understand land-led opportunities
                 before the market becomes noisy. The focus is on judgement,
-                discretion, and acquisition logic across Gurgaon NCR, Sohna,
-                Aravali-adjacent terrain, and emerging growth corridors.
+                discretion, and acquisition logic across Gurgaon NCR, Pataudi,
+                Farrukhnagar, Rewari, Narnaul, and Mahendergarh.
               </p>
               <p className="mt-6">
                 The office is not built around public browsing behavior. It is

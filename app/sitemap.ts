@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllProperties } from "@/lib/data-store";
+import { isPublicMarketRecord } from "@/lib/market-scope";
 import { getCorridorCoveragePages } from "@/lib/queries";
 import { getCanonicalSiteUrl } from "@/lib/site";
 
@@ -8,7 +9,9 @@ export const dynamic = "force-dynamic";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getCanonicalSiteUrl();
   const [properties, areas] = await Promise.all([getAllProperties(), getCorridorCoveragePages()]);
-  const publicProperties = properties.filter((property) => property.approvalStatus === "APPROVED");
+  const publicProperties = properties.filter(
+    (property) => property.approvalStatus === "APPROVED" && isPublicMarketRecord(property)
+  );
   const now = new Date();
 
   return [
@@ -30,14 +33,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/due-diligence-framework`,
-      lastModified: now
-    },
-    {
-      url: `${baseUrl}/sohna-land-outlook`,
-      lastModified: now
-    },
-    {
-      url: `${baseUrl}/naugaon-farmhouse-belt`,
       lastModified: now
     },
     {
@@ -66,10 +61,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/insights/verify-land-title-near-gurgaon`,
-      lastModified: now
-    },
-    {
-      url: `${baseUrl}/insights/sohna-vs-naugaon-farmhouse-investment`,
       lastModified: now
     },
     {

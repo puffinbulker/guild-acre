@@ -51,12 +51,11 @@ export default function CorridorComparisonPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">Sohna Road and adjoining belts need more use-case clarity</h2>
+            <h2 className="text-2xl font-semibold text-[#f2efe7]">Emerging Haryana corridors need stricter risk screening</h2>
             <p className="mt-3 leading-8">
-              These corridors can work well, but buyers usually benefit from
-              being much clearer about whether they want practical end use,
-              broader value, or land-led positioning rather than a trophy-market
-              story.
+              Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh require
+              corridor-specific reading around title, CLU, access, infrastructure
+              timing, liquidity depth, and realistic exit audience.
             </p>
           </section>
         </div>

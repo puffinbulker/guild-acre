@@ -8,11 +8,11 @@ import { absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
   title: {
-    default: "Guild Acre | Private Land Intelligence Institution",
+    default: "Guild Acre | Private Land Investment Intelligence Desk",
     template: "%s",
   },
   description:
-    "Private land intelligence and strategic acquisition advisory for select NCR buyers across Gurgaon, Sohna, the Aravali Belt, and emerging growth corridors.",
+    "Private Land Investment Intelligence Desk for Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, Mahendergarh, and emerging Haryana growth corridors.",
   applicationName: "Guild Acre",
   icons: {
     icon: "/icon.svg",
@@ -75,7 +75,7 @@ export default function RootLayout({
                   GUILD ACRE
                 </div>
                 <div className="mt-2 hidden text-[9px] uppercase tracking-[0.24em] text-[#738a99] sm:block">
-                  Private Land Intelligence & Acquisition Desk
+                  Private Land Investment Intelligence Desk
                 </div>
               </div>
             </Link>
@@ -90,10 +90,11 @@ export default function RootLayout({
           <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_0.8fr_0.75fr_0.75fr]">
             <div>
               <p className="font-[var(--font-editorial)] text-2xl font-semibold uppercase tracking-[0.22em] text-[#f2efe7]">GUILD ACRE</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#7aaec1]">Private Land Intelligence Institution</p>
+              <p className="mt-2 text-[10px] uppercase tracking-[0.32em] text-[#7aaec1]">Private Land Investment Intelligence Desk</p>
               <p className="mt-3 max-w-xl leading-7">
-                Private land intelligence and strategic acquisition advisory for
-                select NCR buyers evaluating complex land-led opportunities.
+                Private land investment intelligence and strategic acquisition
+                advisory across Gurgaon NCR and emerging Haryana growth
+                corridors.
               </p>
             </div>
             <div>
@@ -105,14 +106,23 @@ export default function RootLayout({
                 <Link className="block transition hover:text-[#a9d4df]" href="/due-diligence-framework">
                   Due Diligence Framework
                 </Link>
-                <Link className="block transition hover:text-[#a9d4df]" href="/sohna-land-outlook">
-                  Sohna Land Outlook
-                </Link>
-                <Link className="block transition hover:text-[#a9d4df]" href="/naugaon-farmhouse-belt">
-                  Naugaon Farmhouse Belt
-                </Link>
                 <Link className="block transition hover:text-[#a9d4df]" href="/intelligence-reports">
                   Intelligence Reports
+                </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/corridor-coverage/pataudi">
+                  Pataudi
+                </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/corridor-coverage/farrukhnagar">
+                  Farrukhnagar
+                </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/corridor-coverage/rewari">
+                  Rewari
+                </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/corridor-coverage/narnaul">
+                  Narnaul
+                </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/corridor-coverage/mahendergarh">
+                  Mahendergarh
                 </Link>
               </div>
             </div>

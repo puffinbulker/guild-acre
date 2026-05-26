@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "How to Verify Land Title Before Buying Near Gurgaon | Guild Acre",
   description:
-    "A practical land-title checklist for serious buyers evaluating plotted, farmhouse, or land-led opportunities near Gurgaon and Sohna.",
+    "A practical land-title checklist for serious buyers evaluating plotted, farmhouse, or land-led opportunities across Gurgaon NCR and emerging Haryana corridors.",
   path: "/insights/verify-land-title-near-gurgaon",
 });
 

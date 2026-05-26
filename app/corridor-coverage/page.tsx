@@ -3,7 +3,7 @@ import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Corridor Coverage | Guild Acre",
   description:
-    "Private corridor intelligence for select buyers evaluating NCR, Sohna, Aravali-adjacent belts, and emerging strategic growth corridors.",
+    "Private corridor intelligence for Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, Mahendergarh, and emerging Haryana growth corridors.",
   path: "/corridor-coverage",
 });
 
@@ -12,7 +12,7 @@ export default function CorridorCoveragePage() {
     {
       question: "Which NCR corridors require deeper intelligence?",
       answer:
-        "Sohna, SPR, Dwarka Expressway, Golf Course Extension, New Gurgaon, and Aravali-adjacent pockets all require different checks around access, policy direction, demand depth, and exit audience.",
+        "Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh all require different checks around access, CLU, land use, title chain, policy direction, infrastructure probability, and exit audience.",
     },
     {
       question: "Can Guild Acre compare corridors privately?",
@@ -28,42 +28,42 @@ export default function CorridorCoveragePage() {
 
   const corridorCards = [
     {
-      title: "Sohna Corridor",
-      tag: "Growth Belt",
-      text: "Parcel quality, approach road reality, policy momentum, and buyer depth need to be read together before conviction is formed.",
+      title: "Gurgaon NCR",
+      tag: "HNI Advisory",
+      text: "Plotted development, farmhouse evaluation, and strategic land acquisition require title clarity, zoning fit, and entry discipline.",
     },
     {
-      title: "Aravali Belt",
-      tag: "Sensitivity Zone",
-      text: "Environmental context, use restrictions, terrain, water bodies, and documentation friction are central to any responsible review.",
+      title: "Pataudi",
+      tag: "Spillover Growth",
+      text: "Highway-led residential and plotted opportunity must be tested through CLU, controlled-area context, access, and acquisition risk.",
     },
     {
-      title: "Golf Course Extension",
-      tag: "Premium Expansion",
-      text: "Demand quality remains strong, but entry discipline, product maturity, and exact pocket continue to shape the acquisition thesis.",
+      title: "Farrukhnagar",
+      tag: "Logistics Corridor",
+      text: "Warehousing and industrial expansion potential depends on zoning, road width, land use, and title-chain continuity.",
     },
     {
-      title: "Dwarka Expressway",
-      tag: "Infrastructure Watch",
-      text: "Growth expectation must be tested against delivery timelines, access quality, competing supply, and realistic exit logic.",
+      title: "Rewari",
+      tag: "Industrial Influence",
+      text: "Bawal-Dharuhera-Manesar influence is reviewed alongside mutation, registry chain, and master-plan alignment.",
     },
     {
-      title: "Southern Peripheral Road",
-      tag: "Transition Axis",
-      text: "Commercial pressure, residential absorption, and connectivity improvements create different readings by parcel and micro-location.",
+      title: "Narnaul",
+      tag: "Freight Corridor Watch",
+      text: "Long-term logistics potential must be read through project timeline, water, power, access quality, and resale liquidity.",
     },
     {
-      title: "New Gurgaon",
-      tag: "Demand Migration",
-      text: "Family-led migration, improving social infrastructure, and edge-market pricing need to be assessed with patience.",
+      title: "Mahendergarh",
+      tag: "Land Banking",
+      text: "Selective long-term land banking depends on liquidity, infrastructure availability, clear title, and realistic exit audience.",
     },
   ];
 
   const lenses = [
     "Ownership and title continuity",
     "Access and approach integrity",
-    "Zoning and CLU relevance",
-    "Environmental sensitivity",
+    "Zoning, CLU, and controlled-area relevance",
+    "Water, power, and infrastructure availability",
     "Infrastructure probability",
     "Liquidity and exit logic",
   ];
@@ -88,14 +88,14 @@ export default function CorridorCoveragePage() {
             </h1>
 
             <p className="mt-8 max-w-3xl text-lg leading-9 text-[#b9cbd2]">
-              NCR land is not one market. Each belt requires its own view
-              on access, policy, demand depth, infrastructure probability, and
-              the quality of exit that a buyer can realistically expect.
+              Haryana land is not one market. Each belt requires its own view
+              on access, policy, title, CLU, infrastructure probability, and the
+              quality of exit that a buyer can realistically expect.
             </p>
 
             <div className="mt-14 grid gap-px border border-[#16344a] bg-[#16344a] sm:grid-cols-3">
               {[
-                ["Coverage", "NCR and southern growth belts"],
+                ["Coverage", "Gurgaon NCR and emerging Haryana growth corridors"],
                 ["Method", "Private brief and diligence orientation"],
                 ["Best for", "HNI buyers, founders, and family offices"],
               ].map(([label, value]) => (

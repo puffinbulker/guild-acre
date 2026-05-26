@@ -23,7 +23,7 @@ const consultationUrl =
 
 const trustLayer = [
   {
-    title: "Private Land Intelligence",
+    title: "Private Land Investment Intelligence",
     Icon: Compass,
   },
   {
@@ -68,7 +68,7 @@ const coreFrameworks = [
   {
     title: "Corridor Intelligence\u2122",
     Icon: MapPinned,
-    text: "AI-assisted micro-market intelligence across Gurgaon fringe expansion, Sohna growth, Naugaon movement, and infrastructure timelines.",
+    text: "AI-assisted micro-market intelligence across Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh growth corridors.",
   },
   {
     title: "Land Risk Index\u2122",
@@ -101,7 +101,7 @@ const verifiedFramework = [
   {
     title: "Environmental Sensitivity",
     Icon: Leaf,
-    text: "Aravali, forest, water body, green buffer, and ecological-risk indicators.",
+    text: "Water, green buffer, industrial adjacency, logistics impact, and ecological-risk indicators.",
   },
   {
     title: "Infrastructure Movement",
@@ -146,24 +146,63 @@ const advisorySteps = [
 
 const curatedOpportunities = [
   {
-    title: "Sohna Corridor Signals",
+    title: "Pataudi Growth Corridor Signals",
     code: "Signal Brief 01",
-    deck: "Access discipline, parcel quality, pricing restraint, and demand migration.",
+    deck: "Gurgaon spillover, highway access, CLU context, and plotted development risk.",
   },
   {
-    title: "Gurgaon Expansion Watch",
+    title: "Farrukhnagar Logistics Watch",
     code: "Signal Brief 02",
-    deck: "Edge-market pressure, infrastructure dependency, and acquisition timing.",
+    deck: "Warehousing demand, road-width logic, zoning fit, and title-chain quality.",
   },
   {
-    title: "Aravali Sensitivity Review",
+    title: "Rewari Industrial Influence Review",
     code: "Risk Memorandum",
-    deck: "Environmental, legal, and usability considerations near sensitive terrain.",
+    deck: "Bawal-Dharuhera-Manesar influence, mutation clarity, and master-plan alignment.",
   },
   {
-    title: "CLU Movement Tracker",
+    title: "Narnaul-Mahendergarh Long-Hold Tracker",
     code: "Policy Note",
-    deck: "Change-of-land-use signals, policy friction, and viability context.",
+    deck: "Freight corridor probability, infrastructure availability, water, power, and liquidity.",
+  },
+];
+
+const growthCorridors = [
+  {
+    title: "Gurgaon NCR",
+    driver: "HNI land advisory, plotted development, farmhouse and strategic land acquisition.",
+    risk: "Entry discipline, title clarity, zoning fit, and realistic exit depth.",
+    investor: "HNIs, family offices, founders, and strategic land buyers.",
+  },
+  {
+    title: "Pataudi",
+    driver: "Gurgaon spillover growth with highway-led residential and plotted opportunity.",
+    risk: "CLU, controlled area implications, access-road legality, and acquisition risk.",
+    investor: "Long-horizon investors seeking early corridor positioning.",
+  },
+  {
+    title: "Farrukhnagar",
+    driver: "Logistics, warehousing, and industrial expansion potential.",
+    risk: "Zoning, road width, land-use fit, and title-chain continuity.",
+    investor: "Industrial land buyers, warehousing operators, and strategic allocators.",
+  },
+  {
+    title: "Rewari",
+    driver: "Industrial and transport-linked growth influenced by Bawal, Dharuhera, and Manesar.",
+    risk: "Mutation, registry chain, sector alignment, and master-plan fit.",
+    investor: "Industrial-growth investors and disciplined land-bank buyers.",
+  },
+  {
+    title: "Narnaul",
+    driver: "Long-term logistics and freight corridor opportunity with Nangal Chaudhary influence.",
+    risk: "Project timeline, water, power, access quality, and resale liquidity.",
+    investor: "Patient capital and long-horizon logistics corridor investors.",
+  },
+  {
+    title: "Mahendergarh",
+    driver: "Selective long-term land banking with education, agri, and logistics-support potential.",
+    risk: "Liquidity, infrastructure availability, clear title, and exit audience depth.",
+    investor: "Conservative land-bank investors with long holding capacity.",
   },
 ];
 
@@ -206,30 +245,31 @@ I want to request a private land intelligence consultation.`;
           <div className="flex max-w-4xl flex-col justify-center">
             <p className="inline-flex items-center gap-4 text-[0.72rem] font-medium uppercase text-[#8fbfcd] sm:text-[0.82rem]">
               <span className="h-px w-10 bg-[#7fb7ca]/55" />
-              Private Land Intelligence - NCR
+              Gurgaon NCR & Emerging Haryana Corridors
             </p>
 
             <h1
-              aria-label="Private Land Intelligence for Select NCR Buyers"
+              aria-label="Private Land Investment Intelligence for Gurgaon NCR & Emerging Haryana Corridors."
               className="mt-6 max-w-4xl text-[2.72rem] font-medium leading-[1.02] text-[#f6f2e8] sm:text-[3.85rem] lg:text-[4.1rem] xl:text-[4.25rem]"
             >
               <span className="block">Private Land</span>
               {" "}
-              <span className="block">Intelligence</span>
+              <span className="block">Investment Intelligence</span>
               {" "}
-              <span className="block">for Select NCR</span>
+              <span className="block">for Gurgaon NCR &</span>
               {" "}
-              <span className="block text-[#b8dbe3]">Buyers</span>
+              <span className="block text-[#b8dbe3]">Emerging Haryana Corridors.</span>
             </h1>
 
             <p className="mt-7 max-w-[42rem] text-[1.02rem] leading-8 text-[#c8d7da] sm:text-[1.14rem] sm:leading-9">
-              Private advisory for investors, HNIs, NRIs, family offices, and
-              serious buyers evaluating Gurgaon, Sohna, Naugaon, and emerging
-              NCR corridors.
+              Private Land Investment Intelligence for Gurgaon NCR & Emerging
+              Haryana Corridors.
             </p>
             <p className="mt-4 max-w-[39rem] border-l border-[#7fb7ca]/38 pl-5 text-sm leading-7 text-[#93aab6] sm:text-[0.98rem]">
-              AI-assisted corridor intelligence and private land acquisition
-              advisory across Gurgaon NCR, Sohna, and emerging growth corridors.
+              Guild Acre helps HNIs, family offices, and serious investors
+              evaluate land opportunities across Gurgaon NCR, Pataudi,
+              Farrukhnagar, Rewari, Narnaul, and Mahendergarh through verified
+              intelligence, risk screening, and acquisition strategy.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -262,9 +302,11 @@ I want to request a private land intelligence consultation.`;
               <div className="divide-y divide-[#16344a]/90">
                 {[
                   ["Gurgaon NCR", "Demand depth, scarcity, micro-market pressure"],
-                  ["Sohna", "Growth corridor review, parcel quality, access, liquidity"],
-                  ["Naugaon", "Capital migration, farmhouse demand, early risk filters"],
-                  ["Aravali Belt", "Sensitivity checks, use constraints, risk containment"],
+                  ["Pataudi", "Gurgaon spillover, CLU context, controlled-area review"],
+                  ["Farrukhnagar", "Logistics corridor, warehousing pull, road-width diligence"],
+                  ["Rewari", "Industrial influence, mutation clarity, master-plan alignment"],
+                  ["Narnaul", "Freight corridor timing, access, water, power, liquidity"],
+                  ["Mahendergarh", "Selective land banking, clear title, infrastructure availability"],
                 ].map(([title, text]) => (
                   <div key={title} className="group grid gap-5 py-7 sm:grid-cols-[0.36fr_0.64fr]">
                     <h2 className="text-[1.72rem] font-medium leading-[1.02] text-[#f2efe7] transition duration-700 group-hover:text-[#a9d4df]">
@@ -301,6 +343,48 @@ I want to request a private land intelligence consultation.`;
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[0.76fr_1.24fr] lg:items-end">
+          <div>
+            <p className="text-xs uppercase text-[#8fbfcd]">Corridor mapping</p>
+            <h2 className="mt-5 text-4xl font-medium leading-tight text-[#f2efe7] sm:text-6xl">
+              Emerging Haryana Growth Corridors We Track
+            </h2>
+          </div>
+          <p className="max-w-3xl text-lg leading-9 text-[#b9cbd2] lg:justify-self-end">
+            Each market is studied through growth driver, risk factor, title
+            and CLU review, infrastructure visibility, and investor suitability.
+          </p>
+        </div>
+
+        <div className="mt-16 grid gap-px border border-[#16344a] bg-[#16344a] md:grid-cols-2 xl:grid-cols-3">
+          {growthCorridors.map((item) => (
+            <article
+              key={item.title}
+              className="min-h-[330px] bg-[#081725] p-7 transition duration-700 hover:bg-[#10283b] sm:p-8"
+            >
+              <h3 className="text-3xl font-medium leading-tight text-[#f2efe7]">
+                {item.title}
+              </h3>
+              <div className="mt-8 space-y-5">
+                <div>
+                  <p className="text-xs uppercase text-[#8fbfcd]">Growth Driver</p>
+                  <p className="mt-2 text-sm leading-7 text-[#c7d8de]">{item.driver}</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase text-[#8fbfcd]">Risk Factor</p>
+                  <p className="mt-2 text-sm leading-7 text-[#93aab6]">{item.risk}</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase text-[#8fbfcd]">Ideal Investor Type</p>
+                  <p className="mt-2 text-sm leading-7 text-[#93aab6]">{item.investor}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto grid max-w-7xl gap-14 px-5 py-24 sm:px-6 sm:py-32 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-36">
         <div>
           <p className="text-xs uppercase text-[#8fbfcd]">Private land intelligence office</p>
@@ -316,9 +400,9 @@ I want to request a private land intelligence consultation.`;
             capital, reputation, or time.
           </p>
           <p className="text-[#93aab6]">
-            We study corridor movement, revenue record context, access, zoning,
-            environmental sensitivity, infrastructure probability, and exit
-            demand before conviction is formed.
+            We study corridor mapping, title and CLU review, access, land-use
+            context, infrastructure probability, and resale liquidity before
+            conviction is formed.
           </p>
         </div>
       </section>
@@ -570,7 +654,7 @@ I want to request a private land intelligence consultation.`;
                   type="text"
                   value={corridor}
                   onChange={(event) => setCorridor(event.target.value)}
-                  placeholder="Gurgaon NCR, Sohna, Naugaon"
+                  placeholder="Gurgaon NCR, Pataudi, Farrukhnagar"
                   className="institutional-input"
                 />
               </Field>

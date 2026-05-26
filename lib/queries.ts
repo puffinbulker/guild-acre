@@ -1,5 +1,6 @@
 import { CORRIDOR_AREA_CATALOG, PROPERTY_TYPES } from "@/lib/constants";
 import { getAllProperties, getPropertyByIdFromStore, getPropertyBySlugFromStore } from "@/lib/data-store";
+import { isPublicMarketRecord } from "@/lib/market-scope";
 import { slugify } from "@/lib/utils";
 
 export type PropertyFilters = {
@@ -15,7 +16,7 @@ export type PropertyFilters = {
 export async function getFeaturedProperties() {
   const properties = await getAllProperties();
   return properties
-    .filter((property) => property.featured && property.approvalStatus === "APPROVED")
+    .filter((property) => property.featured && property.approvalStatus === "APPROVED" && isPublicMarketRecord(property))
     .sort((a, b) => b.priceInr - a.priceInr)
     .slice(0, 3);
 }
@@ -25,7 +26,7 @@ export async function getProperties(filters: PropertyFilters = {}) {
   const properties = await getAllProperties();
   return properties
     .filter((property) => {
-      if (property.approvalStatus !== "APPROVED") {
+      if (property.approvalStatus !== "APPROVED" || !isPublicMarketRecord(property)) {
         return false;
       }
 
@@ -85,7 +86,7 @@ export async function getProperties(filters: PropertyFilters = {}) {
 
 export async function getPropertyBySlug(slug: string) {
   const property = await getPropertyBySlugFromStore(slug);
-  return property?.approvalStatus === "APPROVED" ? property : null;
+  return property?.approvalStatus === "APPROVED" && isPublicMarketRecord(property) ? property : null;
 }
 
 export async function getPropertyById(id: string) {
@@ -94,14 +95,20 @@ export async function getPropertyById(id: string) {
 
 export async function getPropertyLocations() {
   const properties = await getAllProperties();
-  return [...new Set(properties.filter((item) => item.approvalStatus === "APPROVED").map((item) => item.location))].sort();
+  return [
+    ...new Set(
+      properties
+        .filter((item) => item.approvalStatus === "APPROVED" && isPublicMarketRecord(item))
+        .map((item) => item.location)
+    )
+  ].sort();
 }
 
 export async function getPropertyLocationStats() {
   const properties = await getAllProperties();
   const counts = new Map<string, number>();
 
-  for (const property of properties.filter((item) => item.approvalStatus === "APPROVED")) {
+  for (const property of properties.filter((item) => item.approvalStatus === "APPROVED" && isPublicMarketRecord(item))) {
     counts.set(property.location, (counts.get(property.location) || 0) + 1);
   }
 
@@ -111,7 +118,9 @@ export async function getPropertyLocationStats() {
 }
 
 export async function getCorridorCoveragePages() {
-  const properties = (await getAllProperties()).filter((property) => property.approvalStatus === "APPROVED");
+  const properties = (await getAllProperties()).filter(
+    (property) => property.approvalStatus === "APPROVED" && isPublicMarketRecord(property)
+  );
   const areaMap = new Map<
     string,
     {
@@ -137,51 +146,37 @@ export async function getCorridorCoveragePages() {
     const locationSlug = slugify(property.location);
     const sectorSlug = slugify(property.sector);
 
-    if (!areaMap.has(locationSlug)) {
-      areaMap.set(locationSlug, {
-        slug: locationSlug,
-        title: property.location,
-        count: 0,
-        kind: "location"
-      });
+    if (areaMap.has(locationSlug)) {
+      areaMap.get(locationSlug)!.count += 1;
     }
 
-    areaMap.get(locationSlug)!.count += 1;
-
-    if (!areaMap.has(sectorSlug)) {
-      areaMap.set(sectorSlug, {
-        slug: sectorSlug,
-        title: property.sector,
-        count: 0,
-        kind: "sector"
-      });
+    if (areaMap.has(sectorSlug)) {
+      areaMap.get(sectorSlug)!.count += 1;
     }
-
-    areaMap.get(sectorSlug)!.count += 1;
   }
 
   return [...areaMap.values()].sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
 }
 
 export async function getPropertiesByAreaSlug(slug: string) {
-  const properties = (await getAllProperties()).filter((property) => property.approvalStatus === "APPROVED");
+  const properties = (await getAllProperties()).filter(
+    (property) => property.approvalStatus === "APPROVED" && isPublicMarketRecord(property)
+  );
   const preset = CORRIDOR_AREA_CATALOG.find((item) => item.slug === slug);
+
+  if (!preset) {
+    return null;
+  }
+
   const matches = properties.filter(
     (property) => slugify(property.location) === slug || slugify(property.sector) === slug
   );
 
-  if (!matches.length && !preset) {
-    return null;
-  }
-
-  const locationMatch = matches.find((property) => slugify(property.location) === slug);
-  const sectorMatch = matches.find((property) => slugify(property.sector) === slug);
-
   return {
     slug,
-    title: locationMatch?.location || sectorMatch?.sector || preset?.title || "Gurgaon",
-    kind: (locationMatch ? "location" : sectorMatch ? "sector" : preset?.kind) || "location",
-    summary: preset?.summary,
+    title: preset.title,
+    kind: preset.kind,
+    summary: preset.summary,
     properties: matches.sort((a, b) => Number(b.featured) - Number(a.featured) || b.priceInr - a.priceInr)
   };
 }

@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Title Checks Before Buying Farmhouse Land | Guild Acre",
   description:
-    "A practical guide to title checks, ownership comfort, and diligence questions before buying farmhouse land near Gurgaon or Sohna.",
+    "A practical guide to title checks, ownership comfort, and diligence questions before buying farmhouse or strategic land across Gurgaon NCR and emerging Haryana corridors.",
   path: "/insights/title-checks-before-buying-farmhouse-land",
 });
 

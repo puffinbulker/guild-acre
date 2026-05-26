@@ -13,8 +13,8 @@ const advisors = [
   {
     label: "Advisor 02",
     name: "Sandeep Kumar",
-    focus: "Farmhouse & lifestyle acquisitions",
-    text: "Focused on Sohna-Naugaon, Aravalli-edge farmhouse markets, PLPA-sensitive parcels, and long-horizon lifestyle acquisition logic.",
+    focus: "Emerging Haryana growth corridors",
+    text: "Focused on Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh corridor mapping, title and CLU review, and long-horizon acquisition logic.",
   },
 ];
 
@@ -83,10 +83,10 @@ I want to request a private land intelligence consultation.`;
             </h1>
 
             <p className="mt-8 max-w-2xl text-lg leading-9 text-[#b9cbd2]">
-              Guild Acre works with a select group of investors, family
-              offices, HNIs, NRIs, and serious buyers. We do not operate an
-              open marketplace. Share your strategic acquisition objectives to
-              initiate a private review.
+              Guild Acre operates as a Private Land Investment Intelligence
+              Desk for Gurgaon NCR & Emerging Haryana Growth Corridors. We work
+              with a select group of HNIs, family offices, and serious
+              investors who require verified opportunity review before movement.
             </p>
 
             <div className="mt-12 divide-y divide-[#16344a] border-y border-[#16344a]">
@@ -161,7 +161,7 @@ I want to request a private land intelligence consultation.`;
                   type="text"
                   value={corridor}
                   onChange={(event) => setCorridor(event.target.value)}
-                  placeholder="Gurgaon, Sohna, Naugaon, open"
+                  placeholder="Gurgaon NCR, Pataudi, Farrukhnagar, Rewari"
                   className="institutional-input"
                 />
               </Field>

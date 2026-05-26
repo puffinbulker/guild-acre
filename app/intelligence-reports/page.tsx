@@ -4,43 +4,53 @@ import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Intelligence Reports | Guild Acre",
   description:
-    "Restricted-access Guild Acre intelligence reports for NCR land buyers, covering Sohna, Naugaon, risk filters, and private acquisition frameworks.",
+    "Restricted-access Guild Acre intelligence reports for Gurgaon NCR and emerging Haryana growth corridor land buyers.",
   path: "/intelligence-reports",
 });
 
 const reports = [
   {
     code: "GA-RPT-01",
-    title: "Sohna Land Outlook",
-    coverage: "Sohna Road / NH-248B / growth corridor",
+    title: "Pataudi Growth Corridor Signals",
+    coverage: "Gurgaon spillover / highway-led plotted opportunity",
     updated: "2026 desk cycle",
     abstract:
-      "Transition thesis for Sohna, including access discipline, organized plotted movement, raw land risk, and pricing restraint.",
-    findings: ["Connectivity is useful only where access is legal.", "Organized parcels and legacy land carry different risk profiles.", "Exit depth remains pocket-specific."],
-    href: "/sohna-land-outlook",
+      "Growth thesis for Pataudi, including highway-led residential movement, CLU context, controlled-area review, and plotted development risk.",
+    findings: ["Connectivity is useful only where access is legal.", "CLU and controlled-area context shape acquisition risk.", "Exit depth remains pocket-specific."],
+    href: "/corridor-coverage/pataudi",
   },
   {
     code: "GA-RPT-02",
-    title: "Naugaon Farmhouse Belt Report",
-    coverage: "Aravalli edge / lifestyle land / farmhouse belt",
+    title: "Farrukhnagar Logistics Corridor Review",
+    coverage: "Warehousing / industrial expansion / land-use fit",
     updated: "2026 desk cycle",
     abstract:
-      "Restricted brief on PLPA sensitivity, construction permissibility, lifestyle demand, holding horizon, and qualifying sub-pockets.",
-    findings: ["Parcel-level PLPA review is essential.", "The buyer pool is narrow and patient.", "Legal access is more important than corridor marketing."],
-    href: "/naugaon-farmhouse-belt",
+      "Restricted brief on logistics-led demand, road-width suitability, zoning fit, title-chain continuity, and industrial expansion probability.",
+    findings: ["Road width and land use are primary filters.", "Warehouse suitability depends on access realism.", "Title chain must be read before pricing."],
+    href: "/corridor-coverage/farrukhnagar",
   },
   {
     code: "GA-RPT-03",
-    title: "NCR Land Risk Checklist",
-    coverage: "Title, revenue records, access, zoning, liquidity",
+    title: "Rewari Industrial Influence Note",
+    coverage: "Bawal-Dharuhera-Manesar influence / transport-linked growth",
     updated: "Working checklist",
     abstract:
-      "A structured review tool for buyers evaluating NCR land before capital commitment or negotiation.",
-    findings: ["Title continuity is the first filter.", "Revenue records reveal hidden friction.", "Weak access can destroy an otherwise attractive thesis."],
-    href: "/due-diligence-framework",
+      "A working note on mutation clarity, registry chain, master-plan alignment, and transport-linked industrial growth signals.",
+    findings: ["Mutation clarity is non-negotiable.", "Sector and master-plan alignment shape risk.", "Transport influence must be tested against actual access."],
+    href: "/corridor-coverage/rewari",
   },
   {
     code: "GA-RPT-04",
+    title: "Narnaul-Mahendergarh Long-Hold Tracker",
+    coverage: "Freight corridor probability / land banking / infrastructure availability",
+    updated: "Client onboarding reference",
+    abstract:
+      "Long-horizon tracker for logistics-support potential, project timelines, water, power, access quality, and resale liquidity.",
+    findings: ["Project timelines must be treated conservatively.", "Water and power availability affect usability.", "Liquidity is slower and must suit the investor profile."],
+    href: "/corridor-coverage/narnaul",
+  },
+  {
+    code: "GA-RPT-05",
     title: "Private Land Buyer Brief",
     coverage: "Mandate intake / advisory process / buyer fit",
     updated: "Client onboarding reference",

@@ -13,26 +13,47 @@ const AREA_INSIGHTS: Record<
   string,
   { title: string; summary: string; caution: string }
 > = {
-  "golf-course-extension-road": {
-    title: "Why buyers track this corridor closely",
+  "gurgaon-ncr": {
+    title: "Anchor market for selective NCR land advisory",
     summary:
-      "Golf Course Extension Road suits premium upgrade buyers, newer-launch seekers, and families looking for larger-format homes with long-term relevance. The corridor performs best when buyers compare product quality and positioning carefully rather than assuming every project commands the same premium.",
+      "Gurgaon NCR is reviewed for HNI land advisory, plotted development, farmhouse evaluation, and strategic acquisition where scarcity, access, legal continuity, and buyer depth must be read together.",
     caution:
-      "This market rewards selective evaluation discipline. Product quality, exact pocket, and pricing discipline matter more here than generic corridor branding.",
+      "Scarcity does not remove risk. Exact pocket, title continuity, access integrity, and entry discipline still decide whether a parcel deserves capital.",
   },
-  "dwarka-expressway": {
-    title: "Why investors keep returning to this belt",
+  pataudi: {
+    title: "Spillover growth requires controlled-area discipline",
     summary:
-      "Dwarka Expressway continues to attract buyers looking for infrastructure-led upside, launch-stage positioning, and high-visibility residential or plotted opportunities. It works best for buyers who are clear about entry level, holding horizon, and the difference between momentum and durable value.",
+      "Pataudi is tracked for Gurgaon spillover growth, highway-led residential movement, and plotted opportunity where CLU probability, controlled-area status, and access-road legality need early review.",
     caution:
-      "Do not treat every Dwarka Expressway option as equal. Access, project quality, and exit comfort can vary sharply by micro-pocket.",
+      "The corridor should be filtered for CLU relevance, road access, ownership chain, and acquisition risk before pricing momentum is taken seriously.",
   },
-  "sohna-road": {
-    title: "What makes this corridor different",
+  farrukhnagar: {
+    title: "Logistics potential depends on land-use clarity",
     summary:
-      "Sohna Road is more mixed than trophy-led. It suits buyers who want practical connectivity, everyday livability, and a broader spread of residential and commercial demand rather than a purely luxury narrative.",
+      "Farrukhnagar is evaluated for logistics, warehousing, and industrial expansion potential. Zoning, road width, land-use fit, and title-chain continuity shape the investment case.",
     caution:
-      "The right fit here depends heavily on whether you are buying for end use, rental practicality, or land-led positioning around the wider belt.",
+      "Operational narratives can overrun documentation. Road width, permitted use, access control, and clean transferability must be established.",
+  },
+  rewari: {
+    title: "Industrial influence needs registry-chain comfort",
+    summary:
+      "Rewari is read through transport-linked growth and Bawal-Dharuhera-Manesar influence, with attention to mutation, registry chain, master-plan alignment, and sector-level suitability.",
+    caution:
+      "Industrial adjacency is not enough. The parcel must fit land-use, title, access, and liquidity conditions for the buyer's intended holding period.",
+  },
+  narnaul: {
+    title: "Long-horizon logistics logic requires patience",
+    summary:
+      "Narnaul is monitored for freight corridor probability and Nangal Chaudhary logistics hub influence, with conservative review of project timelines, water, power, access, and resale liquidity.",
+    caution:
+      "This is a long-hold market. Infrastructure delivery, utilities, and exit depth should be treated as core risks rather than background details.",
+  },
+  mahendergarh: {
+    title: "Selective land banking depends on liquidity realism",
+    summary:
+      "Mahendergarh is reviewed for long-term land banking, education-linked demand, agri-support use cases, and logistics-support potential where title clarity and infrastructure availability are defensible.",
+    caution:
+      "The strongest opportunities here are selective. Liquidity, infrastructure, clear title, and buyer-fit discipline matter more than broad corridor storytelling.",
   },
 };
 
@@ -52,7 +73,7 @@ export async function generateMetadata({ params }: Props) {
     title: `${area.title} Corridor Intelligence | Guild Acre`,
     description:
       area.summary ||
-      `Review ${area.title} with price context, buyer-fit guidance, and corridor intelligence for selective land-led requirements.`,
+      `Review ${area.title} with buyer-fit guidance, title and CLU review, corridor mapping, and acquisition risk screening.`,
     path: `/corridor-coverage/${slug}`,
   });
 }
@@ -94,14 +115,14 @@ export default async function CorridorAreaPage({ params }: Props) {
               ? `${formatRecordCount(areaCount)} public reference records`
               : "Private matching available on enquiry"}
           </span>
-          <span>Reference visibility and private review available</span>
+          <span>Verified Opportunity Desk review available</span>
           <span>Land thesis, access, zoning, and exit logic</span>
         </div>
       </section>
 
       <div className="area-page__actions">
         <Link href={`/strategic-opportunities?location=${areaQuery}`} className="button">
-          Review public reference records
+          Review intelligence context
         </Link>
         <Link href="/corridor-coverage" className="button button--ghost">
           Back to corridor coverage
@@ -123,13 +144,17 @@ export default async function CorridorAreaPage({ params }: Props) {
             <section className="area-market card">
               <div className="area-market__intro">
                 <span className="section-tag">Corridor benchmark</span>
-                <h2>{marketGuide.title} price benchmark</h2>
+                <h2>{marketGuide.title} intelligence benchmark</h2>
                 <p>{marketGuide.outlook}</p>
               </div>
               <div className="area-market__stats">
                 <div>
-                  <strong>INR {marketGuide.avgPricePerSqft.toLocaleString("en-IN")}</strong>
-                  <span>Indicative avg / sq.ft.</span>
+                  <strong>
+                    {marketGuide.avgPricePerSqft
+                      ? `INR ${marketGuide.avgPricePerSqft.toLocaleString("en-IN")}`
+                      : "Private review"}
+                  </strong>
+                  <span>Indicative benchmark</span>
                 </div>
                 <div>
                   <strong>{marketGuide.indicativeRange}</strong>

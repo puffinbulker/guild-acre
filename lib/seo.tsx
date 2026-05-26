@@ -82,7 +82,15 @@ export function organizationSchema() {
     telephone: phone,
     email,
     address,
-    areaServed: ["Gurgaon", "Sohna", "Naugaon", "Delhi NCR"],
+    areaServed: [
+      "Gurgaon NCR",
+      "Pataudi",
+      "Farrukhnagar",
+      "Rewari",
+      "Narnaul",
+      "Mahendergarh",
+      "Haryana"
+    ],
     contactPoint: [
       {
         "@type": "ContactPoint",

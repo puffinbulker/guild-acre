@@ -13,13 +13,7 @@ const articles = [
     href: "/insights/verify-land-title-near-gurgaon",
     title: "How to verify land title before buying near Gurgaon",
     summary:
-      "A practical checklist for buyers evaluating land-led opportunities around Gurgaon, Sohna, and nearby belts.",
-  },
-  {
-    href: "/insights/sohna-vs-naugaon-farmhouse-investment",
-    title: "Sohna vs Naugaon for farmhouse investment",
-    summary:
-      "A buyer-focused comparison of two very different land and lifestyle narratives for NCR buyers.",
+      "A practical checklist for buyers evaluating land-led opportunities across Gurgaon NCR and emerging Haryana corridors.",
   },
   {
     href: "/insights/dwarka-expressway-vs-golf-course-extension-road",

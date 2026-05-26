@@ -79,7 +79,7 @@ export function LeadFormContent({
           type="text"
           placeholder="Land, farmhouse, strategic acreage"
         />
-        <Input name="location" label="Corridor / Geography" type="text" placeholder="Gurgaon NCR / Sohna / Aravali Belt" />
+        <Input name="location" label="Corridor / Geography" type="text" placeholder="Gurgaon NCR / Pataudi / Farrukhnagar" />
         <Input name="phone" label="Phone Number" type="tel" placeholder="+91 98XXXXXXX" required />
 
         <textarea

@@ -4,7 +4,7 @@ import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Strategic Opportunities | Guild Acre",
   description:
-    "Review selected strategic opportunity records from Guild Acre, or request a private intelligence note for NCR corridors, Sohna, the Aravali Belt, and emerging growth axes.",
+    "Review selected strategic opportunity records from Guild Acre, or request a private intelligence note for Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh.",
   path: "/strategic-opportunities",
 });
 

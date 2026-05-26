@@ -4,7 +4,7 @@ import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "NCR Land Intelligence | Guild Acre",
   description:
-    "Research-led NCR land intelligence across Gurgaon core corridors, Sohna, Naugaon, and emerging acquisition zones.",
+    "Research-led land investment intelligence across Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh.",
   path: "/ncr-land-intelligence",
 });
 
@@ -46,24 +46,45 @@ const framework = [
 const corridors = [
   {
     code: "Corridor 01",
-    title: "Gurgaon Core Corridors",
-    meta: "DXP / NH-48 / SPR / Golf Course Extension",
-    text: "Mature NCR corridors offer stronger liquidity and clearer demand, but entry prices already carry much of the confirmed thesis. Guild Acre studies sub-pockets where infrastructure, access, and buyer depth still create selective micro-opportunity.",
-    note: "Best suited for preservation-oriented mandates, premium plotted participation, and investors who value exit depth over asymmetric upside.",
+    title: "Gurgaon NCR",
+    meta: "HNI land advisory / plotted development / farmhouse and strategic acquisition",
+    text: "Gurgaon NCR remains the anchor for HNI land advisory, plotted development, farmhouse evaluation, and strategic land acquisition. The opportunity is selective because title, access, zoning, and entry discipline vary sharply by micro-pocket.",
+    note: "Best suited for HNIs, family offices, founders, and serious buyers who require private advisory before exposure.",
   },
   {
     code: "Corridor 02",
-    title: "Sohna Road Belt",
-    meta: "Sohna Road / NH-248B / Damdama Axis",
-    text: "Sohna is moving from speculative periphery toward a more validated mid-market corridor. The stronger opportunities are not defined by distance from Gurgaon alone, but by access-road legality, parcel quality, and surrounding ecosystem maturity.",
-    note: "Organized parcels and legally clear land can behave very differently from legacy agricultural inventory in the same broad corridor.",
+    title: "Pataudi",
+    meta: "Gurgaon spillover / highway-led plotted opportunity",
+    text: "Pataudi is tracked for Gurgaon spillover growth, highway-led residential movement, and plotted development potential. The corridor requires close review of CLU, controlled-area status, access roads, and acquisition risk.",
+    note: "Best suited for long-horizon investors seeking early corridor positioning with disciplined legal and land-use review.",
   },
   {
     code: "Corridor 03",
-    title: "Naugaon Farmhouse Zone",
-    meta: "Aravalli edge / Lifestyle and long-horizon acquisition",
-    text: "Naugaon is a constrained-supply lifestyle market rather than a short-cycle liquidity corridor. It requires patient capital, parcel-level PLPA review, legal access, and a realistic view of exit depth.",
-    note: "Suitable only where title, construction permissibility, road access, and environmental sensitivity are independently reviewed.",
+    title: "Farrukhnagar",
+    meta: "Logistics / warehousing / industrial expansion",
+    text: "Farrukhnagar is evaluated as a logistics and warehousing corridor with industrial expansion potential. Zoning, road width, land-use fit, and title-chain continuity shape the investability of each parcel.",
+    note: "Best suited for industrial land buyers, warehousing operators, and strategic allocators with practical infrastructure requirements.",
+  },
+  {
+    code: "Corridor 04",
+    title: "Rewari",
+    meta: "Industrial and transport-linked growth",
+    text: "Rewari benefits from transport-linked growth and Bawal-Dharuhera-Manesar influence. The diligence priority is mutation, registry chain, sector alignment, and master-plan consistency.",
+    note: "Best suited for industrial-growth investors and disciplined land-bank buyers seeking stronger transport context.",
+  },
+  {
+    code: "Corridor 05",
+    title: "Narnaul",
+    meta: "Long-term logistics and freight corridor opportunity",
+    text: "Narnaul is tracked for long-term logistics and freight corridor potential, including the influence of Nangal Chaudhary logistics movement. Project timelines, water, power, access, and resale liquidity require conservative review.",
+    note: "Best suited for patient capital with a long-horizon logistics corridor thesis.",
+  },
+  {
+    code: "Corridor 06",
+    title: "Mahendergarh",
+    meta: "Selective long-term land banking",
+    text: "Mahendergarh is monitored for selective long-term land banking, education-linked demand, agri-support use cases, and logistics-support potential. Liquidity, infrastructure availability, and clear title are primary filters.",
+    note: "Best suited for conservative land-bank investors who can hold through slower infrastructure and liquidity cycles.",
   },
 ];
 
@@ -90,12 +111,13 @@ export default function NcrLandIntelligencePage() {
           <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
             <p className="text-xs uppercase text-[#86b8c8]">Editorial deep-dive</p>
             <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f2efe7] sm:text-6xl lg:text-7xl">
-              NCR land corridors require intelligence before conviction.
+              Land investment corridors require intelligence before conviction.
             </h1>
             <p className="mt-8 max-w-3xl text-lg leading-9 text-[#b9cbd2]">
-              A research-led view of Gurgaon, Sohna, Naugaon, and emerging NCR
-              acquisition zones through infrastructure movement, revenue
-              records, regulatory risk, buyer depth, and long-term exit logic.
+              A research-led view of Gurgaon NCR, Pataudi, Farrukhnagar,
+              Rewari, Narnaul, and Mahendergarh through corridor mapping,
+              title and CLU review, regulatory risk, buyer depth, and long-term
+              exit logic.
             </p>
           </div>
         </section>

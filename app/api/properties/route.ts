@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { getAdminCookieName, verifySessionToken } from "@/lib/auth";
+import { isPublicMarketRecord } from "@/lib/market-scope";
 
 const filePath = path.join(process.cwd(), "data", "properties.json");
 
@@ -25,7 +26,8 @@ export async function GET() {
       property?.approvalStatus === "APPROVED" &&
       property?.photoRightsStatus &&
       property?.sourceType &&
-      Array.isArray(property?.imageUrls)
+      Array.isArray(property?.imageUrls) &&
+      isPublicMarketRecord(property)
   );
 
   return NextResponse.json(approvedProperties);
