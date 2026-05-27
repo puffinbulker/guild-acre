@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
+import { ExternalLink } from "lucide-react";
 import Navbar from "../components/navbar";
 import "./globals.css";
 import { absoluteUrl } from "@/lib/seo";
+import { SOCIAL_LINKS } from "@/lib/social-links";
 
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
@@ -106,6 +108,26 @@ export default function RootLayout({
                 advisory across Gurgaon NCR and emerging Haryana growth
                 corridors.
               </p>
+              <div className="mt-6">
+                <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#7aaec1]">
+                  One-click channels
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {SOCIAL_LINKS.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={link.ariaLabel}
+                      className="inline-flex items-center gap-2 rounded-[2px] border border-[#7fb7ca]/24 bg-[#f2efe7]/[0.015] px-3 py-2 text-xs font-medium text-[#b9cbd2] transition duration-500 hover:-translate-y-px hover:border-[#7fb7ca]/60 hover:bg-[#7fb7ca]/10 hover:text-[#f2efe7]"
+                    >
+                      <span>{link.label}</span>
+                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
             <div>
               <p className="font-semibold text-[#f2efe7]">Intelligence</p>

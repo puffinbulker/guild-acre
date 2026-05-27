@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PropertyCard } from "@/components/property-card";
 import { LeadForm } from "@/components/lead-form";
 import { getMarketGuideBySlug, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
 import { getPropertiesByAreaSlug } from "@/lib/queries";
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
-import { formatRecordCount } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -87,9 +85,6 @@ export default async function CorridorAreaPage({ params }: Props) {
     notFound();
   }
 
-  const areaQuery = encodeURIComponent(area.title);
-  const areaCount = area.properties.length;
-
   return (
     <>
     <JsonLd
@@ -110,31 +105,27 @@ export default async function CorridorAreaPage({ params }: Props) {
             `Review private acquisition context in ${area.title} for land-led requirements, corridor fit, and diligence direction.`}
         </p>
         <div className="page-intro__metrics">
-          <span>
-            {areaCount
-              ? `${formatRecordCount(areaCount)} public reference records`
-              : "Private matching available on enquiry"}
-          </span>
+          <span>Private matching available on enquiry</span>
           <span>Verified Opportunity Desk review available</span>
           <span>Land thesis, access, zoning, and exit logic</span>
         </div>
       </section>
 
       <div className="area-page__actions">
-        <Link href={`/strategic-opportunities?location=${areaQuery}`} className="button">
-          Review intelligence context
+        <Link href="/intelligence-reports" className="button">
+          Review intelligence reports
         </Link>
         <Link href="/corridor-coverage" className="button button--ghost">
           Back to corridor coverage
         </Link>
-        <Link href={`/strategic-opportunities?location=${areaQuery}&collection=COMMERCIAL`} className="collection-tab">
-          Commercial context
+        <Link href="/acquisition-desk" className="collection-tab">
+          Request private note
         </Link>
-        <Link href={`/strategic-opportunities?location=${areaQuery}&collection=LAND`} className="collection-tab">
-          Land / plotted context
+        <Link href="/due-diligence-framework" className="collection-tab">
+          Diligence framework
         </Link>
-        <Link href={`/strategic-opportunities?location=${areaQuery}&collection=FARMLAND`} className="collection-tab">
-          Farm land context
+        <Link href="/ncr-land-intelligence" className="collection-tab">
+          NCR intelligence
         </Link>
       </div>
 
@@ -218,29 +209,15 @@ export default async function CorridorAreaPage({ params }: Props) {
             ))}
           </div>
 
-          {areaCount ? (
-            <section className="area-page__records">
-              <div>
-                <span className="section-tag">Visible reference records</span>
-                <h2>Records for orientation, not open-market browsing.</h2>
-              </div>
-              <div className="property-grid">
-                {area.properties.map((property) => (
-                  <PropertyCard key={property.id} property={property} />
-                ))}
-              </div>
-            </section>
-          ) : (
-            <div className="card area-page__empty">
-              <span className="section-tag">Acquisition desk</span>
-              <h2>Relevant opportunities are often reviewed privately here</h2>
-              <p>
-                If you are evaluating land in {area.title}, send the brief so
-                the response can be shaped around fit, availability, timing, and
-                diligence direction.
-              </p>
-            </div>
-          )}
+          <div className="card area-page__empty">
+            <span className="section-tag">Acquisition desk</span>
+            <h2>Relevant opportunities are reviewed privately, not browsed publicly.</h2>
+            <p>
+              If you are evaluating land in {area.title}, send the brief so the
+              response can be shaped around fit, availability, timing, and
+              diligence direction.
+            </p>
+          </div>
         </section>
 
         <aside className="area-page__sidebar">

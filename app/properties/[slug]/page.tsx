@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { LeadForm } from "@/components/lead-form";
 import { getMarketGuideForArea } from "@/lib/market-intel";
 import { getPropertyBySlug } from "@/lib/queries";
-import { JsonLd, breadcrumbSchema, createPageMetadata, propertySchema } from "@/lib/seo";
+import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 import {
   formatPhotoRightsLabel,
   formatPrice,
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props) {
     description: property.description,
     path: `/properties/${slug}`,
     image: parseJsonArray(property.imageUrls)[0] || "/logo.png",
+    noIndex: true,
   });
 }
 
@@ -57,10 +58,9 @@ export default async function PropertyDetailPage({ params }: Props) {
       data={[
         breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Strategic Opportunities", path: "/strategic-opportunities" },
+          { name: "Acquisition Desk", path: "/acquisition-desk" },
           { name: property.title, path: `/properties/${slug}` },
         ]),
-        propertySchema(property),
       ]}
     />
     <main className="container page-shell property-detail">

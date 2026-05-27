@@ -11,17 +11,15 @@ export default function robots(): MetadataRoute.Robots {
         "/",
         "/about",
         "/acquisition-desk",
-        "/strategic-opportunities",
         "/corridor-coverage",
         "/ncr-land-intelligence",
         "/due-diligence-framework",
         "/intelligence-reports",
         "/insights",
-        "/properties/",
         "/privacy-policy",
         "/cookie-notice"
       ],
-      disallow: ["/admin", "/api/"]
+      disallow: ["/admin", "/api/", "/listings", "/properties/", "/strategic-opportunities"]
     },
     sitemap: `${baseUrl}/sitemap.xml`
   };

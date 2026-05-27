@@ -1,6 +1,4 @@
 import type { MetadataRoute } from "next";
-import { getAllProperties } from "@/lib/data-store";
-import { isPublicMarketRecord } from "@/lib/market-scope";
 import { getCorridorCoveragePages } from "@/lib/queries";
 import { getCanonicalSiteUrl } from "@/lib/site";
 
@@ -8,19 +6,12 @@ export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getCanonicalSiteUrl();
-  const [properties, areas] = await Promise.all([getAllProperties(), getCorridorCoveragePages()]);
-  const publicProperties = properties.filter(
-    (property) => property.approvalStatus === "APPROVED" && isPublicMarketRecord(property)
-  );
+  const areas = await getCorridorCoveragePages();
   const now = new Date();
 
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: now
-    },
-    {
-      url: `${baseUrl}/strategic-opportunities`,
       lastModified: now
     },
     {
@@ -82,10 +73,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...areas.map((area) => ({
       url: `${baseUrl}/corridor-coverage/${area.slug}`,
       lastModified: now
-    })),
-    ...publicProperties.map((property) => ({
-      url: `${baseUrl}/properties/${property.slug}`,
-      lastModified: new Date(property.updatedAt)
     }))
   ];
 }

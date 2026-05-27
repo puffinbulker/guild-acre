@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getCanonicalSiteUrl } from "@/lib/site";
-import type { PropertyRecord } from "@/types";
-import { formatPrice, parseJsonArray } from "@/lib/utils";
+import { SOCIAL_PROFILE_URLS } from "@/lib/social-links";
 
 const siteName = "Guild Acre";
 const phone = "+91 97116 67782";
@@ -100,7 +99,7 @@ export function organizationSchema() {
         availableLanguage: ["en", "hi"],
       },
     ],
-    sameAs: [],
+    sameAs: SOCIAL_PROFILE_URLS,
   };
 }
 
@@ -114,46 +113,6 @@ export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
       name: item.name,
       item: absoluteUrl(item.path),
     })),
-  };
-}
-
-export function propertySchema(property: PropertyRecord) {
-  const images = parseJsonArray(property.imageUrls).map((image) => absoluteUrl(image));
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: property.title,
-    url: absoluteUrl(`/properties/${property.slug}`),
-    description: property.description,
-    image: images,
-    datePosted: property.createdAt,
-    offers: {
-      "@type": "Offer",
-      price: property.priceInr,
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-    },
-    floorSize: property.areaSqft
-      ? {
-          "@type": "QuantitativeValue",
-          value: property.areaSqft,
-          unitText: "SQFT",
-        }
-      : undefined,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: property.location,
-      addressRegion: property.city,
-      addressCountry: "IN",
-    },
-    provider: {
-      "@type": "ProfessionalService",
-      name: siteName,
-      telephone: phone,
-      url: getCanonicalSiteUrl(),
-    },
-    priceRange: formatPrice(property.priceInr),
   };
 }
 
