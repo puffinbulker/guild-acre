@@ -83,9 +83,9 @@ I want to request a private land intelligence consultation.`;
             </h1>
 
             <p className="mt-8 max-w-2xl text-lg leading-9 text-[#b9cbd2]">
-              Guild Acre operates as a Private Land Investment Intelligence
-              Desk for Gurgaon NCR & Emerging Haryana Growth Corridors. We work
-              with a select group of HNIs, family offices, and serious
+              Guild Acre operates as a Private Land Intelligence & Acquisition
+              Desk for Gurgaon NCR and emerging Haryana growth corridors. We
+              work with a select group of HNIs, family offices, and serious
               investors who require verified opportunity review before movement.
             </p>
 

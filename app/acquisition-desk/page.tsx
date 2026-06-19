@@ -4,7 +4,7 @@ import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Acquisition Desk | Guild Acre",
   description:
-    "Submit a confidential acquisition brief for private land investment intelligence across Gurgaon NCR and emerging Haryana growth corridors.",
+    "Submit a confidential acquisition brief to the Guild Acre private land intelligence and acquisition desk for Gurgaon NCR and emerging Haryana growth corridors.",
   path: "/acquisition-desk",
 });
 

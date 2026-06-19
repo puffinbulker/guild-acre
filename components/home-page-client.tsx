@@ -23,7 +23,7 @@ const consultationUrl =
 
 const trustLayer = [
   {
-    title: "Private Land Investment Intelligence",
+    title: "Private Land Intelligence",
     Icon: Compass,
   },
   {
@@ -31,7 +31,7 @@ const trustLayer = [
     Icon: FileSearch,
   },
   {
-    title: "AI-Assisted Corridor Research",
+    title: "Research-Led Corridor Intelligence",
     Icon: ShieldCheck,
   },
   {
@@ -68,7 +68,7 @@ const coreFrameworks = [
   {
     title: "Corridor Intelligence\u2122",
     Icon: MapPinned,
-    text: "AI-assisted micro-market intelligence across Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh growth corridors.",
+    text: "Research-led micro-market intelligence across Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh growth corridors.",
   },
   {
     title: "Land Risk Index\u2122",
@@ -249,12 +249,12 @@ I want to request a private land intelligence consultation.`;
             </p>
 
             <h1
-              aria-label="Private Land Investment Intelligence for Gurgaon NCR & Emerging Haryana Corridors."
+              aria-label="Private Land Intelligence and Acquisition Desk for Gurgaon NCR and emerging Haryana corridors."
               className="mt-6 max-w-4xl text-[2.72rem] font-medium leading-[1.02] text-[#f6f2e8] sm:text-[3.85rem] lg:text-[4.1rem] xl:text-[4.25rem]"
             >
               <span className="block">Private Land</span>
               {" "}
-              <span className="block">Investment Intelligence</span>
+              <span className="block">Intelligence & Acquisition</span>
               {" "}
               <span className="block">for Gurgaon NCR &</span>
               {" "}
@@ -262,8 +262,8 @@ I want to request a private land intelligence consultation.`;
             </h1>
 
             <p className="mt-7 max-w-[42rem] text-[1.02rem] leading-8 text-[#c8d7da] sm:text-[1.14rem] sm:leading-9">
-              Private Land Investment Intelligence for Gurgaon NCR & Emerging
-              Haryana Corridors.
+              Private Land Intelligence & Acquisition Desk for Gurgaon NCR
+              and emerging Haryana corridors.
             </p>
             <p className="mt-4 max-w-[39rem] border-l border-[#7fb7ca]/38 pl-5 text-sm leading-7 text-[#93aab6] sm:text-[0.98rem]">
               Guild Acre helps HNIs, family offices, and serious investors
@@ -395,9 +395,9 @@ I want to request a private land intelligence consultation.`;
 
         <div className="space-y-7 text-lg leading-9 text-[#b9cbd2]">
           <p>
-            Guild Acre operates as an AI-assisted private acquisition and
-            intelligence desk for investors who need clarity before committing
-            capital, reputation, or time.
+            Guild Acre operates as a Private Land Intelligence & Acquisition
+            Desk for investors who need clarity before committing capital,
+            reputation, or time.
           </p>
           <p className="text-[#93aab6]">
             We study corridor mapping, title and CLU review, access, land-use
@@ -451,9 +451,9 @@ I want to request a private land intelligence consultation.`;
             </h2>
           </div>
           <p className="max-w-3xl text-lg leading-9 text-[#b9cbd2] lg:justify-self-end">
-            Methodology before inventory. AI-assisted research organizes
-            signals; final judgement
-            remains contextual, strategic, and mandate-led.
+            Methodology before inventory. Structured research organizes
+            signals; final judgement remains contextual, strategic, and
+            mandate-led.
           </p>
         </div>
 
@@ -617,8 +617,8 @@ I want to request a private land intelligence consultation.`;
             and reject opportunities before they create exposure.
           </p>
           <p className="text-[#93aab6]">
-            Guild Acre exists to become India&apos;s leading AI-powered private
-            land intelligence office for corridor-based acquisition advisory.
+            Guild Acre exists to become India&apos;s leading private land
+            intelligence office for corridor-based acquisition advisory.
           </p>
         </div>
       </section>

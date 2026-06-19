@@ -7,14 +7,21 @@ import "./globals.css";
 import { absoluteUrl } from "@/lib/seo";
 import { SOCIAL_LINKS } from "@/lib/social-links";
 
+const connectedProfileLinks = SOCIAL_LINKS.filter(
+  (link) =>
+    link.label === "LinkedIn" ||
+    link.label === "Instagram" ||
+    link.label === "Facebook Page"
+);
+
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
   title: {
-    default: "Guild Acre | Private Land Investment Intelligence Desk",
+    default: "Guild Acre | Private Land Intelligence & Acquisition Desk",
     template: "%s",
   },
   description:
-    "Private Land Investment Intelligence Desk for Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, Mahendergarh, and emerging Haryana growth corridors.",
+    "Private Land Intelligence & Acquisition Desk for Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, Mahendergarh, and emerging Haryana growth corridors.",
   applicationName: "Guild Acre",
   icons: {
     icon: "/icon.svg",
@@ -48,6 +55,9 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        {connectedProfileLinks.map((link) => (
+          <link key={link.href} rel="me" href={link.href} />
+        ))}
       </head>
       <body className="bg-[#02070d] text-[#f2efe7] antialiased">
         {gaId ? (
@@ -104,9 +114,8 @@ export default function RootLayout({
                 Guild Acre — Private Land Intelligence & Acquisition Desk
               </p>
               <p className="mt-3 max-w-xl leading-7">
-                Private land investment intelligence and strategic acquisition
-                advisory across Gurgaon NCR and emerging Haryana growth
-                corridors.
+                Private land intelligence and strategic acquisition advisory
+                across Gurgaon NCR and emerging Haryana growth corridors.
               </p>
               <div className="mt-6">
                 <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#7aaec1]">

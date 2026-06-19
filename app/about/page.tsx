@@ -1,9 +1,9 @@
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "About Guild Acre | Private Land Investment Intelligence Desk",
+  title: "About Guild Acre | Private Land Intelligence & Acquisition Desk",
   description:
-    "Learn how Guild Acre operates as a private land investment intelligence desk for Gurgaon NCR and emerging Haryana growth corridors.",
+    "Learn how Guild Acre operates as a private land intelligence and acquisition desk for Gurgaon NCR and emerging Haryana growth corridors.",
   path: "/about",
 });
 
@@ -34,7 +34,7 @@ export default function AboutPage() {
     {
       question: "What is Guild Acre?",
       answer:
-        "Guild Acre is a Private Land Investment Intelligence Desk for Gurgaon NCR & Emerging Haryana Growth Corridors, built for buyers who need strategic clarity before committing time, capital, or reputation.",
+        "Guild Acre is a Private Land Intelligence & Acquisition Desk for Gurgaon NCR and emerging Haryana growth corridors, built for buyers who need strategic clarity before committing time, capital, or reputation.",
     },
     {
       question: "Who is the work designed for?",
@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div>
               <p className="text-xs uppercase text-[#86b8c8]">About Guild Acre</p>
               <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f2efe7] sm:text-6xl lg:text-7xl">
-                A private land investment intelligence desk for strategic Haryana corridor acquisition.
+                A private land intelligence and acquisition desk for strategic Haryana corridor acquisition.
               </h1>
             </div>
 
