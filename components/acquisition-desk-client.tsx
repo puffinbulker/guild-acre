@@ -5,14 +5,12 @@ import { useState } from "react";
 
 const advisors = [
   {
-    label: "Advisor 01",
-    name: "Harvinder Yadav",
+    role: "Land Intelligence Advisor",
     focus: "Gurgaon & NCR corridor land",
     text: "Focused on buyer-side mandate structuring, field diligence coordination, and land-led acquisition context across Gurgaon core and emerging NCR corridors.",
   },
   {
-    label: "Advisor 02",
-    name: "Sandeep Kumar",
+    role: "Private Acquisition Advisor",
     focus: "Emerging Haryana growth corridors",
     text: "Focused on Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh corridor mapping, title and CLU review, and long-horizon acquisition logic.",
   },
@@ -235,10 +233,10 @@ I want to request a private land intelligence consultation.`;
 
         <div className="grid gap-5 md:grid-cols-2">
           {advisors.map((advisor) => (
-            <article key={advisor.name} className="border border-[#16344a] bg-[#081725] p-7 transition duration-500 hover:border-[#7fb7ca]/45 hover:bg-[#10283b] sm:p-8">
-              <p className="text-xs uppercase text-[#86b8c8]">{advisor.label}</p>
+            <article key={advisor.role} className="border border-[#16344a] bg-[#081725] p-7 transition duration-500 hover:border-[#7fb7ca]/45 hover:bg-[#10283b] sm:p-8">
+              <p className="text-xs uppercase text-[#86b8c8]">Advisor</p>
               <h3 className="mt-6 text-3xl font-semibold leading-tight text-[#f2efe7]">
-                {advisor.name}
+                {advisor.role}
               </h3>
               <p className="mt-3 text-sm uppercase text-[#738a99]">
                 {advisor.focus}
