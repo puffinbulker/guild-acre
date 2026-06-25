@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { SOCIAL_LINKS } from "@/lib/social-links";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -12,6 +13,13 @@ const navItems = [
   { label: "Intelligence Reports", href: "/intelligence-reports" },
   { label: "Acquisition Desk", href: "/acquisition-desk" },
 ];
+
+const connectedSocialLinks = SOCIAL_LINKS.filter(
+  (link) =>
+    link.label === "LinkedIn" ||
+    link.label === "Instagram" ||
+    link.label === "Facebook Page"
+);
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -46,6 +54,21 @@ export default function Navbar() {
           );
         })}
       </nav>
+
+      <div className="hidden items-center gap-2 2xl:flex" aria-label="Guild Acre social profiles">
+        {connectedSocialLinks.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            target="_blank"
+            rel="me noreferrer"
+            aria-label={link.ariaLabel}
+            className="rounded-[2px] border border-[#7fb7ca]/18 px-3 py-2 text-[10px] font-medium uppercase tracking-[0.12em] text-[#b9cbd2] transition duration-500 hover:-translate-y-px hover:border-[#7fb7ca]/55 hover:bg-[#7fb7ca]/10 hover:text-[#f2efe7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7fb7ca]"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
 
       <a
         href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20book%20a%20private%20advisory."
@@ -87,6 +110,22 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            <div className="mt-2 grid grid-cols-2 gap-2 border-t border-[#16344a] pt-3">
+              {connectedSocialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="me noreferrer"
+                  aria-label={link.ariaLabel}
+                  onClick={() => setOpen(false)}
+                  className="border border-[#7aaec1]/24 bg-[#f2efe7]/[0.015] px-4 py-3 text-center text-xs font-medium uppercase tracking-[0.12em] text-[#b9cbd2] transition hover:border-[#7aaec1]/55 hover:bg-[#7aaec1]/10 hover:text-[#f2efe7]"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
             <a
               href="https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20book%20a%20private%20advisory."

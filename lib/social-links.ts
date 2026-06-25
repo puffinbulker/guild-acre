@@ -1,12 +1,12 @@
 export const SOCIAL_LINKS = [
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/guild-acre",
+    href: "https://www.linkedin.com/in/sunnyyadav-guildacre/",
     ariaLabel: "Open Guild Acre on LinkedIn",
   },
   {
     label: "Google Business",
-    href: "https://www.google.com/maps/search/?api=1&query=Guild%20Acre%20Gurgaon%20Haryana",
+    href: "https://share.google/iSO6qOd79wlTebdV8",
     ariaLabel: "Open Guild Acre Google Business Profile",
   },
   {
@@ -15,29 +15,14 @@ export const SOCIAL_LINKS = [
     ariaLabel: "Open Guild Acre on Instagram",
   },
   {
-    label: "YouTube",
-    href: "https://www.youtube.com/@guildacre",
-    ariaLabel: "Open Guild Acre on YouTube",
-  },
-  {
     label: "WhatsApp Business",
     href: "https://wa.me/919711667782?text=Hi%20Guild%20Acre%2C%20I%20want%20to%20connect%20with%20the%20private%20land%20intelligence%20desk.",
     ariaLabel: "Open Guild Acre WhatsApp Business",
   },
   {
     label: "Facebook Page",
-    href: "https://www.facebook.com/guildacre",
+    href: "https://www.facebook.com/gildacre",
     ariaLabel: "Open Guild Acre Facebook Page",
-  },
-  {
-    label: "X (Twitter)",
-    href: "https://x.com/guildacre",
-    ariaLabel: "Open Guild Acre on X",
-  },
-  {
-    label: "Pinterest",
-    href: "https://www.pinterest.com/guildacre/",
-    ariaLabel: "Open Guild Acre on Pinterest",
   },
 ] as const;
 
