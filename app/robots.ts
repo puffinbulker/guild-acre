@@ -1,4 +1,4 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 import { getCanonicalSiteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
@@ -17,10 +17,12 @@ export default function robots(): MetadataRoute.Robots {
         "/intelligence-reports",
         "/insights",
         "/privacy-policy",
-        "/cookie-notice"
+        "/cookie-notice",
+        "/terms-of-use"
       ],
-      disallow: ["/admin", "/api/", "/listings", "/properties/", "/strategic-opportunities"]
+      disallow: ["/api/", "/strategic-opportunities"]
     },
     sitemap: `${baseUrl}/sitemap.xml`
   };
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { ReactNode } from "react";
 import { useState } from "react";
@@ -7,12 +7,12 @@ const advisors = [
   {
     role: "Land Intelligence Advisor",
     focus: "Gurgaon & NCR corridor land",
-    text: "Focused on buyer-side mandate structuring, field diligence coordination, and land-led acquisition context across Gurgaon core and emerging NCR corridors.",
+    text: "Focused on buyer-side mandate clarity, confidential intake, and land-led acquisition context across Gurgaon core and emerging NCR corridors.",
   },
   {
     role: "Private Acquisition Advisor",
     focus: "Emerging Haryana growth corridors",
-    text: "Focused on Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh corridor mapping, title and CLU review, and long-horizon acquisition logic.",
+    text: "Focused on Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh coverage, private buyer-fit review, and long-horizon mandate alignment.",
   },
 ];
 
@@ -23,18 +23,18 @@ const acceptance = [
   },
   {
     title: "What We Evaluate Before Accepting",
-    text: "Capital range, geography, holding horizon, risk tolerance, access expectations, confidentiality needs, and whether the mandate fits current desk coverage.",
+    text: "Capital range, geography, holding horizon, seriousness, confidentiality needs, and whether the mandate fits current desk coverage.",
   },
   {
     title: "What Happens After Submission",
-    text: "The desk reviews mandate fit, identifies the required diligence path, and decides whether a deeper advisory engagement is sensible.",
+    text: "The desk reviews mandate fit privately and decides whether a deeper advisory engagement is sensible.",
   },
 ];
 
 const deskWork = [
-  ["Advisory Mandate", "A private research brief aligned with capital allocation, corridor preference, and strategic intent."],
-  ["Opportunity Access", "Selective access to privately reviewed land opportunities only where the risk profile fits the buyer."],
-  ["Acquisition Support", "Coordination across diligence, legal review, negotiation logic, documentation, and post-acquisition checks."],
+  ["Advisory Mandate", "A private brief aligned with capital allocation, corridor preference, and strategic intent."],
+  ["Opportunity Access", "Selective access only where the requirement, timing, and buyer profile fit the desk."],
+  ["Acquisition Support", "Private coordination once a mandate is accepted, with next steps shared directly with the buyer."],
 ];
 
 export default function AcquisitionDeskClient() {
@@ -192,7 +192,7 @@ I want to request a private land intelligence consultation.`;
               <textarea
                 value={mandate}
                 onChange={(event) => setMandate(event.target.value)}
-                placeholder="Purpose, corridor, hold period, legal concerns, timing, family office context, or private constraints."
+                placeholder="Requirement, preferred geography, timing, family office context, or private constraints."
                 rows={5}
                 className="institutional-input min-h-36 resize-none"
               />
@@ -254,7 +254,7 @@ I want to request a private land intelligence consultation.`;
           <div className="max-w-3xl">
             <p className="text-xs uppercase text-[#86b8c8]">How the desk works</p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
-              Buyer mandate acceptance logic.
+              Private mandate acceptance.
             </h2>
           </div>
 
@@ -317,3 +317,4 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
     </label>
   );
 }
+

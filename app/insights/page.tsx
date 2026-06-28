@@ -1,19 +1,19 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Land Intelligence Notes | Guild Acre",
   description:
-    "Read private-office style notes on Gurgaon NCR land diligence, corridor intelligence, title checks, and acquisition risk.",
+    "Read high-level Guild Acre notes on land decision-making, corridor orientation, and private mandate discipline.",
   path: "/insights",
 });
 
 const articles = [
   {
     href: "/insights/verify-land-title-near-gurgaon",
-    title: "How to verify land title before buying near Gurgaon",
+    title: "Why title comfort matters before buying near Gurgaon",
     summary:
-      "A practical checklist for buyers evaluating land-led opportunities across Gurgaon NCR and emerging Haryana corridors.",
+      "A high-level note on why ownership comfort should be settled before a buyer moves deeper.",
   },
   {
     href: "/insights/dwarka-expressway-vs-golf-course-extension-road",
@@ -25,19 +25,19 @@ const articles = [
     href: "/insights/plotted-land-risk-signals-near-gurgaon",
     title: "Plotted land risk signals near Gurgaon",
     summary:
-      "A practical guide to risk signals buyers should notice before treating a plotted opportunity as serious.",
+      "A high-level note on why polished plotted-land narratives still need private review.",
   },
   {
     href: "/insights/title-checks-before-buying-farmhouse-land",
     title: "Title checks before buying farmhouse land",
     summary:
-      "A simpler way to think about ownership, use-case risk, and diligence questions before advancing into a farmhouse land acquisition.",
+      "A simple orientation on why lifestyle appeal should not outrun private review.",
   },
   {
     href: "/insights/corridor-coverage-comparison-for-serious-buyers",
     title: "Corridor coverage comparison for serious buyers",
     summary:
-      "A high-level comparison of how NCR corridors differ for premium-family buyers, investors, and land-led enquiries.",
+      "A high-level note on why corridor comparison should be shaped around private mandate fit.",
   },
 ];
 
@@ -55,9 +55,7 @@ export default function InsightsPage() {
             Editorial notes for serious land acquisition decisions.
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-7 text-[#b9cbd2] sm:text-lg sm:leading-8">
-            These notes help buyers think more clearly about land, title,
-            access, farmhouse decisions, and corridor-level tradeoffs before
-            deeper diligence or negotiation begins.
+            These notes are intentionally high-level. They help buyers think clearly without publishing Guild Acre's internal checklists, scorecards, or acquisition playbook.
           </p>
         </div>
       </section>
@@ -87,3 +85,5 @@ export default function InsightsPage() {
     </>
   );
 }
+
+

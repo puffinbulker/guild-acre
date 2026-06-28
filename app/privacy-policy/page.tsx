@@ -1,4 +1,4 @@
-import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
+﻿import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Privacy Policy | Guild Acre",
@@ -6,6 +6,41 @@ export const metadata = createPageMetadata({
     "Read how Guild Acre collects, uses, and protects confidential acquisition brief information.",
   path: "/privacy-policy",
 });
+
+const sections = [
+  {
+    title: "Information We Collect",
+    text: "Guild Acre may collect your name, phone number, email address, preferred geography, capital range, holding horizon, acquisition intent, message content, and any confidential buyer brief you choose to share through forms, WhatsApp, calls, email, or direct communication.",
+  },
+  {
+    title: "How We Use Information",
+    text: "We use this information to respond to enquiries, understand mandate fit, arrange advisory conversations, prepare private next steps, maintain communication records, improve the website, and protect the security of our desk operations.",
+  },
+  {
+    title: "Confidential Briefs",
+    text: "Buyer briefs, capital ranges, corridor interests, mandate details, private notes, and report-access discussions are treated as confidential. They are not published, sold, or circulated through public seller networks.",
+  },
+  {
+    title: "Limited Sharing",
+    text: "Information may be shared only with the Guild Acre team, essential service providers, communication tools, professional advisers, or legal authorities where required. Where a deeper acquisition conversation requires third-party involvement, it should be handled with buyer consent and relevance.",
+  },
+  {
+    title: "No Sale Of Personal Data",
+    text: "Guild Acre does not sell personal data. We do not use enquiry details as public lead inventory or disclose buyer mandates as marketing material.",
+  },
+  {
+    title: "Retention And Deletion",
+    text: "We retain enquiry and mandate information only for legitimate business, communication, legal, security, and record-keeping purposes. You may request correction or deletion, subject to records we must reasonably retain.",
+  },
+  {
+    title: "Website Analytics",
+    text: "The website may use analytics, technical logs, cookies, and similar tools to understand aggregate page usage, security, traffic sources, and website performance. Analytics should not be used to sell personal data.",
+  },
+  {
+    title: "Contact",
+    text: "For privacy questions, correction, deletion, or access requests, contact hello@guildacre.com. Please include enough detail for us to identify the relevant enquiry or communication.",
+  },
+];
 
 export default function PrivacyPolicyPage() {
   return (
@@ -24,31 +59,18 @@ export default function PrivacyPolicyPage() {
           <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">
             Privacy Policy
           </h1>
+          <p className="mt-5 text-sm leading-7 text-[#93aab6]">
+            Last updated: June 28, 2026
+          </p>
           <div className="mt-8 space-y-7 text-sm leading-7 text-[#b9cbd2] sm:text-base sm:leading-8">
-            <p>
-              Guild Acre collects enquiry details such as name, phone number,
-              capital range, preferred geography, and acquisition brief when you
-              submit a form, call, or contact us on WhatsApp.
-            </p>
-            <p>
-              We use this information to respond to your enquiry, understand
-              your acquisition requirement, arrange advisory conversations, and
-              maintain a record of communication. We do not sell personal data.
-            </p>
-            <p>
-              Your details may be shared only when needed to respond to your
-              request, support a relevant acquisition discussion, meet legal
-              obligations, or operate essential website and communication tools.
-            </p>
-            <p>
-              You can request correction or deletion of your enquiry details by
-              contacting hello@guildacre.com. Some records may be retained where
-              required for legitimate business, legal, or security reasons.
-            </p>
-            <p>
-              This website may use analytics and basic technical logs to
-              understand website performance and improve the user experience.
-            </p>
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="text-2xl font-semibold text-[#f2efe7]">
+                  {section.title}
+                </h2>
+                <p className="mt-3">{section.text}</p>
+              </section>
+            ))}
           </div>
         </section>
       </main>

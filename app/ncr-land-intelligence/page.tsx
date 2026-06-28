@@ -1,45 +1,29 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "NCR Land Intelligence | Guild Acre",
   description:
-    "Research-led land investment intelligence across Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh.",
+    "Private land intelligence orientation across Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh.",
   path: "/ncr-land-intelligence",
 });
 
 const framework = [
   {
-    label: "Infrastructure Movement",
-    text: "Roads, expressways, metro alignments, freight links, and delivery certainty are separated from market hype.",
+    label: "Public Corridor View",
+    text: "The site identifies the regions Guild Acre tracks and explains why corridor-level discipline matters.",
   },
   {
-    label: "Title Visibility",
-    text: "Ownership chain, mutation record currency, and visible dispute or encumbrance signals are reviewed before consideration.",
+    label: "Private Buyer Fit",
+    text: "Capital range, horizon, purpose, and confidentiality needs are reviewed away from public pages.",
   },
   {
-    label: "Revenue Record Clarity",
-    text: "Khasra, Khatauni, Jamabandi, agricultural classification, pending entries, and generational continuity are treated as core inputs.",
+    label: "Protected Desk Notes",
+    text: "Micro-pocket notes, scorecards, source logic, and shortlist reasoning are shared only inside accepted mandates.",
   },
   {
-    label: "CLU & Zoning Probability",
-    text: "Current land use, master plan classification, conversion feasibility, and speculative zoning assumptions are risk-rated.",
-  },
-  {
-    label: "Access-Road Legality",
-    text: "Approach roads are reviewed for notified status, revenue-map presence, informal dependency, and long-term usability.",
-  },
-  {
-    label: "Liquidity Depth",
-    text: "Exit audience, buyer depth, transaction velocity, and realistic holding period are evaluated by micro-market.",
-  },
-  {
-    label: "Acquisition Risk",
-    text: "Legal, access, regulatory, infrastructure, and market risks are combined before an acquisition thesis is formed.",
-  },
-  {
-    label: "Long-Term Exit Demand",
-    text: "Population movement, institutional pipeline, commercial absorption, and lifestyle demand are read as forward signals.",
+    label: "Mandate Direction",
+    text: "The next step is given directly to the buyer when the requirement is serious and the desk can add value.",
   },
 ];
 
@@ -47,54 +31,54 @@ const corridors = [
   {
     code: "Corridor 01",
     title: "Gurgaon NCR",
-    meta: "HNI land advisory / plotted development / farmhouse and strategic acquisition",
-    text: "Gurgaon NCR remains the anchor for HNI land advisory, plotted development, farmhouse evaluation, and strategic land acquisition. The opportunity is selective because title, access, zoning, and entry discipline vary sharply by micro-pocket.",
-    note: "Best suited for HNIs, family offices, founders, and serious buyers who require private advisory before exposure.",
+    meta: "HNI advisory / strategic land / selective acquisition",
+    text: "An anchor market for serious buyers who need private guidance before exposure to public or seller-led narratives.",
+    note: "Specific pocket interpretation and acquisition direction are handled only inside a confidential brief.",
   },
   {
     code: "Corridor 02",
     title: "Pataudi",
-    meta: "Gurgaon spillover / highway-led plotted opportunity",
-    text: "Pataudi is tracked for Gurgaon spillover growth, highway-led residential movement, and plotted development potential. The corridor requires close review of CLU, controlled-area status, access roads, and acquisition risk.",
-    note: "Best suited for long-horizon investors seeking early corridor positioning with disciplined legal and land-use review.",
+    meta: "Long-horizon growth / Gurgaon spillover interest",
+    text: "Tracked as an emerging belt where buyer fit and timing matter more than broad market excitement.",
+    note: "Detailed suitability, constraints, and movement logic remain private to accepted mandates.",
   },
   {
     code: "Corridor 03",
     title: "Farrukhnagar",
-    meta: "Logistics / warehousing / industrial expansion",
-    text: "Farrukhnagar is evaluated as a logistics and warehousing corridor with industrial expansion potential. Zoning, road width, land-use fit, and title-chain continuity shape the investability of each parcel.",
-    note: "Best suited for industrial land buyers, warehousing operators, and strategic allocators with practical infrastructure requirements.",
+    meta: "Logistics interest / industrial adjacency",
+    text: "Reviewed as a practical-use corridor where the public story is only the starting point.",
+    note: "Operational fit and acquisition direction are shared directly with qualified buyers.",
   },
   {
     code: "Corridor 04",
     title: "Rewari",
-    meta: "Industrial and transport-linked growth",
-    text: "Rewari benefits from transport-linked growth and Bawal-Dharuhera-Manesar influence. The diligence priority is mutation, registry chain, sector alignment, and master-plan consistency.",
-    note: "Best suited for industrial-growth investors and disciplined land-bank buyers seeking stronger transport context.",
+    meta: "Industrial influence / transport-linked growth",
+    text: "Monitored for disciplined land-bank and industrial-growth interest across relevant buyer profiles.",
+    note: "Desk-level review is not published as an open scoring model.",
   },
   {
     code: "Corridor 05",
     title: "Narnaul",
-    meta: "Long-term logistics and freight corridor opportunity",
-    text: "Narnaul is tracked for long-term logistics and freight corridor potential, including the influence of Nangal Chaudhary logistics movement. Project timelines, water, power, access, and resale liquidity require conservative review.",
-    note: "Best suited for patient capital with a long-horizon logistics corridor thesis.",
+    meta: "Long-hold logistics interest",
+    text: "Tracked for patient capital and long-horizon thinking, with conservative private review before any thesis is formed.",
+    note: "Buyer-specific horizon, liquidity tolerance, and movement logic remain confidential.",
   },
   {
     code: "Corridor 06",
     title: "Mahendergarh",
-    meta: "Selective long-term land banking",
-    text: "Mahendergarh is monitored for selective long-term land banking, education-linked demand, agri-support use cases, and logistics-support potential. Liquidity, infrastructure availability, and clear title are primary filters.",
-    note: "Best suited for conservative land-bank investors who can hold through slower infrastructure and liquidity cycles.",
+    meta: "Selective land banking",
+    text: "Reviewed for careful long-term positioning where broad corridor stories are not enough.",
+    note: "Suitability is shaped privately around mandate quality and realistic expectations.",
   },
 ];
 
-const failureSignals = [
-  "Weak or informal access",
-  "Unclear title continuity",
-  "Fragmented ownership",
-  "Speculative zoning assumptions",
-  "Thin buyer depth",
-  "Infrastructure overestimation",
+const privateSignals = [
+  "Internal corridor filters",
+  "Micro-pocket interpretation",
+  "Source and access logic",
+  "Buyer-specific risk notes",
+  "Report findings and scorecards",
+  "Negotiation and movement direction",
 ];
 
 export default function NcrLandIntelligencePage() {
@@ -109,28 +93,28 @@ export default function NcrLandIntelligencePage() {
       <main className="min-h-screen bg-[#02070d] text-[#f2efe7]">
         <section className="border-b border-[#16344a] bg-[#02070d]">
           <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-            <p className="text-xs uppercase text-[#86b8c8]">Editorial deep-dive</p>
+            <p className="text-xs uppercase text-[#86b8c8]">Land intelligence orientation</p>
             <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f2efe7] sm:text-6xl lg:text-7xl">
-              Land investment corridors require intelligence before conviction.
+              Corridor names are public. Corridor judgement is private.
             </h1>
             <p className="mt-8 max-w-3xl text-lg leading-9 text-[#b9cbd2]">
-              A research-led view of Gurgaon NCR, Pataudi, Farrukhnagar,
-              Rewari, Narnaul, and Mahendergarh through corridor mapping,
-              title and CLU review, regulatory risk, buyer depth, and long-term
-              exit logic.
+              Guild Acre tracks Gurgaon NCR, Pataudi, Farrukhnagar, Rewari,
+              Narnaul, and Mahendergarh for serious buyers. The website gives
+              orientation; the deeper intelligence is reserved for accepted
+              private mandates.
             </p>
           </div>
         </section>
 
         <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs uppercase text-[#86b8c8]">Evaluation methodology</p>
+            <p className="text-xs uppercase text-[#86b8c8]">Public-private boundary</p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
-              The Guild Acre corridor intelligence framework.
+              The site explains the desk, not the desk's operating system.
             </h2>
             <p className="mt-6 text-lg leading-9 text-[#b9cbd2]">
-              Every corridor is filtered across eight dimensions before it
-              enters an investor&apos;s consideration set.
+              Guild Acre avoids publishing copyable frameworks, open scoring
+              models, and corridor-by-corridor acquisition playbooks.
             </p>
           </div>
 
@@ -157,9 +141,9 @@ export default function NcrLandIntelligencePage() {
         <section className="border-y border-[#16344a] bg-[#081725]">
           <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
             <div className="max-w-3xl">
-              <p className="text-xs uppercase text-[#86b8c8]">Micro-market intelligence</p>
+              <p className="text-xs uppercase text-[#86b8c8]">Corridor coverage</p>
               <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
-                Corridor names are not acquisition strategies.
+                Public coverage, private interpretation.
               </h2>
             </div>
 
@@ -192,13 +176,13 @@ export default function NcrLandIntelligencePage() {
 
         <section className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
           <div>
-            <p className="text-xs uppercase text-[#86b8c8]">Investment thesis</p>
+            <p className="text-xs uppercase text-[#86b8c8]">Restricted intelligence</p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
-              Why many land pockets fail before diligence begins.
+              What serious buyers should expect to stay off the website.
             </h2>
           </div>
           <div className="grid gap-px border border-[#16344a] bg-[#16344a] sm:grid-cols-2">
-            {failureSignals.map((item) => (
+            {privateSignals.map((item) => (
               <div key={item} className="bg-[#081725] p-6 text-base leading-7 text-[#c7d8de]">
                 {item}
               </div>
@@ -209,7 +193,7 @@ export default function NcrLandIntelligencePage() {
         <section className="border-t border-[#16344a] bg-[#04101b]">
           <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-6 sm:py-24 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
             <div>
-              <p className="text-xs uppercase text-[#86b8c8]">Research assets</p>
+              <p className="text-xs uppercase text-[#86b8c8]">Private review</p>
               <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-5xl">
                 Require a specific corridor analysis?
               </h2>
@@ -222,7 +206,7 @@ export default function NcrLandIntelligencePage() {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/intelligence-reports" className="rounded-[2px] border border-[#7fb7ca]/45 px-7 py-4 text-center text-sm font-medium text-[#f2efe7] transition duration-500 hover:border-[#a9d4df] hover:bg-[#f2efe7]/[0.04]">
-                  View Report Library
+                  View Report Access Model
                 </Link>
                 <Link href="/acquisition-desk" className="rounded-[2px] border border-[#e8f0f2]/12 px-7 py-4 text-center text-sm font-medium text-[#b9cbd2] transition duration-500 hover:border-[#7fb7ca]/50 hover:text-[#f2efe7]">
                   Request Private Consultation

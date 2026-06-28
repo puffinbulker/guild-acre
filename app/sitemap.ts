@@ -1,4 +1,4 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 import { getCorridorCoveragePages } from "@/lib/queries";
 import { getCanonicalSiteUrl } from "@/lib/site";
 
@@ -51,6 +51,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now
     },
     {
+      url: `${baseUrl}/terms-of-use`,
+      lastModified: now
+    },
+    {
       url: `${baseUrl}/insights/verify-land-title-near-gurgaon`,
       lastModified: now
     },
@@ -76,3 +80,4 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   ];
 }
+

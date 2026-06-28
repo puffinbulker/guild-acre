@@ -1,9 +1,9 @@
-import { createPageMetadata } from "@/lib/seo";
+﻿import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Dwarka Expressway vs Golf Course Extension Road | Guild Acre",
   description:
-    "A practical comparison of Dwarka Expressway and Golf Course Extension Road for Gurgaon buyers deciding between growth momentum and premium family positioning.",
+    "A high-level Guild Acre note on why Gurgaon corridor choices should be shaped around private buyer intent.",
   path: "/insights/dwarka-expressway-vs-golf-course-extension-road",
 });
 
@@ -12,54 +12,41 @@ export default function CorridorComparisonPage() {
     <main className="min-h-screen bg-[#02070d] text-[#f2efe7]">
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <p className="text-xs uppercase text-[#86b8c8]">
-          Corridor Comparison
+          Corridor Orientation
         </p>
         <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">
           Dwarka Expressway vs Golf Course Extension Road
         </h1>
         <p className="mt-6 text-base leading-8 text-[#b9cbd2] sm:text-lg">
-          These two Gurgaon corridors attract very different buyer mindsets.
-          One is often driven by growth momentum and infrastructure narrative.
-          The other tends to appeal more to premium-family buyers and upgrade-led
-          decision making.
+          These Gurgaon corridors attract different buyer mindsets. Public
+          comparison can provide orientation, but the right decision depends on
+          private buyer intent, timing, capital range, and holding horizon.
         </p>
 
         <div className="mt-10 space-y-8 text-[#b9cbd2]">
           <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">Dwarka Expressway is usually a momentum story first</h2>
+            <h2 className="text-2xl font-semibold text-[#f2efe7]">Corridor reputation is only the starting point</h2>
             <p className="mt-3 leading-8">
-              Buyers are often attracted to Dwarka Expressway because of scale,
-              visibility, and corridor-led appreciation logic. It can make sense
-              for investors and buyers willing to think in terms of growth
-              cycles, entry timing, and longer-range upside.
+              A known corridor name can create confidence too early. Serious
+              buyers should treat the public story as context, not as a decision.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">Golf Course Extension Road is usually a premium-livability story first</h2>
+            <h2 className="text-2xl font-semibold text-[#f2efe7]">Buyer purpose should lead the comparison</h2>
             <p className="mt-3 leading-8">
-              Golf Course Extension Road is often easier to position for buyers
-              who care about family use, premium launches, larger-format homes,
-              and long-term corridor relevance beyond near-term excitement.
+              End-use, investment, family upgrade, and long-horizon allocation
+              can produce different answers. The sharper judgement belongs
+              inside a confidential brief.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">The wrong comparison creates confusion</h2>
+            <h2 className="text-2xl font-semibold text-[#f2efe7]">Guild Acre keeps corridor direction private</h2>
             <p className="mt-3 leading-8">
-              Problems begin when buyers compare the two only on price or only
-              on appreciation talk. The more useful comparison is this: are you
-              buying for momentum, or for a premium end-use and upgrade story?
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">Better corridor choices start with buyer intent</h2>
-            <p className="mt-3 leading-8">
-              Investors, launch-stage entrants, and growth-seeking buyers may
-              lean toward Dwarka Expressway. Premium upgrade buyers and
-              livability-focused families may find Golf Course Extension Road
-              easier to defend in practice.
+              Internal notes, suitability thinking, and movement direction are
+              not published as open comparison tables. They are shared only when
+              a buyer's mandate is accepted.
             </p>
           </section>
         </div>

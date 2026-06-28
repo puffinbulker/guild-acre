@@ -1,4 +1,4 @@
-.next
+﻿.next
 node_modules
 .logs
 .env
@@ -9,3 +9,7 @@ prisma/dev.db-journal
 dist
 
 .vercel
+# Local private Guild Acre playbook exports
+internal-playbook/
+backups/
+

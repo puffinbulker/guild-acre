@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -11,43 +11,43 @@ export const metadata = createPageMetadata({
 const reports = [
   {
     code: "GA-RPT-01",
-    title: "Pataudi Growth Corridor Signals",
-    coverage: "Gurgaon spillover / highway-led plotted opportunity",
-    updated: "2026 desk cycle",
+    title: "Pataudi Corridor Watch",
+    coverage: "Private corridor note",
+    updated: "Restricted desk access",
     abstract:
-      "Growth thesis for Pataudi, including highway-led residential movement, CLU context, controlled-area review, and plotted development risk.",
-    findings: ["Connectivity is useful only where access is legal.", "CLU and controlled-area context shape acquisition risk.", "Exit depth remains pocket-specific."],
-    href: "/corridor-coverage/pataudi",
+      "A private note prepared only for aligned mandates. Public pages do not publish the report's findings, filters, or shortlist reasoning.",
+    findings: ["Private access only", "Shared after accepted brief", "Not a public checklist"],
+    href: "/acquisition-desk",
   },
   {
     code: "GA-RPT-02",
-    title: "Farrukhnagar Logistics Corridor Review",
-    coverage: "Warehousing / industrial expansion / land-use fit",
-    updated: "2026 desk cycle",
+    title: "Farrukhnagar Logistics Watch",
+    coverage: "Private corridor note",
+    updated: "Restricted desk access",
     abstract:
-      "Restricted brief on logistics-led demand, road-width suitability, zoning fit, title-chain continuity, and industrial expansion probability.",
-    findings: ["Road width and land use are primary filters.", "Warehouse suitability depends on access realism.", "Title chain must be read before pricing."],
-    href: "/corridor-coverage/farrukhnagar",
+      "A buyer-fit report reserved for serious mandates where the intended use, capital range, and holding logic are clear.",
+    findings: ["Private access only", "Mandate-specific", "No open scorecard"],
+    href: "/acquisition-desk",
   },
   {
     code: "GA-RPT-03",
     title: "Rewari Industrial Influence Note",
-    coverage: "Bawal-Dharuhera-Manesar influence / transport-linked growth",
-    updated: "Working checklist",
+    coverage: "Private corridor note",
+    updated: "Restricted desk access",
     abstract:
-      "A working note on mutation clarity, registry chain, master-plan alignment, and transport-linked industrial growth signals.",
-    findings: ["Mutation clarity is non-negotiable.", "Sector and master-plan alignment shape risk.", "Transport influence must be tested against actual access."],
-    href: "/corridor-coverage/rewari",
+      "A desk note used to support private decision making, not a public acquisition playbook.",
+    findings: ["Private access only", "Buyer-specific", "Findings withheld publicly"],
+    href: "/acquisition-desk",
   },
   {
     code: "GA-RPT-04",
     title: "Narnaul-Mahendergarh Long-Hold Tracker",
-    coverage: "Freight corridor probability / land banking / infrastructure availability",
-    updated: "Client onboarding reference",
+    coverage: "Private corridor note",
+    updated: "Restricted desk access",
     abstract:
-      "Long-horizon tracker for logistics-support potential, project timelines, water, power, access quality, and resale liquidity.",
-    findings: ["Project timelines must be treated conservatively.", "Water and power availability affect usability.", "Liquidity is slower and must suit the investor profile."],
-    href: "/corridor-coverage/narnaul",
+      "A long-horizon orientation shared selectively when the buyer profile, patience, and risk tolerance match the desk's coverage.",
+    findings: ["Private access only", "Long-hold review", "Shared under mandate"],
+    href: "/acquisition-desk",
   },
   {
     code: "GA-RPT-05",
@@ -55,8 +55,8 @@ const reports = [
     coverage: "Mandate intake / advisory process / buyer fit",
     updated: "Client onboarding reference",
     abstract:
-      "Explains how the private desk evaluates mandates, rejects unsuitable opportunities, and shares intelligence with qualified buyers.",
-    findings: ["The desk is selective by design.", "Report access follows mandate alignment.", "Confidentiality and buyer-side representation anchor the process."],
+      "Explains the access model at a high level while keeping Guild Acre's internal selection logic confidential.",
+    findings: ["Selective intake", "Confidential brief", "Private review path"],
     href: "/acquisition-desk",
   },
 ];
@@ -86,9 +86,9 @@ export default function IntelligenceReportsPage() {
             </h1>
             <p className="mt-8 max-w-3xl text-lg leading-9 text-[#b9cbd2]">
               Guild Acre reports are working reference tools, not marketing
-              documents. They are shared selectively with buyers whose
-              acquisition mandate, corridor interest, and capital parameters
-              align with the report scope.
+              documents. The site shows the access model; detailed findings are
+              shared selectively with buyers whose mandate aligns with the
+              report scope.
             </p>
             <div className="mt-14 grid gap-px border border-[#16344a] bg-[#16344a] sm:grid-cols-2 lg:grid-cols-4">
               {accessModel.map(([label, value]) => (
@@ -103,9 +103,9 @@ export default function IntelligenceReportsPage() {
 
         <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs uppercase text-[#86b8c8]">Intelligence library</p>
+            <p className="text-xs uppercase text-[#86b8c8]">Restricted library</p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
-              Research reports organized around acquisition decisions.
+              Report names are visible. Report substance is private.
             </h2>
           </div>
 
@@ -142,7 +142,7 @@ export default function IntelligenceReportsPage() {
                     href={report.href}
                     className="mt-6 inline-flex text-sm font-medium text-[#a9d4df] transition hover:text-[#f2efe7]"
                   >
-                    View related intelligence
+                    Apply for private access
                   </Link>
                 </div>
               </article>
@@ -158,8 +158,8 @@ export default function IntelligenceReportsPage() {
             </h2>
             <p className="mt-6 text-base leading-8 text-[#b9cbd2]">
               Not all applications result in an active mandate. Reports are
-              shared where the buyer&apos;s brief aligns with current desk
-              coverage and confidentiality standards.
+              shared where the buyer's brief aligns with current desk coverage
+              and confidentiality standards.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Link href="/acquisition-desk" className="rounded-[2px] border border-[#7fb7ca]/45 px-7 py-4 text-center text-sm font-medium text-[#f2efe7] transition duration-500 hover:border-[#a9d4df] hover:bg-[#f2efe7]/[0.04]">

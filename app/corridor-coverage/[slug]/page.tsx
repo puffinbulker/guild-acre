@@ -1,7 +1,6 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LeadForm } from "@/components/lead-form";
-import { getMarketGuideBySlug, PROPERTY_VISUAL_CATEGORIES } from "@/lib/market-intel";
 import { getPropertiesByAreaSlug } from "@/lib/queries";
 import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
@@ -14,44 +13,44 @@ const AREA_INSIGHTS: Record<
   "gurgaon-ncr": {
     title: "Anchor market for selective NCR land advisory",
     summary:
-      "Gurgaon NCR is reviewed for HNI land advisory, plotted development, farmhouse evaluation, and strategic acquisition where scarcity, access, legal continuity, and buyer depth must be read together.",
+      "Gurgaon NCR is shown publicly as an anchor market for serious land buyers. Exact pocket interpretation and buyer-specific direction are handled privately.",
     caution:
-      "Scarcity does not remove risk. Exact pocket, title continuity, access integrity, and entry discipline still decide whether a parcel deserves capital.",
+      "Public scarcity narratives do not replace private buyer-fit review.",
   },
   pataudi: {
-    title: "Spillover growth requires controlled-area discipline",
+    title: "Spillover growth requires private judgement",
     summary:
-      "Pataudi is tracked for Gurgaon spillover growth, highway-led residential movement, and plotted opportunity where CLU probability, controlled-area status, and access-road legality need early review.",
+      "Pataudi is covered as a long-horizon growth belt. Detailed suitability and movement logic are shared only inside accepted mandates.",
     caution:
-      "The corridor should be filtered for CLU relevance, road access, ownership chain, and acquisition risk before pricing momentum is taken seriously.",
+      "The public overview is not an acquisition recommendation.",
   },
   farrukhnagar: {
-    title: "Logistics potential depends on land-use clarity",
+    title: "Logistics interest requires private fit review",
     summary:
-      "Farrukhnagar is evaluated for logistics, warehousing, and industrial expansion potential. Zoning, road width, land-use fit, and title-chain continuity shape the investment case.",
+      "Farrukhnagar is covered for logistics and industrial-interest mandates where practical suitability is buyer-specific.",
     caution:
-      "Operational narratives can overrun documentation. Road width, permitted use, access control, and clean transferability must be established.",
+      "Operational fit and acquisition direction remain confidential.",
   },
   rewari: {
-    title: "Industrial influence needs registry-chain comfort",
+    title: "Industrial influence needs private interpretation",
     summary:
-      "Rewari is read through transport-linked growth and Bawal-Dharuhera-Manesar influence, with attention to mutation, registry chain, master-plan alignment, and sector-level suitability.",
+      "Rewari is covered for disciplined land-bank and industrial-growth interest, with desk-level review reserved for serious briefs.",
     caution:
-      "Industrial adjacency is not enough. The parcel must fit land-use, title, access, and liquidity conditions for the buyer's intended holding period.",
+      "Area interest alone is not a mandate direction.",
   },
   narnaul: {
     title: "Long-horizon logistics logic requires patience",
     summary:
-      "Narnaul is monitored for freight corridor probability and Nangal Chaudhary logistics hub influence, with conservative review of project timelines, water, power, access, and resale liquidity.",
+      "Narnaul is covered for patient capital and long-horizon thinking, with suitability shaped around the buyer's actual horizon.",
     caution:
-      "This is a long-hold market. Infrastructure delivery, utilities, and exit depth should be treated as core risks rather than background details.",
+      "Public context should not be treated as a public thesis.",
   },
   mahendergarh: {
     title: "Selective land banking depends on liquidity realism",
     summary:
-      "Mahendergarh is reviewed for long-term land banking, education-linked demand, agri-support use cases, and logistics-support potential where title clarity and infrastructure availability are defensible.",
+      "Mahendergarh is covered selectively for long-term land-bank interest where expectations, patience, and buyer profile matter.",
     caution:
-      "The strongest opportunities here are selective. Liquidity, infrastructure, clear title, and buyer-fit discipline matter more than broad corridor storytelling.",
+      "Deeper review stays inside confidential mandate conversations.",
   },
 };
 
@@ -71,7 +70,7 @@ export async function generateMetadata({ params }: Props) {
     title: `${area.title} Corridor Intelligence | Guild Acre`,
     description:
       area.summary ||
-      `Review ${area.title} with buyer-fit guidance, title and CLU review, corridor mapping, and acquisition risk screening.`,
+      `Review ${area.title} with private buyer-fit guidance, corridor orientation, and mandate-specific next steps.`,
     path: `/corridor-coverage/${slug}`,
   });
 }
@@ -79,7 +78,6 @@ export async function generateMetadata({ params }: Props) {
 export default async function CorridorAreaPage({ params }: Props) {
   const { slug } = await params;
   const area = await getPropertiesByAreaSlug(slug);
-  const marketGuide = getMarketGuideBySlug(slug);
 
   if (!area) {
     notFound();
@@ -102,18 +100,18 @@ export default async function CorridorAreaPage({ params }: Props) {
         <h1>{area.title}</h1>
         <p>
             {area.summary ||
-            `Review private acquisition context in ${area.title} for land-led requirements, corridor fit, and diligence direction.`}
+            `Review public corridor orientation in ${area.title}. Deeper suitability and direction are shared privately after mandate fit.`}
         </p>
         <div className="page-intro__metrics">
           <span>Private matching available on enquiry</span>
-          <span>Verified Opportunity Desk review available</span>
-          <span>Land thesis, access, zoning, and exit logic</span>
+          <span>Private mandate review available</span>
+          <span>Public overview; private direction</span>
         </div>
       </section>
 
       <div className="area-page__actions">
         <Link href="/intelligence-reports" className="button">
-          Review intelligence reports
+          Review report access model
         </Link>
         <Link href="/corridor-coverage" className="button button--ghost">
           Back to corridor coverage
@@ -122,7 +120,7 @@ export default async function CorridorAreaPage({ params }: Props) {
           Request private note
         </Link>
         <Link href="/due-diligence-framework" className="collection-tab">
-          Diligence framework
+          Private diligence
         </Link>
         <Link href="/ncr-land-intelligence" className="collection-tab">
           NCR intelligence
@@ -131,52 +129,21 @@ export default async function CorridorAreaPage({ params }: Props) {
 
       <div className="area-page__layout">
         <section className="area-page__content">
-          {marketGuide ? (
-            <section className="area-market card">
-              <div className="area-market__intro">
-                <span className="section-tag">Corridor benchmark</span>
-                <h2>{marketGuide.title} intelligence benchmark</h2>
-                <p>{marketGuide.outlook}</p>
-              </div>
-              <div className="area-market__stats">
-                <div>
-                  <strong>
-                    {marketGuide.avgPricePerSqft
-                      ? `INR ${marketGuide.avgPricePerSqft.toLocaleString("en-IN")}`
-                      : "Private review"}
-                  </strong>
-                  <span>Indicative benchmark</span>
-                </div>
-                <div>
-                  <strong>{marketGuide.indicativeRange}</strong>
-                  <span>Observed public range</span>
-                </div>
-                <div>
-                  <strong>{marketGuide.movement}</strong>
-                  <span>Current reference note</span>
-                </div>
-              </div>
-              <a href={marketGuide.sourceUrl} target="_blank" rel="noreferrer" className="area-market__source">
-                Source: {marketGuide.sourceLabel}
-              </a>
-            </section>
-          ) : null}
-
           <div className="area-page__service-grid">
             <article className="card area-page__service-card">
               <span className="section-tag">Buyer fit</span>
-              <h3>Acquisition thesis before exposure</h3>
-              <p>Study use case, capital range, timing, and fit before moving toward any public or private record.</p>
+              <h3>Buyer fit before exposure</h3>
+              <p>Clarify use case, capital range, timing, and fit before any deeper movement.</p>
             </article>
             <article className="card area-page__service-card">
               <span className="section-tag">Diligence</span>
-              <h3>Title, access, and use-case review</h3>
-              <p>Frame the key questions around records, approach, boundaries, zoning, and practical usability.</p>
+              <h3>Private diligence orientation</h3>
+              <p>The deeper review method is shared only inside accepted private mandates.</p>
             </article>
             <article className="card area-page__service-card">
               <span className="section-tag">Corridor logic</span>
-              <h3>Market context and exit quality</h3>
-              <p>Read the area through demand depth, infrastructure probability, and realistic liquidity.</p>
+              <h3>Corridor context and buyer fit</h3>
+              <p>Read the area privately against the buyer's actual objective and horizon.</p>
             </article>
           </div>
 
@@ -190,7 +157,7 @@ export default async function CorridorAreaPage({ params }: Props) {
               <div className="area-market__stats">
                 <div>
                   <strong>Buyer fit</strong>
-                  <span>Use case matters more than generic location buzz</span>
+                  <span>Buyer fit matters more than generic location buzz</span>
                 </div>
                 <div>
                   <strong>Key caution</strong>
@@ -200,31 +167,25 @@ export default async function CorridorAreaPage({ params }: Props) {
             </section>
           ) : null}
 
-          <div className="area-visual-grid">
-            {PROPERTY_VISUAL_CATEGORIES.slice(0, 4).map((category) => (
-              <article className="card area-visual-grid__card" key={category.slug}>
-                <strong>{category.title}</strong>
-                <p>{category.description}</p>
-              </article>
-            ))}
-          </div>
-
           <div className="card area-page__empty">
             <span className="section-tag">Acquisition desk</span>
-            <h2>Relevant opportunities are reviewed privately, not browsed publicly.</h2>
+            <h2>Corridor notes are shared privately, not browsed publicly.</h2>
             <p>
               If you are evaluating land in {area.title}, send the brief so the
-              response can be shaped around fit, availability, timing, and
-              diligence direction.
+              response can be shaped around fit, timing, and private mandate direction.
             </p>
           </div>
         </section>
 
         <aside className="area-page__sidebar">
-          <LeadForm compact />
+          <LeadForm />
         </aside>
       </div>
     </main>
     </>
   );
 }
+
+
+
+

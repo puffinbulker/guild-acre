@@ -1,4 +1,4 @@
-import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
+﻿import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "About Guild Acre | Private Land Intelligence & Acquisition Desk",
@@ -10,12 +10,12 @@ export const metadata = createPageMetadata({
 export default function AboutPage() {
   const principles = [
     {
-      title: "Intelligence before exposure",
-      text: "The work begins with geography, records, access, policy context, and buyer intent before any site movement or negotiation pressure.",
+      title: "Public clarity, private method",
+      text: "The website explains who Guild Acre serves and where we work, while internal notes, filters, and decision logic remain confidential.",
     },
     {
       title: "Capital-fit discipline",
-      text: "A mandate is judged by purpose, holding period, liquidity, and risk tolerance rather than headline pricing or market excitement.",
+      text: "A mandate is judged by purpose, holding period, seriousness, and fit rather than headline pricing or market excitement.",
     },
     {
       title: "Private office cadence",
@@ -25,8 +25,8 @@ export default function AboutPage() {
 
   const strengths = [
     "Gurgaon NCR and emerging Haryana corridor mapping",
-    "Land, farmhouse, plotted, and strategic acreage evaluation",
-    "Title, access, zoning, CLU, and acquisition risk orientation",
+    "Land, farmhouse, plotted, and strategic acreage orientation",
+    "Private buyer-fit review without publishing proprietary checklists",
     "Founder and co-founder judgement before deeper capital movement",
   ];
 
@@ -34,8 +34,8 @@ export default function AboutPage() {
     {
       name: "Harvinder Yadav",
       role: "Founder",
-      text: "Sets Guild Acre's buyer-side discipline, corridor selection standards, and private mandate logic. His focus is simple: stronger decisions before capital, time, or reputation moves.",
-      focus: "Mandate strategy / buyer discipline / corridor selection",
+      text: "Sets Guild Acre's buyer-side discipline and private office standards. His focus is simple: stronger decisions before capital, time, or reputation moves.",
+      focus: "Mandate strategy / buyer discipline / private office standards",
     },
     {
       name: "Sunny Yadav",
@@ -48,12 +48,12 @@ export default function AboutPage() {
   const clientFeedback = [
     {
       quote:
-        "Guild Acre helped us slow down at the right moment. The clarity on access, title context, and exit depth changed our decision.",
+        "Guild Acre helped us slow down at the right moment. That changed the quality of our decision.",
       label: "NRI investor, Dubai",
     },
     {
       quote:
-        "The strongest part was discretion. No public listing pressure, no noisy follow-ups, just a clear view of what deserved our time.",
+        "The strongest part was discretion. No public listing pressure, no noisy follow-ups, just a clear private conversation.",
       label: "Family office, Delhi NCR",
     },
     {
@@ -63,12 +63,12 @@ export default function AboutPage() {
     },
     {
       quote:
-        "The conversation moved beyond price per acre. We understood road access, use-case risk, and the holding logic before visiting.",
+        "The conversation moved beyond price per acre. We understood whether the requirement deserved more time before visiting.",
       label: "Strategic investor, NCR",
     },
     {
       quote:
-        "Their framework caught risks that were not visible in the seller narrative. That saved us from a weak acquisition.",
+        "The value was in how carefully they protected the process. We were not pushed into an open-market rush.",
       label: "HNI buyer, Haryana",
     },
     {
@@ -107,7 +107,7 @@ export default function AboutPage() {
     {
       question: "How does the process begin?",
       answer:
-        "It begins with a confidential brief: capital range, geography, acquisition logic, timing, and known concerns. The next step is shaped around diligence direction and mandate fit.",
+        "It begins with a confidential brief. The deeper review method, internal notes, and next-step direction are shared only after mandate fit is established.",
     },
   ];
 
@@ -288,3 +288,4 @@ export default function AboutPage() {
     </>
   );
 }
+

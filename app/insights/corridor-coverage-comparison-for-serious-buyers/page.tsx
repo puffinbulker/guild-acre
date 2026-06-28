@@ -1,9 +1,9 @@
-import { createPageMetadata } from "@/lib/seo";
+﻿import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Corridor Coverage Comparison for Serious Buyers | Guild Acre",
   description:
-    "A practical comparison of NCR corridors for premium-family buyers, investors, and land-led enquiries.",
+    "A high-level Guild Acre note on why corridor comparison should be shaped around private mandate fit.",
   path: "/insights/corridor-coverage-comparison-for-serious-buyers",
 });
 
@@ -18,44 +18,36 @@ export default function CorridorComparisonPage() {
           Corridor coverage comparison for serious buyers
         </h1>
         <p className="mt-6 text-base leading-8 text-[#b9cbd2] sm:text-lg">
-          NCR is not one single market. Buyers often make weaker decisions
-          when they compare corridors only through price or hype instead of
-          asking what each corridor is actually best suited for.
+          NCR is not one single market. Public comparison can orient a buyer,
+          but serious corridor selection should be shaped around private buyer
+          intent, capital range, and holding horizon.
         </p>
 
         <div className="mt-10 space-y-8 text-[#b9cbd2]">
           <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">Golf Course Road tends to anchor the luxury conversation</h2>
+            <h2 className="text-2xl font-semibold text-[#f2efe7]">Established corridors and emerging corridors behave differently</h2>
             <p className="mt-3 leading-8">
-              This corridor often suits buyers who care about address quality,
-              premium positioning, and established high-end residential stock.
+              Some buyers want established address quality. Others want
+              long-horizon positioning. The public page can name the difference,
+              but the decision belongs inside a private review.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">Golf Course Extension Road often suits premium upgrade buyers</h2>
+            <h2 className="text-2xl font-semibold text-[#f2efe7]">Buyer intent matters more than a generic ranking</h2>
             <p className="mt-3 leading-8">
-              Buyers looking for larger-format family living, newer launches,
-              and premium but still evolving corridor strength often compare
-              here more seriously.
+              A public ranking would make the wrong promise. Serious buyers need
+              a mandate-specific conversation before treating any corridor as
+              suitable.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">Dwarka Expressway is usually read through growth and momentum</h2>
+            <h2 className="text-2xl font-semibold text-[#f2efe7]">Guild Acre keeps comparison notes private</h2>
             <p className="mt-3 leading-8">
-              This corridor often appeals to investors and buyers who are more
-              comfortable with infrastructure-led narratives, launch-stage
-              decisions, and longer-range appreciation logic.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold text-[#f2efe7]">Emerging Haryana corridors need stricter risk screening</h2>
-            <p className="mt-3 leading-8">
-              Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh require
-              corridor-specific reading around title, CLU, access, infrastructure
-              timing, liquidity depth, and realistic exit audience.
+              Internal filters, corridor notes, and movement direction are not
+              published as open tables. They are shared only when the buyer's
+              brief is accepted.
             </p>
           </section>
         </div>

@@ -1,4 +1,11 @@
-.logs
+﻿.logs
 .next
 node_modules
 dealer-dashboard
+backups
+internal-playbook
+.env
+.env.local
+.env.production.local
+DEPLOYMENT_VALUES.local.md
+

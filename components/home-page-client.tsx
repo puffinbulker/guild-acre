@@ -1,20 +1,14 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import {
-  Activity,
   BadgeCheck,
   Ban,
   Compass,
   FileSearch,
-  Leaf,
   MapPinned,
-  Network,
-  Radar,
-  Route,
-  Scale,
   ShieldCheck,
 } from "lucide-react";
 
@@ -35,7 +29,7 @@ const trustLayer = [
     Icon: ShieldCheck,
   },
   {
-    title: "Guild Verified\u2122 Evaluation",
+    title: "Private Mandate Review",
     Icon: BadgeCheck,
   },
 ];
@@ -43,80 +37,55 @@ const trustLayer = [
 const rejectionPrinciples = [
   {
     title: "Suitability",
-    text: "Is the parcel appropriate for the buyer's capital intent, timeline, and risk profile?",
+    text: "Is the opportunity appropriate for the buyer, not merely available in the market?",
   },
   {
     title: "Risk Profile",
-    text: "What title, access, regulatory, and liquidity risks must be understood before movement?",
+    text: "Are there unresolved issues that should be understood privately before movement?",
   },
   {
     title: "Holding Horizon",
-    text: "Does the opportunity match a realistic five-to-twelve-year land acquisition thesis?",
+    text: "Does the land match a realistic holding period and capital objective?",
   },
   {
     title: "Acquisition Objective",
-    text: "Is the mandate preservation, strategic aggregation, lifestyle use, or long-term appreciation?",
+    text: "Is the requirement serious enough for a private review rather than a public browse?",
   },
 ];
 
 const coreFrameworks = [
   {
-    title: "Guild Verified\u2122",
+    title: "Public Positioning",
     Icon: BadgeCheck,
-    text: "A structured verification discipline for title visibility, revenue records, CLU, zoning, access, environment, and acquisition risk.",
+    text: "The website explains Guild Acre's role, coverage, and buyer-side discipline without publishing internal filters.",
   },
   {
-    title: "Corridor Intelligence\u2122",
+    title: "Corridor Coverage",
     Icon: MapPinned,
-    text: "Research-led micro-market intelligence across Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh growth corridors.",
+    text: "We name the corridors we track while keeping micro-pocket interpretation and decision logic inside private mandates.",
   },
   {
-    title: "Land Risk Index\u2122",
-    Icon: Radar,
-    text: "A scoring lens for legal clarity, liquidity depth, growth probability, strategic positioning, and downside exposure.",
+    title: "Private Review",
+    Icon: FileSearch,
+    text: "Buyer-specific notes, scoring, red flags, sourcing logic, and negotiation direction are not published publicly.",
   },
 ];
 
 const verifiedFramework = [
   {
-    title: "Title Visibility",
+    title: "What The Site Shows",
     Icon: ShieldCheck,
-    text: "Traceability of ownership chain, seller continuity, inheritance indicators, and documentation gaps.",
+    text: "Guild Acre's role, covered corridors, buyer fit, and the public advisory posture.",
   },
   {
-    title: "Revenue Record Clarity",
-    Icon: Scale,
-    text: "Khasra, Khatauni, Jamabandi, mutation status, encumbrance signals, and counsel-led pathways.",
-  },
-  {
-    title: "CLU & Zoning Probability",
-    Icon: Radar,
-    text: "Current land use, master plan context, conversion probability, and future-use constraints.",
-  },
-  {
-    title: "Access-Road Legality",
-    Icon: Route,
-    text: "Recorded approach, practical ingress, informal dependencies, and long-term usability.",
-  },
-  {
-    title: "Environmental Sensitivity",
-    Icon: Leaf,
-    text: "Water, green buffer, industrial adjacency, logistics impact, and ecological-risk indicators.",
-  },
-  {
-    title: "Infrastructure Movement",
-    Icon: Network,
-    text: "Road, utility, institutional, and demand catalysts weighed against execution certainty.",
-  },
-  {
-    title: "Liquidity Depth",
-    Icon: Activity,
-    text: "Buyer depth, transaction velocity, exit audience, and holding-period realism.",
-  },
-  {
-    title: "Acquisition Risk",
+    title: "What Stays Private",
     Icon: FileSearch,
-    text: "Aggregated legal, regulatory, access, market, and execution risk before recommendation.",
+    text: "Internal filters, scorecards, source logic, diligence notes, and negotiation direction.",
+  },
+  {
+    title: "How Access Begins",
+    Icon: BadgeCheck,
+    text: "A confidential buyer brief before any deeper review, report, or opportunity direction is shared.",
   },
 ];
 
@@ -132,76 +101,76 @@ const seriousBuyers = [
 const advisorySteps = [
   {
     title: "Mandate Clarity",
-    text: "Capital range, holding logic, corridor preference, risk tolerance, and timing are defined first.",
+    text: "The buyer's requirement is understood privately before any opportunity is discussed.",
   },
   {
-    title: "Intelligence Review",
-    text: "Micro-market movement, revenue records, access, policy, environmental sensitivity, and liquidity context.",
+    title: "Private Review",
+    text: "Internal review work is handled within the mandate, not published as a public checklist.",
   },
   {
     title: "Acquisition Direction",
-    text: "A disciplined view on whether to proceed, pause, negotiate, or remain silent.",
+    text: "The next step is shared directly with the buyer when the mandate is accepted.",
   },
 ];
 
 const curatedOpportunities = [
   {
-    title: "Pataudi Growth Corridor Signals",
-    code: "Signal Brief 01",
-    deck: "Gurgaon spillover, highway access, CLU context, and plotted development risk.",
+    title: "Pataudi Corridor Watch",
+    code: "Private Signal",
+    deck: "Public overview only. Micro-pocket interpretation is shared inside accepted mandates.",
   },
   {
     title: "Farrukhnagar Logistics Watch",
-    code: "Signal Brief 02",
-    deck: "Warehousing demand, road-width logic, zoning fit, and title-chain quality.",
+    code: "Private Signal",
+    deck: "Corridor relevance is introduced publicly; buyer-specific suitability remains private.",
   },
   {
-    title: "Rewari Industrial Influence Review",
-    code: "Risk Memorandum",
-    deck: "Bawal-Dharuhera-Manesar influence, mutation clarity, and master-plan alignment.",
+    title: "Rewari Industrial Influence",
+    code: "Private Note",
+    deck: "Internal review notes are prepared only for aligned buyer briefs.",
   },
   {
     title: "Narnaul-Mahendergarh Long-Hold Tracker",
-    code: "Policy Note",
-    deck: "Freight corridor probability, infrastructure availability, water, power, and liquidity.",
+    code: "Private Note",
+    deck: "Long-horizon reading and acquisition direction are not published as open checklists.",
   },
 ];
 
 const growthCorridors = [
   {
     title: "Gurgaon NCR",
-    driver: "HNI land advisory, plotted development, farmhouse and strategic land acquisition.",
-    risk: "Entry discipline, title clarity, zoning fit, and realistic exit depth.",
+    driver: "Strategic land, plotted, farmhouse, and long-term acquisition interest.",
+    risk: "Pocket-level suitability and risk review are shared privately.",
     investor: "HNIs, family offices, founders, and strategic land buyers.",
   },
   {
     title: "Pataudi",
-    driver: "Gurgaon spillover growth with highway-led residential and plotted opportunity.",
-    risk: "CLU, controlled area implications, access-road legality, and acquisition risk.",
+    driver: "Gurgaon spillover and highway-led long-horizon interest.",
+    risk: "Mandate-specific review is required before any acquisition direction.",
     investor: "Long-horizon investors seeking early corridor positioning.",
   },
   {
     title: "Farrukhnagar",
-    driver: "Logistics, warehousing, and industrial expansion potential.",
-    risk: "Zoning, road width, land-use fit, and title-chain continuity.",
+    driver: "Logistics, warehousing, and industrial expansion interest.",
+    risk: "Operational fit and buyer-specific suitability are handled privately.",
     investor: "Industrial land buyers, warehousing operators, and strategic allocators.",
   },
   {
     title: "Rewari",
-    driver: "Industrial and transport-linked growth influenced by Bawal, Dharuhera, and Manesar.",
-    risk: "Mutation, registry chain, sector alignment, and master-plan fit.",
+    driver: "Industrial and transport-linked growth influence.",
+    risk: "Internal review determines whether the brief deserves deeper movement.",
     investor: "Industrial-growth investors and disciplined land-bank buyers.",
   },
   {
     title: "Narnaul",
-    driver: "Long-term logistics and freight corridor opportunity with Nangal Chaudhary influence.",
-    risk: "Project timeline, water, power, access quality, and resale liquidity.",
+    driver: "Long-term logistics and freight corridor interest.",
+    risk: "Long-hold suitability is evaluated privately against the buyer's horizon.",
     investor: "Patient capital and long-horizon logistics corridor investors.",
   },
   {
     title: "Mahendergarh",
-    driver: "Selective long-term land banking with education, agri, and logistics-support potential.",
-    risk: "Liquidity, infrastructure availability, clear title, and exit audience depth.",
+    driver: "Selective long-term land banking and support-use interest.",
+    risk: "Buyer fit and realistic exit expectations are reviewed inside the mandate.",
     investor: "Conservative land-bank investors with long holding capacity.",
   },
 ];
@@ -301,12 +270,12 @@ I want to request a private land intelligence consultation.`;
 
               <div className="divide-y divide-[#16344a]/90">
                 {[
-                  ["Gurgaon NCR", "Demand depth, scarcity, micro-market pressure"],
-                  ["Pataudi", "Gurgaon spillover, CLU context, controlled-area review"],
-                  ["Farrukhnagar", "Logistics corridor, warehousing pull, road-width diligence"],
-                  ["Rewari", "Industrial influence, mutation clarity, master-plan alignment"],
-                  ["Narnaul", "Freight corridor timing, access, water, power, liquidity"],
-                  ["Mahendergarh", "Selective land banking, clear title, infrastructure availability"],
+                  ["Gurgaon NCR", "Public coverage; private pocket review"],
+                  ["Pataudi", "Growth-interest corridor; mandate review required"],
+                  ["Farrukhnagar", "Logistics-interest corridor; private suitability review"],
+                  ["Rewari", "Industrial-influence corridor; private note access"],
+                  ["Narnaul", "Long-hold corridor; private suitability review"],
+                  ["Mahendergarh", "Selective land banking; confidential buyer fit"],
                 ].map(([title, text]) => (
                   <div key={title} className="group grid gap-5 py-7 sm:grid-cols-[0.36fr_0.64fr]">
                     <h2 className="text-[1.72rem] font-medium leading-[1.02] text-[#f2efe7] transition duration-700 group-hover:text-[#a9d4df]">
@@ -352,8 +321,7 @@ I want to request a private land intelligence consultation.`;
             </h2>
           </div>
           <p className="max-w-3xl text-lg leading-9 text-[#b9cbd2] lg:justify-self-end">
-            Each market is studied through growth driver, risk factor, title
-            and CLU review, infrastructure visibility, and investor suitability.
+            Public pages identify coverage and buyer fit. Specific corridor filters, scorecards, and internal research notes are shared only inside accepted private mandates.
           </p>
         </div>
 
@@ -400,9 +368,7 @@ I want to request a private land intelligence consultation.`;
             reputation, or time.
           </p>
           <p className="text-[#93aab6]">
-            We study corridor mapping, title and CLU review, access, land-use
-            context, infrastructure probability, and resale liquidity before
-            conviction is formed.
+            The public site explains the questions we care about. The detailed review method, internal notes, sourcing logic, and negotiation direction remain private.
           </p>
         </div>
       </section>
@@ -445,15 +411,13 @@ I want to request a private land intelligence consultation.`;
       <section className="mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[0.74fr_1.26fr] lg:items-end">
           <div>
-            <p className="text-xs uppercase text-[#8fbfcd]">Corridor Intelligence Framework</p>
+            <p className="text-xs uppercase text-[#8fbfcd]">Public-Private Boundary</p>
             <h2 className="mt-5 text-4xl font-medium leading-tight text-[#f2efe7] sm:text-6xl">
-              Three frameworks before any acquisition thesis.
+              What we show publicly, and what stays private.
             </h2>
           </div>
           <p className="max-w-3xl text-lg leading-9 text-[#b9cbd2] lg:justify-self-end">
-            Methodology before inventory. Structured research organizes
-            signals; final judgement remains contextual, strategic, and
-            mandate-led.
+            The site is intentionally high-level. It explains Guild Acre's discipline without publishing the operating system behind private mandates.
           </p>
         </div>
 
@@ -483,15 +447,12 @@ I want to request a private land intelligence consultation.`;
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(127,183,202,0.13),transparent_42%),linear-gradient(180deg,rgba(2,7,13,0)_0%,rgba(2,7,13,0.58)_100%)]" />
         <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-36">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-xs uppercase text-[#8fbfcd]">Guild Verified{"\u2122"}</p>
+            <p className="text-xs uppercase text-[#8fbfcd]">Private mandate boundary</p>
             <h2 className="mt-6 text-5xl font-medium leading-[1.02] text-[#f2efe7] sm:text-7xl">
-              A structured land evaluation framework.
+              The deeper framework is not published publicly.
             </h2>
             <p className="mx-auto mt-7 max-w-3xl text-lg leading-9 text-[#b9cbd2]">
-              A structured evaluation framework covering title visibility,
-              revenue records, CLU probability, zoning, environmental
-              sensitivity, access-road legality, infrastructure movement,
-              liquidity depth, and acquisition risk.
+              The public website explains the problem, our coverage, and our advisory posture. Buyer-specific filters, scoring, diligence notes, source logic, and negotiation direction are shared only inside accepted private mandates.
             </p>
           </div>
 
@@ -710,3 +671,5 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
     </label>
   );
 }
+
+

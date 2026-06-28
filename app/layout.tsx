@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
 import { ExternalLink } from "lucide-react";
@@ -90,7 +90,7 @@ export default function RootLayout({
                 className="h-10 w-auto max-w-[180px] object-contain transition duration-700 group-hover:opacity-90 sm:h-12 sm:max-w-[218px] lg:h-14 lg:max-w-[250px]"
               />
               <span className="mt-1 max-w-[210px] text-[9px] font-medium leading-4 tracking-[0.08em] text-[#8fbfcd] transition duration-700 group-hover:text-[#b8dbe3] sm:max-w-[270px]">
-                Guild Acre — Private Land Intelligence & Acquisition Desk
+                Guild Acre - Private Land Intelligence & Acquisition Desk
               </span>
             </Link>
 
@@ -111,7 +111,7 @@ export default function RootLayout({
                 className="h-16 w-auto max-w-[250px] object-contain"
               />
               <p className="mt-2 text-[10px] font-medium tracking-[0.14em] text-[#7aaec1]">
-                Guild Acre — Private Land Intelligence & Acquisition Desk
+                Guild Acre - Private Land Intelligence & Acquisition Desk
               </p>
               <p className="mt-3 max-w-xl leading-7">
                 Private land intelligence and strategic acquisition advisory
@@ -188,6 +188,9 @@ export default function RootLayout({
                 <Link className="block transition hover:text-[#a9d4df]" href="/cookie-notice">
                   Cookie Notice
                 </Link>
+                <Link className="block transition hover:text-[#a9d4df]" href="/terms-of-use">
+                  Terms & Copyright
+                </Link>
                 <Link className="block transition hover:text-[#a9d4df]" href="/acquisition-desk">
                   Acquisition Desk
                 </Link>
@@ -199,3 +202,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -1,4 +1,4 @@
-import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
+﻿import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Corridor Coverage | Guild Acre",
@@ -12,7 +12,7 @@ export default function CorridorCoveragePage() {
     {
       question: "Which NCR corridors require deeper intelligence?",
       answer:
-        "Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh all require different checks around access, CLU, land use, title chain, policy direction, infrastructure probability, and exit audience.",
+        "Guild Acre publicly names Gurgaon NCR, Pataudi, Farrukhnagar, Rewari, Narnaul, and Mahendergarh so buyers understand coverage. Private comparison and micro-pocket judgement are not published online.",
     },
     {
       question: "Can Guild Acre compare corridors privately?",
@@ -22,7 +22,7 @@ export default function CorridorCoveragePage() {
     {
       question: "Why avoid open comparison tables?",
       answer:
-        "Land decisions can be distorted by headline pricing. A serious review needs micro-pocket context, title and access reality, environmental sensitivity, and liquidity logic.",
+        "Generic tables create false confidence. Serious land decisions need buyer-specific context, and that context belongs inside a private mandate.",
     },
   ];
 
@@ -30,42 +30,42 @@ export default function CorridorCoveragePage() {
     {
       title: "Gurgaon NCR",
       tag: "HNI Advisory",
-      text: "Plotted development, farmhouse evaluation, and strategic land acquisition require title clarity, zoning fit, and entry discipline.",
+      text: "Publicly covered as an anchor market for strategic land, plotted, farmhouse, and long-term acquisition interest.",
     },
     {
       title: "Pataudi",
       tag: "Spillover Growth",
-      text: "Highway-led residential and plotted opportunity must be tested through CLU, controlled-area context, access, and acquisition risk.",
+      text: "Tracked as an emerging belt where long-horizon interest requires private suitability review before movement.",
     },
     {
       title: "Farrukhnagar",
       tag: "Logistics Corridor",
-      text: "Warehousing and industrial expansion potential depends on zoning, road width, land use, and title-chain continuity.",
+      text: "Covered for logistics and industrial-interest mandates where practical fit is reviewed privately.",
     },
     {
       title: "Rewari",
       tag: "Industrial Influence",
-      text: "Bawal-Dharuhera-Manesar influence is reviewed alongside mutation, registry chain, and master-plan alignment.",
+      text: "Monitored for disciplined land-bank and transport-linked buyer interest inside confidential mandates.",
     },
     {
       title: "Narnaul",
       tag: "Freight Corridor Watch",
-      text: "Long-term logistics potential must be read through project timeline, water, power, access quality, and resale liquidity.",
+      text: "Tracked for patient capital and long-horizon thinking, not quick public conviction.",
     },
     {
       title: "Mahendergarh",
       tag: "Land Banking",
-      text: "Selective long-term land banking depends on liquidity, infrastructure availability, clear title, and realistic exit audience.",
+      text: "Covered selectively for long-term land-bank interest where buyer fit and expectations matter.",
     },
   ];
 
   const lenses = [
-    "Ownership and title continuity",
-    "Access and approach integrity",
-    "Zoning, CLU, and controlled-area relevance",
-    "Water, power, and infrastructure availability",
-    "Infrastructure probability",
-    "Liquidity and exit logic",
+    "Public corridor coverage",
+    "Private buyer-fit review",
+    "Confidential intelligence note",
+    "Mandate-specific next step",
+    "No public scorecards",
+    "No open acquisition playbook",
   ];
 
   return (
@@ -84,19 +84,17 @@ export default function CorridorCoveragePage() {
             </p>
 
             <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] text-[#f2efe7] sm:text-6xl lg:text-7xl">
-              Corridor intelligence for selective land acquisition.
+              Corridor coverage for selective land acquisition.
             </h1>
 
             <p className="mt-8 max-w-3xl text-lg leading-9 text-[#b9cbd2]">
-              Haryana land is not one market. Each belt requires its own view
-              on access, policy, title, CLU, infrastructure probability, and the
-              quality of exit that a buyer can realistically expect.
+              Haryana land is not one market. Guild Acre publicly identifies the corridors we track while keeping deeper filters, comparisons, and acquisition direction private.
             </p>
 
             <div className="mt-14 grid gap-px border border-[#16344a] bg-[#16344a] sm:grid-cols-3">
               {[
                 ["Coverage", "Gurgaon NCR and emerging Haryana growth corridors"],
-                ["Method", "Private brief and diligence orientation"],
+                ["Method", "Public orientation and private mandate review"],
                 ["Best for", "HNI buyers, founders, and family offices"],
               ].map(([label, value]) => (
                 <div key={label} className="bg-[#081725] p-6 sm:p-7">
@@ -116,7 +114,7 @@ export default function CorridorCoveragePage() {
               Corridor watch
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
-              Strategic belts are evaluated by risk, timing, and liquidity.
+              Strategic belts are introduced publicly and interpreted privately.
             </h2>
           </div>
 
@@ -145,7 +143,7 @@ export default function CorridorCoveragePage() {
                 Intelligence lenses
               </p>
               <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#f2efe7] sm:text-6xl">
-                The question is not where to buy. It is what can be proven.
+                The public site should not become a public operating manual.
               </h2>
             </div>
 
@@ -225,3 +223,5 @@ export default function CorridorCoveragePage() {
     </>
   );
 }
+
+

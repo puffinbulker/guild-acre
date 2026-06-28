@@ -1,4 +1,4 @@
-import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
+﻿import { JsonLd, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Cookie Notice | Guild Acre",
@@ -32,7 +32,8 @@ export default function CookieNoticePage() {
             <p>
               If analytics is enabled, analytics cookies may help us understand
               aggregate page usage, traffic sources, and website performance.
-              Analytics identifiers should not be used to sell personal data.
+              Analytics are not used to sell personal data or publish buyer
+              mandates.
             </p>
             <p>
               You can control cookies through your browser settings. Blocking
