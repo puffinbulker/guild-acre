@@ -12,4 +12,10 @@ dist
 # Local private Guild Acre playbook exports
 internal-playbook/
 backups/
+private-assets/
+
+# Local-only marketing/campaign assets. Anything under public/ is served online.
+public/campaign-kit/
+public/social-kit/
+public/social/
 

@@ -4,6 +4,10 @@ node_modules
 dealer-dashboard
 backups
 internal-playbook
+private-assets
+public/campaign-kit
+public/social-kit
+public/social
 .env
 .env.local
 .env.production.local

@@ -20,7 +20,18 @@ export default function robots(): MetadataRoute.Robots {
         "/cookie-notice",
         "/terms-of-use"
       ],
-      disallow: ["/api/", "/strategic-opportunities"]
+      disallow: [
+        "/api/",
+        "/strategic-opportunities",
+        "/campaign-kit/",
+        "/social-kit/",
+        "/social/",
+        "/internal-playbook/",
+        "/backups/",
+        "/private-assets/",
+        "/tmp/",
+        "/.logs/"
+      ]
     },
     sitemap: `${baseUrl}/sitemap.xml`
   };
