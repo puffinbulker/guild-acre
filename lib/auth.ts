@@ -2,7 +2,6 @@ import crypto from "node:crypto";
 
 const ADMIN_COOKIE_NAME = "ge_admin_session";
 const DEFAULT_ADMIN_EMAIL = "admin@guildacre.com";
-const DEFAULT_ADMIN_PASSWORD = "sunny@1234";
 
 function getSecret() {
   return process.env.ADMIN_COOKIE_SECRET || "dev-secret";
@@ -83,15 +82,13 @@ export function verifyPasswordHash(password: string, value: string) {
 
 export function verifyAdminPassword(password: string) {
   const passwordHash = process.env.ADMIN_PASSWORD_HASH;
-  const allowedPlainPasswords = new Set(
-    [process.env.ADMIN_PASSWORD, DEFAULT_ADMIN_PASSWORD].filter(Boolean)
-  );
+  const plainPassword = process.env.ADMIN_PASSWORD;
 
   if (passwordHash && verifyPasswordHash(password, passwordHash)) {
     return true;
   }
 
-  return allowedPlainPasswords.has(password);
+  return Boolean(plainPassword && safeEqual(password, plainPassword));
 }
 
 export function verifySessionToken(token?: string) {
