@@ -1,5 +1,5 @@
 {
-  "name": "gurgaon-estates",
+  "name": "guild-acre",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,6 @@
     "lint": "next lint",
     "seed": "tsx prisma/seed.ts",
     "db:push": "prisma db push",
-    "admin:hash": "node scripts/generate-admin-hash.mjs",
     "postinstall": "prisma generate"
   },
   "dependencies": {
