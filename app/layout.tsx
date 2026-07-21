@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   applicationName: "Guild Acre",
   icons: {
     icon: "/icon.svg",
-    apple: "/logo.png",
+    apple: "/social-kit/guild-acre-profile-logo-1080.png",
   },
   openGraph: {
     siteName: "Guild Acre",
@@ -83,7 +83,7 @@ export default function RootLayout({
           <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-8 px-5 py-4 sm:px-7 lg:px-10 lg:py-[1.1rem]">
             <Link href="/" className="group flex min-w-0 flex-col items-start py-1" aria-label="Guild Acre home">
               <img
-                src="/guild-acre-logo.png"
+                src="/social-kit/guild-acre-logo-transparent.png"
                 alt="Guild Acre"
                 width={959}
                 height={260}
@@ -104,7 +104,7 @@ export default function RootLayout({
           <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_0.8fr_0.75fr_0.75fr]">
             <div>
               <img
-                src="/guild-acre-logo.png"
+                src="/social-kit/guild-acre-logo-transparent.png"
                 alt="Guild Acre"
                 width={959}
                 height={260}

@@ -16,4 +16,8 @@ internal-playbook/
 backups/
 private-assets/
 
+# Retired public marketing folders. Keep current public assets in public/social-kit/.
+public/campaign-kit/
+public/social/
+
 

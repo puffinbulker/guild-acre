@@ -5,6 +5,8 @@ import { SOCIAL_PROFILE_URLS } from "@/lib/social-links";
 const siteName = "Guild Acre";
 const phone = "+91 97116 67782";
 const email = "hello@guildacre.com";
+const brandLogo = "/social-kit/guild-acre-logo-transparent.png";
+const defaultShareImage = "/social-kit/guild-acre-social-post-1200.png";
 const address = {
   addressLocality: "Gurgaon",
   addressRegion: "Haryana",
@@ -28,7 +30,7 @@ export function createPageMetadata({
   title,
   description,
   path = "/",
-  image = "/logo.png",
+  image = defaultShareImage,
   noIndex = false,
 }: SeoOptions): Metadata {
   const url = absoluteUrl(path);
@@ -76,8 +78,8 @@ export function organizationSchema() {
     "@type": ["Organization", "ProfessionalService"],
     name: siteName,
     url: getCanonicalSiteUrl(),
-    logo: absoluteUrl("/guild-acre-logo.png"),
-    image: absoluteUrl("/logo.png"),
+    logo: absoluteUrl(brandLogo),
+    image: absoluteUrl(defaultShareImage),
     telephone: phone,
     email,
     address,

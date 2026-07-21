@@ -15,6 +15,8 @@ import {
 
 export const dynamic = "force-dynamic";
 
+const fallbackPropertyImage = "/social-kit/guild-acre-social-post-1200.png";
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
@@ -31,7 +33,7 @@ export async function generateMetadata({ params }: Props) {
     title: `${property.title} | Guild Acre Intelligence Record`,
     description: property.description,
     path: `/properties/${slug}`,
-    image: parseJsonArray(property.imageUrls)[0] || "/logo.png",
+    image: parseJsonArray(property.imageUrls)[0] || fallbackPropertyImage,
     noIndex: true,
   });
 }
@@ -46,7 +48,7 @@ export default async function PropertyDetailPage({ params }: Props) {
 
   const images = parseJsonArray(property.imageUrls);
   const amenities = parseJsonArray(property.amenities);
-  const primaryImage = images[0] || "/logo.png";
+  const primaryImage = images[0] || fallbackPropertyImage;
   const supportingImages = images.slice(1, 5);
   const marketGuide = getMarketGuideForArea(property.sector) || getMarketGuideForArea(property.location);
   const propertyRate = property.areaSqft ? Math.round(property.priceInr / property.areaSqft) : 0;

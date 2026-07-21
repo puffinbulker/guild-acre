@@ -1,9 +1,0 @@
-<svg width="720" height="132" viewBox="0 0 720 132" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Guild Acre wordmark</title>
-  <desc id="desc">Guild Acre private land advisory wordmark</desc>
-  <rect width="720" height="132" fill="#020617"/>
-  <path d="M70 25H650" stroke="#C6A76A" stroke-width="1" stroke-opacity="0.55"/>
-  <path d="M70 106H650" stroke="#C6A76A" stroke-width="1" stroke-opacity="0.28"/>
-  <text x="360" y="73" text-anchor="middle" fill="#F8FAFC" font-family="Cormorant Garamond, Georgia, serif" font-size="54" font-weight="600">GUILD ACRE</text>
-  <text x="360" y="98" text-anchor="middle" fill="#C6A76A" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="500">PRIVATE LAND ADVISORY</text>
-</svg>

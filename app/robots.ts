@@ -23,6 +23,8 @@ export default function robots(): MetadataRoute.Robots {
       disallow: [
         "/api/",
         "/strategic-opportunities",
+        "/campaign-kit/",
+        "/social/",
         "/internal-playbook/",
         "/backups/",
         "/private-assets/",
