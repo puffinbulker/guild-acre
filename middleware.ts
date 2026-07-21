@@ -1,9 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 const privatePathPrefixes = [
-  "/campaign-kit",
-  "/social-kit",
-  "/social",
   "/internal-playbook",
   "/backups",
   "/private-assets",
