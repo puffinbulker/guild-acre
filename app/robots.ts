@@ -25,6 +25,7 @@ export default function robots(): MetadataRoute.Robots {
         "/strategic-opportunities",
         "/campaign-kit/",
         "/social/",
+        "/social-posts/",
         "/internal-playbook/",
         "/backups/",
         "/private-assets/",
